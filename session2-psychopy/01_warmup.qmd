@@ -1,0 +1,66 @@
+---
+title: "1 · Warming Up: A Python Refresher"
+---
+
+::: {.milestone}
+**Block 1** · aim to finish chapters 1–3 by the first break (~10:30)
+:::
+
+Let's warm up the Python muscles from Session 1. Everything you learned there — variables, lists, loops, conditionals, functions — gets used today.
+
+::: {.callout-note .predict icon="false" title="🔮 Predict first"}
+Read this snippet and write down (yes, actually write down) exactly what it will print, line by line — **before** running it.
+
+```python
+words = ['tea', 'coffee', 'water', 'juice']
+words.append('cocoa')
+
+for w in words:
+    if len(w) > 5:
+        print(w.upper())
+    else:
+        print(w)
+```
+:::
+
+Now type it into the Coder and run it.
+
+::: {.callout-tip collapse="true" title="Check your prediction"}
+It prints:
+
+```
+tea
+COFFEE
+water
+juice
+cocoa
+```
+
+Only `'coffee'` has *more than* 5 letters, so only it is uppercased. Two classic traps: forgetting that `.append()` added `'cocoa'` before the loop started, and thinking `'cocoa'` (exactly 5 letters) passes `len(w) > 5` — it does not, because `5 > 5` is `False`.
+:::
+
+If your prediction was exactly right: great, move on. If not: even better — figure out *why* before continuing, because this loop-plus-conditional shape is the skeleton of the trial loop you will build today.
+
+**One more, faster.** Predict, then run:
+
+```python
+stimuli = ['wheel_L.jpg', 'wheel_R.jpg', 'gear_L.jpg']
+
+for s in stimuli:
+    if '_L' in s:
+        print(s, '-> left')
+    else:
+        print(s, '-> right')
+```
+
+::: {.callout-tip collapse="true" title="Check your prediction"}
+```
+wheel_L.jpg -> left
+wheel_R.jpg -> right
+gear_L.jpg -> left
+```
+
+`'_L' in s` asks whether the substring `'_L'` appears anywhere in the string `s`. Remember this one — it becomes the heart of the feedback logic in Chapter 9.
+:::
+
+That is all the warm-up you need. Next: the screen.

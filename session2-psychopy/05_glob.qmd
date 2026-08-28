@@ -1,0 +1,32 @@
+---
+title: "5 · Let Python Find Your Stimuli"
+---
+
+::: {.milestone}
+**Block 2** · aim to have Exercise 4 running by lunch (~12:00)
+:::
+
+Our experiment has many stimulus images. We could type every filename into a list by hand. This is fragile: one typo crashes the script, and adding stimuli means editing code. Instead, let Python find the files:
+
+```python
+import glob
+
+images = glob.glob('stimuli/stimulus*.jpg')
+print(images)
+```
+
+The `*` is a wildcard that matches anything, so the pattern collects every file in `stimuli/` whose name starts with `stimulus` and ends with `.jpg`.
+
+::: {.callout-note .predict icon="false" title="🔮 Predict first"}
+Before running: what *type* of thing will `print(images)` show? And what would `glob.glob('stimuli/*_L.jpg')` give you instead?
+
+::: {.callout-tip collapse="true" title="Check your prediction"}
+A plain Python **list of strings** (file paths) — which means everything from Session 1 works on it: `len(images)`, `images[0]`, `for image in images:`. The second pattern collects only the left-response stimuli — wildcards can sit anywhere in the pattern.
+:::
+:::
+
+Run it and *look at the output*. If the list is empty, stop and fix that now (it is a path problem, see Chapter 4). Every later chapter depends on this line working.
+
+::: {.callout-note title="Good to know"}
+`glob` does not guarantee any particular file order. For us that is fine. We shuffle in Chapter 7 anyway. If you ever need a fixed order, wrap it: `sorted(glob.glob(...))`.
+:::

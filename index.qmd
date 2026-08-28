@@ -1,0 +1,41 @@
+---
+title: "Python × PsychoPy Workshop"
+subtitle: "Methods 01 × Cognition & Communication"
+---
+
+Welcome! Over the coming workshop sessions, you'll go from typing your very first line of Python to watching a full behavioural experiment run on your own screen: window, stimuli, responses, feedback, the lot. Between you and that moment stand a handful of Python concepts and a few dozen extremely fixable error messages. We assume no programming experience. If you can rename a file, you're qualified to start.
+
+::: {.milestone}
+**The arc of the workshop** · Session 1 builds the Python foundations → Session 2 turns them into an experiment → Session 3 extends it into your Portfolio 2 prototype.
+:::
+
+## Why programming?
+
+Nearly every empirical experiment in cognitive science — reaction-time studies, reading paradigms, eye-tracking, EEG — is implemented in code. A working knowledge of Python allows you to build precisely the experiment your research question requires, to understand the structure and provenance of your data, and to diagnose problems when they arise. The aim of these three sessions is a modest form of fluency: by the end, the experiment running on your screen should be a system you can read, modify, and reason about. These skills will hopefully outlast the course: designing, implementing, and troubleshooting your own experiments is part of the everyday craft of working scientists, in cognitive science and well beyond.
+
+## The three sessions
+
+**[Session 1 · Python basics](session1-python/index.qmd)**
+Variables, lists, loops, conditionals, functions. These are the handful of building blocks that all programs are made of. Everything you learn here gets used directly in Session 2.
+
+**[Session 2 · Introduction to PsychoPy](session2-psychopy/index.qmd)**
+PsychoPy is the Python library psychologists use to run experiments: it opens windows, draws stimuli, and records keypresses with precise timing. You build the **CogWheel experiment** step by step and leave with a script that runs: images in random order, keyboard responses, feedback on every trial, and more..
+
+**Session 3 · From cogwheels to words** *(materials coming)*
+Swap the images for words, add a clock and a logfile, and your CogWheel script becomes a **self-paced reading experiment**, the direct starting point for your Portfolio 2 prototype.
+
+
+## How the sessions work
+
+Each session follows the same rhythm: a short lecture introduces the concepts and demonstrates them live, and you then put them to work in a set of exercises you complete on your own, at your own pace, with the teaching team circulating. Three habits will serve you well throughout:
+
+- **Predict before you run.** Whenever you see a 🔮 Predict first box, write down what the code will do before running it.
+- **Run constantly.** Run your code after every small change, not after twenty lines. Small steps make bugs easy to find.
+- **Never stay stuck.** Ten minutes on the same bug is the signal to ask: check the error message, unfold the solution, or wave a teacher over. Sitting silently with a bug is the one wrong way to use these sessions.
+
+## What you need
+
+* Your own laptop with **PsychoPy installed**. Install instructions are sent out before Session 1, and each session starts with a setup check. If the install fights back, come 15 minutes early.
+* Curiosity. A willingness to try things, break things, and read the occasional error message will carry you further than any prior experience would.
+
+Ready? Start with [Session 1](session1-python/index.qmd).

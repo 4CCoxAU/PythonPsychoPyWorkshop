@@ -1,0 +1,66 @@
+---
+title: "4 · Text, Images, and Two Ways to Wait"
+---
+
+::: {.milestone}
+**Block 2** · aim to have Exercise 4 running by lunch (~12:00)
+:::
+
+The wonderful thing about the draw-flip cycle is that *every* stimulus type follows it. Images work exactly like text: swap `TextStim` for `ImageStim`:
+
+```python
+img = visual.ImageStim(win, image='stimuli/stimulus1_L.jpg')
+img.draw()
+win.flip()
+```
+
+::: {.callout-warning title="Paths are relative to your script"}
+`'stimuli/stimulus1_L.jpg'` means: *a folder called `stimuli`, next to this script, containing that file*. If your script lives somewhere else, this line fails. Keep your scripts in the workshop folder, next to `stimuli/`. (Roughly half of all "my code doesn't work" moments today will be path problems).
+:::
+
+## Two ways to wait
+
+After a flip, we decide how long the stimulus stays. There are two fundamentally different answers, and choosing between them is an *experimental design decision*:
+
+```python
+core.wait(2)        # the COMPUTER decides: exactly 2 seconds
+event.waitKeys()    # the PARTICIPANT decides: waits for a key press
+```
+
+::: {.callout-note .predict icon="false" title="🔮 Predict first — which wait for which screen?"}
+For each screen, decide: `core.wait()` or `event.waitKeys()`?
+
+(a) an instructions screen · (b) a feedback screen after a response · (c) a brief fixation cross between trials · (d) a word in a self-paced reading experiment
+
+::: {.callout-tip collapse="true" title="Check your prediction"}
+(a) `waitKeys()`: people read at different speeds. (b) `wait()`: fixed, comparable duration for everyone. (c) `wait()`: fixed and short. (d) `waitKeys()`: the whole point of *self-paced* reading is that the participant controls the pace; the time they take **is** the measurement. More on that in Session 3.
+:::
+:::
+
+## Try it
+
+Modify your Chapter 3 script: after the *Hello, world!* screen, show **one CogWheel image** (pick any file from `stimuli/`), participant-paced. Run it.
+
+::: {.callout-tip collapse="true" title="Show the code"}
+```python
+from psychopy import visual, event, core
+
+win = visual.Window(size=(1280, 720), color='black')
+
+text = visual.TextStim(win, text='Hello, world!',
+                       color='white', height=0.1)
+text.draw()
+win.flip()
+event.waitKeys()
+
+img = visual.ImageStim(win, image='stimuli/stimulus1_L.jpg')
+img.draw()
+win.flip()
+event.waitKeys()
+
+win.close()
+core.quit()
+```
+
+Note the pattern repeating: prepare, draw, flip, wait — once per screen.
+:::

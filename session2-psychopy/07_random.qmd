@@ -1,0 +1,42 @@
+---
+title: "7 · Randomising Trial Order"
+---
+
+::: {.milestone}
+**Block 3** · aim to finish chapters 7-9 by the afternoon break (~14:15)
+:::
+
+Right now every participant sees the stimuli in the same order. That is a problem: people get better with practice, tired with time, bored towards the end. With a fixed order these *order effects* are confounded with the stimuli themselves. Stimulus 1 always meets a fresh participant, stimulus 20 a weary one. The simplest fix: give every participant a different random order, so order effects average out.
+
+::: {.callout-note .predict icon="false" title="🔮 Predict first"}
+A fellow student writes this. What happens when it runs?
+
+```python
+import random
+
+images = ['stim1_L.jpg', 'stim2_R.jpg', 'stim3_L.jpg']
+images = random.shuffle(images)
+
+for image in images:
+    print(image)
+```
+
+::: {.callout-tip collapse="true" title="Check your prediction"}
+It **crashes**: `TypeError: 'NoneType' object is not iterable`. `random.shuffle()` reorders the list *in place* and returns `None`, so the assignment replaced the list with `None`, and the loop had nothing to iterate over. This is today's most classic gotcha. The fix:
+
+```python
+random.shuffle(images)   # its own line: no assignment!
+```
+:::
+:::
+
+The correct pattern, which you should now add to your Exercise 4 script (right after the `glob` line):
+
+```python
+import random
+
+images = glob.glob('stimuli/stimulus*.jpg')
+random.shuffle(images)   # shuffles IN PLACE
+```
+
+Run your experiment twice. You should get two different orders. That's randomisation working.

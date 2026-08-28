@@ -1,0 +1,28 @@
+---
+title: "Session 1: Python Basics"
+---
+
+::: {.milestone}
+**Today's destination** · by the end of the day you can read and write short Python programs (i.e., variables, lists, loops, conditionals, and functions), which is genuinely all the Python an experiment needs.
+:::
+
+## Learning outcomes
+
+After this session, you can:
+
+- **Work in the Python environment on UCloud**: open it, write code, run it, and read what the output (including error messages) tells you.
+- **Create and inspect variables** of different types, manipulate strings (`.split()`, `.upper()`, `len()`), format output with f-strings, and compare values (`==`, `!=`, `<`, `>`).
+- **Build and modify lists**: index, slice, append, remove, replace, and sort.
+- **Write for loops** to repeat an action over a list (i.e., the exact shape of an experiment's trial loop (*for each image: show it, record a response, give feedback*)).
+- **Use conditionals** (`if` / `elif` / `else`) to make code respond differently to different inputs, including inside loops.
+- **Define your own functions** with parameters and return values: the tool that lets you write "show a stimulus, collect a response" once and call it 200 times.
+
+## Timetable
+
+| Time | What |
+|------|------|
+| 09:00 | Welcome + setup check |
+| ...  | TODO |
+
+
+Ready? Head to [Chapter 1](01_getting_started.qmd).

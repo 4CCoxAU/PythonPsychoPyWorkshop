@@ -1,0 +1,472 @@
+[
+  {
+    "objectID": "session1-python/index.html",
+    "href": "session1-python/index.html",
+    "title": "Session 1: Python Basics",
+    "section": "",
+    "text": "Today’s destination · by the end of the day you can read and write short Python programs (i.e., variables, lists, loops, conditionals, and functions), which is genuinely all the Python an experiment needs.",
+    "crumbs": [
+      "Home",
+      "Session 1 · Python basics",
+      "How the day works"
+    ]
+  },
+  {
+    "objectID": "session1-python/index.html#learning-outcomes",
+    "href": "session1-python/index.html#learning-outcomes",
+    "title": "Session 1: Python Basics",
+    "section": "Learning outcomes",
+    "text": "Learning outcomes\nAfter this session, you can:\n\nWork in the Python environment on UCloud: open it, write code, run it, and read what the output (including error messages) tells you.\nCreate and inspect variables of different types, manipulate strings (.split(), .upper(), len()), format output with f-strings, and compare values (==, !=, &lt;, &gt;).\nBuild and modify lists: index, slice, append, remove, replace, and sort.\nWrite for loops to repeat an action over a list (i.e., the exact shape of an experiment’s trial loop (for each image: show it, record a response, give feedback)).\nUse conditionals (if / elif / else) to make code respond differently to different inputs, including inside loops.\nDefine your own functions with parameters and return values: the tool that lets you write “show a stimulus, collect a response” once and call it 200 times.",
+    "crumbs": [
+      "Home",
+      "Session 1 · Python basics",
+      "How the day works"
+    ]
+  },
+  {
+    "objectID": "session1-python/index.html#timetable",
+    "href": "session1-python/index.html#timetable",
+    "title": "Session 1: Python Basics",
+    "section": "Timetable",
+    "text": "Timetable\n\n\n\nTime\nWhat\n\n\n\n\n09:00\nWelcome + setup check\n\n\n…\nTODO\n\n\n\nReady? Head to Chapter 1.",
+    "crumbs": [
+      "Home",
+      "Session 1 · Python basics",
+      "How the day works"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Python × PsychoPy Workshop",
+    "section": "",
+    "text": "Welcome! Over the coming workshop sessions, you’ll go from typing your very first line of Python to watching a full behavioural experiment run on your own screen: window, stimuli, responses, feedback, the lot. Between you and that moment stand a handful of Python concepts and a few dozen extremely fixable error messages. We assume no programming experience. If you can rename a file, you’re qualified to start.",
+    "crumbs": [
+      "Home",
+      "Workshop overview"
+    ]
+  },
+  {
+    "objectID": "index.html#why-programming",
+    "href": "index.html#why-programming",
+    "title": "Python × PsychoPy Workshop",
+    "section": "Why programming?",
+    "text": "Why programming?\nNearly every empirical experiment in cognitive science — reaction-time studies, reading paradigms, eye-tracking, EEG — is implemented in code. A working knowledge of Python allows you to build precisely the experiment your research question requires, to understand the structure and provenance of your data, and to diagnose problems when they arise. The aim of these three sessions is a modest form of fluency: by the end, the experiment running on your screen should be a system you can read, modify, and reason about. These skills will hopefully outlast the course: designing, implementing, and troubleshooting your own experiments is part of the everyday craft of working scientists, in cognitive science and well beyond.",
+    "crumbs": [
+      "Home",
+      "Workshop overview"
+    ]
+  },
+  {
+    "objectID": "index.html#the-three-sessions",
+    "href": "index.html#the-three-sessions",
+    "title": "Python × PsychoPy Workshop",
+    "section": "The three sessions",
+    "text": "The three sessions\nSession 1 · Python basics Variables, lists, loops, conditionals, functions. These are the handful of building blocks that all programs are made of. Everything you learn here gets used directly in Session 2.\nSession 2 · Introduction to PsychoPy PsychoPy is the Python library psychologists use to run experiments: it opens windows, draws stimuli, and records keypresses with precise timing. You build the CogWheel experiment step by step and leave with a script that runs: images in random order, keyboard responses, feedback on every trial, and more..\nSession 3 · From cogwheels to words (materials coming) Swap the images for words, add a clock and a logfile, and your CogWheel script becomes a self-paced reading experiment, the direct starting point for your Portfolio 2 prototype.",
+    "crumbs": [
+      "Home",
+      "Workshop overview"
+    ]
+  },
+  {
+    "objectID": "index.html#how-the-sessions-work",
+    "href": "index.html#how-the-sessions-work",
+    "title": "Python × PsychoPy Workshop",
+    "section": "How the sessions work",
+    "text": "How the sessions work\nEach session follows the same rhythm: a short lecture introduces the concepts and demonstrates them live, and you then put them to work in a set of exercises you complete on your own, at your own pace, with the teaching team circulating. Three habits will serve you well throughout:\n\nPredict before you run. Whenever you see a 🔮 Predict first box, write down what the code will do before running it.\nRun constantly. Run your code after every small change, not after twenty lines. Small steps make bugs easy to find.\nNever stay stuck. Ten minutes on the same bug is the signal to ask: check the error message, unfold the solution, or wave a teacher over. Sitting silently with a bug is the one wrong way to use these sessions.",
+    "crumbs": [
+      "Home",
+      "Workshop overview"
+    ]
+  },
+  {
+    "objectID": "index.html#what-you-need",
+    "href": "index.html#what-you-need",
+    "title": "Python × PsychoPy Workshop",
+    "section": "What you need",
+    "text": "What you need\n\nYour own laptop with PsychoPy installed. Install instructions are sent out before Session 1, and each session starts with a setup check. If the install fights back, come 15 minutes early.\nCuriosity. A willingness to try things, break things, and read the occasional error message will carry you further than any prior experience would.\n\nReady? Start with Session 1.",
+    "crumbs": [
+      "Home",
+      "Workshop overview"
+    ]
+  },
+  {
+    "objectID": "session2-psychopy/07_random.html",
+    "href": "session2-psychopy/07_random.html",
+    "title": "7 · Randomising Trial Order",
+    "section": "",
+    "text": "Block 3 · aim to finish chapters 7-9 by the afternoon break (~14:15)\n\nRight now every participant sees the stimuli in the same order. That is a problem: people get better with practice, tired with time, bored towards the end. With a fixed order these order effects are confounded with the stimuli themselves. Stimulus 1 always meets a fresh participant, stimulus 20 a weary one. The simplest fix: give every participant a different random order, so order effects average out.\n\n\n\n\n\n\n🔮 Predict first\n\n\n\nA fellow student writes this. What happens when it runs?\nimport random\n\nimages = ['stim1_L.jpg', 'stim2_R.jpg', 'stim3_L.jpg']\nimages = random.shuffle(images)\n\nfor image in images:\n    print(image)\n\n\n\n\n\n\nCheck your prediction\n\n\n\n\n\nIt crashes: TypeError: 'NoneType' object is not iterable. random.shuffle() reorders the list in place and returns None, so the assignment replaced the list with None, and the loop had nothing to iterate over. This is today’s most classic gotcha. The fix:\nrandom.shuffle(images)   # its own line: no assignment!\n\n\n\n\n\nThe correct pattern, which you should now add to your Exercise 4 script (right after the glob line):\nimport random\n\nimages = glob.glob('stimuli/stimulus*.jpg')\nrandom.shuffle(images)   # shuffles IN PLACE\nRun your experiment twice. You should get two different orders. That’s randomisation working.",
+    "crumbs": [
+      "Home",
+      "Session 2 · PsychoPy",
+      "Block 3 · Making it an experiment",
+      "7 · Randomising Trial Order"
+    ]
+  },
+  {
+    "objectID": "session2-psychopy/09_feedback.html",
+    "href": "session2-psychopy/09_feedback.html",
+    "title": "9 · Conditional Feedback",
+    "section": "",
+    "text": "Block 3 · aim to finish chapters 7-9 by the afternoon break (~14:15)\n\nTo give feedback we must know whether a response was correct, but “correct” is not something the computer knows by itself. We have to operationalise it: define a rule, in code, that maps stimulus properties onto expected responses. In the CogWheel experiment, that rule lives in the filenames: images ending in _L.jpg require a left response, _R.jpg a right response.\nYou already met the tool for reading that rule in Chapter 1: the substring check.\n# derive the correct answer from the stimulus filename\nif '_L' in image:\n    correct_key = 'left'\nelse:\n    correct_key = 'right'\n\n# compare the response to the correct answer\nif key == correct_key:\n    feedback = visual.ImageStim(win, image='success.jpg')\nelse:\n    feedback = visual.ImageStim(win, image='failure.jpg')\n\nfeedback.draw()\nwin.flip()\ncore.wait(2)     # show the feedback for exactly 2 seconds\nNotice the structure: two small decisions rather than one big one. The first if-block derives the correct answer from the stimulus; the second compares it to the response. Splitting logic like this is good style — and much easier to debug.\n\n\n\n\n\n\n🔮 Predict first\n\n\n\n\nWhat does '_L' in 'stimuli/stimulus7_L.jpg' evaluate to? (b) Why core.wait(2) rather than event.waitKeys() for feedback? (c) Why does the feedback need its own draw() and flip() when we already flipped for the stimulus?\n\n\n\n\n\n\n\nCheck your prediction\n\n\n\n\n\n\nTrue. (b) Feedback should be a fixed, brief event, identical for everyone and not something to sit on or skip. (c) Every new screen needs its own draw-flip: the stimulus flip put the cogwheel on stage; replacing it with feedback means drawing backstage and raising the curtain again.\n\n\n\n\n\n\nThis is the last piece you need. On to the main exercise of the day.",
+    "crumbs": [
+      "Home",
+      "Session 2 · PsychoPy",
+      "Block 3 · Making it an experiment",
+      "9 · Conditional Feedback"
+    ]
+  },
+  {
+    "objectID": "session2-psychopy/ta_guide.html",
+    "href": "session2-psychopy/ta_guide.html",
+    "title": "For TAs & Instructors",
+    "section": "",
+    "text": "This page is for the teaching team. Students are welcome to read it — there are no secrets here, only logistics.",
+    "crumbs": [
+      "Home",
+      "Session 2 · PsychoPy",
+      "For TAs & instructors"
+    ]
+  },
+  {
+    "objectID": "session2-psychopy/ta_guide.html#the-model",
+    "href": "session2-psychopy/ta_guide.html#the-model",
+    "title": "For TAs & Instructors",
+    "section": "The model",
+    "text": "The model\nThe day is self-paced: students work through the chapters in pairs; the teaching team circulates. Short pulses at the block boundaries (see the timetable) are the only plenary moments — the instructor frames the next block and demos the destination (runs the finished exercise on the projector; never types code live).",
+    "crumbs": [
+      "Home",
+      "Session 2 · PsychoPy",
+      "For TAs & instructors"
+    ]
+  },
+  {
+    "objectID": "session2-psychopy/ta_guide.html#ground-rules-for-helping",
+    "href": "session2-psychopy/ta_guide.html#ground-rules-for-helping",
+    "title": "For TAs & Instructors",
+    "section": "Ground rules for helping",
+    "text": "Ground rules for helping\n\nNever take the keyboard. Ask “what does the error say?” and make them read it aloud. We are teaching debugging, not doing it.\nPush down the ladder first. “Have you asked your partner? Have you compared against the checkpoint?” — the material is designed for self-rescue.\nReport upward. The moment you have seen the same bug three times, tell the instructor — it gets fixed once on the projector for everyone. This is the biggest efficiency gain of the day.\nFive-minute cap on broken machines. If an install or hardware problem cannot be fixed in five minutes, pair the student with a neighbour and defer the repair to the break. One machine must not absorb a TA for 40 minutes.\nZones. Each TA owns a fixed region of the room. Red stickies in your zone are yours.",
+    "crumbs": [
+      "Home",
+      "Session 2 · PsychoPy",
+      "For TAs & instructors"
+    ]
+  },
+  {
+    "objectID": "session2-psychopy/ta_guide.html#the-planted-gotcha-list",
+    "href": "session2-psychopy/ta_guide.html#the-planted-gotcha-list",
+    "title": "For TAs & Instructors",
+    "section": "The planted-gotcha list",
+    "text": "The planted-gotcha list\nThese are the bugs the material deliberately anticipates. Learn to recognise them on sight — between 65 students, each will occur dozens of times.\n\n\n\n\n\n\n\n\nSymptom\nCause\nChapter\n\n\n\n\nglob returns []; or ImageStim file-not-found\nScript not saved next to stimuli/ (path problem)\n4, 5\n\n\nWindow opens but stays blank\nMissing win.flip() (or draw() never called)\n3\n\n\nStimulus flashes and vanishes\nNo wait after the flip\n3\n\n\nFrozen grey window after script ends\nMissing win.close() / core.quit()\n3\n\n\nTypeError: 'NoneType' object is not iterable\nimages = random.shuffle(images)\n7\n\n\nOnly the first image ever shows\nTrial code not indented inside the loop\n6\n\n\nFeedback never appears\nFeedback missing its own draw() + flip()\n9\n\n\nStuck in fullscreen\nCtrl-C in the console; develop with fullscr=False\n2\n\n\nKey press “does nothing”\nKey not in keyList (e.g. arrows vs. 'a'/'l')\n8",
+    "crumbs": [
+      "Home",
+      "Session 2 · PsychoPy",
+      "For TAs & instructors"
+    ]
+  },
+  {
+    "objectID": "session2-psychopy/ta_guide.html#pulse-crib-sheet",
+    "href": "session2-psychopy/ta_guide.html#pulse-crib-sheet",
+    "title": "For TAs & Instructors",
+    "section": "Pulse crib sheet",
+    "text": "Pulse crib sheet\n\nPulse 0 (9:00): welcome; the three rules (predict / checkpoints are legitimate / ten-minute rule); pairs; run setup_check.py; where the red stickies are.\nPulse 1 (10:30): demo Exercise 4 running; announce accumulated bugs; point at the lunch milestone.\nPulse 2 (12:45): demo Exercise 5 running (the destination for the afternoon); frame randomisation + responses + feedback as the three upgrades.\nPulse 3 (14:15): bug roundup; remind about advanced tasks for fast finishers; flag Chapter 11 as required reading even for those behind.",
+    "crumbs": [
+      "Home",
+      "Session 2 · PsychoPy",
+      "For TAs & instructors"
+    ]
+  },
+  {
+    "objectID": "session2-psychopy/ta_guide.html#known-issues-board",
+    "href": "session2-psychopy/ta_guide.html#known-issues-board",
+    "title": "For TAs & Instructors",
+    "section": "Known-issues board",
+    "text": "Known-issues board\nKeep a visible running list (projector or whiteboard) of bugs discovered during the day, added at pulses. Format: symptom → one-line fix → chapter. Students check the board before raising a sticky.",
+    "crumbs": [
+      "Home",
+      "Session 2 · PsychoPy",
+      "For TAs & instructors"
+    ]
+  },
+  {
+    "objectID": "session2-psychopy/03_drawflip.html",
+    "href": "session2-psychopy/03_drawflip.html",
+    "title": "3 · The Draw–Flip Cycle (and How to Break It)",
+    "section": "",
+    "text": "Block 1 · aim to finish chapters 1–3 by the first break (~10:30)\nHere is the single most important mechanic of the day. PsychoPy uses double buffering: there are two screen buffers, and you never draw directly onto the visible one. Showing a stimulus always takes three steps:\nThink of a theatre: the back buffer is backstage, the front buffer is the stage. You can arrange the whole scene backstage. Draw as many stimuli as you like, and flip() raises the curtain in a single instant.\nWhy this design? A typical monitor redraws 60 times per second, so one frame lasts ~16.7 ms. Because the swap happens between two refreshes, stimulus onset is a single, well-defined moment: the moment of the flip. In Session 3 we will reset a clock at exactly that moment to measure reaction times.",
+    "crumbs": [
+      "Home",
+      "Session 2 · PsychoPy",
+      "Block 1 · From Python to a window",
+      "3 · The Draw–Flip Cycle (and How to Break It)"
+    ]
+  },
+  {
+    "objectID": "session2-psychopy/03_drawflip.html#hello-world-the-full-cycle",
+    "href": "session2-psychopy/03_drawflip.html#hello-world-the-full-cycle",
+    "title": "3 · The Draw–Flip Cycle (and How to Break It)",
+    "section": "Hello, world, the full cycle",
+    "text": "Hello, world, the full cycle\nType and run:\nfrom psychopy import visual, event, core\n\nwin = visual.Window(size=(1280, 720), color='black')\n\ntext = visual.TextStim(win, text='Hello, world!',\n                       color='white', height=0.1)\ntext.draw()      # paint it backstage\nwin.flip()       # curtain up!\n\nevent.waitKeys() # pause until any key is pressed\n\nwin.close()      # close the window\ncore.quit()      # end the session cleanly\nYou should see Hello, world! in white on black, staying until you press a key.",
+    "crumbs": [
+      "Home",
+      "Session 2 · PsychoPy",
+      "Block 1 · From Python to a window",
+      "3 · The Draw–Flip Cycle (and How to Break It)"
+    ]
+  },
+  {
+    "objectID": "session2-psychopy/03_drawflip.html#the-sabotage-lab",
+    "href": "session2-psychopy/03_drawflip.html#the-sabotage-lab",
+    "title": "3 · The Draw–Flip Cycle (and How to Break It)",
+    "section": "The sabotage lab",
+    "text": "The sabotage lab\nNow break it on purpose — three times. This is not busywork: each sabotage teaches you to recognise one of today’s three most common bugs before it happens to you by accident.\n\n\n\n\n\n\n🔮 Sabotage 1, predict first\n\n\n\nDelete the line win.flip(). What will you see when you run it?\n\n\n\n\n\n\nCheck your prediction\n\n\n\n\n\nA blank black window. The text was drawn — but only to the back buffer, which was never swapped to the screen. Blank screen almost always means a missing flip.\n\n\n\n\n\n\n\n\n\n\n\n🔮 Sabotage 2, predict first\n\n\n\nPut win.flip() back. Now delete event.waitKeys(). What happens?\n\n\n\n\n\n\nCheck your prediction\n\n\n\n\n\nThe text flashes for a split second and vanishes. The script runs straight to the end, and closing the window takes the text with it. Every flip needs a waiting step after it, or the participant sees almost nothing.\n\n\n\n\n\n\n\n\n\n\n\n🔮 Sabotage 3, predict first\n\n\n\nRestore everything. Now delete the last two lines (win.close() and core.quit()). What happens after you press a key?\n\n\n\n\n\n\nCheck your prediction\n\n\n\n\n\nThe script ends, but the window lingers as a frozen grey zombie. Always shut down cleanly — and now you know what a zombie window means when you see one.\n\n\n\n\n\nRepair your script so all three sabotages are undone. Say the mantra once, prepare, draw, flip, wait, and take a break if the clock says so.\n\n\n\n\n\n\nCheckpoint · end of Block 1\n\n\n\n\n\nfrom psychopy import visual, event, core\n\nwin = visual.Window(size=(1280, 720), color='black')\n\ntext = visual.TextStim(win, text='Hello, world!',\n                       color='white', height=0.1)\ntext.draw()\nwin.flip()\n\nevent.waitKeys()\n\nwin.close()\ncore.quit()",
+    "crumbs": [
+      "Home",
+      "Session 2 · PsychoPy",
+      "Block 1 · From Python to a window",
+      "3 · The Draw–Flip Cycle (and How to Break It)"
+    ]
+  },
+  {
+    "objectID": "session2-psychopy/05_glob.html",
+    "href": "session2-psychopy/05_glob.html",
+    "title": "5 · Let Python Find Your Stimuli",
+    "section": "",
+    "text": "Block 2 · aim to have Exercise 4 running by lunch (~12:00)\n\nOur experiment has many stimulus images. We could type every filename into a list by hand. This is fragile: one typo crashes the script, and adding stimuli means editing code. Instead, let Python find the files:\nimport glob\n\nimages = glob.glob('stimuli/stimulus*.jpg')\nprint(images)\nThe * is a wildcard that matches anything, so the pattern collects every file in stimuli/ whose name starts with stimulus and ends with .jpg.\n\n\n\n\n\n\n🔮 Predict first\n\n\n\nBefore running: what type of thing will print(images) show? And what would glob.glob('stimuli/*_L.jpg') give you instead?\n\n\n\n\n\n\nCheck your prediction\n\n\n\n\n\nA plain Python list of strings (file paths) — which means everything from Session 1 works on it: len(images), images[0], for image in images:. The second pattern collects only the left-response stimuli — wildcards can sit anywhere in the pattern.\n\n\n\n\n\nRun it and look at the output. If the list is empty, stop and fix that now (it is a path problem, see Chapter 4). Every later chapter depends on this line working.\n\n\n\n\n\n\nGood to know\n\n\n\nglob does not guarantee any particular file order. For us that is fine. We shuffle in Chapter 7 anyway. If you ever need a fixed order, wrap it: sorted(glob.glob(...)).",
+    "crumbs": [
+      "Home",
+      "Session 2 · PsychoPy",
+      "Block 2 · Stimuli on the screen",
+      "5 · Let Python Find Your Stimuli"
+    ]
+  },
+  {
+    "objectID": "session2-psychopy/11_cogcomm.html",
+    "href": "session2-psychopy/11_cogcomm.html",
+    "title": "11 · From Cogwheels to Words",
+    "section": "",
+    "text": "Block 4 · the wrap-up. Read this even if you are behind\nStep back and admire your script: it opens a window, presents randomised stimuli, restricts and records responses, evaluates them against a rule, and gives feedback. That is a genuine behavioural experiment, and its skeleton (setup → trial loop → shutdown) is shared by essentially every paradigm in cognitive science.\nNow, CogComm asks how people process language in real time. So consider a thought experiment: what if the stimulus were not a cogwheel image but a word — and the measure were not accuracy, but how long you look at the word before pressing on? If a word is surprising or hard to process, you slow down, and your experiment can see it. That paradigm is called self-paced reading, and here is the punchline: your Exercise 5 script is already about 80% of it.",
+    "crumbs": [
+      "Home",
+      "Session 2 · PsychoPy",
+      "Block 4 · Completing the loop",
+      "11 · From Cogwheels to Words"
+    ]
+  },
+  {
+    "objectID": "session2-psychopy/11_cogcomm.html#before-next-session",
+    "href": "session2-psychopy/11_cogcomm.html#before-next-session",
+    "title": "11 · From Cogwheels to Words",
+    "section": "Before next session",
+    "text": "Before next session\n\nFinish Exercise 5 if you did not get all the way, and keep both scripts safe: Session 3 extends them directly into the Portfolio 2 prototype.\nRe-run your script and change one thing on purpose (a colour, a key, the feedback duration). Predict what will happen before you run it.\nOptionally, skim the PsychoPy chapters of the Programming Experiments in Python and PsychoPy3 gitbook, and keep psychopy.org and learnpython.org bookmarked.\nBring questions — broken scripts very welcome.\n\nSay it once more with feeling: prepare, draw, flip, wait. See you in Session 3.",
+    "crumbs": [
+      "Home",
+      "Session 2 · PsychoPy",
+      "Block 4 · Completing the loop",
+      "11 · From Cogwheels to Words"
+    ]
+  },
+  {
+    "objectID": "session2-psychopy/01_warmup.html",
+    "href": "session2-psychopy/01_warmup.html",
+    "title": "1 · Warming Up: A Python Refresher",
+    "section": "",
+    "text": "Block 1 · aim to finish chapters 1–3 by the first break (~10:30)\n\nLet’s warm up the Python muscles from Session 1. Everything you learned there — variables, lists, loops, conditionals, functions — gets used today.\n\n\n\n\n\n\n🔮 Predict first\n\n\n\nRead this snippet and write down (yes, actually write down) exactly what it will print, line by line — before running it.\nwords = ['tea', 'coffee', 'water', 'juice']\nwords.append('cocoa')\n\nfor w in words:\n    if len(w) &gt; 5:\n        print(w.upper())\n    else:\n        print(w)\n\n\nNow type it into the Coder and run it.\n\n\n\n\n\n\nCheck your prediction\n\n\n\n\n\nIt prints:\ntea\nCOFFEE\nwater\njuice\ncocoa\nOnly 'coffee' has more than 5 letters, so only it is uppercased. Two classic traps: forgetting that .append() added 'cocoa' before the loop started, and thinking 'cocoa' (exactly 5 letters) passes len(w) &gt; 5 — it does not, because 5 &gt; 5 is False.\n\n\n\nIf your prediction was exactly right: great, move on. If not: even better — figure out why before continuing, because this loop-plus-conditional shape is the skeleton of the trial loop you will build today.\nOne more, faster. Predict, then run:\nstimuli = ['wheel_L.jpg', 'wheel_R.jpg', 'gear_L.jpg']\n\nfor s in stimuli:\n    if '_L' in s:\n        print(s, '-&gt; left')\n    else:\n        print(s, '-&gt; right')\n\n\n\n\n\n\nCheck your prediction\n\n\n\n\n\nwheel_L.jpg -&gt; left\nwheel_R.jpg -&gt; right\ngear_L.jpg -&gt; left\n'_L' in s asks whether the substring '_L' appears anywhere in the string s. Remember this one — it becomes the heart of the feedback logic in Chapter 9.\n\n\n\nThat is all the warm-up you need. Next: the screen.",
+    "crumbs": [
+      "Home",
+      "Session 2 · PsychoPy",
+      "Block 1 · From Python to a window",
+      "1 · Warming Up: A Python Refresher"
+    ]
+  },
+  {
+    "objectID": "session2-psychopy/10_exercise5.html",
+    "href": "session2-psychopy/10_exercise5.html",
+    "title": "10 · Exercise 5: Responses and Feedback",
+    "section": "",
+    "text": "Block 4 milestone · Exercise 5 running by ~15:30; advanced tasks if time\nMake a copy of your Exercise 4 script first (e.g. cogwheel_v2.py). Session 3 wants the original too. Then upgrade it in four steps, running after each.",
+    "crumbs": [
+      "Home",
+      "Session 2 · PsychoPy",
+      "Block 4 · Completing the loop",
+      "10 · Exercise 5: Responses and Feedback"
+    ]
+  },
+  {
+    "objectID": "session2-psychopy/10_exercise5.html#advanced-pick-any-in-any-order",
+    "href": "session2-psychopy/10_exercise5.html#advanced-pick-any-in-any-order",
+    "title": "10 · Exercise 5: Responses and Feedback",
+    "section": "Advanced (pick any, in any order)",
+    "text": "Advanced (pick any, in any order)\nA. Keep score. Count correct answers; report the score in the goodbye message using an f-string.\n\n\n\n\n\n\nShow the code\n\n\n\n\n\n# before the loop:\nn_correct = 0\n\n# in the correct-answer branch:\nn_correct = n_correct + 1\n\n# goodbye message:\ngoodbye = visual.TextStim(win,\n    text=f'You got {n_correct} out of {len(images)} correct. Thank you!',\n    color='white')\n\n\n\nB. Add sounds. Play a sound on correct answers.\n\n\n\n\n\n\nShow the code\n\n\n\n\n\nfrom psychopy import sound\n\n# once, before the loop:\ncorrect_sound = sound.Sound('correct.wav')\n\n# in the correct-answer branch:\ncorrect_sound.play()\n\n\n\nC. Write a reusable function. The prepare–draw–flip–wait pattern repeats constantly — exactly what functions are for. Write show_image() and use it in your loop.\n\n\n\n\n\n\nShow the code\n\n\n\n\n\ndef show_image(win, image_path, keyList=None):\n    stim = visual.ImageStim(win, image=image_path)\n    stim.draw()\n    win.flip()\n    keys = event.waitKeys(keyList=keyList)\n    return keys[0]\n\n# the trial loop becomes wonderfully short:\nfor image in images:\n    key = show_image(win, image, keyList=['left', 'right'])\n    ...",
+    "crumbs": [
+      "Home",
+      "Session 2 · PsychoPy",
+      "Block 4 · Completing the loop",
+      "10 · Exercise 5: Responses and Feedback"
+    ]
+  },
+  {
+    "objectID": "session2-psychopy/index.html",
+    "href": "session2-psychopy/index.html",
+    "title": "Session 2: Introduction to PsychoPy",
+    "section": "",
+    "text": "Welcome back! In Session 1 you learned to think in Python: variables, lists, loops, conditionals, and functions. That is all we need to program sophisticated experiments. For this session, we are going to work in the PsychoPy Coder on your own laptop. By the end of today, you will have built a working experiment that shows images in random order, collects keyboard responses, and gives feedback on every trial. Today, we change environment.",
+    "crumbs": [
+      "Home",
+      "Session 2 · PsychoPy",
+      "How the day works"
+    ]
+  },
+  {
+    "objectID": "session2-psychopy/index.html#learning-outcomes",
+    "href": "session2-psychopy/index.html#learning-outcomes",
+    "title": "Session 2: Introduction to PsychoPy",
+    "section": "Learning outcomes",
+    "text": "Learning outcomes\nAfter this session, you can:\n\nOpen and close a PsychoPy window and explain the draw–flip cycle (prepare, draw, flip) that gives experiments their precise timing.\nPresent text and image stimuli (TextStim, ImageStim), for a fixed duration (core.wait()) or until a keypress (event.waitKeys()).\nLoad stimulus files dynamically with glob.glob() instead of hardcoding filenames.\nRandomise trial order with random.shuffle() and explain why randomisation matters.\nCollect and restrict keyboard responses (keyList=['left','right']) and use the response in your code.\nGive conditional feedback: evaluate a response against a rule and show a success or failure image.\n\n\nHow today works\nToday alternates between two modes. In short lecture segments we introduce each concept and demonstrate it live on the projector; in the exercises you put the concepts to work on your own, at your own pace, with the teaching team circulating. The chapters on this site follow the same order as the lectures, so everything shown at the front is here to re-read.",
+    "crumbs": [
+      "Home",
+      "Session 2 · PsychoPy",
+      "How the day works"
+    ]
+  },
+  {
+    "objectID": "session2-psychopy/index.html#todays-programme",
+    "href": "session2-psychopy/index.html#todays-programme",
+    "title": "Session 2: Introduction to PsychoPy",
+    "section": "Today’s programme",
+    "text": "Today’s programme\nTimes are approximate; the exercises are where you should linger.\n\n\n\n~Duration\nWhat\nChapters\n\n\n\n\n10 min\nPython refresher: quick-fire “what does this print?”\n1\n\n\n15 min\nPsychoPy concepts: the window and the draw–flip cycle\n2–3\n\n\n25 min\nShowing stimuli: text and images\n4\n\n\n10 min\nLoading stimulus files with glob\n5\n\n\n25 min\nExercise 4 — Display the CogWheel stimuli\n6\n\n\n10 min\nRandomisation\n7\n\n\n15 min\nCollecting keyboard responses\n8\n\n\n15 min\nFeedback: conditional display\n9\n\n\n30 min\nExercise 5 — Responses and feedback\n10\n\n\n20 min\nConnecting to CogComm: from cogwheels to words\n11\n\n\n\nMilestones: Exercise 4 running before we move on to randomisation; Exercise 5 running by the end — that script is the one Session 3 extends.",
+    "crumbs": [
+      "Home",
+      "Session 2 · PsychoPy",
+      "How the day works"
+    ]
+  },
+  {
+    "objectID": "session2-psychopy/index.html#before-you-start",
+    "href": "session2-psychopy/index.html#before-you-start",
+    "title": "Session 2: Introduction to PsychoPy",
+    "section": "Before you start",
+    "text": "Before you start\n\nGet the materials. Download the workshop folder, unzip it, and keep everything together: your scripts must live next to the stimuli/ folder.\nCheck your setup. Open the PsychoPy Coder, open materials/setup_check.py from the workshop folder, and press Run. You should see a window saying Your setup works! If you do not, ask for help (do not start the chapters with a broken install).\n\nReady? Head to Chapter 1 — Warming up.",
+    "crumbs": [
+      "Home",
+      "Session 2 · PsychoPy",
+      "How the day works"
+    ]
+  },
+  {
+    "objectID": "session2-psychopy/08_responses.html",
+    "href": "session2-psychopy/08_responses.html",
+    "title": "8 · Collecting Keyboard Responses",
+    "section": "",
+    "text": "Block 3 · aim to finish chapters 7-9 by the afternoon break (~14:15)\nSo far, any key advances the experiment. For a real task we want a specific response (i.e., left or right arrow), and we want to know which one was pressed. Both jobs are done by the keyList argument:",
+    "crumbs": [
+      "Home",
+      "Session 2 · PsychoPy",
+      "Block 3 · Making it an experiment",
+      "8 · Collecting Keyboard Responses"
+    ]
+  },
+  {
+    "objectID": "session2-psychopy/08_responses.html#try-it",
+    "href": "session2-psychopy/08_responses.html#try-it",
+    "title": "8 · Collecting Keyboard Responses",
+    "section": "Try it",
+    "text": "Try it\nIn a scratch script (or your experiment), show one image and collect a left/right response for it, printing the key to the console.\n\n\n\n\n\n\nShow the code\n\n\n\n\n\nimg = visual.ImageStim(win, image=images[0])\nimg.draw()\nwin.flip()\n\nkeys = event.waitKeys(keyList=['left', 'right'])\nkey = keys[0]\nprint('Response was:', key)\n\n\n\n\n\n\n\n\n\nTip: a polite emergency exit\n\n\n\nAdd 'escape' to your keyList and handle it: if key == 'escape': win.close(); core.quit(). Very handy in fullscreen experiments.",
+    "crumbs": [
+      "Home",
+      "Session 2 · PsychoPy",
+      "Block 3 · Making it an experiment",
+      "8 · Collecting Keyboard Responses"
+    ]
+  },
+  {
+    "objectID": "session2-psychopy/02_psychopy.html",
+    "href": "session2-psychopy/02_psychopy.html",
+    "title": "2 · Meet PsychoPy: Three Modules and a Window",
+    "section": "",
+    "text": "Block 1 · aim to finish chapters 1–3 by the first break (~10:30)\nExperiments need a screen: stimuli to look at, keys to press, precise timing. This is what PsychoPy adds. PsychoPy is a free, open-source Python library for behavioural experiments, made by psychologists for psychologists (Peirce, 2007). It is not a new language — it is a set of tools we import into the Python you already know. And because you are using the Standalone PsychoPy app, everything is already installed: the Coder runs your scripts in PsychoPy’s own bundled Python.\nThree modules do almost everything we need today:",
+    "crumbs": [
+      "Home",
+      "Session 2 · PsychoPy",
+      "Block 1 · From Python to a window",
+      "2 · Meet PsychoPy: Three Modules and a Window"
+    ]
+  },
+  {
+    "objectID": "session2-psychopy/02_psychopy.html#your-first-window",
+    "href": "session2-psychopy/02_psychopy.html#your-first-window",
+    "title": "2 · Meet PsychoPy: Three Modules and a Window",
+    "section": "Your first window",
+    "text": "Your first window\nType this into a new script — call it my_first_window.py — and run it:\nfrom psychopy import visual, event, core\n\nwin = visual.Window(\n1    size=(1280, 720),\n2    color='black',\n3    fullscr=False)\n\ncore.wait(2)\nwin.close()\ncore.quit()\n\n1\n\nWidth and height in pixels.\n\n2\n\nBackground colour — try 'grey' or 'white' later.\n\n3\n\nKeep False while developing; switch to True for the real experiment.\n\n\nA black window appears for two seconds, then closes. Not exciting yet — but note that win is just a variable, like any Python object from Session 1, and it has functions attached: win.flip(), win.close().\n\n\n\n\n\n\nThe escape hatch (you will need it today)\n\n\n\nSooner or later a window will freeze on you. It happens to everyone. Click on the console and press Ctrl-C (or close the window via the taskbar). This is exactly why we develop with fullscr=False: a small window is much easier to escape.\n\n\n\n\n\n\n\n\nCheckpoint · end of Chapter 2\n\n\n\n\n\nYour my_first_window.py should look like this and run without errors:\nfrom psychopy import visual, event, core\n\nwin = visual.Window(\n    size=(1280, 720),\n    color='black',\n    fullscr=False)\n\ncore.wait(2)\nwin.close()\ncore.quit()",
+    "crumbs": [
+      "Home",
+      "Session 2 · PsychoPy",
+      "Block 1 · From Python to a window",
+      "2 · Meet PsychoPy: Three Modules and a Window"
+    ]
+  },
+  {
+    "objectID": "session2-psychopy/06_exercise4.html",
+    "href": "session2-psychopy/06_exercise4.html",
+    "title": "6 · Exercise 4: Display the CogWheel Stimuli",
+    "section": "",
+    "text": "Block 2 milestone · this is the “running by lunch” target\n\n\n\nHands-on · work in pairs · swap driver/navigator halfway\n\n\nExercise 4 — Display the CogWheel stimuli\n\n\nYour first real experiment script: show every stimulus image, one by one, participant-paced.\n\n\n\n🎬 What success looks like: (embed a 10-second screen recording here: welcome text → a few cogwheel images advancing on key presses → goodbye text) — your goal is to make your screen do exactly this.\n\nBuild it in five steps, running your script after every step. Try each step yourself first; the folded code is there when you need it.\n\nStep 1 — Collect the stimuli\nStart a new script cogwheel.py in the workshop folder. Import what you need and collect the image files into a list. Print it to check.\n\n\n\n\n\n\nShow the code\n\n\n\n\n\nfrom psychopy import visual, event, core\nimport glob\n\nimages = glob.glob('stimuli/stimulus*.jpg')\nprint(images)   # sanity check: a list of file paths\n\n\n\n\n\nStep 2 — Open the window\nA window with a black background. Keep fullscr=False until everything works, then switch it on.\n\n\n\n\n\n\nShow the code\n\n\n\n\n\nwin = visual.Window(fullscr=True, color='black')\n\n\n\n\n\nStep 3 — Welcome the participant\nA welcome message in white text; wait for a key press before starting. Remember: prepare, draw, flip, wait.\n\n\n\n\n\n\nShow the code\n\n\n\n\n\nwelcome = visual.TextStim(win,\n    text='Welcome to the CogWheel experiment!\\n\\nPress any key to begin.',\n    color='white')\nwelcome.draw()\nwin.flip()\nevent.waitKeys()\n\n\n\n\n\nStep 4 — The trial loop\nLoop over the images: for each one, create an ImageStim, draw, flip, wait for a key press.\n\n\n\n\n\n\nShow the code\n\n\n\n\n\nfor image in images:\n    stim = visual.ImageStim(win, image=image)\n    stim.draw()\n    win.flip()\n    event.waitKeys()\n\n\n\n\n\nStep 5 — Goodbye and shutdown\nAfter the loop: a goodbye message for two seconds, then close and quit.\n\n\n\n\n\n\nShow the code\n\n\n\n\n\ngoodbye = visual.TextStim(win,\n    text='That was it — thank you!', color='white')\ngoodbye.draw()\nwin.flip()\ncore.wait(2)\n\nwin.close()\ncore.quit()\n\n\n\n\n\n\n\n\n\nStuck? The usual suspects\n\n\n\n\nEmpty list from glob → path problem; your script is not next to stimuli/.\nBlank screen in the loop → missing win.flip(), or a draw() outside the loop.\nOnly one image ever shows → indentation: is everything that belongs to a trial inside the loop?\n\nTen minutes stuck? → partner → checkpoint below → red sticky.\n\n\nFinished early? Add a fixation cross (visual.TextStim(win, text='+')) shown for half a second between images, or count trials with a variable and show the count in the goodbye message.\n\n\n\n\n\n\nCheckpoint · complete Exercise 4 script\n\n\n\n\n\nfrom psychopy import visual, event, core\nimport glob\n\n# --- setup ---\nimages = glob.glob('stimuli/stimulus*.jpg')\n\nwin = visual.Window(fullscr=True, color='black')\n\n# --- welcome screen ---\nwelcome = visual.TextStim(win,\n    text='Welcome to the CogWheel experiment!\\n\\nPress any key to begin.',\n    color='white')\nwelcome.draw()\nwin.flip()\nevent.waitKeys()\n\n# --- trial loop ---\nfor image in images:\n    stim = visual.ImageStim(win, image=image)\n    stim.draw()\n    win.flip()\n    event.waitKeys()\n\n# --- goodbye and shutdown ---\ngoodbye = visual.TextStim(win,\n    text='That was it — thank you!', color='white')\ngoodbye.draw()\nwin.flip()\ncore.wait(2)\n\nwin.close()\ncore.quit()\nKeep this script safe. Block 4 upgrades it, and Session 3 extends it into your Portfolio 2 prototype.",
+    "crumbs": [
+      "Home",
+      "Session 2 · PsychoPy",
+      "Block 2 · Stimuli on the screen",
+      "6 · Exercise 4: Display the CogWheel Stimuli"
+    ]
+  },
+  {
+    "objectID": "session2-psychopy/04_stimuli.html",
+    "href": "session2-psychopy/04_stimuli.html",
+    "title": "4 · Text, Images, and Two Ways to Wait",
+    "section": "",
+    "text": "Block 2 · aim to have Exercise 4 running by lunch (~12:00)\nThe wonderful thing about the draw-flip cycle is that every stimulus type follows it. Images work exactly like text: swap TextStim for ImageStim:",
+    "crumbs": [
+      "Home",
+      "Session 2 · PsychoPy",
+      "Block 2 · Stimuli on the screen",
+      "4 · Text, Images, and Two Ways to Wait"
+    ]
+  },
+  {
+    "objectID": "session2-psychopy/04_stimuli.html#two-ways-to-wait",
+    "href": "session2-psychopy/04_stimuli.html#two-ways-to-wait",
+    "title": "4 · Text, Images, and Two Ways to Wait",
+    "section": "Two ways to wait",
+    "text": "Two ways to wait\nAfter a flip, we decide how long the stimulus stays. There are two fundamentally different answers, and choosing between them is an experimental design decision:\ncore.wait(2)        # the COMPUTER decides: exactly 2 seconds\nevent.waitKeys()    # the PARTICIPANT decides: waits for a key press\n\n\n\n\n\n\n🔮 Predict first — which wait for which screen?\n\n\n\nFor each screen, decide: core.wait() or event.waitKeys()?\n\nan instructions screen · (b) a feedback screen after a response · (c) a brief fixation cross between trials · (d) a word in a self-paced reading experiment\n\n\n\n\n\n\n\nCheck your prediction\n\n\n\n\n\n\nwaitKeys(): people read at different speeds. (b) wait(): fixed, comparable duration for everyone. (c) wait(): fixed and short. (d) waitKeys(): the whole point of self-paced reading is that the participant controls the pace; the time they take is the measurement. More on that in Session 3.",
+    "crumbs": [
+      "Home",
+      "Session 2 · PsychoPy",
+      "Block 2 · Stimuli on the screen",
+      "4 · Text, Images, and Two Ways to Wait"
+    ]
+  },
+  {
+    "objectID": "session2-psychopy/04_stimuli.html#try-it",
+    "href": "session2-psychopy/04_stimuli.html#try-it",
+    "title": "4 · Text, Images, and Two Ways to Wait",
+    "section": "Try it",
+    "text": "Try it\nModify your Chapter 3 script: after the Hello, world! screen, show one CogWheel image (pick any file from stimuli/), participant-paced. Run it.\n\n\n\n\n\n\nShow the code\n\n\n\n\n\nfrom psychopy import visual, event, core\n\nwin = visual.Window(size=(1280, 720), color='black')\n\ntext = visual.TextStim(win, text='Hello, world!',\n                       color='white', height=0.1)\ntext.draw()\nwin.flip()\nevent.waitKeys()\n\nimg = visual.ImageStim(win, image='stimuli/stimulus1_L.jpg')\nimg.draw()\nwin.flip()\nevent.waitKeys()\n\nwin.close()\ncore.quit()\nNote the pattern repeating: prepare, draw, flip, wait — once per screen.",
+    "crumbs": [
+      "Home",
+      "Session 2 · PsychoPy",
+      "Block 2 · Stimuli on the screen",
+      "4 · Text, Images, and Two Ways to Wait"
+    ]
+  },
+  {
+    "objectID": "session1-python/01_getting_started.html",
+    "href": "session1-python/01_getting_started.html",
+    "title": "1 · Getting Started",
+    "section": "",
+    "text": "Block 1 · TODO: which chapters belong to this block, and by when\n\n\n\n\n\n\n\n🔮 Predict first\n\n\n\nRead this snippet and write down exactly what it will print — before running it.\nprint(\"Hello, workshop!\")\n\n\n\n\n\n\n\n\nCheck your prediction\n\n\n\n\n\nIt prints:\nHello, workshop!",
+    "crumbs": [
+      "Home",
+      "Session 1 · Python basics",
+      "1 · Getting Started"
+    ]
+  }
+]

@@ -1,0 +1,41 @@
+---
+title: "9 · Conditional Feedback"
+---
+
+::: {.milestone}
+**Block 3** · aim to finish chapters 7-9 by the afternoon break (~14:15)
+:::
+
+To give feedback we must know whether a response was *correct*, but "correct" is not something the computer knows by itself. We have to **operationalise** it: define a rule, in code, that maps stimulus properties onto expected responses. In the CogWheel experiment, that rule lives in the filenames: images ending in `_L.jpg` require a left response, `_R.jpg` a right response.
+
+You already met the tool for reading that rule in Chapter 1: the substring check.
+
+```python
+# derive the correct answer from the stimulus filename
+if '_L' in image:
+    correct_key = 'left'
+else:
+    correct_key = 'right'
+
+# compare the response to the correct answer
+if key == correct_key:
+    feedback = visual.ImageStim(win, image='success.jpg')
+else:
+    feedback = visual.ImageStim(win, image='failure.jpg')
+
+feedback.draw()
+win.flip()
+core.wait(2)     # show the feedback for exactly 2 seconds
+```
+
+Notice the structure: **two small decisions rather than one big one**. The first if-block derives the correct answer from the stimulus; the second compares it to the response. Splitting logic like this is good style — and much easier to debug.
+
+::: {.callout-note .predict icon="false" title="🔮 Predict first"}
+(a) What does `'_L' in 'stimuli/stimulus7_L.jpg'` evaluate to? (b) Why `core.wait(2)` rather than `event.waitKeys()` for feedback? (c) Why does the feedback need its *own* `draw()` and `flip()` when we already flipped for the stimulus?
+
+::: {.callout-tip collapse="true" title="Check your prediction"}
+(a) `True`. (b) Feedback should be a fixed, brief event, identical for everyone and not something to sit on or skip. (c) Every new screen needs its own draw-flip: the stimulus flip put the cogwheel on stage; replacing it with feedback means drawing backstage and raising the curtain again.
+:::
+:::
+
+This is the last piece you need. On to the main exercise of the day.

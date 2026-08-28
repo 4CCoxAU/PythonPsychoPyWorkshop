@@ -1,0 +1,68 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Python × PsychoPy Workshop"
+  description: "Methods 01 × Cognition & Communication"
+  navbar:
+    background: "#14213D"
+    search: true
+    left:
+      - href: index.qmd
+        text: "Home"
+      - href: session1-python/index.qmd
+        text: "Session 1 · Python"
+      - href: session2-psychopy/index.qmd
+        text: "Session 2 · PsychoPy"
+  sidebar:
+    style: "docked"
+    collapse-level: 1
+    contents:
+      - href: index.qmd
+        text: "Workshop overview"
+      - section: "Session 1 · Python basics"
+        contents:
+          - href: session1-python/index.qmd
+            text: "How the day works"
+          - session1-python/01_getting_started.qmd
+          # Add new chapters here as you create them, e.g.:
+          # - session1-python/02_variables.qmd
+          # - session1-python/03_exercise1.qmd
+      - section: "Session 2 · PsychoPy"
+        contents:
+          - href: session2-psychopy/index.qmd
+            text: "How the day works"
+          - section: "Block 1 · From Python to a window"
+            contents:
+              - session2-psychopy/01_warmup.qmd
+              - session2-psychopy/02_psychopy.qmd
+              - session2-psychopy/03_drawflip.qmd
+          - section: "Block 2 · Stimuli on the screen"
+            contents:
+              - session2-psychopy/04_stimuli.qmd
+              - session2-psychopy/05_glob.qmd
+              - session2-psychopy/06_exercise4.qmd
+          - section: "Block 3 · Making it an experiment"
+            contents:
+              - session2-psychopy/07_random.qmd
+              - session2-psychopy/08_responses.qmd
+              - session2-psychopy/09_feedback.qmd
+          - section: "Block 4 · Completing the loop"
+            contents:
+              - session2-psychopy/10_exercise5.qmd
+              - session2-psychopy/11_cogcomm.qmd
+          - href: session2-psychopy/ta_guide.qmd
+            text: "For TAs & instructors"
+  page-navigation: true
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    toc-depth: 3
+    number-sections: false
+    code-copy: true
+    code-annotations: hover
+    highlight-style: github

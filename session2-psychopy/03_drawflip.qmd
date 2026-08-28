@@ -1,0 +1,87 @@
+---
+title: "3 · The Draw–Flip Cycle (and How to Break It)"
+---
+
+::: {.milestone}
+**Block 1** · aim to finish chapters 1–3 by the first break (~10:30)
+:::
+
+Here is the single most important mechanic of the day. PsychoPy uses *double buffering*: there are two screen buffers, and you never draw directly onto the visible one. Showing a stimulus always takes three steps:
+
+1. **Prepare**: create the stimulus object: `stim = visual.TextStim(win, text='Hi!')`. Nothing appears.
+2. **Draw**: paint it onto the hidden *back buffer*: `stim.draw()`. Still nothing on screen!
+3. **Flip**: swap the buffers: `win.flip()`. The prepared image appears, all at once.
+
+Think of a theatre: the back buffer is backstage, the front buffer is the stage. You can arrange the whole scene backstage. Draw as many stimuli as you like, and `flip()` raises the curtain in a single instant.
+
+Why this design? A typical monitor redraws 60 times per second, so one frame lasts ~16.7 ms. Because the swap happens between two refreshes, **stimulus onset is a single, well-defined moment: the moment of the flip**. In Session 3 we will reset a clock at exactly that moment to measure reaction times.
+
+## Hello, world, the full cycle
+
+Type and run:
+
+```python
+from psychopy import visual, event, core
+
+win = visual.Window(size=(1280, 720), color='black')
+
+text = visual.TextStim(win, text='Hello, world!',
+                       color='white', height=0.1)
+text.draw()      # paint it backstage
+win.flip()       # curtain up!
+
+event.waitKeys() # pause until any key is pressed
+
+win.close()      # close the window
+core.quit()      # end the session cleanly
+```
+
+You should see *Hello, world!* in white on black, staying until you press a key.
+
+## The sabotage lab
+
+Now **break it on purpose** — three times. This is not busywork: each sabotage teaches you to recognise one of today's three most common bugs *before* it happens to you by accident.
+
+::: {.callout-note .predict icon="false" title="🔮 Sabotage 1, predict first"}
+Delete the line `win.flip()`. What will you see when you run it?
+
+::: {.callout-tip collapse="true" title="Check your prediction"}
+A blank black window. The text **was** drawn — but only to the back buffer, which was never swapped to the screen. *Blank screen almost always means a missing flip.*
+:::
+:::
+
+::: {.callout-note .predict icon="false" title="🔮 Sabotage 2, predict first"}
+Put `win.flip()` back. Now delete `event.waitKeys()`. What happens?
+
+::: {.callout-tip collapse="true" title="Check your prediction"}
+The text flashes for a split second and vanishes. The script runs straight to the end, and closing the window takes the text with it. *Every flip needs a waiting step after it, or the participant sees almost nothing.*
+:::
+:::
+
+::: {.callout-note .predict icon="false" title="🔮 Sabotage 3, predict first"}
+Restore everything. Now delete the last two lines (`win.close()` and `core.quit()`). What happens after you press a key?
+
+::: {.callout-tip collapse="true" title="Check your prediction"}
+The script ends, but the window lingers as a frozen grey zombie. Always shut down cleanly — and now you know what a zombie window means when you see one.
+:::
+:::
+
+Repair your script so all three sabotages are undone. Say the mantra once, *prepare, draw, flip, wait*, and take a break if the clock says so.
+
+::: {.callout-tip collapse="true" title="Checkpoint · end of Block 1"}
+```python
+from psychopy import visual, event, core
+
+win = visual.Window(size=(1280, 720), color='black')
+
+text = visual.TextStim(win, text='Hello, world!',
+                       color='white', height=0.1)
+text.draw()
+win.flip()
+
+event.waitKeys()
+
+win.close()
+core.quit()
+```
+:::

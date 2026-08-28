@@ -1,0 +1,138 @@
+---
+title: "6 · Exercise 4: Display the CogWheel Stimuli"
+---
+
+::: {.milestone}
+**Block 2 milestone** · this is the "running by lunch" target
+:::
+
+::: {.exercise-banner}
+<div class="ex-kicker">Hands-on · work in pairs · swap driver/navigator halfway</div>
+<div class="ex-title">Exercise 4 — Display the CogWheel stimuli</div>
+<div class="ex-sub">Your first real experiment script: show every stimulus image, one by one, participant-paced.</div>
+:::
+
+::: {.success-clip}
+🎬 **What success looks like:** *(embed a 10-second screen recording here: welcome text → a few cogwheel images advancing on key presses → goodbye text)* — your goal is to make your screen do exactly this.
+:::
+
+Build it in five steps, **running your script after every step**. Try each step yourself first; the folded code is there when you need it.
+
+### Step 1 — Collect the stimuli
+
+Start a new script `cogwheel.py` in the workshop folder. Import what you need and collect the image files into a list. Print it to check.
+
+::: {.callout-tip collapse="true" title="Show the code"}
+```python
+from psychopy import visual, event, core
+import glob
+
+images = glob.glob('stimuli/stimulus*.jpg')
+print(images)   # sanity check: a list of file paths
+```
+:::
+
+### Step 2 — Open the window
+
+A window with a black background. Keep `fullscr=False` until everything works, then switch it on.
+
+::: {.callout-tip collapse="true" title="Show the code"}
+```python
+win = visual.Window(fullscr=True, color='black')
+```
+:::
+
+### Step 3 — Welcome the participant
+
+A welcome message in white text; wait for a key press before starting. Remember: prepare, draw, flip, wait.
+
+::: {.callout-tip collapse="true" title="Show the code"}
+```python
+welcome = visual.TextStim(win,
+    text='Welcome to the CogWheel experiment!\n\nPress any key to begin.',
+    color='white')
+welcome.draw()
+win.flip()
+event.waitKeys()
+```
+:::
+
+### Step 4 — The trial loop
+
+Loop over the images: for each one, create an `ImageStim`, draw, flip, wait for a key press.
+
+::: {.callout-tip collapse="true" title="Show the code"}
+```python
+for image in images:
+    stim = visual.ImageStim(win, image=image)
+    stim.draw()
+    win.flip()
+    event.waitKeys()
+```
+:::
+
+### Step 5 — Goodbye and shutdown
+
+After the loop: a goodbye message for two seconds, then close and quit.
+
+::: {.callout-tip collapse="true" title="Show the code"}
+```python
+goodbye = visual.TextStim(win,
+    text='That was it — thank you!', color='white')
+goodbye.draw()
+win.flip()
+core.wait(2)
+
+win.close()
+core.quit()
+```
+:::
+
+::: {.callout-warning title="Stuck? The usual suspects"}
+- **Empty list from glob** → path problem; your script is not next to `stimuli/`.
+- **Blank screen in the loop** → missing `win.flip()`, or a `draw()` outside the loop.
+- **Only one image ever shows** → indentation: is everything that belongs to a trial *inside* the loop?
+
+Ten minutes stuck? → partner → checkpoint below → red sticky.
+:::
+
+**Finished early?** Add a fixation cross (`visual.TextStim(win, text='+')`) shown for half a second between images, or count trials with a variable and show the count in the goodbye message.
+
+::: {.callout-tip collapse="true" title="Checkpoint · complete Exercise 4 script"}
+```python
+from psychopy import visual, event, core
+import glob
+
+# --- setup ---
+images = glob.glob('stimuli/stimulus*.jpg')
+
+win = visual.Window(fullscr=True, color='black')
+
+# --- welcome screen ---
+welcome = visual.TextStim(win,
+    text='Welcome to the CogWheel experiment!\n\nPress any key to begin.',
+    color='white')
+welcome.draw()
+win.flip()
+event.waitKeys()
+
+# --- trial loop ---
+for image in images:
+    stim = visual.ImageStim(win, image=image)
+    stim.draw()
+    win.flip()
+    event.waitKeys()
+
+# --- goodbye and shutdown ---
+goodbye = visual.TextStim(win,
+    text='That was it — thank you!', color='white')
+goodbye.draw()
+win.flip()
+core.wait(2)
+
+win.close()
+core.quit()
+```
+
+**Keep this script safe**. Block 4 upgrades it, and Session 3 extends it into your Portfolio 2 prototype.
+:::

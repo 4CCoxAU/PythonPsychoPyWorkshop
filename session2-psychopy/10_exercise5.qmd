@@ -1,0 +1,193 @@
+---
+title: "10 · Exercise 5: Responses and Feedback"
+---
+
+::: {.milestone}
+**Block 4 milestone** · Exercise 5 running by ~15:30; advanced tasks if time
+:::
+
+::: {.exercise-banner}
+<div class="ex-kicker">Hands-on · work in pairs · swap driver/navigator halfway</div>
+<div class="ex-title">Exercise 5 — Responses and feedback</div>
+<div class="ex-sub">Upgrade Exercise 4 into a complete experiment: randomised order, left/right responses, feedback on every trial.</div>
+:::
+
+::: {.success-clip}
+🎬 **What success looks like:** *(embed a 15-second screen recording here: welcome → cogwheel image → left-arrow press → success image for 2 s → next cogwheel → wrong answer → failure image → … → goodbye)*
+:::
+
+**Make a copy of your Exercise 4 script first** (e.g. `cogwheel_v2.py`). Session 3 wants the original too. Then upgrade it in four steps, running after each.
+
+### Step 1: Shuffle the stimuli
+
+Randomise the order of `images` right after the `glob` line. Remember the gotcha from Chapter 7.
+
+::: {.callout-tip collapse="true" title="Show the code"}
+```python
+import random
+
+images = glob.glob('stimuli/stimulus*.jpg')
+random.shuffle(images)
+```
+:::
+
+### Step 2: Restrict the responses
+
+In the trial loop, replace the plain `event.waitKeys()` with one that accepts only the arrow keys, and store the pressed key.
+
+::: {.callout-tip collapse="true" title="Show the code"}
+```python
+keys = event.waitKeys(keyList=['left', 'right'])
+key = keys[0]
+```
+:::
+
+### Step 3: Determine correctness
+
+Derive the correct key from the filename (`_L.jpg` → left, `_R.jpg` → right) and compare.
+
+::: {.callout-tip collapse="true" title="Show the code"}
+```python
+if '_L' in image:
+    correct_key = 'left'
+else:
+    correct_key = 'right'
+```
+:::
+
+### Step 4: Give feedback
+
+`success.jpg` for correct answers, `failure.jpg` otherwise, shown for exactly 2 seconds before the next trial.
+
+::: {.callout-tip collapse="true" title="Show the code"}
+```python
+if key == correct_key:
+    feedback = visual.ImageStim(win, image='success.jpg')
+else:
+    feedback = visual.ImageStim(win, image='failure.jpg')
+
+feedback.draw()
+win.flip()
+core.wait(2)
+```
+:::
+
+::: {.callout-warning title="Stuck? The usual suspects"}
+- `TypeError: 'NoneType' object is not iterable` → you assigned `random.shuffle()`'s result (Chapter 7).
+- Feedback never appears → it needs its own `draw()` **and** `flip()` (Chapter 9).
+- Everything inside the loop shows only once → indentation.
+
+Ten minutes → partner → checkpoint → red sticky.
+:::
+
+::: {.callout-tip collapse="true" title="Checkpoint · complete Exercise 5 script"}
+```python
+from psychopy import visual, event, core
+import glob
+import random
+
+# --- setup ---
+images = glob.glob('stimuli/stimulus*.jpg')
+random.shuffle(images)
+
+win = visual.Window(fullscr=True, color='black')
+
+# --- welcome screen ---
+welcome = visual.TextStim(win,
+    text='Welcome to the CogWheel experiment!\n\n'
+         'Press the LEFT or RIGHT arrow key to respond.\n\n'
+         'Press any key to begin.',
+    color='white')
+welcome.draw()
+win.flip()
+event.waitKeys()
+
+# --- trial loop ---
+for image in images:
+    # show the stimulus
+    stim = visual.ImageStim(win, image=image)
+    stim.draw()
+    win.flip()
+
+    # collect the response
+    keys = event.waitKeys(keyList=['left', 'right'])
+    key = keys[0]
+
+    # derive the correct answer from the filename
+    if '_L' in image:
+        correct_key = 'left'
+    else:
+        correct_key = 'right'
+
+    # conditional feedback, shown for 2 seconds
+    if key == correct_key:
+        feedback = visual.ImageStim(win, image='success.jpg')
+    else:
+        feedback = visual.ImageStim(win, image='failure.jpg')
+
+    feedback.draw()
+    win.flip()
+    core.wait(2)
+
+# --- goodbye and shutdown ---
+goodbye = visual.TextStim(win,
+    text='That was it — thank you!', color='white')
+goodbye.draw()
+win.flip()
+core.wait(2)
+
+win.close()
+core.quit()
+```
+:::
+
+## Advanced (pick any, in any order)
+
+**A. Keep score.** Count correct answers; report the score in the goodbye message using an f-string.
+
+::: {.callout-tip collapse="true" title="Show the code"}
+```python
+# before the loop:
+n_correct = 0
+
+# in the correct-answer branch:
+n_correct = n_correct + 1
+
+# goodbye message:
+goodbye = visual.TextStim(win,
+    text=f'You got {n_correct} out of {len(images)} correct. Thank you!',
+    color='white')
+```
+:::
+
+**B. Add sounds.** Play a sound on correct answers.
+
+::: {.callout-tip collapse="true" title="Show the code"}
+```python
+from psychopy import sound
+
+# once, before the loop:
+correct_sound = sound.Sound('correct.wav')
+
+# in the correct-answer branch:
+correct_sound.play()
+```
+:::
+
+**C. Write a reusable function.** The prepare–draw–flip–wait pattern repeats constantly — exactly what functions are for. Write `show_image()` and use it in your loop.
+
+::: {.callout-tip collapse="true" title="Show the code"}
+```python
+def show_image(win, image_path, keyList=None):
+    stim = visual.ImageStim(win, image=image_path)
+    stim.draw()
+    win.flip()
+    keys = event.waitKeys(keyList=keyList)
+    return keys[0]
+
+# the trial loop becomes wonderfully short:
+for image in images:
+    key = show_image(win, image, keyList=['left', 'right'])
+    ...
+```
+:::

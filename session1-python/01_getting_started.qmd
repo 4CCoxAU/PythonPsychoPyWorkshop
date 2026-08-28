@@ -1,0 +1,24 @@
+---
+title: "1 · Getting Started"
+---
+
+::: {.milestone}
+**Block 1** · TODO: which chapters belong to this block, and by when
+:::
+
+
+::: {.callout-note .predict icon="false" title="🔮 Predict first"}
+Read this snippet and write down exactly what it will print — **before** running it.
+
+```python
+print("Hello, workshop!")
+```
+:::
+
+::: {.callout-tip collapse="true" title="Check your prediction"}
+It prints:
+
+```
+Hello, workshop!
+```
+:::
