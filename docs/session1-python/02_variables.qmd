@@ -1,5 +1,5 @@
 ---
-title: "1 · Getting Started: Setting up your Python environment"
+title: "2 · Basics: Variables & data types"
 ---
 
 ::: {.milestone}

@@ -1,5 +1,5 @@
 ---
-title: "Python × PsychoPy Workshop"
+title: "Programming experiments: Python x PsychoPy"
 subtitle: "Methods 01 × Cognition & Communication"
 ---
 
@@ -11,7 +11,20 @@ Welcome! Over the coming workshop sessions, you'll go from typing your very firs
 
 ## Why programming?
 
-Nearly every empirical experiment in cognitive science — reaction-time studies, reading paradigms, eye-tracking, EEG — is implemented in code. A working knowledge of Python allows you to build precisely the experiment your research question requires, to understand the structure and provenance of your data, and to diagnose problems when they arise. The aim of these three sessions is a modest form of fluency: by the end, the experiment running on your screen should be a system you can read, modify, and reason about. These skills will hopefully outlast the course: designing, implementing, and troubleshooting your own experiments is part of the everyday craft of working scientists, in cognitive science and well beyond.
+Nearly every empirical experiment in cognitive science — reaction-time studies, reading paradigms, eye-tracking, EEG — is implemented in code. A working knowledge of Python allows you to build precisely the experiment your research question requires, to understand the structure and provenance of your data, and to diagnose problems when they arise. 
+
+The aim of these three sessions is a modest form of fluency: by the end, the experiment running on your screen should be a system you can read, modify, and reason about. These skills will hopefully outlast the course: designing, implementing, and troubleshooting your own experiments is part of the everyday craft of working scientists, in cognitive science and well beyond.
+
+
+## Why Python and not R?
+
+The Python programming language is optimal for coding *experiments* because it has a special library called *PsychoPy* for doing so. 
+
+In contrast, the R programming language is optimal for statistical analyses, as it was designed specifically for this purpose.
+
+Therefore, this workshop on programming for experiments focuses on Python instead of R, which you instead cover in your Methods 1 practical classes. 
+
+However, as you will learn over the course of the semester, many of the programming concepts that we cover in Session 1 are generalizable to R and all other languages. 
 
 ## The three sessions
 

@@ -1,0 +1,231 @@
+---
+title: "2 · Basics: Variables & variable types"
+---
+
+::: {.milestone}
+**Block 1** · Learning goals: Understand what a variable is in Python & different types of variables.  
+:::
+
+## What is a variable?
+
+A variable is a name we give to a value so we can store it and use it later in our code. The name stays the same, but the value stored in it can change while the program is running.
+
+For example, a variable can store a number, a word, or a list of values.
+
+::: {.callout-tip collapse="true" title="Make a variable and inspect its value in the console"}
+
+Let's create our first variable in Python. We will call it `my_name` and store a name in it.
+
+```python
+my_name = "anna"
+```
+
+We can also add comments to explain what our code is doing. In Python, a comment starts with `#`. Everything after `#` on that line is ignored by Python.
+
+```python
+# This variable stores my name.
+my_name = "anna"
+```
+
+Now run the code by selecting it in your file and pressing *Shift+Enter*.
+
+You will see the code be executed in the console below. If you then type `my_name` in a new line and press *Enter*, Python will print the value stored in the variable.
+
+![](images/my_name_output.PNG){width="50%" fig-align="center" fig-cap="center"}
+
+An easier way to see the output is to use the `print()` function:
+
+```python
+# This variable stores my name.
+my_name = "anna"
+
+# This line prints the value stored in my_name.
+print(my_name)
+```
+
+Select these lines and press *Shift+Enter*. You should see the value of `my_name` appear in the console.
+
+:::
+
+## Variable types
+
+Python allows us to create variables that store different kinds of data. Today we will focus on some of the most common variable types.
+
+We can find the type of a variable by using the `type()` function:
+
+```python
+# Query the type of my_name.
+type(my_name)
+```
+
+This returns `<class 'str'>`, which means that `my_name` is a string variable.
+
+::: {.callout-tip collapse="true" title="Data Type 1: Regular string variables"}
+
+String variables are defined by strings of characters. String variables are specified using single or double quotation marks around the string.
+
+```python 
+# If you use single quotes here, it won't work. Why?
+dog_name_possessive = 'anna's dog's name is..'
+
+# If you use double-quotes here it will work. 
+dog_name_possessive = "anna's dog's name is.."
+
+```
+
+Strings are stored like arrays of characters, meaning that you can individually access single characters in the string using *indexing*.
+
+```python
+# Here you are indexing the first 4 characters in the variable my_name_possessive. 
+# You use square brackets around the indices that you want to extract.
+dog_name_possessive[0:4] # extract 4 characters from the 0th character.
+
+# you can also count backwards from the end of a string using the minus sign, e.g.:
+dog_name_possessive[-4:]
+
+```
+
+You may have noticed that we start indexing at 0 instead of 1. This is because Python is a zero-indexed language, so whenever you have a multi-item variable, the first item is always indexed using 0 instead of 1. CAREFUL: R is a 1-indexed langauge, so you always index the first item in a multi-item variable using 1 in R instead of 0. 
+
+:::
+
+::: {.callout-tip collapse="true" title="String methods"}
+
+String variables have many built-in methods that we can call on them. Here are some useful string methods:
+
+1. split()
+
+If you type the name of your string variable followed by `.split()`, Python will split the string into smaller pieces using the space character as the default delimiter:
+
+```python
+# You can split strings by delimiters (e.g., space by default).
+dog_name_possessive.split()
+```
+The `split()` method returns a list of strings. Each item in the list is one part of the original text, separated by the chosen delimiter (space by default).
+
+```python
+# you can store the output from this in a variable. 
+split_variable = dog_name_possessive.split()
+
+# and you will see that this is an indexable list.
+split_variable[0]
+
+# and you can extract individual characters using indexing too!
+split_variable[0][0] # first letter in first word.
+split_variable[1][0] # first letter in second word.
+split_variable[1][1] # second letter in second word. 
+
+```
+
+You can also use `split()` with a different delimiter, such as an underscore:
+
+```python
+subject_id = "S_01"
+subject_id.split("_")
+```
+
+2. upper()
+
+The `upper()` method converts all letters in a string to uppercase.
+
+```python
+name = "anna"
+name.upper()
+
+# or store the result in a new variable.
+name_upper = name.upper()
+print(name_upper)
+```
+
+Here are a few more useful string methods:
+
+```python
+word = " subject_01 "
+print(word.lower())
+print(word.strip())
+print(word.replace("p", "P"))
+print(word.startswith(" "))
+print(word.endswith(" "))
+```
+
+And, finally, we can get the length of a string variable using len() (not a string-specific method)
+
+```python
+len(word)
+````
+
+There's lots more that you can do with strings, but these are the basics!
+
+:::
+
+
+::: {.callout-tip collapse="true" title="Data Type 2: Regular numeric variables"}
+
+Okay, now let's turn to our other fundamental variable type: numeric. There are two basic types of numeric variables: 
+
+1. Integers: Whole numbers (no decimal point)
+2. Floating points: Numbers with a decimal point
+
+```python
+
+# this is an integer.
+a = 1
+type(a)
+
+# this is a floating point.
+b = 1.5 
+type (b)
+
+# this is also a floating point. Why?
+c = 1.00
+type(c) 
+
+# what happens when you perform operations?
+d = b + c
+type(d)
+
+# even when operations on two floats produce a whole number, the output will be represented as a floating point (i.e., with a decimal)
+e = 1.5 + 1.5
+type(e)
+
+```
+
+Standard numeric operations are addition (shown above), subtraction, multiplication and division. Below you can see the operators used for these.
+
+```python
+# for subtraction use '-'
+print(a - b)
+
+# for multiplication, use '*'
+print(a * b)
+
+# for division use '/'
+print(a / b)
+
+
+```
+
+:::
+
+::: {.callout-tip collapse="true" title="Printing variables"}
+
+Imagine that you want to print reaction times for a given subject on an experiment screen.
+
+The subject is different in each experiment, and so is their reaction time. 
+
+You can create a special expression called an "f-string" where you embed the subject ID variable and the reaction time variable in a string. 
+
+Start the string with `f`, then place the variable names inside curly brackets: `{}`.
+
+```python
+reaction_time = 0.45
+message = f"Reaction time for {subject_id}: {reaction_time:.2f} seconds"
+print(message)
+```
+In this example `{subject_id} inserts the value of the subject ID variable in the string and `{reaction_time:.2f}` inserts the value of `reaction_time`. The `.2f` formats the number with two digits after the decimal point.
+
+This prints `Reaction time for S_10: 0.45 seconds`.
+
+:::
+
+

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Programming experiments: Python x PsychoPy – Python &amp; PsychoPy Workshop - Aarhus University, Department of Linguistics, Cognitive Science and Semiotics, Fall 2026</title>
+<title>2 · Exercise 1a: Variables &amp; variable types – Python &amp; PsychoPy Workshop - Aarhus University, Department of Linguistics, Cognitive Science and Semiotics, Fall 2026</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,31 +26,67 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./session1-python/index.html" rel="next">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-bb62276ab45c84d9efd712f51ff97b5a.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-5a1953863e1f72ef3b996ef827f01ca7.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-bb62276ab45c84d9efd712f51ff97b5a.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-8111375b329e67f367d25c6ca2fac386.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-f47233b3dada9760e9eff975721b4787.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-8111375b329e67f367d25c6ca2fac386.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../session1-python/04_lists.qmd" rel="next">
+<link href="../session1-python/02_variables.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bb62276ab45c84d9efd712f51ff97b5a.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-5a1953863e1f72ef3b996ef827f01ca7.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bb62276ab45c84d9efd712f51ff97b5a.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-8111375b329e67f367d25c6ca2fac386.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-f47233b3dada9760e9eff975721b4787.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-8111375b329e67f367d25c6ca2fac386.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -80,7 +116,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -252,7 +288,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Python &amp; PsychoPy Workshop - Aarhus University, Department of Linguistics, Cognitive Science and Semiotics, Fall 2026</span>
     </a>
   </div>
@@ -263,15 +299,15 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link active" href="../index.html" aria-current="page"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./session1-python/index.html"> 
+    <a class="nav-link" href="../session1-python/index.html"> 
 <span class="menu-text">Session 1 · Python</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./session2-psychopy/index.html"> 
+    <a class="nav-link" href="../session2-psychopy/index.html"> 
 <span class="menu-text">Session 2 · PsychoPy</span></a>
   </li>  
 </ul>
@@ -286,7 +322,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Workshop overview</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../session1-python/index.html">Session 1 · Python basics</a></li><li class="breadcrumb-item"><a href="../session1-python/02_variables.html">Block 2 · Variables and data types</a></li><li class="breadcrumb-item"><a href="../session1-python/03_exercise1_variables.html">Exercise 1a: Variables &amp; data types</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -300,22 +336,22 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Workshop overview</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Session 1 · Python basics</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session1-python/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../session1-python/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">How the day works</span></a>
   </div>
 </li>
@@ -330,7 +366,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session1-python/01_getting_started.html" class="sidebar-item-text sidebar-link">
+  <a href="../session1-python/01_getting_started.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Getting started</span></a>
   </div>
 </li>
@@ -338,22 +374,22 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
  <span class="menu-text">Block 2 · Variables and data types</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session1-python/02_variables.html" class="sidebar-item-text sidebar-link">
+  <a href="../session1-python/02_variables.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Variables and regular data types</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session1-python/03_exercise1_variables.html" class="sidebar-item-text sidebar-link">
+  <a href="../session1-python/03_exercise1_variables.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Exercise 1a: Variables &amp; data types</span></a>
   </div>
 </li>
@@ -370,19 +406,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session1-python/04_lists.html" class="sidebar-item-text sidebar-link">
+  <a href="../session1-python/04_lists.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lists</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session1-python/05_exercise2_lists.html" class="sidebar-item-text sidebar-link">
+  <a href="../session1-python/05_exercise2_lists.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exercise 2: Lists</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session1-python/06_loops.html" class="sidebar-item-text sidebar-link">
+  <a href="../session1-python/06_Loops.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Loops</span></a>
   </div>
 </li>
@@ -399,13 +435,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session1-python/07_exercise3_loops.qmd" class="sidebar-item-text sidebar-link">
+  <a href="../session1-python/07_exercise3_loops.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exercise 3: Loops</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session1-python/08_logical_operations.qmd" class="sidebar-item-text sidebar-link">
+  <a href="../session1-python/08_logical_operations.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Logical operations</span></a>
   </div>
 </li>
@@ -422,13 +458,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session1-python/09_functions.qmd" class="sidebar-item-text sidebar-link">
+  <a href="../session1-python/09_functions.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Functions &amp; modules</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session1-python/10_exercise4.qmd" class="sidebar-item-text sidebar-link">
+  <a href="../session1-python/10_exercise4.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exercise 4</span></a>
   </div>
 </li>
@@ -447,7 +483,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session2-psychopy/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../session2-psychopy/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">How the day works</span></a>
   </div>
 </li>
@@ -462,19 +498,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session2-psychopy/01_warmup.html" class="sidebar-item-text sidebar-link">
+  <a href="../session2-psychopy/01_warmup.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">1 · Warming Up: A Python Refresher</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session2-psychopy/02_psychopy.html" class="sidebar-item-text sidebar-link">
+  <a href="../session2-psychopy/02_psychopy.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">2 · Meet PsychoPy: Three Modules and a Window</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session2-psychopy/03_drawflip.html" class="sidebar-item-text sidebar-link">
+  <a href="../session2-psychopy/03_drawflip.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">3 · The Draw–Flip Cycle (and How to Break It)</span></a>
   </div>
 </li>
@@ -491,19 +527,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session2-psychopy/04_stimuli.html" class="sidebar-item-text sidebar-link">
+  <a href="../session2-psychopy/04_stimuli.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">4 · Text, Images, and Two Ways to Wait</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session2-psychopy/05_glob.html" class="sidebar-item-text sidebar-link">
+  <a href="../session2-psychopy/05_glob.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">5 · Let Python Find Your Stimuli</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session2-psychopy/06_exercise4.html" class="sidebar-item-text sidebar-link">
+  <a href="../session2-psychopy/06_exercise4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">6 · Exercise 4: Display the CogWheel Stimuli</span></a>
   </div>
 </li>
@@ -520,19 +556,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session2-psychopy/07_random.html" class="sidebar-item-text sidebar-link">
+  <a href="../session2-psychopy/07_random.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">7 · Randomising Trial Order</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session2-psychopy/08_responses.html" class="sidebar-item-text sidebar-link">
+  <a href="../session2-psychopy/08_responses.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">8 · Collecting Keyboard Responses</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session2-psychopy/09_feedback.html" class="sidebar-item-text sidebar-link">
+  <a href="../session2-psychopy/09_feedback.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">9 · Conditional Feedback</span></a>
   </div>
 </li>
@@ -549,13 +585,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session2-psychopy/10_exercise5.html" class="sidebar-item-text sidebar-link">
+  <a href="../session2-psychopy/10_exercise5.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">10 · Exercise 5: Responses and Feedback</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session2-psychopy/11_cogcomm.html" class="sidebar-item-text sidebar-link">
+  <a href="../session2-psychopy/11_cogcomm.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">11 · From Cogwheels to Words</span></a>
   </div>
 </li>
@@ -563,7 +599,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session2-psychopy/ta_guide.qmd" class="sidebar-item-text sidebar-link">
+  <a href="../session2-psychopy/ta_guide.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">For TAs &amp; instructors</span></a>
   </div>
 </li>
@@ -574,27 +610,16 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#why-programming" id="toc-why-programming" class="nav-link active" data-scroll-target="#why-programming">Why programming?</a></li>
-  <li><a href="#why-python-and-not-r" id="toc-why-python-and-not-r" class="nav-link" data-scroll-target="#why-python-and-not-r">Why Python and not R?</a></li>
-  <li><a href="#the-three-sessions" id="toc-the-three-sessions" class="nav-link" data-scroll-target="#the-three-sessions">The three sessions</a></li>
-  <li><a href="#how-the-sessions-work" id="toc-how-the-sessions-work" class="nav-link" data-scroll-target="#how-the-sessions-work">How the sessions work</a></li>
-  <li><a href="#what-you-need" id="toc-what-you-need" class="nav-link" data-scroll-target="#what-you-need">What you need</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../session1-python/index.html">Session 1 · Python basics</a></li><li class="breadcrumb-item"><a href="../session1-python/02_variables.html">Block 2 · Variables and data types</a></li><li class="breadcrumb-item"><a href="../session1-python/03_exercise1_variables.html">Exercise 1a: Variables &amp; data types</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Programming experiments: Python x PsychoPy</h1>
-<p class="subtitle lead">Methods 01 × Cognition &amp; Communication</p>
+<h1 class="title">2 · Exercise 1a: Variables &amp; variable types</h1>
 </div>
 
 
@@ -611,47 +636,167 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Welcome! Over the coming workshop sessions, you’ll go from typing your very first line of Python to watching a full behavioural experiment run on your own screen: window, stimuli, responses, feedback, the lot. Between you and that moment stand a handful of Python concepts and a few dozen extremely fixable error messages. We assume no programming experience. If you can rename a file, you’re qualified to start.</p>
 <div class="milestone">
-<p><strong>The arc of the workshop</strong> · Session 1 builds the Python foundations → Session 2 turns them into an experiment → Session 3 extends it into your Portfolio 2 prototype.</p>
+<p><strong>Block 1</strong> · Learning goals: Understand what a variable is in Python &amp; different types of variables.</p>
 </div>
-<section id="why-programming" class="level2">
-<h2 class="anchored" data-anchor-id="why-programming">Why programming?</h2>
-<p>Nearly every empirical experiment in cognitive science — reaction-time studies, reading paradigms, eye-tracking, EEG — is implemented in code. A working knowledge of Python allows you to build precisely the experiment your research question requires, to understand the structure and provenance of your data, and to diagnose problems when they arise.</p>
-<p>The aim of these three sessions is a modest form of fluency: by the end, the experiment running on your screen should be a system you can read, modify, and reason about. These skills will hopefully outlast the course: designing, implementing, and troubleshooting your own experiments is part of the everyday craft of working scientists, in cognitive science and well beyond.</p>
-</section>
-<section id="why-python-and-not-r" class="level2">
-<h2 class="anchored" data-anchor-id="why-python-and-not-r">Why Python and not R?</h2>
-<p>The Python programming language is optimal for coding <em>experiments</em> because it has a special library called <em>PsychoPy</em> for doing so.</p>
-<p>In contrast, the R programming language is optimal for statistical analyses, as it was designed specifically for this purpose.</p>
-<p>Therefore, this workshop on programming for experiments focuses on Python instead of R, which you instead cover in your Methods 1 practical classes.</p>
-<p>However, as you will learn over the course of the semester, many of the programming concepts that we cover in Session 1 are generalizable to R and all other languages.</p>
-</section>
-<section id="the-three-sessions" class="level2">
-<h2 class="anchored" data-anchor-id="the-three-sessions">The three sessions</h2>
-<p><strong><a href="./session1-python/index.html">Session 1 · Python basics</a></strong> Variables, lists, loops, conditionals, functions. These are the handful of building blocks that all programs are made of. Everything you learn here gets used directly in Session 2.</p>
-<p><strong><a href="./session2-psychopy/index.html">Session 2 · Introduction to PsychoPy</a></strong> PsychoPy is the Python library psychologists use to run experiments: it opens windows, draws stimuli, and records keypresses with precise timing. You build the <strong>CogWheel experiment</strong> step by step and leave with a script that runs: images in random order, keyboard responses, feedback on every trial, and more..</p>
-<p><strong>Session 3 · From cogwheels to words</strong> <em>(materials coming)</em> Swap the images for words, add a clock and a logfile, and your CogWheel script becomes a <strong>self-paced reading experiment</strong>, the direct starting point for your Portfolio 2 prototype.</p>
-</section>
-<section id="how-the-sessions-work" class="level2">
-<h2 class="anchored" data-anchor-id="how-the-sessions-work">How the sessions work</h2>
-<p>Each session follows the same rhythm: a short lecture introduces the concepts and demonstrates them live, and you then put them to work in a set of exercises you complete on your own, at your own pace, with the teaching team circulating. Three habits will serve you well throughout:</p>
-<ul>
-<li><strong>Predict before you run.</strong> Whenever you see a 🔮 Predict first box, write down what the code will do before running it.</li>
-<li><strong>Run constantly.</strong> Run your code after every small change, not after twenty lines. Small steps make bugs easy to find.</li>
-<li><strong>Never stay stuck.</strong> Ten minutes on the same bug is the signal to ask: check the error message, unfold the solution, or wave a teacher over. Sitting silently with a bug is the one wrong way to use these sessions.</li>
-</ul>
-</section>
-<section id="what-you-need" class="level2">
-<h2 class="anchored" data-anchor-id="what-you-need">What you need</h2>
-<ul>
-<li>Your own laptop with <strong>PsychoPy installed</strong>. Install instructions are sent out before Session 1, and each session starts with a setup check. If the install fights back, come 15 minutes early.</li>
-<li>Curiosity. A willingness to try things, break things, and read the occasional error message will carry you further than any prior experience would.</li>
-</ul>
-<p>Ready? Start with <a href="./session1-python/index.html">Session 1</a>.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Make a new Python program &amp; save the file">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Make a new Python program &amp; save the file
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Create a new Python code file in the Coder on UCloud.</p>
+<p>Save the file in /work/cogsci_methods01_e26 (or whatever you have named your methods cosgci folder).</p>
+</div>
+</div>
+</div>
+<p>Now complete the following coding exercises in this file.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Make a variable and inspect its value in the console">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Make a variable and inspect its value in the console
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Make any variable of any type.</p>
+<p>Print the value of the variable to the console.</p>
+<p>Add a comment above the variable to describe it.</p>
+<p>Print the variable type to the console.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Data Type 1: Regular string variables">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Data Type 1: Regular string variables
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Print the character string “Null hypothesis: Eating ice cream does not improve mood”</p>
+<p>Store this expression in a variable called <code>null_hypothesis</code></p>
+<p>Print the first four characters of this string variable.</p>
+<p>Print the last four characters of this string variable.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="String methods">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>String methods
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Split the variable <code>null_hypothesis</code> by spaces and store the output in a new variable called <code>split_var</code>.</p>
+<p>Print split_var[1]` to the console. What is the output? Can you explain what function of the square brackets is? And the index inside of them?</p>
+<p>Can you index the second character in split_var[1]?</p>
+<p>Split the string variable by the colon (:) character and store the output in a new variable.</p>
+<p>Replace the lower case h in the <code>null_hypothesis</code> character string with an upper case H.</p>
+<p>Index the word ‘hypothesis’ in the <code>split_var</code> variable and store the output in a new variable called <code>hypothesis_word</code></p>
+<p>Convert <code>hypothesis_word</code> to all upper case characters and store in a new variabled called <code>hypothesis_word_upper</code></p>
+<p>Replace the word ‘hypothesis’ in the variable <code>null_hypothesis</code> with <code>hypothesis_word_upper</code></p>
+<p>Test whether <code>hypothesis_word_upper</code> starts with <code>H</code></p>
+<p>Get the length of <code>null_hypothesis</code></p>
+<p>There’s lots more that you can do with strings, but these are the basics!</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Data Type 2: Regular numeric variables">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Data Type 2: Regular numeric variables
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Okay, now let’s turn to our other fundamental variable type: numeric. There are two basic types of numeric variables:</p>
+<ol type="1">
+<li>Integers: Whole numbers (no decimal point)</li>
+<li>Floating points: Numbers with a decimal point</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># this is an integer.</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(a)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># this is a floating point.</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="fl">1.5</span> </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span> (b)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># this is also a floating point. Why?</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> <span class="fl">1.00</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(c) </span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># what happens when you perform operations?</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> b <span class="op">+</span> c</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(d)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co"># even when operations on two floats produce a whole number, the output will be represented as a floating point (i.e., with a decimal)</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>e <span class="op">=</span> <span class="fl">1.5</span> <span class="op">+</span> <span class="fl">1.5</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(e)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Standard numeric operations are addition (shown above), subtraction, multiplication and division. Below you can see the operators used for these.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># for subtraction use '-'</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a <span class="op">-</span> b)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># for multiplication, use '*'</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a <span class="op">*</span> b)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># for division use '/'</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a <span class="op">/</span> b)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Printing variables">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Printing variables
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Imagine that you want to print reaction times for a given subject on an experiment screen.</p>
+<p>The subject is different in each experiment, and so is their reaction time.</p>
+<p>You can create a special expression called an “f-string” where you embed the subject ID variable and the reaction time variable in a string.</p>
+<p>Start the string with <code>f</code>, then place the variable names inside curly brackets: <code>{}</code>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>reaction_time <span class="op">=</span> <span class="fl">0.45</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>message <span class="op">=</span> <span class="ss">f"Reaction time for </span><span class="sc">{</span>subject_id<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>reaction_time<span class="sc">:.2f}</span><span class="ss"> seconds"</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(message)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>In this example <code>{subject_id} inserts the value of the subject ID variable in the string and</code>{reaction_time:.2f}<code>inserts the value of</code>reaction_time<code>. The</code>.2f` formats the number with two digits after the decimal point.</p>
+<p>This prints <code>Reaction time for S_10: 0.45 seconds</code>.</p>
+</div>
+</div>
+</div>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1108,10 +1253,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="../session1-python/02_variables.html" class="pagination-link" aria-label="Variables and regular data types">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Variables and regular data types</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./session1-python/index.html" class="pagination-link" aria-label="How the day works">
-        <span class="nav-page-text">How the day works</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../session1-python/04_lists.qmd" class="pagination-link" aria-label="Lists">
+        <span class="nav-page-text">Lists</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

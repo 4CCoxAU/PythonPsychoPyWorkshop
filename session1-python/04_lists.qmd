@@ -1,0 +1,110 @@
+---
+title: "3 · Lists"
+---
+
+::: {.milestone}
+**Block 2** · Learning goals: Understand what a list is and how to use lists effectively.  
+:::
+
+## What are lists?
+
+Lists = literally a list of "elements" that can be changed (are mutable).
+
+How to define lists?
+
+- Variable name = [ item1, item2, item3...itemN ]
+
+Lists can contain items of the same type and different types.
+
+::: {.callout-tip collapse="true" title="Make some lists"}
+
+You can create lists with all strings, all numeric data, or a combination, see below. 
+
+```python
+
+# first simple lists of same type items.
+shopping = [ "apples", "pears", "bananas" ] 
+test_scores = [ 90, 60, 100, 82]
+
+# now mixed items.
+mixed_list = [ "cats", 7, 309.45 ]
+
+```
+You can print lists as below. 
+
+```python
+
+print(test_scores)
+print(mixed_list)
+
+```
+
+You can also combine lists. 
+
+```python
+
+# now lists of lists!
+combined = [ shopping, test_scores, mixed_list ]
+
+```
+:::
+
+::: {.callout-tip collapse="true" title="Indexing lists"}
+
+We can also index lists (just like we indexed character strings), i.e., by using the square brackets after the list name, and putting the index inside of the square brackets. See below. 
+
+```python
+
+# Let's index our lists!
+
+print(shopping[0])
+print(shopping[1])
+print(shopping[2])
+
+# Sub-indexing. What does the below return?
+print(shopping[0][0:2])
+
+```
+
+You may recognize the above syntax for indexing lists from the previous learning block.
+
+If you do, that's because we were already working with lists when we used the `.split` method for character strings. 
+Splitting a character string by a delimiter such as a space returns a list, where each item is a string of characters that were not separated by the delimiter. 
+
+:::
+
+
+::: {.callout-tip collapse="true" title="Changing list items"}
+
+Lists are mutable, meaning that we can change their items. For example, you can:
+
+1. Replace a list item with another (using indexing)
+2. Append an item to the end of a list.
+3. Insert a new item into a list between two existing items. 
+
+```python
+
+# Here is our original list. 
+print(shopping)
+
+# And now let's replace the second list item with "kiwi"
+shopping[1] = "kiwi"
+
+# Let's print our mutated list.
+print(shopping)
+
+# Now let's add an item to our list. 
+shopping.append("raspberry")
+
+# Let's print our elaborated list.
+print(shopping)
+
+# We can also add an item by inserting it at a particular location in the list.
+shopping.insert(1, "blueberry")
+
+# Let's look at our further mutated list. 
+print(shopping)
+
+```
+
+:::

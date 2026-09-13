@@ -3,7 +3,7 @@ title: "Session 1: Python Basics"
 ---
 
 ::: {.milestone}
-**Today's destination** · by the end of the day you can read and write short Python programs (i.e., variables, lists, loops, conditionals, and functions), which is genuinely all the Python an experiment needs.
+**Today's learning goals** · Be able to read and write short Python programs (using variables, lists, loops, conditionals, and functions) which is genuinely all the Python an experiment needs.
 :::
 
 ## Learning outcomes
@@ -19,10 +19,25 @@ After this session, you can:
 
 ## Timetable
 
-| Time | What |
+| Time | Topic |
 |------|------|
-| 09:00 | Welcome + setup check |
-| ...  | TODO |
+| 11:15 | Introduction & Motivation: Learn to program Experiments |
+| 11:30 | Setting up Python in UCloud |
+| 11:50 | Exploring the Python environment |
+| 12:00 | **BREAK** |
+| 12:15 | Variables & types |
+| 12:40 | *Exercise 1a: Variables & types* |
+| 13:00 | **BREAK** | 
+| 13:15 | *Lists* | 
+| 13:25 | *Exercise 1b: Lists* 
+| 13:40 | Loops | 
+| 14:00 | **BREAK** |
+| 14:15 | Conditionals |
+| 14:30 | *Exercise 2: Loops + Conditionals* |
+| 15:00 | **BREAK** |
+| 15:15 | Functions | 
+| 15:30 | *Exercise 3: Write a function* | 
+| 15:50 | Daily wrap-up | 
 
 
 Ready? Head to [Chapter 1](01_getting_started.qmd).

@@ -1,0 +1,100 @@
+---
+title: "Exercise 1a: Variables & variable types"
+---
+
+::: {.milestone}
+**Block 1** · Learning goals: Make a new Python program, nnderstand what a variable is in Python & different types of variables.  
+:::
+
+::: {.callout-tip collapse="true" title="Make a new Python program & save the file"}
+
+Create a new Python code file in the Coder on UCloud.
+
+Save the file in /work/cogsci_methods01_e26 (or whatever you have named your methods cosgci folder).
+
+:::
+
+Now complete the following coding exercises in this file. 
+
+::: {.callout-tip collapse="true" title="Make a variable and inspect its value in the console"}
+
+Make any variable of any type.
+
+Print the value of the variable to the console.
+
+Add a comment above the variable to describe it.
+
+Print the variable type to the console. 
+
+:::
+
+::: {.callout-tip collapse="true" title="Data Type 1: Regular string variables"}
+
+Print the character string "Null hypothesis: Eating ice cream does not improve mood"
+
+Store this expression in a variable called `null_hypothesis`
+
+Print the first four characters of this string variable. 
+
+Print the last four characters of this string variable. 
+
+:::
+
+::: {.callout-tip collapse="true" title="String methods"}
+
+Split the variable `null_hypothesis` by spaces and store the output in a new variable called `split_var`. 
+
+Print split_var[1]`  to the console. What is the output? 
+Can you explain what function of the square brackets is? 
+And the index inside of them? 
+
+Can you index the second character in split_var[1]?
+
+Split the string variable by the colon (:) character and store the output in a new variable.
+
+Replace the lower case h in the `null_hypothesis` character string with an upper case H. 
+
+Index the word 'hypothesis' in the `split_var` variable and store the output in a new variable called `hypothesis_word`
+
+Convert `hypothesis_word` to all upper case characters and store in a new variabled called `hypothesis_word_upper`
+
+Replace the word 'hypothesis' in the variable `null_hypothesis` with `hypothesis_word_upper`
+
+Test whether `hypothesis_word_upper` starts with `H`
+
+Get the length of `null_hypothesis`
+
+There's lots more that you can do with strings, but these are the basics!
+
+:::
+
+::: {.callout-tip collapse="true" title="Data Type 2: Regular numeric variables"}
+
+Make a variable containing an integer. 
+
+Make a floating point variable. 
+
+Print the types of these two variables. 
+
+Add the two variables. What happens?
+
+Subtract the two variables. What happens?
+
+Divide the two variables.
+
+Multiply the two variables and store the output in a new variable. 
+
+::: 
+
+::: {.callout-tip collapse="true" title="Printing variables"}
+
+Imagine that you want to print reaction times for a given subject on an experiment screen.
+
+The subject is different in each experiment, and so is their reaction time. 
+
+Print an expression to the screen that says "The current subject is " and insert the current subject's ID.
+
+Print an expression to the screen that says "The current subject is [insert their ID] and their reaction time is [insert their reaction time]"
+
+:::
+

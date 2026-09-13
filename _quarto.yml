@@ -3,8 +3,8 @@ project:
   output-dir: docs
 
 website:
-  title: "Python × PsychoPy Workshop"
-  description: "Methods 01 × Cognition & Communication"
+  title: "Python & PsychoPy Workshop - Aarhus University, Department of Linguistics, Cognitive Science and Semiotics, Fall 2026"
+  description: "How to get started with Python and PsychoPy for Cognitive Science research."
   navbar:
     background: "#14213D"
     search: true
@@ -25,10 +25,39 @@ website:
         contents:
           - href: session1-python/index.qmd
             text: "How the day works"
-          - session1-python/01_getting_started.qmd
+          - section: "Block 1 · Getting started"
+            contents:
+              - href: session1-python/01_getting_started.qmd
+                text: "Getting started"
+          - section: "Block 2 · Variables and data types"
+            contents:
+              - href: session1-python/02_variables.qmd
+                text: "Variables and regular data types"
+              - href: session1-python/03_exercise1_variables.qmd
+                text: "Exercise 1a: Variables & data types"
+          - section: "Block 3 · Lists & Loops"
+            contents:
+              - href: session1-python/04_lists.qmd
+                text: "Lists"
+              - href: session1-python/05_exercise2_lists.qmd
+                text: "Exercise 2: Lists"
+              - href: session1-python/06_loops.qmd
+                text: "Loops"
+          - section: "Block 4 · Logical operations"
+            contents:
+                - href: session1-python/07_exercise3_loops.qmd
+                  text: "Exercise 3: Loops"
+                - href: session1-python/08_logical_operations.qmd
+                  text: "Logical operations"
+          - section: "Block 5 · Functions & modules"
+            contents:
+              - href: session1-python/09_functions.qmd
+                text: "Functions & modules"
+              - href: session1-python/10_exercise4.qmd
+                text: "Exercise 4"
           # Add new chapters here as you create them, e.g.:
-          # - session1-python/02_variables.qmd
-          # - session1-python/03_exercise1.qmd
+          # - href: session1-python/02_variables.qmd
+          #   text: "Variables and data types"
       - section: "Session 2 · PsychoPy"
         contents:
           - href: session2-psychopy/index.qmd
@@ -58,7 +87,9 @@ website:
 
 format:
   html:
-    theme: cosmo
+    theme:
+      light: cosmo
+      dark: darkly
     css: styles.css
     toc: true
     toc-depth: 3
