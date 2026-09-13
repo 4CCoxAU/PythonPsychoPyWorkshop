@@ -9,7 +9,7 @@ reading prototype for Portfolio 2.
 
  Session | Folder | Status |
 |---|---|---|
-| 1 · Python basics (on UCloud) | `session1-python/` | 🚧 outlined |
+| 1 · Python basics (on UCloud) | `session1-python/` | 🚧 drafted |
 | 2 · Introduction to PsychoPy | `session2-psychopy/` | ✅ drafted |
 | 3 · Timing, data & the reading experiment | *(planned)* | 📋 outlined |
 
