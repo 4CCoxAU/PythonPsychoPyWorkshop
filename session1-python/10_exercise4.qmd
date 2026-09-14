@@ -1,0 +1,147 @@
+---
+title: "Exercise 4 · Functions & modules"
+---
+
+::: {.milestone}
+**Block 5** · Exercise for [Chapter 5 — Functions](09_functions.qmd).
+:::
+
+::: {.exercise-banner}
+<div class="ex-kicker">Hands-on · on your own · hints before code</div>
+<div class="ex-title">Exercise 4 — Functions & modules</div>
+<div class="ex-sub">Write your own functions, use logical and relational operators, and store a function in a module.</div>
+:::
+
+
+Same drill as the earlier exercises: try first, then use the *Hint* if you get stuck. Work in the same `.py` file, with comments such as `# Exercise 4` to keep it navigable.
+
+## Part 1: Write your own simple function.
+
+Write your own function that prints the expression "this is my first function!", then call the function.
+
+::: {.callout-note collapse="true" title="Hint"}
+Be sure to define the function first, using the proper indentation.
+:::
+
+::: {.callout-tip collapse="true" title="Show the code"}
+
+```python
+
+def first_function():
+     print("This is my first function!")
+
+```
+:::
+
+## Part 2: Inputs & relational operators. 
+
+Whew, we've gotten past that really basic exercise, let's add layers:
+
+1. Redefine the above function with an input argument `name`
+2. Inside the function, evaluate whether the name is "anna"
+3. If the name is "anna" print "may be your teacher" else print "is not your teacher"
+4. Now call this function from the console, first passing your name.
+5. Then pass the name "anna". 
+6. What does your function print on each call?
+
+::: {.callout-note collapse="true" title="Hint"}
+Define the function with a parameter named `name`, then compare it with the string `"anna"`.
+:::
+
+::: {.callout-tip collapse="true" title="Show the code"}
+
+```python
+
+def first_function(name):
+     if name == "anna":
+          print("May be your teacher.")
+     else:
+          print("Is not your teacher.")
+
+first_function("bob")  # Replace "bob" with your own name.
+first_function("anna")
+
+```
+:::
+
+## Part 3: Outputs & relational/logical operators.
+
+Now let's redefine the above function, this time with outputs:
+
+1. Define a variable called `teacher` which has a value of True if the input argument name is "anna", otherwise is false.
+2. Return this output variable in the function.
+3. Call the function, pass `"anna"` as input, and store the returned value in a variable in the console.
+4. Print the value of the output variable in the console. What is it? 
+
+::: {.callout-note collapse="true" title="Hint"}
+Remember to use `return` at the end of your function to specify outputs...
+:::
+
+::: {.callout-tip collapse="true" title="Show the code"}
+
+```python
+
+def first_function(name):
+     if name == "anna":
+          print("May be your teacher.")
+          teacher = True
+     else:
+          print("Is not your teacher.")
+          teacher = False
+
+     return teacher
+
+func_output = first_function("anna")
+print(func_output)
+
+```
+:::
+
+## Part 4: Store your function in a module. 
+
+Now let's store your function in a module and use it:
+
+1. First, make a new `.py` file in the same folder as your exercise `.py` file. Name the file `my_module.py`.
+2. Copy your function from the last exercise into this file and save.
+3. In your exercise file, import the module with `import my_module`.
+4. Call the function with `my_module.first_function("anna")` and store the returned value.
+5. Print the returned value. Does it work?
+
+::: {.callout-note collapse="true" title="Hint"}
+When a function is stored in a module, call it using the module name, a dot, and the function name: `my_module.first_function("anna")`.
+:::
+
+::: {.callout-tip collapse="true" title="Show the code"}
+```python
+import my_module
+
+teacher = my_module.first_function("anna")
+print(teacher)
+```
+:::
+
+
+## Part 5: Get creative
+
+Okay, now's the exciting part. You can run wild (not too wild) with your creativity:
+
+Make as many functions as you have time for that incorporate all of the code concepts we've learned today:
+
+1. Variable types 
+2. Lists & loops (for loops, while loops)
+3. Logical operations / relational operations
+4. Function inputs / outputs
+5. Modules
+
+Store these functions in a module file, import this file in your exercise .py file and call the functions. 
+
+There are no right answers here, only correct syntax. 
+
+
+
+
+
+
+
+
+

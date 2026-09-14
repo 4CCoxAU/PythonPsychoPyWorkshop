@@ -1,0 +1,196 @@
+---
+title: "4 · Functions & modules"
+---
+
+::: {.milestone}
+**Block 5** · How to write your own function.
+:::
+
+## What is a function?
+
+A function is like a recipe: it contains instructions that run when you call it by name.
+
+Let's say we want to make a Python function that prints "This is a greeting" every time it runs. We will call the function `greeting`. First, define the function using this syntax:
+
+```python
+def function_name():
+     # instructions go here
+```
+
+Let's now try defining the function `greeting`:
+
+```python
+# Define the function.
+def greeting():
+     print("This is a greeting")
+```
+
+Once Python has evaluated the definition, the function can be called by name and its contents will execute.
+
+```python
+greeting()
+```
+
+This calls the function and the output should be:
+
+```{.rep1}
+>>> This is a greeting
+```
+
+## Everything that happens inside of a function stays inside of a function (unless otherwise specified)
+
+Let's define variables inside the function `greeting`:
+
+```python
+def greeting():
+     casual = "hey"
+     formal = "hello"
+
+     print(casual)
+     print(formal)
+
+```
+
+And now I call the function:
+
+```python
+greeting()
+```
+
+If I type `casual` into the console to see its value, Python will raise a `NameError`. This is because `casual` was created *inside* the function. By default, variables created inside functions have *local scope*, which means they can only be accessed from inside that function.
+
+## Function outputs and inputs 
+
+Although local variables cannot normally be accessed outside a function, we can use the `return` statement to send values back to the code that called the function.
+
+Let's return both `casual` and `formal` from `greeting`:
+
+```python
+def greeting():
+     casual = "hey"
+     formal = "hello"
+
+     print(casual)
+     print(formal)
+
+     return casual, formal
+
+```
+
+Now we can call the function and store its returned values in variables:
+
+```python
+
+# Store the returned values in two separate variables.
+casual_greeting, formal_greeting = greeting()
+
+# Store both returned values in one tuple.
+greeting_types = greeting()
+
+```
+
+In the first case, the two returned values are unpacked into two separate variables.
+
+In the second case, both values are stored in a *tuple*. A tuple is like a list, but its values cannot be changed. It can be indexed in the same way as a list: `greeting_types[0]` and `greeting_types[1]`.
+
+We can also pass inputs to functions. Imagine that we want `greeting` to print either a casual or a formal greeting depending on the relationship with the person being greeted. We can pass that information as an input.
+
+First, redefine the function so that it accepts an input:
+
+```python
+def greeting(relation_to_greeted_person):
+     casual = "hey"
+     formal = "hello"
+
+     if relation_to_greeted_person == "friend":
+          print(casual)
+          return casual
+     else:
+          print(formal)
+          return formal
+
+```
+
+Now call the function with an input value. Inside the function, that value is stored in `relation_to_greeted_person`:
+
+```python
+greeting_type = greeting("friend")
+print(greeting_type)
+
+```
+
+The output of this will be:
+
+```{.rep1}
+
+>>> hey  # printed inside the function
+>>> hey  # printed by print(greeting_type)
+
+```
+
+We can pass multiple input arguments to a function too. First, redefine the function so that it accepts two inputs:
+
+```python
+
+def greeting(relation_to_greeted_person, name):
+     casual = "hey"
+     formal = "hello"
+
+     if relation_to_greeted_person == "friend":
+          print(f"{casual} {name}!")
+          return casual
+     else:
+          print(f"{formal} {name}!")
+          return formal
+
+```
+
+The function now receives a second input, `name`, and uses it to print a personalized greeting.
+
+```python
+greeting_type = greeting("friend", "anna")
+```
+
+This prints:
+
+```{.rep1}
+>>> hey anna!
+```
+The function also returns `"hey"` and stores it in `greeting_type`, but assigning a return value to a variable does not display it automatically. To see the returned value, print the variable explicitly: `print(greeting_type)`.
+
+
+## Modules 
+
+Functions can become lengthy, and it can be inconvenient to define every function in the main code file for a project.
+
+To keep your code organized, you can store function definitions in a separate Python file with a `.py` extension.
+
+A Python file containing reusable code is called a *module*. A module can work like a small library of functions.
+
+To use a function from a module, import the module into the file or console where you are working.
+
+Here is an example:
+
+```python
+# In greeting_types.py:
+def greetings():
+     print("Hello, world!")
+
+```
+
+After creating `greeting_types.py` and defining `greetings()` there, import the module in the console or another Python file:
+
+```python
+import greeting_types
+
+greeting_types.greetings()
+
+```
+After importing the module, you can call the function with the module name and a dot: `greeting_types.greetings()`.
+
+
+::: {.callout-note title="Summary"}
+Functions are reusable recipes that can accept inputs and return outputs. Modules are Python files that help organize and reuse functions.
+:::
+
+**Lesson learned?** Next: [Exercise 4: Putting it all together - Logical operations & functions](10_exercise4.qmd).

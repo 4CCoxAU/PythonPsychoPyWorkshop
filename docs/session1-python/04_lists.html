@@ -2,17 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>3 · Lists – Python &amp; PsychoPy Workshop - Aarhus University, Fall 2026</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -73,14 +79,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-234273d1456647dabc34a594ac50e507.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-0348920b7671f696dc9078d39bff215e.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-234273d1456647dabc34a594ac50e507.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bb62276ab45c84d9efd712f51ff97b5a.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-5a1953863e1f72ef3b996ef827f01ca7.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bb62276ab45c84d9efd712f51ff97b5a.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-0f0bb2b35f0c3ae46b2773d2b92c9e2d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-6353a5bacca7b1f5ff6dee18f156d94f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-0f0bb2b35f0c3ae46b2773d2b92c9e2d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-8111375b329e67f367d25c6ca2fac386.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-f47233b3dada9760e9eff975721b4787.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-8111375b329e67f367d25c6ca2fac386.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -508,13 +514,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="what-are-lists" class="level2">
 <h2 class="anchored" data-anchor-id="what-are-lists">What are lists?</h2>
 <p>A list is, literally, a list of items, stored in order, that can be changed (lists are <em>mutable</em>, a word that will matter shortly). You define one with square brackets, items separated by commas:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>variable_name <span class="op">=</span> [item1, item2, item3]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>variable_name <span class="op">=</span> [item1, item2, item3]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Lists can contain items of the same type or of different types, and this is the data structure experiments run on: a list of stimuli, a list of responses, a list of reaction times.</p>
 </section>
 <section id="making-lists" class="level2">
 <h2 class="anchored" data-anchor-id="making-lists">Making lists</h2>
 <p>You can create lists with all strings, all numeric data, or a combination:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># First, simple lists of same-type items.</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># First, simple lists of same-type items.</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>shopping <span class="op">=</span> [<span class="st">"apples"</span>, <span class="st">"pears"</span>, <span class="st">"bananas"</span>]</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>test_scores <span class="op">=</span> [<span class="dv">90</span>, <span class="dv">60</span>, <span class="dv">100</span>, <span class="dv">82</span>]</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -522,21 +528,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>mixed_list <span class="op">=</span> [<span class="st">"cats"</span>, <span class="dv">7</span>, <span class="fl">309.45</span>]</span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(test_scores)</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(mixed_list)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(mixed_list)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="repl"><code>&gt;&gt;&gt; [90, 60, 100, 82]
 &gt;&gt;&gt; ['cats', 7, 309.45]</code></pre>
 <p>You can also put lists <em>inside</em> lists:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>combined <span class="op">=</span> [shopping, test_scores, mixed_list]</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(combined)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>combined <span class="op">=</span> [shopping, test_scores, mixed_list]</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(combined)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="repl"><code>&gt;&gt;&gt; [['apples', 'pears', 'bananas'], [90, 60, 100, 82], ['cats', 7, 309.45]]</code></pre>
 <p>Three items: each of which is itself a list. Keep that picture in mind for the prediction below.</p>
 </section>
 <section id="indexing-lists" class="level2">
 <h2 class="anchored" data-anchor-id="indexing-lists">Indexing lists</h2>
 <p>We index lists just like we indexed character strings: square brackets after the name, index inside.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(shopping[<span class="dv">0</span>])</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(shopping[<span class="dv">0</span>])</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(shopping[<span class="dv">1</span>])</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(shopping[<span class="dv">2</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(shopping[<span class="dv">2</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="repl"><code>apples
 pears
 bananas</code></pre>
@@ -569,18 +575,18 @@ bananas</code></pre>
 <li><strong>Insert</strong> an item at a chosen position.</li>
 </ol>
 <p>Predict each <code>print()</code> before you run it. This is where the bracket-counting pays off. Our starting point:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(shopping)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(shopping)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="repl"><code>['apples', 'pears', 'bananas']</code></pre>
 <p>Replace the second item:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>shopping[<span class="dv">1</span>] <span class="op">=</span> <span class="st">"kiwi"</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(shopping)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>shopping[<span class="dv">1</span>] <span class="op">=</span> <span class="st">"kiwi"</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(shopping)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="repl"><code>['apples', 'kiwi', 'bananas']</code></pre>
 <p>Goodbye pears: index 1 is the <em>second</em> item. Now append:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>shopping.append(<span class="st">"raspberry"</span>)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(shopping)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>shopping.append(<span class="st">"raspberry"</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(shopping)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="repl"><code>['apples', 'kiwi', 'bananas', 'raspberry']</code></pre>
 <p><code>append()</code> always adds at the end. Finally, insert at a particular position:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>shopping.insert(<span class="dv">1</span>, <span class="st">"blueberry"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>shopping.insert(<span class="dv">1</span>, <span class="st">"blueberry"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="predict-check" data-answer="['apples', 'blueberry', 'kiwi', 'bananas', 'raspberry']" data-accept="['apples','blueberry','kiwi','bananas','raspberry']||apples, blueberry, kiwi, bananas, raspberry">
 <p>The finale: what does <code>print(shopping)</code> show now? Type the full list.</p>
 <div class="pc-hint" data-if-contains="kiwi', 'blueberry">
@@ -598,187 +604,369 @@ bananas</code></pre>
 
 </main> <!-- /main -->
 <!-- ============================================================
+
      PREDICT-CHECK WIDGET  (injected on every page via _quarto.yml)
+
      Turns  ::: {.predict-check data-answer="..."}  divs into an
+
      interactive "type your prediction → check" box.
+
      Just runs with html code, to make it simple and works with 
+
      GitHub Pages and offline.
+
      ============================================================ -->
+
 <style>
+
 .predict-check {
+
   border: 1.5px solid var(--ink, #14213d);
+
   border-left: 5px solid var(--accent, #fca311);
+
   border-radius: 8px;
+
   padding: 1rem 1.2rem;
+
   margin: 1.2rem 0;
+
   background: #fdf8ee;
+
 }
+
 .predict-check .pc-label {
+
   color: var(--accent-dark, #b87700);
+
   font-weight: 700;
+
   font-size: 0.85rem;
+
   letter-spacing: 0.06em;
+
   text-transform: uppercase;
+
   margin-bottom: 0.4rem;
+
 }
+
 .predict-check .pc-ui { margin-top: 0.7rem; display: flex; gap: 0.5rem; flex-wrap: wrap; }
+
 .predict-check input.pc-input, .predict-check textarea.pc-input {
+
   flex: 1 1 220px;
+
   font-family: var(--bs-font-monospace, monospace);
+
   font-size: 0.95rem;
+
   padding: 0.45rem 0.6rem;
+
   border: 1px solid #d5d0c3;
+
   border-radius: 6px;
+
 }
+
 .predict-check textarea.pc-input { min-height: 4.5rem; }
+
 .predict-check button.pc-btn {
+
   background: var(--ink, #14213d); color: #fff; border: none; border-radius: 6px;
+
   padding: 0.45rem 1rem; font-weight: 600; cursor: pointer;
+
 }
+
 .predict-check button.pc-btn:disabled { background: #9aa5b8; cursor: not-allowed; }
+
 .predict-check button.pc-reveal {
+
   background: #fff; color: var(--ink, #14213d); border: 1.5px solid var(--ink, #14213d);
+
   border-radius: 6px; padding: 0.45rem 1rem; font-weight: 600; cursor: pointer;
+
 }
+
 .predict-check .pc-feedback { margin-top: 0.6rem; font-size: 0.95rem; display: none; border-radius: 6px; padding: 0.55rem 0.8rem; }
+
 .predict-check .pc-feedback.pc-wrong { display: block; background: #fdf0ef; color: #8a2d23; border: 1px solid #f3c9c4; }
+
 .predict-check .pc-feedback.pc-right { display: block; background: #eef7ee; color: #1d5c2f; border: 1px solid #c4e3c8; }
+
 .predict-check .pc-explanation {
+
   display: none; margin-top: 0.8rem; padding-top: 0.8rem; border-top: 1px dashed #d5d0c3;
+
 }
+
 .predict-check .pc-hint { display: none; }
+
 .predict-check.pc-done input.pc-input, .predict-check.pc-done textarea.pc-input { background: #f3efe4; }
 
+
+
 /* ---- dark-mode (Quarto toggles body.quarto-dark) ---- */
+
 body.quarto-dark .predict-check { background: #1b2437; border-color: #2b3a52; border-left-color: var(--accent, #fca311); }
+
 body.quarto-dark .predict-check .pc-label { color: var(--accent, #fca311); }
+
 body.quarto-dark .predict-check input.pc-input,
+
 body.quarto-dark .predict-check textarea.pc-input {
+
   background: #111827; color: #e7ebf5; border-color: #2b3a52;
+
 }
+
 body.quarto-dark .predict-check button.pc-btn { background: var(--accent, #fca311); color: #14213d; }
+
 body.quarto-dark .predict-check button.pc-btn:disabled { background: #2b3a52; color: #6b7690; }
+
 body.quarto-dark .predict-check button.pc-reveal { background: transparent; color: var(--accent, #fca311); border-color: var(--accent, #fca311); }
+
 body.quarto-dark .predict-check .pc-feedback.pc-wrong { background: #3a1f1c; color: #f0b3aa; border-color: #6e3a33; }
+
 body.quarto-dark .predict-check .pc-feedback.pc-right { background: #1c3320; color: #a8dcb0; border-color: #33663c; }
+
 body.quarto-dark .predict-check .pc-explanation { border-top-color: #2b3a52; }
+
 body.quarto-dark .predict-check.pc-done input.pc-input,
+
 body.quarto-dark .predict-check.pc-done textarea.pc-input { background: #1b2437; }
+
 </style>
+
 <script>
+
 (function () {
+
   "use strict";
 
+
+
   // --- matching logic -------------------------------------------------
+
   function norm(s) { return String(s).replace(/[ \t]+/g, " ").replace(/\s+$/gm, "").trim(); }
+
   function stripQuotes(s) { return String(s).trim().replace(/^["'\u2018\u2019\u201C\u201D]+|["'\u2018\u2019\u201C\u201D]+$/g, ""); }
+
   function isCorrect(input, candidates) {
+
     var n = norm(input);
+
     return candidates.some(function (c) { return n === c; });
+
   }
+
   // Built-in near-miss detectors: return a hint string or null.
+
   function builtinHint(input, candidates) {
+
     var n = norm(input);
+
     if (candidates.some(function (c) { return norm(stripQuotes(n)) === c && n !== c; }))
+
       return "Close, but look again: are the quotation marks part of what gets printed?";
+
     if (candidates.some(function (c) { return n.toLowerCase() === c.toLowerCase() && n !== c; }))
+
       return "Almost, check upper- versus lowercase. Python prints text exactly as it is.";
+
     if (candidates.some(function (c) { return n.replace(/\s+/g, "") === c.replace(/\s+/g, "") && n !== c; }))
+
       return "Very close, count the spaces carefully.";
+
     return null;
+
   }
+
+
 
   function init() {
+
     var boxes = document.querySelectorAll(".predict-check");
+
     Array.prototype.forEach.call(boxes, function (box) {
+
       if (box.dataset.pcInit) return;
+
       box.dataset.pcInit = "1";
 
+
+
       var answer = box.getAttribute("data-answer") || "";
+
       var accept = (box.getAttribute("data-accept") || "").split("||").filter(function (x) { return x.length; });
+
       var candidates = [answer].concat(accept).map(norm);
+
       var multiline = box.getAttribute("data-multiline") === "true";
+
       var maxAttempts = parseInt(box.getAttribute("data-attempts") || "3", 10);
 
+
+
       var explanation = box.querySelector(".pc-explanation");
+
       var hints = Array.prototype.slice.call(box.querySelectorAll(".pc-hint"));
 
+
+
       // header label
+
       var label = document.createElement("div");
+
       label.className = "pc-label";
+
       label.textContent = "\uD83D\uDD2E Predict first";
+
       box.insertBefore(label, box.firstChild);
 
+
+
       // input + buttons
+
       var ui = document.createElement("div");
+
       ui.className = "pc-ui";
+
       var input = document.createElement(multiline ? "textarea" : "input");
+
       input.className = "pc-input";
+
       input.setAttribute("placeholder", box.getAttribute("data-placeholder") || "Type your prediction, then check\u2026");
+
       input.setAttribute("aria-label", "Your prediction");
+
       if (!multiline) input.setAttribute("type", "text");
+
       var btn = document.createElement("button");
+
       btn.className = "pc-btn";
+
       btn.type = "button";
+
       btn.textContent = "Check";
+
       btn.disabled = true;
+
       var reveal = document.createElement("button");
+
       reveal.className = "pc-reveal";
+
       reveal.type = "button";
+
       reveal.textContent = "Show the answer";
+
       reveal.style.display = "none";
+
       ui.appendChild(input); ui.appendChild(btn); ui.appendChild(reveal);
 
+
+
       var feedback = document.createElement("div");
+
       feedback.className = "pc-feedback";
 
+
+
       // keep explanation last
+
       if (explanation) { box.appendChild(explanation); }
+
       box.appendChild(ui);
+
       box.insertBefore(feedback, explanation || null);
 
+
+
       var attempts = 0;
+
       function finish(correct) {
+
         box.classList.add("pc-done");
+
         input.disabled = true; btn.disabled = true; reveal.style.display = "none";
+
         if (explanation) explanation.style.display = "block";
+
         feedback.className = "pc-feedback " + (correct ? "pc-right" : "pc-wrong");
+
         feedback.textContent = correct
+
           ? "\u2713 Correct! Well predicted. Now run it and watch it happen."
+
           : "Compare the answer below with what you predicted. The difference is the interesting part.";
+
       }
 
+
+
       input.addEventListener("input", function () { btn.disabled = norm(input.value).length === 0; });
+
       input.addEventListener("keydown", function (e) {
+
         if (e.key === "Enter" && !multiline && !btn.disabled) { e.preventDefault(); btn.click(); }
+
       });
+
       reveal.addEventListener("click", function () { finish(false); });
 
+
+
       btn.addEventListener("click", function () {
+
         var val = input.value;
+
         if (isCorrect(val, candidates)) { finish(true); return; }
+
         attempts += 1;
 
+
+
         // author-provided hints first (first match wins)
+
         var msg = null;
+
         for (var i = 0; i < hints.length; i++) {
+
           var needle = hints[i].getAttribute("data-if-contains");
+
           if (needle && val.indexOf(needle) !== -1) { msg = hints[i].textContent.trim(); break; }
+
         }
+
         if (!msg) msg = builtinHint(val, candidates);
+
         if (!msg) msg = "Not quite. Read the code once more. What exactly will it give you?";
 
+
+
         var left = maxAttempts - attempts;
+
         feedback.className = "pc-feedback pc-wrong";
+
         feedback.textContent = msg;
+
         if (left <= 0) reveal.style.display = "inline-block";
+
       });
+
     });
+
   }
 
+
+
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+
   else init();
+
 })();
+
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -844,13 +1032,14 @@ body.quarto-dark .predict-check.pc-done textarea.pc-input { background: #1b2437;
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

@@ -1,0 +1,231 @@
+---
+title: "5 · Logical operations"
+---
+
+::: {.milestone}
+**Block 4** · Understand relational and logical operators.
+:::
+
+## What is a relational operator? 
+
+We often want to write code that allows us to make *relational comparisons*. A relational comparison assesses the relationship between two different values, such as whether one value is greater than, less than, or equal to another.
+
+Python has several built-in *relational operators* listed below:
+
+ ```python 
+
+# Less than
+ 1 < 2
+
+ # Greater than.
+ 1 > 2 
+
+ # Less than or equal to.
+ 1 <= 2
+
+ # Greater than or equal to.
+ 1 >= 2
+
+ # Equal to.
+ 1==2
+
+ # Not equal to.
+ 1!=2
+
+ ```
+ 
+ If we execute the above relational comparisons in Python, then each one should output a *True* or *False* value. **Why?**
+
+ 
+```{.repl}
+>>> True
+>>> False
+>>> True
+>>> False
+>>> False
+>>> True 
+```
+        
+
+::: {.predict-check data-answer="Relational comparisons can only be true or false" data-multiline="false" data-placeholder="Enter prediction here…"}
+Why do these relational comparisons return *True* or *False* only?
+:::
+
+::: {.pc-explanation}
+Relational comparisons can only be *True* or *False* because they are checking for a single condition. 
+
+```python
+
+1 < 2 # this can ONLY return true or false
+# because is EITHER less than 2 (in which case the expression is true)
+# OR greater than 2 (in which case the expression is false). 
+```
+:::
+
+## What is a logical operator? 
+
+Relational operators compare two values to test whether a condition is true or false. 
+
+Logical operators can be used to compare whether multiple relational comparisons are true or false. Let's look at some examples:
+
+```python
+
+# and: True only when both conditions are True.
+True and True
+
+# or: True when at least one condition is True.
+True or False
+
+# xor: True when exactly one condition is True.
+True != False
+
+
+```
+
+If we run the above code, the output will be:
+
+```{.rep1}
+>>> True
+>>> True
+>>> True
+```
+
+So, let's put this into context:
+
+```python
+
+x = 1 
+y = 2
+z = 3
+
+# and
+y > x and z > x # this should return a value of true because BOTH y > x evaluates to true and z > x evaluates to true.
+
+# or 
+y < x or z < x # this should evaluate to false. why?
+
+# xor
+(x == y) != (y > x) # True because the two conditions have different results: False != True.
+
+# chained logical operations (can be applied to any combination of the above)
+y > x and z > x and 10 > x # True because each condition is true. 
+
+```
+
+Now you can check the output:
+
+```{.rep1}
+>>> True
+>>> False
+>>> True 
+>>> True
+```
+
+::: {.predict-check data-answer="Why parentheses around xor statements?" data-multiline="false" data-placeholder="Enter prediction here…"}
+Why are there parentheses around the relational comparisons for **xor** but not other logical operations?
+:::
+
+::: {.pc-explanation}
+Here, `!=` compares the results of two complete conditions. The parentheses make Python evaluate `(x == y)` and `(y > x)` first, and then compare those Boolean results. Without the parentheses, Python interprets the expression as a chained comparison instead of an XOR operation.
+```python
+(x == y) != (y > x)
+# False != True, so the result is True.
+```
+:::
+
+
+## *If* statements, relational and logical operators
+
+Okay, we are very excitingly going to learn about how to use operators inside of *if* statements. 
+
+*If* statements evaluate the output of logical and relational operations and execute subsequent code only *if* specified conditions are met.
+
+Let's start with an example:
+
+```python
+
+x = 1
+y = 2
+z = 3
+
+# this *if* statement checks if x < y .
+# The subsequent code (inside of the statement) is run *only if* x < y evaluates as true.
+if x < y:
+   print(x < y)
+
+```
+
+Here x is indeed less than y, so `x < y` evaluates to true and the the code *inside* the statement (after the colon / indentation) is run. 
+
+Notice the syntax for if statements is always:
+
+```python
+
+   # a boolean comparison is one that results in true or false (so relational and logical comparisons)
+   if some_boolean_comparison: 
+        code that runs INSIDE the statement, which only executes if a condition is met (some_boolean_comparison is true)
+
+```
+
+Because code printed *inside if* statements is executed *only if* the statement evalutes as true, if statements are called *control flow* statements, meaning that they control the flow of what code is executed.
+
+### If-else statements
+
+Okay, this is the final flourish (for today). Let's say we want to evaluate whether a condition true, and run one line of code if it is true and another line of code if it is not true. Enter the *if-else* statement.
+
+*If-else* statements allow you to do exactly this. Here's an example:
+
+```python
+
+# this is the if statement. 
+if x < y:
+     print(f"{x} is less than {y}")
+
+# this is the else.
+else: 
+     print(f"{x} is greater than {y}") # this will be printed *only* if the above condition is not met.
+```
+
+Note the colon after `else` and the subsequent indentation / line break. This is the necessary syntax for *else* statements. 
+
+We can use logical operators in *if* statements:
+
+```python
+if x < y and x==1:
+     print(f"{x} is less than {y} and equals 1")
+else: 
+    print(f"{x} is not both less than {y} and equal to 1")
+```
+
+Finally, we can actually have nested if statements and elif statements:
+
+```python
+if x < 10:
+    
+    if x==1:
+         print("x is equal to 1")
+    elif x==2:
+         print("x is equal to 2")
+    else:
+         print("x is less than 10 but not equal to 1 or 2)
+else: 
+     print("x is greater than 10")
+
+
+```
+
+::: {.predict-check data-answer="Else if" data-multiline="false" data-placeholder="Enter prediction here…"}
+What does *elif* stand for in plain language?
+:::
+
+::: {.pc-explanation}
+*elif* stands for *else if*. It lets Python test another condition when the preceding `if` or `elif` condition was `False`. If that new condition is `True`, Python runs its indented code.
+
+::: {.callout-note title="Summary"}
+
+So, you have learned how to perform basic *boolean* operations, meaning operations the result in boolean (true or false) output. Relational operators allow for comparisons of values, while logical operators allow for comparing the boolean output of two (or more) conditions. 
+
+You also learned how to implement boolean operations in *if* statements, *elif* staetments and how to write nested *if* statements.  
+:::
+
+**Lesson completed?** Next: [Functions](09_functions.qmd).

@@ -1,0 +1,38 @@
+---
+title: "Syncing with GitHub"
+---
+
+::: {.milestone}
+**Final step** · Clone a GitHub repository into Coder, store your Python code there, and push your changes back to GitHub.
+:::
+
+## Open a terminal in Coder
+
+1. In Coder, click the three-line menu icon in the far-left panel.
+2. Select **Terminal > New Terminal**.
+3. A terminal will open below your Python code file.
+
+This is the same type of terminal you used in UCloud's RStudio application.
+
+In the terminal, navigate to your course folder:
+
+```bash
+cd /work/cogsci_methods01_e26
+```
+
+## Clone and sync your repository
+
+1. Create a GitHub repository for your Python code.
+2. In the UCloud terminal, use `clone_git_repo.sh` to clone the repository into `/work/cogsci_methods01_e26`.
+3. Save your Python code inside the cloned repository.
+4. When you finish working, use `submit_assignment_git.sh` to push your changes back to GitHub.
+
+When you start a new Job, repeat the steps for working in the repository and submitting your changes. This keeps your Python code versioned on GitHub.
+
+::: {.callout-note title="Congratulations"}
+Congratulations! You have completed Session 1 of this three-session Python and PsychoPy workshop.
+:::
+
+
+
+

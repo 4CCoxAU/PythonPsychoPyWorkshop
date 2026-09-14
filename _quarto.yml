@@ -59,6 +59,8 @@ website:
                 text: "Functions & modules"
               - href: session1-python/10_exercise4.qmd
                 text: "Exercise 4"
+          - href: session1-python/11_github.qmd
+            text: "Syncing with GitHub"
           # Add new chapters here as you create them, e.g.:
           # - href: session1-python/02_variables.qmd
           #   text: "Variables and data types"

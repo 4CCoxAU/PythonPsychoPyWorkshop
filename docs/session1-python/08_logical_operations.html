@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Programming experiments: Python x PsychoPy – Python &amp; PsychoPy Workshop - Aarhus University, Fall 2026</title>
+<title>5 · Logical operations – Python &amp; PsychoPy Workshop - Aarhus University, Fall 2026</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,31 +26,67 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./session1-python/index.html" rel="next">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-bb62276ab45c84d9efd712f51ff97b5a.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-5a1953863e1f72ef3b996ef827f01ca7.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-bb62276ab45c84d9efd712f51ff97b5a.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-8111375b329e67f367d25c6ca2fac386.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-f47233b3dada9760e9eff975721b4787.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-8111375b329e67f367d25c6ca2fac386.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../session1-python/09_functions.html" rel="next">
+<link href="../session1-python/07_exercise3_loops.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bb62276ab45c84d9efd712f51ff97b5a.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-5a1953863e1f72ef3b996ef827f01ca7.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bb62276ab45c84d9efd712f51ff97b5a.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-8111375b329e67f367d25c6ca2fac386.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-f47233b3dada9760e9eff975721b4787.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-8111375b329e67f367d25c6ca2fac386.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -80,7 +116,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -252,7 +288,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Python &amp; PsychoPy Workshop - Aarhus University, Fall 2026</span>
     </a>
   </div>
@@ -263,11 +299,11 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link active" href="../index.html" aria-current="page"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./session1-python/index.html"> 
+    <a class="nav-link" href="../session1-python/index.html"> 
 <span class="menu-text">Session 1 · Python</span></a>
   </li>  
 </ul>
@@ -282,7 +318,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Workshop overview</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../session1-python/index.html">Session 1 · Python basics</a></li><li class="breadcrumb-item"><a href="../session1-python/07_exercise3_loops.html">Block 4 · Logical operations</a></li><li class="breadcrumb-item"><a href="../session1-python/08_logical_operations.html">Logical operations</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -296,22 +332,22 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Workshop overview</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Session 1 · Python basics</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session1-python/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../session1-python/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">How the day works</span></a>
   </div>
 </li>
@@ -326,7 +362,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session1-python/01_getting_started.html" class="sidebar-item-text sidebar-link">
+  <a href="../session1-python/01_getting_started.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Getting started</span></a>
   </div>
 </li>
@@ -343,13 +379,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session1-python/02_variables.html" class="sidebar-item-text sidebar-link">
+  <a href="../session1-python/02_variables.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Variables and regular data types</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session1-python/03_exercise1_variables.html" class="sidebar-item-text sidebar-link">
+  <a href="../session1-python/03_exercise1_variables.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exercise 1a: Variables &amp; data types</span></a>
   </div>
 </li>
@@ -366,19 +402,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session1-python/04_lists.html" class="sidebar-item-text sidebar-link">
+  <a href="../session1-python/04_lists.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lists</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session1-python/05_exercise2_lists.html" class="sidebar-item-text sidebar-link">
+  <a href="../session1-python/05_exercise2_lists.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exercise 2: Lists</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session1-python/06_loops.html" class="sidebar-item-text sidebar-link">
+  <a href="../session1-python/06_loops.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Loops</span></a>
   </div>
 </li>
@@ -386,22 +422,22 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
  <span class="menu-text">Block 4 · Logical operations</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session1-python/07_exercise3_loops.html" class="sidebar-item-text sidebar-link">
+  <a href="../session1-python/07_exercise3_loops.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exercise 3: Loops</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session1-python/08_logical_operations.html" class="sidebar-item-text sidebar-link">
+  <a href="../session1-python/08_logical_operations.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Logical operations</span></a>
   </div>
 </li>
@@ -418,13 +454,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session1-python/09_functions.html" class="sidebar-item-text sidebar-link">
+  <a href="../session1-python/09_functions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Functions &amp; modules</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session1-python/10_exercise4.html" class="sidebar-item-text sidebar-link">
+  <a href="../session1-python/10_exercise4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exercise 4</span></a>
   </div>
 </li>
@@ -442,11 +478,12 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#why-programming" id="toc-why-programming" class="nav-link active" data-scroll-target="#why-programming">Why programming?</a></li>
-  <li><a href="#why-python-and-not-r" id="toc-why-python-and-not-r" class="nav-link" data-scroll-target="#why-python-and-not-r">Why Python and not R?</a></li>
-  <li><a href="#the-three-sessions" id="toc-the-three-sessions" class="nav-link" data-scroll-target="#the-three-sessions">The three sessions</a></li>
-  <li><a href="#how-the-sessions-work" id="toc-how-the-sessions-work" class="nav-link" data-scroll-target="#how-the-sessions-work">How the sessions work</a></li>
-  <li><a href="#what-you-need" id="toc-what-you-need" class="nav-link" data-scroll-target="#what-you-need">What you need</a></li>
+  <li><a href="#what-is-a-relational-operator" id="toc-what-is-a-relational-operator" class="nav-link active" data-scroll-target="#what-is-a-relational-operator">What is a relational operator?</a></li>
+  <li><a href="#what-is-a-logical-operator" id="toc-what-is-a-logical-operator" class="nav-link" data-scroll-target="#what-is-a-logical-operator">What is a logical operator?</a></li>
+  <li><a href="#if-statements-relational-and-logical-operators" id="toc-if-statements-relational-and-logical-operators" class="nav-link" data-scroll-target="#if-statements-relational-and-logical-operators"><em>If</em> statements, relational and logical operators</a>
+  <ul class="collapse">
+  <li><a href="#if-else-statements" id="toc-if-else-statements" class="nav-link" data-scroll-target="#if-else-statements">If-else statements</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -454,10 +491,9 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../session1-python/index.html">Session 1 · Python basics</a></li><li class="breadcrumb-item"><a href="../session1-python/07_exercise3_loops.html">Block 4 · Logical operations</a></li><li class="breadcrumb-item"><a href="../session1-python/08_logical_operations.html">Logical operations</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Programming experiments: Python x PsychoPy</h1>
-<p class="subtitle lead">Methods 01 × Cognition &amp; Communication</p>
+<h1 class="title">5 · Logical operations</h1>
 </div>
 
 
@@ -474,46 +510,173 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Welcome! Over the coming workshop sessions, you’ll go from typing your very first line of Python to watching a full behavioural experiment run on your own screen: window, stimuli, responses, feedback, the lot. Between you and that moment stand a handful of Python concepts and a few dozen extremely fixable error messages. We assume no programming experience. If you can rename a file, you’re qualified to start.</p>
 <div class="milestone">
-<p><strong>The arc of the workshop</strong> · Session 1 builds the Python foundations → Session 2 turns them into an experiment → Session 3 extends it into your Portfolio 2 prototype.</p>
+<p><strong>Block 4</strong> · Understand relational and logical operators.</p>
 </div>
-<section id="why-programming" class="level2">
-<h2 class="anchored" data-anchor-id="why-programming">Why programming?</h2>
-<p>Nearly every empirical experiment in cognitive science (e.g.&nbsp;reaction-time studies, reading paradigms, eye-tracking, EEG) is implemented in code. A working knowledge of Python allows you to build precisely the experiment your research question requires, to understand the structure and provenance of your data, and to diagnose problems when they arise.</p>
-<p>The aim of these three sessions is a modest form of fluency: by the end, the experiment running on your screen should be a system you can read, modify, and reason about. These skills will hopefully outlast the course: designing, implementing, and troubleshooting your own experiments is part of the everyday craft of working scientists, in cognitive science and well beyond.</p>
+<section id="what-is-a-relational-operator" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-a-relational-operator">What is a relational operator?</h2>
+<p>We often want to write code that allows us to make <em>relational comparisons</em>. A relational comparison assesses the relationship between two different values, such as whether one value is greater than, less than, or equal to another.</p>
+<p>Python has several built-in <em>relational operators</em> listed below:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Less than</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="op">&lt;</span> <span class="dv">2</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Greater than.</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="op">&gt;</span> <span class="dv">2</span> </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Less than or equal to.</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="op">&lt;=</span> <span class="dv">2</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Greater than or equal to.</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="op">&gt;=</span> <span class="dv">2</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Equal to.</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="op">==</span><span class="dv">2</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Not equal to.</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="op">!=</span><span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>If we execute the above relational comparisons in Python, then each one should output a <em>True</em> or <em>False</em> value. <strong>Why?</strong></p>
+<pre class="repl"><code>&gt;&gt;&gt; True
+&gt;&gt;&gt; False
+&gt;&gt;&gt; True
+&gt;&gt;&gt; False
+&gt;&gt;&gt; False
+&gt;&gt;&gt; True </code></pre>
+<div class="predict-check" data-answer="Relational comparisons can only be true or false" data-multiline="false" data-placeholder="Enter prediction here…">
+<p>Why do these relational comparisons return <em>True</em> or <em>False</em> only?</p>
+</div>
+<div class="pc-explanation">
+<p>Relational comparisons can only be <em>True</em> or <em>False</em> because they are checking for a single condition.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="op">&lt;</span> <span class="dv">2</span> <span class="co"># this can ONLY return true or false</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># because is EITHER less than 2 (in which case the expression is true)</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># OR greater than 2 (in which case the expression is false). </span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section>
-<section id="why-python-and-not-r" class="level2">
-<h2 class="anchored" data-anchor-id="why-python-and-not-r">Why Python and not R?</h2>
-<p>The Python programming language is optimal for coding <em>experiments</em> because it has a special library called <em>PsychoPy</em> for doing so.</p>
-<p>In contrast, the R programming language is optimal for statistical analyses, as it was designed specifically for this purpose.</p>
-<p>Therefore, this workshop on programming for experiments focuses on Python instead of R, which you instead cover in your Methods 1 practical classes.</p>
-<p>However, as you will learn over the course of the semester, many of the programming concepts that we cover in Session 1 are generalizable to R and all other languages.</p>
+<section id="what-is-a-logical-operator" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-a-logical-operator">What is a logical operator?</h2>
+<p>Relational operators compare two values to test whether a condition is true or false.</p>
+<p>Logical operators can be used to compare whether multiple relational comparisons are true or false. Let’s look at some examples:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># and: True only when both conditions are True.</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="va">True</span> <span class="kw">and</span> <span class="va">True</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># or: True when at least one condition is True.</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="va">True</span> <span class="kw">or</span> <span class="va">False</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># xor: True when exactly one condition is True.</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="va">True</span> <span class="op">!=</span> <span class="va">False</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>If we run the above code, the output will be:</p>
+<pre class="rep1"><code>&gt;&gt;&gt; True
+&gt;&gt;&gt; True
+&gt;&gt;&gt; True</code></pre>
+<p>So, let’s put this into context:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">1</span> </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># and</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>y <span class="op">&gt;</span> x <span class="kw">and</span> z <span class="op">&gt;</span> x <span class="co"># this should return a value of true because BOTH y &gt; x evaluates to true and z &gt; x evaluates to true.</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"># or </span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>y <span class="op">&lt;</span> x <span class="kw">or</span> z <span class="op">&lt;</span> x <span class="co"># this should evaluate to false. why?</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co"># xor</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>(x <span class="op">==</span> y) <span class="op">!=</span> (y <span class="op">&gt;</span> x) <span class="co"># True because the two conditions have different results: False != True.</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="co"># chained logical operations (can be applied to any combination of the above)</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>y <span class="op">&gt;</span> x <span class="kw">and</span> z <span class="op">&gt;</span> x <span class="kw">and</span> <span class="dv">10</span> <span class="op">&gt;</span> x <span class="co"># True because each condition is true. </span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Now you can check the output:</p>
+<pre class="rep1"><code>&gt;&gt;&gt; True
+&gt;&gt;&gt; False
+&gt;&gt;&gt; True 
+&gt;&gt;&gt; True</code></pre>
+<div class="predict-check" data-answer="Why parentheses around xor statements?" data-multiline="false" data-placeholder="Enter prediction here…">
+<p>Why are there parentheses around the relational comparisons for <strong>xor</strong> but not other logical operations?</p>
+</div>
+<div class="pc-explanation">
+<p>Here, <code>!=</code> compares the results of two complete conditions. The parentheses make Python evaluate <code>(x == y)</code> and <code>(y &gt; x)</code> first, and then compare those Boolean results. Without the parentheses, Python interprets the expression as a chained comparison instead of an XOR operation.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>(x <span class="op">==</span> y) <span class="op">!=</span> (y <span class="op">&gt;</span> x)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># False != True, so the result is True.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section>
-<section id="the-three-sessions" class="level2">
-<h2 class="anchored" data-anchor-id="the-three-sessions">The three sessions</h2>
-<p><strong><a href="./session1-python/index.html">Session 1 · Python basics</a></strong> Variables, lists, loops, conditionals, functions. These are the handful of building blocks that all programs are made of. Everything you learn here gets used directly in Session 2.</p>
-<p><strong>[Session 2 · Introduction to PsychoPy]</strong> <em>(materials coming)</em> PsychoPy is the Python library psychologists use to run experiments: it opens windows, draws stimuli, and records keypresses with precise timing. You build an experiment step by step and leave with a script that runs: images in random order, keyboard responses, feedback on every trial, and more..</p>
-<p><strong>Session 3 · From cogwheels to words</strong> <em>(materials coming)</em> Swap the images for words, add a clock and a logfile, and your CogWheel script becomes a self-paced reading experiment, the direct starting point for your Portfolio 2 prototype.</p>
-</section>
-<section id="how-the-sessions-work" class="level2">
-<h2 class="anchored" data-anchor-id="how-the-sessions-work">How the sessions work</h2>
-<p>Each session follows the same rhythm: a short lecture introduces the concepts and demonstrates them live, and you then put them to work in a set of exercises you complete on your own, at your own pace, with the teaching team circulating. Three habits will serve you well throughout:</p>
-<ul>
-<li><strong>Predict before you run.</strong> Whenever you see a 🔮 Predict first box, write down what the code will do before running it.</li>
-<li><strong>Run constantly.</strong> Run your code after every small change, not after twenty lines. Small steps make bugs easy to find.</li>
-<li><strong>Never stay stuck.</strong> Ten minutes on the same bug is the signal to ask: check the error message, unfold the solution, or wave a teacher over. Sitting silently with a bug is the one wrong way to use these sessions.</li>
-</ul>
-</section>
-<section id="what-you-need" class="level2">
-<h2 class="anchored" data-anchor-id="what-you-need">What you need</h2>
-<ul>
-<li>Your own laptop with <strong>PsychoPy installed</strong>. Install instructions are sent out before Session 2, and each session starts with a setup check. If the install fights back, come 15 minutes early.</li>
-<li>Curiosity. A willingness to try things, break things, and read the occasional error message will carry you further than any prior experience would.</li>
-</ul>
-<p>Ready? Start with <a href="./session1-python/index.html">Session 1</a>.</p>
+<section id="if-statements-relational-and-logical-operators" class="level2">
+<h2 class="anchored" data-anchor-id="if-statements-relational-and-logical-operators"><em>If</em> statements, relational and logical operators</h2>
+<p>Okay, we are very excitingly going to learn about how to use operators inside of <em>if</em> statements.</p>
+<p><em>If</em> statements evaluate the output of logical and relational operations and execute subsequent code only <em>if</em> specified conditions are met.</p>
+<p>Let’s start with an example:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co"># this *if* statement checks if x &lt; y .</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co"># The subsequent code (inside of the statement) is run *only if* x &lt; y evaluates as true.</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> x <span class="op">&lt;</span> y:</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>   <span class="bu">print</span>(x <span class="op">&lt;</span> y)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Here x is indeed less than y, so <code>x &lt; y</code> evaluates to true and the the code <em>inside</em> the statement (after the colon / indentation) is run.</p>
+<p>Notice the syntax for if statements is always:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>   <span class="co"># a boolean comparison is one that results in true or false (so relational and logical comparisons)</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>   <span class="cf">if</span> some_boolean_comparison: </span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>        code that runs INSIDE the statement, which only executes <span class="cf">if</span> a condition <span class="kw">is</span> met (some_boolean_comparison <span class="kw">is</span> true)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Because code printed <em>inside if</em> statements is executed <em>only if</em> the statement evalutes as true, if statements are called <em>control flow</em> statements, meaning that they control the flow of what code is executed.</p>
+<section id="if-else-statements" class="level3">
+<h3 class="anchored" data-anchor-id="if-else-statements">If-else statements</h3>
+<p>Okay, this is the final flourish (for today). Let’s say we want to evaluate whether a condition true, and run one line of code if it is true and another line of code if it is not true. Enter the <em>if-else</em> statement.</p>
+<p><em>If-else</em> statements allow you to do exactly this. Here’s an example:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># this is the if statement. </span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> x <span class="op">&lt;</span> y:</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>     <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>x<span class="sc">}</span><span class="ss"> is less than </span><span class="sc">{</span>y<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co"># this is the else.</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>: </span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>     <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>x<span class="sc">}</span><span class="ss"> is greater than </span><span class="sc">{</span>y<span class="sc">}</span><span class="ss">"</span>) <span class="co"># this will be printed *only* if the above condition is not met.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Note the colon after <code>else</code> and the subsequent indentation / line break. This is the necessary syntax for <em>else</em> statements.</p>
+<p>We can use logical operators in <em>if</em> statements:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> x <span class="op">&lt;</span> y <span class="kw">and</span> x<span class="op">==</span><span class="dv">1</span>:</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>     <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>x<span class="sc">}</span><span class="ss"> is less than </span><span class="sc">{</span>y<span class="sc">}</span><span class="ss"> and equals 1"</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>: </span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>x<span class="sc">}</span><span class="ss"> is not both less than </span><span class="sc">{</span>y<span class="sc">}</span><span class="ss"> and equal to 1"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Finally, we can actually have nested if statements and elif statements:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> x <span class="op">&lt;</span> <span class="dv">10</span>:</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> x<span class="op">==</span><span class="dv">1</span>:</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>         <span class="bu">print</span>(<span class="st">"x is equal to 1"</span>)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> x<span class="op">==</span><span class="dv">2</span>:</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>         <span class="bu">print</span>(<span class="st">"x is equal to 2"</span>)</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>         <span class="bu">print</span>(<span class="st">"x is less than 10 but not equal to 1 or 2)</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="er">else: </span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>     <span class="bu">print</span>(<span class="st">"x is greater than 10"</span>)</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="predict-check" data-answer="Else if" data-multiline="false" data-placeholder="Enter prediction here…">
+<p>What does <em>elif</em> stand for in plain language?</p>
+</div>
+<div class="pc-explanation">
+<p><em>elif</em> stands for <em>else if</em>. It lets Python test another condition when the preceding <code>if</code> or <code>elif</code> condition was <code>False</code>. If that new condition is <code>True</code>, Python runs its indented code.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Summary">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Summary
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>So, you have learned how to perform basic <em>boolean</em> operations, meaning operations the result in boolean (true or false) output. Relational operators allow for comparisons of values, while logical operators allow for comparing the boolean output of two (or more) conditions.</p>
+<p>You also learned how to implement boolean operations in <em>if</em> statements, <em>elif</em> staetments and how to write nested <em>if</em> statements.</p>
+</div>
+</div>
+<p><strong>Lesson completed?</strong> Next: <a href="../session1-python/09_functions.html">Functions</a>.</p>
 
 
+</div>
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -1336,10 +1499,13 @@ body.quarto-dark .predict-check.pc-done textarea.pc-input { background: #1b2437;
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="../session1-python/07_exercise3_loops.html" class="pagination-link" aria-label="Exercise 3: Loops">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Exercise 3: Loops</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./session1-python/index.html" class="pagination-link" aria-label="How the day works">
-        <span class="nav-page-text">How the day works</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../session1-python/09_functions.html" class="pagination-link" aria-label="Functions &amp; modules">
+        <span class="nav-page-text">Functions &amp; modules</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
