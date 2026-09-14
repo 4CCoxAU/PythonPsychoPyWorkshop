@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -265,10 +300,6 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="../session1-python/index.html"> 
 <span class="menu-text">Session 1 · Python</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../session2-psychopy/index.html"> 
-<span class="menu-text">Session 2 · PsychoPy</span></a>
-  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -431,146 +462,25 @@ ul.task-list li input[type="checkbox"] {
   </li>
       </ul>
   </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false">
- <span class="menu-text">Session 2 · PsychoPy</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../session2-psychopy/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">How the day works</span></a>
-  </div>
-</li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false">
- <span class="menu-text">Block 1 · From Python to a window</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../session2-psychopy/01_warmup.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">1 · Warming Up: A Python Refresher</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../session2-psychopy/02_psychopy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">2 · Meet PsychoPy: Three Modules and a Window</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../session2-psychopy/03_drawflip.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">3 · The Draw–Flip Cycle (and How to Break It)</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false">
- <span class="menu-text">Block 2 · Stimuli on the screen</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../session2-psychopy/04_stimuli.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">4 · Text, Images, and Two Ways to Wait</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../session2-psychopy/05_glob.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">5 · Let Python Find Your Stimuli</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../session2-psychopy/06_exercise4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">6 · Exercise 4: Display the CogWheel Stimuli</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false">
- <span class="menu-text">Block 3 · Making it an experiment</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../session2-psychopy/07_random.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">7 · Randomising Trial Order</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../session2-psychopy/08_responses.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">8 · Collecting Keyboard Responses</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../session2-psychopy/09_feedback.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">9 · Conditional Feedback</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false">
- <span class="menu-text">Block 4 · Completing the loop</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../session2-psychopy/10_exercise5.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">10 · Exercise 5: Responses and Feedback</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../session2-psychopy/11_cogcomm.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">11 · From Cogwheels to Words</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../session2-psychopy/ta_guide.qmd" class="sidebar-item-text sidebar-link">
- <span class="menu-text">For TAs &amp; instructors</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
     </ul>
     </div>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#setup" id="toc-setup" class="nav-link active" data-scroll-target="#setup">Setup</a></li>
+  <li><a href="#part-1-your-first-variable" id="toc-part-1-your-first-variable" class="nav-link" data-scroll-target="#part-1-your-first-variable">Part 1: Your first variable</a></li>
+  <li><a href="#part-2-strings" id="toc-part-2-strings" class="nav-link" data-scroll-target="#part-2-strings">Part 2: Strings</a></li>
+  <li><a href="#part-3-string-methods" id="toc-part-3-string-methods" class="nav-link" data-scroll-target="#part-3-string-methods">Part 3: String methods</a></li>
+  <li><a href="#part-4-numbers" id="toc-part-4-numbers" class="nav-link" data-scroll-target="#part-4-numbers">Part 4: Numbers</a></li>
+  <li><a href="#part-5-f-strings" id="toc-part-5-f-strings" class="nav-link" data-scroll-target="#part-5-f-strings">Part 5: f-strings</a></li>
+  <li><a href="#done-early" id="toc-done-early" class="nav-link" data-scroll-target="#done-early">Done early?</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -596,133 +506,234 @@ ul.task-list li input[type="checkbox"] {
 
 
 <div class="milestone">
-<p><strong>Block 1</strong> · Learning goals: Make a new Python program, nnderstand what a variable is in Python &amp; different types of variables.</p>
+<p><strong>Block 2</strong> · Your first exercise! Everything you need is in <a href="../session1-python/02_variables.html">Chapter 2</a>.</p>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled" title="Make a new Python program &amp; save the file">
+<div class="exercise-banner">
+<div class="ex-kicker">
+Hands-on · on your own · folded hints and code if you need it
+</div>
+<div class="ex-title">
+Exercise 1a — Variables &amp; variable types
+</div>
+<div class="ex-sub">
+Create variables, take strings apart and put them back together, and build the printout every experiment needs.
+</div>
+</div>
+<p>How exercises work: try each task yourself first. The point is the attempt, not speed. Every part has a folded <strong>Show the code</strong> with a working solution; stuck for ten minutes means unfold it, understand it, move on. That is the intended way to use this material, not cheating.</p>
+<section id="setup" class="level2">
+<h2 class="anchored" data-anchor-id="setup">Setup</h2>
+<p>Create a new Python code file in the Coder on UCloud, and save it in <code>/work/cogsci_methods01_e26</code> (or whatever you have named your methods cogsci folder). Do all of today’s tasks in this file.</p>
+</section>
+<section id="part-1-your-first-variable" class="level2">
+<h2 class="anchored" data-anchor-id="part-1-your-first-variable">Part 1: Your first variable</h2>
+<ol type="1">
+<li>Make a variable of any type, with a comment above it describing it.</li>
+<li>Print its value to the console.</li>
+<li>Print its <em>type</em> to the console.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Show the code">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Make a new Python program &amp; save the file
+Show the code
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Create a new Python code file in the Coder on UCloud.</p>
-<p>Save the file in /work/cogsci_methods01_e26 (or whatever you have named your methods cosgci folder).</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># My favourite number of coffees per day.</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>coffees <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(coffees)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(coffees))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
-<p>Now complete the following coding exercises in this file.</p>
-<div class="callout callout-style-default callout-tip callout-titled" title="Make a variable and inspect its value in the console">
+</section>
+<section id="part-2-strings" class="level2">
+<h2 class="anchored" data-anchor-id="part-2-strings">Part 2: Strings</h2>
+<ol type="1">
+<li>Print the string <code>"Null hypothesis: Eating ice cream does not improve mood"</code>.</li>
+<li>Store it in a variable called <code>null_hypothesis</code>.</li>
+<li>Print the first four characters of <code>null_hypothesis</code>.</li>
+<li>Print the last four characters.</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled" title="Hint">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Make a variable and inspect its value in the console
+Hint
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Make any variable of any type.</p>
-<p>Print the value of the variable to the console.</p>
-<p>Add a comment above the variable to describe it.</p>
-<p>Print the variable type to the console.</p>
+<p>Square brackets with a range: <code>[start:stop]</code>. And remember, <code>stop</code> is where it stops <em>before</em>. For the last few characters, count backwards with a minus.</p>
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled" title="Data Type 1: Regular string variables">
+<div class="callout callout-style-default callout-tip callout-titled" title="Show the code">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Data Type 1: Regular string variables
+Show the code
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Print the character string “Null hypothesis: Eating ice cream does not improve mood”</p>
-<p>Store this expression in a variable called <code>null_hypothesis</code></p>
-<p>Print the first four characters of this string variable.</p>
-<p>Print the last four characters of this string variable.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Null hypothesis: Eating ice cream does not improve mood"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>null_hypothesis <span class="op">=</span> <span class="st">"Null hypothesis: Eating ice cream does not improve mood"</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(null_hypothesis[<span class="dv">0</span>:<span class="dv">4</span>])   <span class="co"># Null</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(null_hypothesis[<span class="op">-</span><span class="dv">4</span>:])   <span class="co"># mood</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled" title="String methods">
+</section>
+<section id="part-3-string-methods" class="level2">
+<h2 class="anchored" data-anchor-id="part-3-string-methods">Part 3: String methods</h2>
+<ol type="1">
+<li>Split <code>null_hypothesis</code> by spaces and store the output in a variable called <code>split_var</code>.</li>
+<li>Print <code>split_var[1]</code>. What is the output? What is the function of the square brackets, and of the index inside them?</li>
+<li>Print the second character of <code>split_var[1]</code>.</li>
+<li>Split <code>null_hypothesis</code> by the colon (<code>:</code>) character and store the output in a new variable.</li>
+<li>Index the word <code>'hypothesis'</code> out of <code>split_var</code> and store it in a variable called <code>hypothesis_word</code>. Look closely at what you get.</li>
+<li>Convert <code>hypothesis_word</code> to upper case and store it in <code>hypothesis_word_upper</code>.</li>
+<li>Use <code>.replace()</code> to replace the word <code>hypothesis</code> in <code>null_hypothesis</code> with <code>hypothesis_word_upper</code>.</li>
+<li>Test whether <code>hypothesis_word_upper</code> starts with <code>"H"</code>.</li>
+<li>Get the length of <code>null_hypothesis</code>.</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled" title="Hint">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-String methods
+Hint
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Split the variable <code>null_hypothesis</code> by spaces and store the output in a new variable called <code>split_var</code>.</p>
-<p>Print split_var[1]` to the console. What is the output? Can you explain what function of the square brackets is? And the index inside of them?</p>
-<p>Can you index the second character in split_var[1]?</p>
-<p>Split the string variable by the colon (:) character and store the output in a new variable.</p>
-<p>Replace the lower case h in the <code>null_hypothesis</code> character string with an upper case H.</p>
-<p>Index the word ‘hypothesis’ in the <code>split_var</code> variable and store the output in a new variable called <code>hypothesis_word</code></p>
-<p>Convert <code>hypothesis_word</code> to all upper case characters and store in a new variabled called <code>hypothesis_word_upper</code></p>
-<p>Replace the word ‘hypothesis’ in the variable <code>null_hypothesis</code> with <code>hypothesis_word_upper</code></p>
-<p>Test whether <code>hypothesis_word_upper</code> starts with <code>H</code></p>
-<p>Get the length of <code>null_hypothesis</code></p>
-<p>There’s lots more that you can do with strings, but these are the basics!</p>
+<p>Tasks 2–3: one pair of brackets picks an item from the <em>list</em>; a second pair picks a character from that <em>string</em>. Task 5: <code>split()</code> cut on spaces, so what happened to the colon that had no space before it? Task 7: <code>.replace()</code> wants two things: what to find, and what to put there.</p>
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled" title="Data Type 2: Regular numeric variables">
+<div class="callout callout-style-default callout-tip callout-titled" title="Show the code">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Data Type 2: Regular numeric variables
+Show the code
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Make a variable containing an integer.</p>
-<p>Make a floating point variable.</p>
-<p>Print the types of these two variables.</p>
-<p>Add the two variables. What happens?</p>
-<p>Subtract the two variables. What happens?</p>
-<p>Divide the two variables.</p>
-<p>Multiply the two variables and store the output in a new variable.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>split_var <span class="op">=</span> null_hypothesis.split()</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(split_var[<span class="dv">1</span>])            <span class="co"># hypothesis: — note the colon came along!</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(split_var[<span class="dv">1</span>][<span class="dv">1</span>])         <span class="co"># y</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>split_by_colon <span class="op">=</span> null_hypothesis.split(<span class="st">":"</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>hypothesis_word <span class="op">=</span> split_var[<span class="dv">1</span>]                    <span class="co"># 'hypothesis:' (colon included)</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>hypothesis_word_upper <span class="op">=</span> hypothesis_word.upper()   <span class="co"># 'HYPOTHESIS:'</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(null_hypothesis.replace(<span class="st">"hypothesis"</span>, hypothesis_word_upper))</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(hypothesis_word_upper.startswith(<span class="st">"H"</span>))      <span class="co"># True</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(null_hypothesis))                       <span class="co"># 55</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled" title="Printing variables">
+</section>
+<section id="part-4-numbers" class="level2">
+<h2 class="anchored" data-anchor-id="part-4-numbers">Part 4: Numbers</h2>
+<ol type="1">
+<li>Make an integer variable and a floating-point variable.</li>
+<li>Print the types of both.</li>
+<li>Add them. What type is the result?</li>
+<li>Subtract them. What happens?</li>
+<li>Divide them.</li>
+<li>Multiply them and store the output in a new variable.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Show the code">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Printing variables
+Show the code
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Imagine that you want to print reaction times for a given subject on an experiment screen.</p>
-<p>The subject is different in each experiment, and so is their reaction time.</p>
-<p>Print an expression to the screen that says “The current subject is” and insert the current subject’s ID.</p>
-<p>Print an expression to the screen that says “The current subject is [insert their ID] and their reaction time is [insert their reaction time]”</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>n_trials <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>mean_rt <span class="op">=</span> <span class="fl">0.45</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(n_trials), <span class="bu">type</span>(mean_rt))</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(n_trials <span class="op">+</span> mean_rt)    <span class="co"># 20.45 — int + float gives float</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(n_trials <span class="op">-</span> mean_rt)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(n_trials <span class="op">/</span> mean_rt)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>product <span class="op">=</span> n_trials <span class="op">*</span> mean_rt</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(product)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
+</section>
+<section id="part-5-f-strings" class="level2">
+<h2 class="anchored" data-anchor-id="part-5-f-strings">Part 5: f-strings</h2>
+<p>Imagine printing information about the current subject on an experiment screen. The subject differs in each experiment, and so does their reaction time.</p>
+<ol type="1">
+<li>Make a variable with a subject ID and one with a reaction time.</li>
+<li>Print an expression that says <code>The current subject is</code> followed by the subject’s ID, using an f-string.</li>
+<li>Print an expression that says <code>The current subject is [ID] and their reaction time is [RT]</code>, both values inserted from your variables. Bonus: show the reaction time with exactly 2 decimals.</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled" title="Hint">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>An f-string starts with <code>f</code> <em>before</em> the opening quote, and variables go inside curly brackets. For the bonus: the decimals recipe was <code>{variable:.2f}</code>. Where do the colon and <code>.2f</code> sit?</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Show the code">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Show the code
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>subject_id <span class="op">=</span> <span class="st">"S_01"</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>reaction_time <span class="op">=</span> <span class="fl">0.4567</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The current subject is </span><span class="sc">{</span>subject_id<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The current subject is </span><span class="sc">{</span>subject_id<span class="sc">}</span><span class="ss"> and their reaction time is </span><span class="sc">{</span>reaction_time<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>Everything runs? Take a breather, or try the stretch task below.</p>
+</section>
+<section id="done-early" class="level2">
+<h2 class="anchored" data-anchor-id="done-early">Done early?</h2>
+<p>Build the full sentence in one go: using only <code>split_var</code>, <code>.upper()</code> and an f-string, print <code>We failed to reject the NULL HYPOTHESIS.</code>, without typing the words “null” or “hypothesis” yourself.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <!-- ============================================================

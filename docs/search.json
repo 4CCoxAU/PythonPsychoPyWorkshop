@@ -144,7 +144,7 @@
     "href": "session1-python/03_exercise1_variables.html",
     "title": "Exercise 1a: Variables & variable types",
     "section": "",
-    "text": "Block 1 · Learning goals: Make a new Python program, nnderstand what a variable is in Python & different types of variables.\n\n\n\n\n\n\n\nMake a new Python program & save the file\n\n\n\n\n\nCreate a new Python code file in the Coder on UCloud.\nSave the file in /work/cogsci_methods01_e26 (or whatever you have named your methods cosgci folder).\n\n\n\nNow complete the following coding exercises in this file.\n\n\n\n\n\n\nMake a variable and inspect its value in the console\n\n\n\n\n\nMake any variable of any type.\nPrint the value of the variable to the console.\nAdd a comment above the variable to describe it.\nPrint the variable type to the console.\n\n\n\n\n\n\n\n\n\nData Type 1: Regular string variables\n\n\n\n\n\nPrint the character string “Null hypothesis: Eating ice cream does not improve mood”\nStore this expression in a variable called null_hypothesis\nPrint the first four characters of this string variable.\nPrint the last four characters of this string variable.\n\n\n\n\n\n\n\n\n\nString methods\n\n\n\n\n\nSplit the variable null_hypothesis by spaces and store the output in a new variable called split_var.\nPrint split_var[1]` to the console. What is the output? Can you explain what function of the square brackets is? And the index inside of them?\nCan you index the second character in split_var[1]?\nSplit the string variable by the colon (:) character and store the output in a new variable.\nReplace the lower case h in the null_hypothesis character string with an upper case H.\nIndex the word ‘hypothesis’ in the split_var variable and store the output in a new variable called hypothesis_word\nConvert hypothesis_word to all upper case characters and store in a new variabled called hypothesis_word_upper\nReplace the word ‘hypothesis’ in the variable null_hypothesis with hypothesis_word_upper\nTest whether hypothesis_word_upper starts with H\nGet the length of null_hypothesis\nThere’s lots more that you can do with strings, but these are the basics!\n\n\n\n\n\n\n\n\n\nData Type 2: Regular numeric variables\n\n\n\n\n\nMake a variable containing an integer.\nMake a floating point variable.\nPrint the types of these two variables.\nAdd the two variables. What happens?\nSubtract the two variables. What happens?\nDivide the two variables.\nMultiply the two variables and store the output in a new variable.\n\n\n\n\n\n\n\n\n\nPrinting variables\n\n\n\n\n\nImagine that you want to print reaction times for a given subject on an experiment screen.\nThe subject is different in each experiment, and so is their reaction time.\nPrint an expression to the screen that says “The current subject is” and insert the current subject’s ID.\nPrint an expression to the screen that says “The current subject is [insert their ID] and their reaction time is [insert their reaction time]”",
+    "text": "Block 2 · Your first exercise! Everything you need is in Chapter 2.\nHow exercises work: try each task yourself first. The point is the attempt, not speed. Every part has a folded Show the code with a working solution; stuck for ten minutes means unfold it, understand it, move on. That is the intended way to use this material, not cheating.",
     "crumbs": [
       "Home",
       "Session 1 · Python basics",
@@ -654,6 +654,97 @@
       "Session 1 · Python basics",
       "Block 2 · Variables and data types",
       "Variables and regular data types"
+    ]
+  },
+  {
+    "objectID": "session1-python/03_exercise1_variables.html#setup",
+    "href": "session1-python/03_exercise1_variables.html#setup",
+    "title": "Exercise 1a: Variables & variable types",
+    "section": "Setup",
+    "text": "Setup\nCreate a new Python code file in the Coder on UCloud, and save it in /work/cogsci_methods01_e26 (or whatever you have named your methods cogsci folder). Do all of today’s tasks in this file.",
+    "crumbs": [
+      "Home",
+      "Session 1 · Python basics",
+      "Block 2 · Variables and data types",
+      "Exercise 1a: Variables & data types"
+    ]
+  },
+  {
+    "objectID": "session1-python/03_exercise1_variables.html#part-1-your-first-variable",
+    "href": "session1-python/03_exercise1_variables.html#part-1-your-first-variable",
+    "title": "Exercise 1a: Variables & variable types",
+    "section": "Part 1: Your first variable",
+    "text": "Part 1: Your first variable\n\nMake a variable of any type, with a comment above it describing it.\nPrint its value to the console.\nPrint its type to the console.\n\n\n\n\n\n\n\nShow the code\n\n\n\n\n\n# My favourite number of coffees per day.\ncoffees = 3\nprint(coffees)\nprint(type(coffees))",
+    "crumbs": [
+      "Home",
+      "Session 1 · Python basics",
+      "Block 2 · Variables and data types",
+      "Exercise 1a: Variables & data types"
+    ]
+  },
+  {
+    "objectID": "session1-python/03_exercise1_variables.html#part-2-strings",
+    "href": "session1-python/03_exercise1_variables.html#part-2-strings",
+    "title": "Exercise 1a: Variables & variable types",
+    "section": "Part 2: Strings",
+    "text": "Part 2: Strings\n\nPrint the string \"Null hypothesis: Eating ice cream does not improve mood\".\nStore it in a variable called null_hypothesis.\nPrint the first four characters of null_hypothesis.\nPrint the last four characters.\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nSquare brackets with a range: [start:stop]. And remember, stop is where it stops before. For the last few characters, count backwards with a minus.\n\n\n\n\n\n\n\n\n\nShow the code\n\n\n\n\n\nprint(\"Null hypothesis: Eating ice cream does not improve mood\")\nnull_hypothesis = \"Null hypothesis: Eating ice cream does not improve mood\"\nprint(null_hypothesis[0:4])   # Null\nprint(null_hypothesis[-4:])   # mood",
+    "crumbs": [
+      "Home",
+      "Session 1 · Python basics",
+      "Block 2 · Variables and data types",
+      "Exercise 1a: Variables & data types"
+    ]
+  },
+  {
+    "objectID": "session1-python/03_exercise1_variables.html#part-3-string-methods",
+    "href": "session1-python/03_exercise1_variables.html#part-3-string-methods",
+    "title": "Exercise 1a: Variables & variable types",
+    "section": "Part 3: String methods",
+    "text": "Part 3: String methods\n\nSplit null_hypothesis by spaces and store the output in a variable called split_var.\nPrint split_var[1]. What is the output? What is the function of the square brackets, and of the index inside them?\nPrint the second character of split_var[1].\nSplit null_hypothesis by the colon (:) character and store the output in a new variable.\nIndex the word 'hypothesis' out of split_var and store it in a variable called hypothesis_word. Look closely at what you get.\nConvert hypothesis_word to upper case and store it in hypothesis_word_upper.\nUse .replace() to replace the word hypothesis in null_hypothesis with hypothesis_word_upper.\nTest whether hypothesis_word_upper starts with \"H\".\nGet the length of null_hypothesis.\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nTasks 2–3: one pair of brackets picks an item from the list; a second pair picks a character from that string. Task 5: split() cut on spaces, so what happened to the colon that had no space before it? Task 7: .replace() wants two things: what to find, and what to put there.\n\n\n\n\n\n\n\n\n\nShow the code\n\n\n\n\n\nsplit_var = null_hypothesis.split()\nprint(split_var[1])            # hypothesis: — note the colon came along!\nprint(split_var[1][1])         # y\nsplit_by_colon = null_hypothesis.split(\":\")\nhypothesis_word = split_var[1]                    # 'hypothesis:' (colon included)\nhypothesis_word_upper = hypothesis_word.upper()   # 'HYPOTHESIS:'\nprint(null_hypothesis.replace(\"hypothesis\", hypothesis_word_upper))\nprint(hypothesis_word_upper.startswith(\"H\"))      # True\nprint(len(null_hypothesis))                       # 55",
+    "crumbs": [
+      "Home",
+      "Session 1 · Python basics",
+      "Block 2 · Variables and data types",
+      "Exercise 1a: Variables & data types"
+    ]
+  },
+  {
+    "objectID": "session1-python/03_exercise1_variables.html#part-4-numbers",
+    "href": "session1-python/03_exercise1_variables.html#part-4-numbers",
+    "title": "Exercise 1a: Variables & variable types",
+    "section": "Part 4: Numbers",
+    "text": "Part 4: Numbers\n\nMake an integer variable and a floating-point variable.\nPrint the types of both.\nAdd them. What type is the result?\nSubtract them. What happens?\nDivide them.\nMultiply them and store the output in a new variable.\n\n\n\n\n\n\n\nShow the code\n\n\n\n\n\nn_trials = 20\nmean_rt = 0.45\nprint(type(n_trials), type(mean_rt))\nprint(n_trials + mean_rt)    # 20.45 — int + float gives float\nprint(n_trials - mean_rt)\nprint(n_trials / mean_rt)\nproduct = n_trials * mean_rt\nprint(product)",
+    "crumbs": [
+      "Home",
+      "Session 1 · Python basics",
+      "Block 2 · Variables and data types",
+      "Exercise 1a: Variables & data types"
+    ]
+  },
+  {
+    "objectID": "session1-python/03_exercise1_variables.html#part-5-f-strings",
+    "href": "session1-python/03_exercise1_variables.html#part-5-f-strings",
+    "title": "Exercise 1a: Variables & variable types",
+    "section": "Part 5: f-strings",
+    "text": "Part 5: f-strings\nImagine printing information about the current subject on an experiment screen. The subject differs in each experiment, and so does their reaction time.\n\nMake a variable with a subject ID and one with a reaction time.\nPrint an expression that says The current subject is followed by the subject’s ID, using an f-string.\nPrint an expression that says The current subject is [ID] and their reaction time is [RT], both values inserted from your variables. Bonus: show the reaction time with exactly 2 decimals.\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nAn f-string starts with f before the opening quote, and variables go inside curly brackets. For the bonus: the decimals recipe was {variable:.2f}. Where do the colon and .2f sit?\n\n\n\n\n\n\n\n\n\nShow the code\n\n\n\n\n\nsubject_id = \"S_01\"\nreaction_time = 0.4567\nprint(f\"The current subject is {subject_id}\")\nprint(f\"The current subject is {subject_id} and their reaction time is {reaction_time:.2f}\")\n\n\n\nEverything runs? Take a breather, or try the stretch task below.",
+    "crumbs": [
+      "Home",
+      "Session 1 · Python basics",
+      "Block 2 · Variables and data types",
+      "Exercise 1a: Variables & data types"
+    ]
+  },
+  {
+    "objectID": "session1-python/03_exercise1_variables.html#done-early",
+    "href": "session1-python/03_exercise1_variables.html#done-early",
+    "title": "Exercise 1a: Variables & variable types",
+    "section": "Done early?",
+    "text": "Done early?\nBuild the full sentence in one go: using only split_var, .upper() and an f-string, print We failed to reject the NULL HYPOTHESIS., without typing the words “null” or “hypothesis” yourself.",
+    "crumbs": [
+      "Home",
+      "Session 1 · Python basics",
+      "Block 2 · Variables and data types",
+      "Exercise 1a: Variables & data types"
     ]
   }
 ]

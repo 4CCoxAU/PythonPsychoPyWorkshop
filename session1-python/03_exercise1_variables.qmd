@@ -3,98 +3,134 @@ title: "Exercise 1a: Variables & variable types"
 ---
 
 ::: {.milestone}
-**Block 1** · Learning goals: Make a new Python program, nnderstand what a variable is in Python & different types of variables.  
+**Block 2** · Your first exercise! Everything you need is in [Chapter 2](02_variables.qmd).
 :::
 
-::: {.callout-tip collapse="true" title="Make a new Python program & save the file"}
-
-Create a new Python code file in the Coder on UCloud.
-
-Save the file in /work/cogsci_methods01_e26 (or whatever you have named your methods cosgci folder).
-
+::: {.exercise-banner}
+<div class="ex-kicker">Hands-on · on your own · folded hints and code if you need it</div>
+<div class="ex-title">Exercise 1a — Variables & variable types</div>
+<div class="ex-sub">Create variables, take strings apart and put them back together, and build the printout every experiment needs.</div>
 :::
 
-Now complete the following coding exercises in this file. 
+How exercises work: try each task yourself first. The point is the attempt, not speed. Every part has a folded **Show the code** with a working solution; stuck for ten minutes means unfold it, understand it, move on. That is the intended way to use this material, not cheating.
 
-::: {.callout-tip collapse="true" title="Make a variable and inspect its value in the console"}
+## Setup
 
-Make any variable of any type.
+Create a new Python code file in the Coder on UCloud, and save it in `/work/cogsci_methods01_e26` (or whatever you have named your methods cogsci folder). Do all of today's tasks in this file.
 
-Print the value of the variable to the console.
 
-Add a comment above the variable to describe it.
+## Part 1: Your first variable
 
-Print the variable type to the console. 
+1. Make a variable of any type, with a comment above it describing it.
+2. Print its value to the console.
+3. Print its *type* to the console.
 
+::: {.callout-tip collapse="true" title="Show the code"}
+```python
+# My favourite number of coffees per day.
+coffees = 3
+print(coffees)
+print(type(coffees))
+```
 :::
 
-::: {.callout-tip collapse="true" title="Data Type 1: Regular string variables"}
 
-Print the character string "Null hypothesis: Eating ice cream does not improve mood"
+## Part 2: Strings
 
-Store this expression in a variable called `null_hypothesis`
+1. Print the string `"Null hypothesis: Eating ice cream does not improve mood"`.
+2. Store it in a variable called `null_hypothesis`.
+3. Print the first four characters of `null_hypothesis`.
+4. Print the last four characters.
 
-Print the first four characters of this string variable. 
-
-Print the last four characters of this string variable. 
-
+::: {.callout-note collapse="true" title="Hint"}
+Square brackets with a range: `[start:stop]`. And remember, `stop` is where it stops *before*. For the last few characters, count backwards with a minus.
 :::
 
-::: {.callout-tip collapse="true" title="String methods"}
-
-Split the variable `null_hypothesis` by spaces and store the output in a new variable called `split_var`. 
-
-Print split_var[1]`  to the console. What is the output? 
-Can you explain what function of the square brackets is? 
-And the index inside of them? 
-
-Can you index the second character in split_var[1]?
-
-Split the string variable by the colon (:) character and store the output in a new variable.
-
-Replace the lower case h in the `null_hypothesis` character string with an upper case H. 
-
-Index the word 'hypothesis' in the `split_var` variable and store the output in a new variable called `hypothesis_word`
-
-Convert `hypothesis_word` to all upper case characters and store in a new variabled called `hypothesis_word_upper`
-
-Replace the word 'hypothesis' in the variable `null_hypothesis` with `hypothesis_word_upper`
-
-Test whether `hypothesis_word_upper` starts with `H`
-
-Get the length of `null_hypothesis`
-
-There's lots more that you can do with strings, but these are the basics!
-
+::: {.callout-tip collapse="true" title="Show the code"}
+```python
+print("Null hypothesis: Eating ice cream does not improve mood")
+null_hypothesis = "Null hypothesis: Eating ice cream does not improve mood"
+print(null_hypothesis[0:4])   # Null
+print(null_hypothesis[-4:])   # mood
+```
 :::
 
-::: {.callout-tip collapse="true" title="Data Type 2: Regular numeric variables"}
 
-Make a variable containing an integer. 
+## Part 3: String methods
 
-Make a floating point variable. 
+1. Split `null_hypothesis` by spaces and store the output in a variable called `split_var`.
+2. Print `split_var[1]`. What is the output? What is the function of the square brackets, and of the index inside them?
+3. Print the second character of `split_var[1]`.
+4. Split `null_hypothesis` by the colon (`:`) character and store the output in a new variable.
+5. Index the word `'hypothesis'` out of `split_var` and store it in a variable called `hypothesis_word`. Look closely at what you get.
+6. Convert `hypothesis_word` to upper case and store it in `hypothesis_word_upper`.
+7. Use `.replace()` to replace the word `hypothesis` in `null_hypothesis` with `hypothesis_word_upper`.
+8. Test whether `hypothesis_word_upper` starts with `"H"`.
+9. Get the length of `null_hypothesis`.
 
-Print the types of these two variables. 
-
-Add the two variables. What happens?
-
-Subtract the two variables. What happens?
-
-Divide the two variables.
-
-Multiply the two variables and store the output in a new variable. 
-
-::: 
-
-::: {.callout-tip collapse="true" title="Printing variables"}
-
-Imagine that you want to print reaction times for a given subject on an experiment screen.
-
-The subject is different in each experiment, and so is their reaction time. 
-
-Print an expression to the screen that says "The current subject is " and insert the current subject's ID.
-
-Print an expression to the screen that says "The current subject is [insert their ID] and their reaction time is [insert their reaction time]"
-
+::: {.callout-note collapse="true" title="Hint"}
+Tasks 2–3: one pair of brackets picks an item from the *list*; a second pair picks a character from that *string*. Task 5: `split()` cut on spaces, so what happened to the colon that had no space before it? Task 7: `.replace()` wants two things: what to find, and what to put there.
 :::
 
+::: {.callout-tip collapse="true" title="Show the code"}
+```python
+split_var = null_hypothesis.split()
+print(split_var[1])            # hypothesis: — note the colon came along!
+print(split_var[1][1])         # y
+split_by_colon = null_hypothesis.split(":")
+hypothesis_word = split_var[1]                    # 'hypothesis:' (colon included)
+hypothesis_word_upper = hypothesis_word.upper()   # 'HYPOTHESIS:'
+print(null_hypothesis.replace("hypothesis", hypothesis_word_upper))
+print(hypothesis_word_upper.startswith("H"))      # True
+print(len(null_hypothesis))                       # 55
+```
+:::
+
+## Part 4: Numbers
+
+1. Make an integer variable and a floating-point variable.
+2. Print the types of both.
+3. Add them. What type is the result?
+4. Subtract them. What happens?
+5. Divide them.
+6. Multiply them and store the output in a new variable.
+
+::: {.callout-tip collapse="true" title="Show the code"}
+```python
+n_trials = 20
+mean_rt = 0.45
+print(type(n_trials), type(mean_rt))
+print(n_trials + mean_rt)    # 20.45 — int + float gives float
+print(n_trials - mean_rt)
+print(n_trials / mean_rt)
+product = n_trials * mean_rt
+print(product)
+```
+:::
+
+## Part 5: f-strings
+
+Imagine printing information about the current subject on an experiment screen. The subject differs in each experiment, and so does their reaction time.
+
+1. Make a variable with a subject ID and one with a reaction time.
+2. Print an expression that says `The current subject is ` followed by the subject's ID, using an f-string.
+3. Print an expression that says `The current subject is [ID] and their reaction time is [RT]`, both values inserted from your variables. Bonus: show the reaction time with exactly 2 decimals.
+
+::: {.callout-note collapse="true" title="Hint"}
+An f-string starts with `f` *before* the opening quote, and variables go inside curly brackets. For the bonus: the decimals recipe was `{variable:.2f}`. Where do the colon and `.2f` sit?
+:::
+
+::: {.callout-tip collapse="true" title="Show the code"}
+```python
+subject_id = "S_01"
+reaction_time = 0.4567
+print(f"The current subject is {subject_id}")
+print(f"The current subject is {subject_id} and their reaction time is {reaction_time:.2f}")
+```
+:::
+
+Everything runs? Take a breather, or try the stretch task below.
+
+## Done early?
+
+Build the full sentence in one go: using only `split_var`, `.upper()` and an f-string, print `We failed to reject the NULL HYPOTHESIS.`, without typing the words "null" or "hypothesis" yourself.
