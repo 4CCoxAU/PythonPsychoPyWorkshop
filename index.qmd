@@ -11,7 +11,7 @@ Welcome! Over the coming workshop sessions, you'll go from typing your very firs
 
 ## Why programming?
 
-Nearly every empirical experiment in cognitive science — reaction-time studies, reading paradigms, eye-tracking, EEG — is implemented in code. A working knowledge of Python allows you to build precisely the experiment your research question requires, to understand the structure and provenance of your data, and to diagnose problems when they arise. 
+Nearly every empirical experiment in cognitive science (e.g. reaction-time studies, reading paradigms, eye-tracking, EEG) is implemented in code. A working knowledge of Python allows you to build precisely the experiment your research question requires, to understand the structure and provenance of your data, and to diagnose problems when they arise. 
 
 The aim of these three sessions is a modest form of fluency: by the end, the experiment running on your screen should be a system you can read, modify, and reason about. These skills will hopefully outlast the course: designing, implementing, and troubleshooting your own experiments is part of the everyday craft of working scientists, in cognitive science and well beyond.
 
@@ -31,11 +31,11 @@ However, as you will learn over the course of the semester, many of the programm
 **[Session 1 · Python basics](session1-python/index.qmd)**
 Variables, lists, loops, conditionals, functions. These are the handful of building blocks that all programs are made of. Everything you learn here gets used directly in Session 2.
 
-**[Session 2 · Introduction to PsychoPy](session2-psychopy/index.qmd)**
-PsychoPy is the Python library psychologists use to run experiments: it opens windows, draws stimuli, and records keypresses with precise timing. You build the **CogWheel experiment** step by step and leave with a script that runs: images in random order, keyboard responses, feedback on every trial, and more..
+**[Session 2 · Introduction to PsychoPy]** *(materials coming)*
+PsychoPy is the Python library psychologists use to run experiments: it opens windows, draws stimuli, and records keypresses with precise timing. You build an experiment step by step and leave with a script that runs: images in random order, keyboard responses, feedback on every trial, and more..
 
 **Session 3 · From cogwheels to words** *(materials coming)*
-Swap the images for words, add a clock and a logfile, and your CogWheel script becomes a **self-paced reading experiment**, the direct starting point for your Portfolio 2 prototype.
+Swap the images for words, add a clock and a logfile, and your CogWheel script becomes a self-paced reading experiment, the direct starting point for your Portfolio 2 prototype.
 
 
 ## How the sessions work
@@ -48,7 +48,7 @@ Each session follows the same rhythm: a short lecture introduces the concepts an
 
 ## What you need
 
-* Your own laptop with **PsychoPy installed**. Install instructions are sent out before Session 1, and each session starts with a setup check. If the install fights back, come 15 minutes early.
+* Your own laptop with **PsychoPy installed**. Install instructions are sent out before Session 2, and each session starts with a setup check. If the install fights back, come 15 minutes early.
 * Curiosity. A willingness to try things, break things, and read the occasional error message will carry you further than any prior experience would.
 
 Ready? Start with [Session 1](session1-python/index.qmd).

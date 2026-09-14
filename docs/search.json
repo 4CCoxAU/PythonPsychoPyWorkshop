@@ -36,536 +36,6 @@
     ]
   },
   {
-    "objectID": "session1-python/01_getting_started.html",
-    "href": "session1-python/01_getting_started.html",
-    "title": "1 · Getting Started: Setting up your Python environment",
-    "section": "",
-    "text": "Block 1 · Chapter 1 of 3 before the first break. Set up your first Python code file in UCloud & run your first line of Python.",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Block 1 · Getting started",
-      "Getting started"
-    ]
-  },
-  {
-    "objectID": "session1-python/01_getting_started.html#python-coder-in-ucloud",
-    "href": "session1-python/01_getting_started.html#python-coder-in-ucloud",
-    "title": "1 · Getting Started: Setting up your Python environment",
-    "section": "Python Coder in UCloud",
-    "text": "Python Coder in UCloud\nToday we will learn the fundamentals of Python in UCloud, where Python is already installed. This gives everyone a consistent setup and lets us focus on the language itself instead of troubleshooting software installation or technical setup.\nNext week, when you use PsychoPy, you will install it on your laptop and work with the version of Python bundled with it. We start with plain Python first so you can build a solid foundation before adding the extra complexity of PsychoPy.",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Block 1 · Getting started",
-      "Getting started"
-    ]
-  },
-  {
-    "objectID": "session1-python/01_getting_started.html#how-to-open-python-coder-in-ucloud",
-    "href": "session1-python/01_getting_started.html#how-to-open-python-coder-in-ucloud",
-    "title": "1 · Getting Started: Setting up your Python environment",
-    "section": "How to open Python Coder in UCloud",
-    "text": "How to open Python Coder in UCloud\n\nOpen UCloud.\nGo to your E26_LICS_Methods1 workspace using the drop-down menu in the top-left corner.\nOpen the Applications page by clicking the shopping bag icon in the right panel.\nSearch for “Coder” and click the application.\nThe Job Parameters page should open. Fill in the fields the same way you do for your RStudio jobs:\n\nChoose a meaningful job name\nSelect the machine type (only one option is available)\nClick “Add Folder #1” and choose your cogsci_methods01_e26 folder\nUnder “Initialization”, select the ucloud_init_env_final.sh script\nChoose a reasonable number of hours\n\nClick the green “Submit” button.\nWhen the job is ready, click “Open Interface” at the top left.",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Block 1 · Getting started",
-      "Getting started"
-    ]
-  },
-  {
-    "objectID": "session1-python/01_getting_started.html#install-the-python-language-extension",
-    "href": "session1-python/01_getting_started.html#install-the-python-language-extension",
-    "title": "1 · Getting Started: Setting up your Python environment",
-    "section": "Install the Python language extension",
-    "text": "Install the Python language extension\nRemember that we need to reinstall packages in UCloud every time we start a new job, because each job is assigned to a new remote computer. The same is true for Python: we need to install the Python language extension in the Coder application each time we start a new job. Here’s how:\n\nIn the far-left panel, click the icon with four squares. This is the marketplace icon.\nType “Python” into the search bar. The Python extension should be at the top of the list (from ms-Python).\nClick the Python extension, then click the Install button.",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Block 1 · Getting started",
-      "Getting started"
-    ]
-  },
-  {
-    "objectID": "session1-python/01_getting_started.html#create-your-first-python-code-file",
-    "href": "session1-python/01_getting_started.html#create-your-first-python-code-file",
-    "title": "1 · Getting Started: Setting up your Python environment",
-    "section": "Create your first Python code file",
-    "text": "Create your first Python code file\nYou can now create a new Python code file. Here’s how:\n\nIn the far-left panel, find the icon that looks like three horizontal lines stacked on top of each other. Click it.\nA pop-up menu will appear. Click File &gt; New File.\nA drop-down menu will appear asking for the file type. Type “Python” and you should see: Create new file (python) Built-in.\nYou will be prompted to choose where to save the file. For now, we will use: /work/cogsci_methods01_e26/name_of_your_file.py\n\nYou can choose any name for the file (it does not have to be “name_of_your_file.py”). The only rules are that you cannot use spaces and it must have a .py extension, because this tells the remote computer that it is a Python file when you reopen it later.",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Block 1 · Getting started",
-      "Getting started"
-    ]
-  },
-  {
-    "objectID": "session1-python/01_getting_started.html#hello-world-run-your-first-line-of-python-code",
-    "href": "session1-python/01_getting_started.html#hello-world-run-your-first-line-of-python-code",
-    "title": "1 · Getting Started: Setting up your Python environment",
-    "section": "“Hello world!”: Run your first line of Python code",
-    "text": "“Hello world!”: Run your first line of Python code\nIn your new code file, enter your first line of Python code:\nprint(\"Hello world!\")\n\nYour first prediction! Throughout these sessions, boxes like this ask you to guess what code will do before you run it. That’s where the learning happens, and wrong guesses are very welcome and encouraged. After a few tries the box will offer to show you the answer, so you can never get stuck. So: what exactly will appear in the console when this line runs? Take a guess.\n\nHello world!. Note that there are no quotation marks. The quotes tell Python where the text starts and ends; they are not part of the text itself.\n\n\nNow run the code by highlighting it and pressing Shift+Enter. You should see a dedicated terminal open below.\nTerminal shows what you expected? Next: Chapter 2 — Variables and types.",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Block 1 · Getting started",
-      "Getting started"
-    ]
-  },
-  {
-    "objectID": "session1-python/06_loops.html",
-    "href": "session1-python/06_loops.html",
-    "title": "3 · Loops",
-    "section": "",
-    "text": "Block 3 · Learning goals: Understand basic for and while loops.",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Block 3 · Lists & Loops",
-      "Loops"
-    ]
-  },
-  {
-    "objectID": "session1-python/06_loops.html#what-is-a-loop",
-    "href": "session1-python/06_loops.html#what-is-a-loop",
-    "title": "3 · Loops",
-    "section": "What is a loop?",
-    "text": "What is a loop?\nA loop is a programming structure that repeats a block of code.\nIn this lesson, you will meet two common types of loop:\n\nFor loops repeat code once for each item in a collection, such as a list.\nWhile loops repeat code while a condition is true.\n\n\n\n\n\n\n\nBasic for loops\n\n\n\n\n\nFor loops repeat the same code once for each item in a collection, such as a list.\nImagine that you have five subject IDs and want to print each one.\nYou could write a separate print() statement for every subject:\nprint(\"S01\")\nprint(\"S02\")\n...\nprint(\"S05\")\nHowever, this becomes repetitive and difficult to update. Instead, store the IDs in a list and loop through the items:\nsubject_ids = ['S01', 'S02', 'S03', 'S04', 'S05']\n\nfor subject in subject_ids:\n    print(subject)\nIn plain language, this loop means:\n\nFor every item in subject_ids, store that item in subject and print it.\n\nThe indented line is the body of the loop: it runs once per item. Each repetition is called an iteration. During each iteration, subject temporarily holds the current ID.\nYou can also loop through the index positions in a list. This is useful when you need both an item’s position and its value.\nNotice the syntax: the for statement ends with a colon, and the loop body must be indented.\n\n# Get the total number of subjects.\nnumber_of_subjects = len(subject_ids)\n\n# Create indices from 0 up to, but not including, number_of_subjects.\nsubject_index_range = range(number_of_subjects)\n\n# Use each index to retrieve the corresponding subject ID.\nfor index in subject_index_range:\n    print(f\"Subject {index + 1}: {subject_ids[index]}\")\n\nSometimes you need to update a number on every iteration of a loop.\nThis number is called a counter variable. The example below counts how many days have been processed.\n\n# Define a list to loop over.\nweekdays = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']\n\n# Start a counter at zero.\nday_of_week = 0\n\n# Print each day, then add 1 to the counter.\nfor day in weekdays:\n    print(f\"The current day is {day}\")\n    day_of_week += 1\n\n# Print the final count after the loop has finished.\nprint(f\"There are {day_of_week} days in the list.\")\n\n\n\n\n\n\n\n\n\nBasic while loops\n\n\n\n\n\nWhile loops repeat a block of code while a condition is True.\nYou will learn more about conditions after the logical-operators lesson. For now, this example prints the first six weekdays:\n\n# Start at the first item in the list.\nday_of_week = 0\n\n# Keep looping while day_of_week is less than 6.\nwhile day_of_week &lt; 6:\n    print(f\"The current day is {weekdays[day_of_week]}\")\n    # Move to the next index so the condition will eventually become False.\n    day_of_week += 1\nThe condition is day_of_week &lt; 6. On each iteration, day_of_week increases by 1. Once it reaches 6, the condition is False and the loop stops.\n\n\n\n\n\n\n\n\n\nSummary\n\n\n\nLoops repeat code. Use a for loop when you want to work through each item in a collection, such as a list of subject IDs. Use an index-based for loop when you also need each item’s position. A counter variable records progress by changing on every iteration. Use a while loop when repetition should continue only while a condition is True.",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Block 3 · Lists & Loops",
-      "Loops"
-    ]
-  },
-  {
-    "objectID": "session1-python/03_exercise1_variables.html",
-    "href": "session1-python/03_exercise1_variables.html",
-    "title": "Exercise 1a: Variables & variable types",
-    "section": "",
-    "text": "Block 2 · Your first exercise! Everything you need is in Chapter 2.\nHow exercises work: try each task yourself first. The point is the attempt, not speed. Every part has a folded Show the code with a working solution; stuck for ten minutes means unfold it, understand it, move on. That is the intended way to use this material, not cheating.",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Block 2 · Variables and data types",
-      "Exercise 1a: Variables & data types"
-    ]
-  },
-  {
-    "objectID": "session2-psychopy/04_stimuli.html",
-    "href": "session2-psychopy/04_stimuli.html",
-    "title": "4 · Text, Images, and Two Ways to Wait",
-    "section": "",
-    "text": "Block 2 · aim to have Exercise 4 running by lunch (~12:00)\nThe wonderful thing about the draw-flip cycle is that every stimulus type follows it. Images work exactly like text: swap TextStim for ImageStim:",
-    "crumbs": [
-      "Home",
-      "Session 2 · PsychoPy",
-      "Block 2 · Stimuli on the screen",
-      "4 · Text, Images, and Two Ways to Wait"
-    ]
-  },
-  {
-    "objectID": "session2-psychopy/04_stimuli.html#two-ways-to-wait",
-    "href": "session2-psychopy/04_stimuli.html#two-ways-to-wait",
-    "title": "4 · Text, Images, and Two Ways to Wait",
-    "section": "Two ways to wait",
-    "text": "Two ways to wait\nAfter a flip, we decide how long the stimulus stays. There are two fundamentally different answers, and choosing between them is an experimental design decision:\ncore.wait(2)        # the COMPUTER decides: exactly 2 seconds\nevent.waitKeys()    # the PARTICIPANT decides: waits for a key press\n\n\n\n\n\n\n🔮 Predict first — which wait for which screen?\n\n\n\nFor each screen, decide: core.wait() or event.waitKeys()?\n\nan instructions screen · (b) a feedback screen after a response · (c) a brief fixation cross between trials · (d) a word in a self-paced reading experiment\n\n\n\n\n\n\n\nCheck your prediction\n\n\n\n\n\n\nwaitKeys(): people read at different speeds. (b) wait(): fixed, comparable duration for everyone. (c) wait(): fixed and short. (d) waitKeys(): the whole point of self-paced reading is that the participant controls the pace; the time they take is the measurement. More on that in Session 3.",
-    "crumbs": [
-      "Home",
-      "Session 2 · PsychoPy",
-      "Block 2 · Stimuli on the screen",
-      "4 · Text, Images, and Two Ways to Wait"
-    ]
-  },
-  {
-    "objectID": "session2-psychopy/04_stimuli.html#try-it",
-    "href": "session2-psychopy/04_stimuli.html#try-it",
-    "title": "4 · Text, Images, and Two Ways to Wait",
-    "section": "Try it",
-    "text": "Try it\nModify your Chapter 3 script: after the Hello, world! screen, show one CogWheel image (pick any file from stimuli/), participant-paced. Run it.\n\n\n\n\n\n\nShow the code\n\n\n\n\n\nfrom psychopy import visual, event, core\n\nwin = visual.Window(size=(1280, 720), color='black')\n\ntext = visual.TextStim(win, text='Hello, world!',\n                       color='white', height=0.1)\ntext.draw()\nwin.flip()\nevent.waitKeys()\n\nimg = visual.ImageStim(win, image='stimuli/stimulus1_L.jpg')\nimg.draw()\nwin.flip()\nevent.waitKeys()\n\nwin.close()\ncore.quit()\nNote the pattern repeating: prepare, draw, flip, wait — once per screen.",
-    "crumbs": [
-      "Home",
-      "Session 2 · PsychoPy",
-      "Block 2 · Stimuli on the screen",
-      "4 · Text, Images, and Two Ways to Wait"
-    ]
-  },
-  {
-    "objectID": "session2-psychopy/06_exercise4.html",
-    "href": "session2-psychopy/06_exercise4.html",
-    "title": "6 · Exercise 4: Display the CogWheel Stimuli",
-    "section": "",
-    "text": "Block 2 milestone · this is the “running by lunch” target\n\n\n\nHands-on · work in pairs · swap driver/navigator halfway\n\n\nExercise 4 — Display the CogWheel stimuli\n\n\nYour first real experiment script: show every stimulus image, one by one, participant-paced.\n\n\n\n🎬 What success looks like: (embed a 10-second screen recording here: welcome text → a few cogwheel images advancing on key presses → goodbye text) — your goal is to make your screen do exactly this.\n\nBuild it in five steps, running your script after every step. Try each step yourself first; the folded code is there when you need it.\n\nStep 1 — Collect the stimuli\nStart a new script cogwheel.py in the workshop folder. Import what you need and collect the image files into a list. Print it to check.\n\n\n\n\n\n\nShow the code\n\n\n\n\n\nfrom psychopy import visual, event, core\nimport glob\n\nimages = glob.glob('stimuli/stimulus*.jpg')\nprint(images)   # sanity check: a list of file paths\n\n\n\n\n\nStep 2 — Open the window\nA window with a black background. Keep fullscr=False until everything works, then switch it on.\n\n\n\n\n\n\nShow the code\n\n\n\n\n\nwin = visual.Window(fullscr=True, color='black')\n\n\n\n\n\nStep 3 — Welcome the participant\nA welcome message in white text; wait for a key press before starting. Remember: prepare, draw, flip, wait.\n\n\n\n\n\n\nShow the code\n\n\n\n\n\nwelcome = visual.TextStim(win,\n    text='Welcome to the CogWheel experiment!\\n\\nPress any key to begin.',\n    color='white')\nwelcome.draw()\nwin.flip()\nevent.waitKeys()\n\n\n\n\n\nStep 4 — The trial loop\nLoop over the images: for each one, create an ImageStim, draw, flip, wait for a key press.\n\n\n\n\n\n\nShow the code\n\n\n\n\n\nfor image in images:\n    stim = visual.ImageStim(win, image=image)\n    stim.draw()\n    win.flip()\n    event.waitKeys()\n\n\n\n\n\nStep 5 — Goodbye and shutdown\nAfter the loop: a goodbye message for two seconds, then close and quit.\n\n\n\n\n\n\nShow the code\n\n\n\n\n\ngoodbye = visual.TextStim(win,\n    text='That was it — thank you!', color='white')\ngoodbye.draw()\nwin.flip()\ncore.wait(2)\n\nwin.close()\ncore.quit()\n\n\n\n\n\n\n\n\n\nStuck? The usual suspects\n\n\n\n\nEmpty list from glob → path problem; your script is not next to stimuli/.\nBlank screen in the loop → missing win.flip(), or a draw() outside the loop.\nOnly one image ever shows → indentation: is everything that belongs to a trial inside the loop?\n\nTen minutes stuck? → partner → checkpoint below → red sticky.\n\n\nFinished early? Add a fixation cross (visual.TextStim(win, text='+')) shown for half a second between images, or count trials with a variable and show the count in the goodbye message.\n\n\n\n\n\n\nCheckpoint · complete Exercise 4 script\n\n\n\n\n\nfrom psychopy import visual, event, core\nimport glob\n\n# --- setup ---\nimages = glob.glob('stimuli/stimulus*.jpg')\n\nwin = visual.Window(fullscr=True, color='black')\n\n# --- welcome screen ---\nwelcome = visual.TextStim(win,\n    text='Welcome to the CogWheel experiment!\\n\\nPress any key to begin.',\n    color='white')\nwelcome.draw()\nwin.flip()\nevent.waitKeys()\n\n# --- trial loop ---\nfor image in images:\n    stim = visual.ImageStim(win, image=image)\n    stim.draw()\n    win.flip()\n    event.waitKeys()\n\n# --- goodbye and shutdown ---\ngoodbye = visual.TextStim(win,\n    text='That was it — thank you!', color='white')\ngoodbye.draw()\nwin.flip()\ncore.wait(2)\n\nwin.close()\ncore.quit()\nKeep this script safe. Block 4 upgrades it, and Session 3 extends it into your Portfolio 2 prototype.",
-    "crumbs": [
-      "Home",
-      "Session 2 · PsychoPy",
-      "Block 2 · Stimuli on the screen",
-      "6 · Exercise 4: Display the CogWheel Stimuli"
-    ]
-  },
-  {
-    "objectID": "session2-psychopy/02_psychopy.html",
-    "href": "session2-psychopy/02_psychopy.html",
-    "title": "2 · Meet PsychoPy: Three Modules and a Window",
-    "section": "",
-    "text": "Block 1 · aim to finish chapters 1–3 by the first break (~10:30)\nExperiments need a screen: stimuli to look at, keys to press, precise timing. This is what PsychoPy adds. PsychoPy is a free, open-source Python library for behavioural experiments, made by psychologists for psychologists (Peirce, 2007). It is not a new language — it is a set of tools we import into the Python you already know. And because you are using the Standalone PsychoPy app, everything is already installed: the Coder runs your scripts in PsychoPy’s own bundled Python.\nThree modules do almost everything we need today:",
-    "crumbs": [
-      "Home",
-      "Session 2 · PsychoPy",
-      "Block 1 · From Python to a window",
-      "2 · Meet PsychoPy: Three Modules and a Window"
-    ]
-  },
-  {
-    "objectID": "session2-psychopy/02_psychopy.html#your-first-window",
-    "href": "session2-psychopy/02_psychopy.html#your-first-window",
-    "title": "2 · Meet PsychoPy: Three Modules and a Window",
-    "section": "Your first window",
-    "text": "Your first window\nType this into a new script — call it my_first_window.py — and run it:\nfrom psychopy import visual, event, core\n\nwin = visual.Window(\n1    size=(1280, 720),\n2    color='black',\n3    fullscr=False)\n\ncore.wait(2)\nwin.close()\ncore.quit()\n\n1\n\nWidth and height in pixels.\n\n2\n\nBackground colour — try 'grey' or 'white' later.\n\n3\n\nKeep False while developing; switch to True for the real experiment.\n\n\nA black window appears for two seconds, then closes. Not exciting yet — but note that win is just a variable, like any Python object from Session 1, and it has functions attached: win.flip(), win.close().\n\n\n\n\n\n\nThe escape hatch (you will need it today)\n\n\n\nSooner or later a window will freeze on you. It happens to everyone. Click on the console and press Ctrl-C (or close the window via the taskbar). This is exactly why we develop with fullscr=False: a small window is much easier to escape.\n\n\n\n\n\n\n\n\nCheckpoint · end of Chapter 2\n\n\n\n\n\nYour my_first_window.py should look like this and run without errors:\nfrom psychopy import visual, event, core\n\nwin = visual.Window(\n    size=(1280, 720),\n    color='black',\n    fullscr=False)\n\ncore.wait(2)\nwin.close()\ncore.quit()",
-    "crumbs": [
-      "Home",
-      "Session 2 · PsychoPy",
-      "Block 1 · From Python to a window",
-      "2 · Meet PsychoPy: Three Modules and a Window"
-    ]
-  },
-  {
-    "objectID": "session2-psychopy/03_drawflip.html",
-    "href": "session2-psychopy/03_drawflip.html",
-    "title": "3 · The Draw–Flip Cycle (and How to Break It)",
-    "section": "",
-    "text": "Block 1 · aim to finish chapters 1–3 by the first break (~10:30)\nHere is the single most important mechanic of the day. PsychoPy uses double buffering: there are two screen buffers, and you never draw directly onto the visible one. Showing a stimulus always takes three steps:\nThink of a theatre: the back buffer is backstage, the front buffer is the stage. You can arrange the whole scene backstage. Draw as many stimuli as you like, and flip() raises the curtain in a single instant.\nWhy this design? A typical monitor redraws 60 times per second, so one frame lasts ~16.7 ms. Because the swap happens between two refreshes, stimulus onset is a single, well-defined moment: the moment of the flip. In Session 3 we will reset a clock at exactly that moment to measure reaction times.",
-    "crumbs": [
-      "Home",
-      "Session 2 · PsychoPy",
-      "Block 1 · From Python to a window",
-      "3 · The Draw–Flip Cycle (and How to Break It)"
-    ]
-  },
-  {
-    "objectID": "session2-psychopy/03_drawflip.html#hello-world-the-full-cycle",
-    "href": "session2-psychopy/03_drawflip.html#hello-world-the-full-cycle",
-    "title": "3 · The Draw–Flip Cycle (and How to Break It)",
-    "section": "Hello, world, the full cycle",
-    "text": "Hello, world, the full cycle\nType and run:\nfrom psychopy import visual, event, core\n\nwin = visual.Window(size=(1280, 720), color='black')\n\ntext = visual.TextStim(win, text='Hello, world!',\n                       color='white', height=0.1)\ntext.draw()      # paint it backstage\nwin.flip()       # curtain up!\n\nevent.waitKeys() # pause until any key is pressed\n\nwin.close()      # close the window\ncore.quit()      # end the session cleanly\nYou should see Hello, world! in white on black, staying until you press a key.",
-    "crumbs": [
-      "Home",
-      "Session 2 · PsychoPy",
-      "Block 1 · From Python to a window",
-      "3 · The Draw–Flip Cycle (and How to Break It)"
-    ]
-  },
-  {
-    "objectID": "session2-psychopy/03_drawflip.html#the-sabotage-lab",
-    "href": "session2-psychopy/03_drawflip.html#the-sabotage-lab",
-    "title": "3 · The Draw–Flip Cycle (and How to Break It)",
-    "section": "The sabotage lab",
-    "text": "The sabotage lab\nNow break it on purpose — three times. This is not busywork: each sabotage teaches you to recognise one of today’s three most common bugs before it happens to you by accident.\n\n\n\n\n\n\n🔮 Sabotage 1, predict first\n\n\n\nDelete the line win.flip(). What will you see when you run it?\n\n\n\n\n\n\nCheck your prediction\n\n\n\n\n\nA blank black window. The text was drawn — but only to the back buffer, which was never swapped to the screen. Blank screen almost always means a missing flip.\n\n\n\n\n\n\n\n\n\n\n\n🔮 Sabotage 2, predict first\n\n\n\nPut win.flip() back. Now delete event.waitKeys(). What happens?\n\n\n\n\n\n\nCheck your prediction\n\n\n\n\n\nThe text flashes for a split second and vanishes. The script runs straight to the end, and closing the window takes the text with it. Every flip needs a waiting step after it, or the participant sees almost nothing.\n\n\n\n\n\n\n\n\n\n\n\n🔮 Sabotage 3, predict first\n\n\n\nRestore everything. Now delete the last two lines (win.close() and core.quit()). What happens after you press a key?\n\n\n\n\n\n\nCheck your prediction\n\n\n\n\n\nThe script ends, but the window lingers as a frozen grey zombie. Always shut down cleanly — and now you know what a zombie window means when you see one.\n\n\n\n\n\nRepair your script so all three sabotages are undone. Say the mantra once, prepare, draw, flip, wait, and take a break if the clock says so.\n\n\n\n\n\n\nCheckpoint · end of Block 1\n\n\n\n\n\nfrom psychopy import visual, event, core\n\nwin = visual.Window(size=(1280, 720), color='black')\n\ntext = visual.TextStim(win, text='Hello, world!',\n                       color='white', height=0.1)\ntext.draw()\nwin.flip()\n\nevent.waitKeys()\n\nwin.close()\ncore.quit()",
-    "crumbs": [
-      "Home",
-      "Session 2 · PsychoPy",
-      "Block 1 · From Python to a window",
-      "3 · The Draw–Flip Cycle (and How to Break It)"
-    ]
-  },
-  {
-    "objectID": "session2-psychopy/05_glob.html",
-    "href": "session2-psychopy/05_glob.html",
-    "title": "5 · Let Python Find Your Stimuli",
-    "section": "",
-    "text": "Block 2 · aim to have Exercise 4 running by lunch (~12:00)\n\nOur experiment has many stimulus images. We could type every filename into a list by hand. This is fragile: one typo crashes the script, and adding stimuli means editing code. Instead, let Python find the files:\nimport glob\n\nimages = glob.glob('stimuli/stimulus*.jpg')\nprint(images)\nThe * is a wildcard that matches anything, so the pattern collects every file in stimuli/ whose name starts with stimulus and ends with .jpg.\n\n\n\n\n\n\n🔮 Predict first\n\n\n\nBefore running: what type of thing will print(images) show? And what would glob.glob('stimuli/*_L.jpg') give you instead?\n\n\n\n\n\n\nCheck your prediction\n\n\n\n\n\nA plain Python list of strings (file paths) — which means everything from Session 1 works on it: len(images), images[0], for image in images:. The second pattern collects only the left-response stimuli — wildcards can sit anywhere in the pattern.\n\n\n\n\n\nRun it and look at the output. If the list is empty, stop and fix that now (it is a path problem, see Chapter 4). Every later chapter depends on this line working.\n\n\n\n\n\n\nGood to know\n\n\n\nglob does not guarantee any particular file order. For us that is fine. We shuffle in Chapter 7 anyway. If you ever need a fixed order, wrap it: sorted(glob.glob(...)).",
-    "crumbs": [
-      "Home",
-      "Session 2 · PsychoPy",
-      "Block 2 · Stimuli on the screen",
-      "5 · Let Python Find Your Stimuli"
-    ]
-  },
-  {
-    "objectID": "session2-psychopy/11_cogcomm.html",
-    "href": "session2-psychopy/11_cogcomm.html",
-    "title": "11 · From Cogwheels to Words",
-    "section": "",
-    "text": "Block 4 · the wrap-up. Read this even if you are behind\nStep back and admire your script: it opens a window, presents randomised stimuli, restricts and records responses, evaluates them against a rule, and gives feedback. That is a genuine behavioural experiment, and its skeleton (setup → trial loop → shutdown) is shared by essentially every paradigm in cognitive science.\nNow, CogComm asks how people process language in real time. So consider a thought experiment: what if the stimulus were not a cogwheel image but a word — and the measure were not accuracy, but how long you look at the word before pressing on? If a word is surprising or hard to process, you slow down, and your experiment can see it. That paradigm is called self-paced reading, and here is the punchline: your Exercise 5 script is already about 80% of it.",
-    "crumbs": [
-      "Home",
-      "Session 2 · PsychoPy",
-      "Block 4 · Completing the loop",
-      "11 · From Cogwheels to Words"
-    ]
-  },
-  {
-    "objectID": "session2-psychopy/11_cogcomm.html#before-next-session",
-    "href": "session2-psychopy/11_cogcomm.html#before-next-session",
-    "title": "11 · From Cogwheels to Words",
-    "section": "Before next session",
-    "text": "Before next session\n\nFinish Exercise 5 if you did not get all the way, and keep both scripts safe: Session 3 extends them directly into the Portfolio 2 prototype.\nRe-run your script and change one thing on purpose (a colour, a key, the feedback duration). Predict what will happen before you run it.\nOptionally, skim the PsychoPy chapters of the Programming Experiments in Python and PsychoPy3 gitbook, and keep psychopy.org and learnpython.org bookmarked.\nBring questions — broken scripts very welcome.\n\nSay it once more with feeling: prepare, draw, flip, wait. See you in Session 3.",
-    "crumbs": [
-      "Home",
-      "Session 2 · PsychoPy",
-      "Block 4 · Completing the loop",
-      "11 · From Cogwheels to Words"
-    ]
-  },
-  {
-    "objectID": "session2-psychopy/01_warmup.html",
-    "href": "session2-psychopy/01_warmup.html",
-    "title": "1 · Warming Up: A Python Refresher",
-    "section": "",
-    "text": "Block 1 · aim to finish chapters 1–3 by the first break (~10:30)\n\nLet’s warm up the Python muscles from Session 1. Everything you learned there — variables, lists, loops, conditionals, functions — gets used today.\n\n\n\n\n\n\n🔮 Predict first\n\n\n\nRead this snippet and write down (yes, actually write down) exactly what it will print, line by line — before running it.\nwords = ['tea', 'coffee', 'water', 'juice']\nwords.append('cocoa')\n\nfor w in words:\n    if len(w) &gt; 5:\n        print(w.upper())\n    else:\n        print(w)\n\n\nNow type it into the Coder and run it.\n\n\n\n\n\n\nCheck your prediction\n\n\n\n\n\nIt prints:\ntea\nCOFFEE\nwater\njuice\ncocoa\nOnly 'coffee' has more than 5 letters, so only it is uppercased. Two classic traps: forgetting that .append() added 'cocoa' before the loop started, and thinking 'cocoa' (exactly 5 letters) passes len(w) &gt; 5 — it does not, because 5 &gt; 5 is False.\n\n\n\nIf your prediction was exactly right: great, move on. If not: even better — figure out why before continuing, because this loop-plus-conditional shape is the skeleton of the trial loop you will build today.\nOne more, faster. Predict, then run:\nstimuli = ['wheel_L.jpg', 'wheel_R.jpg', 'gear_L.jpg']\n\nfor s in stimuli:\n    if '_L' in s:\n        print(s, '-&gt; left')\n    else:\n        print(s, '-&gt; right')\n\n\n\n\n\n\nCheck your prediction\n\n\n\n\n\nwheel_L.jpg -&gt; left\nwheel_R.jpg -&gt; right\ngear_L.jpg -&gt; left\n'_L' in s asks whether the substring '_L' appears anywhere in the string s. Remember this one — it becomes the heart of the feedback logic in Chapter 9.\n\n\n\nThat is all the warm-up you need. Next: the screen.",
-    "crumbs": [
-      "Home",
-      "Session 2 · PsychoPy",
-      "Block 1 · From Python to a window",
-      "1 · Warming Up: A Python Refresher"
-    ]
-  },
-  {
-    "objectID": "session2-psychopy/10_exercise5.html",
-    "href": "session2-psychopy/10_exercise5.html",
-    "title": "10 · Exercise 5: Responses and Feedback",
-    "section": "",
-    "text": "Block 4 milestone · Exercise 5 running by ~15:30; advanced tasks if time\nMake a copy of your Exercise 4 script first (e.g. cogwheel_v2.py). Session 3 wants the original too. Then upgrade it in four steps, running after each.",
-    "crumbs": [
-      "Home",
-      "Session 2 · PsychoPy",
-      "Block 4 · Completing the loop",
-      "10 · Exercise 5: Responses and Feedback"
-    ]
-  },
-  {
-    "objectID": "session2-psychopy/10_exercise5.html#advanced-pick-any-in-any-order",
-    "href": "session2-psychopy/10_exercise5.html#advanced-pick-any-in-any-order",
-    "title": "10 · Exercise 5: Responses and Feedback",
-    "section": "Advanced (pick any, in any order)",
-    "text": "Advanced (pick any, in any order)\nA. Keep score. Count correct answers; report the score in the goodbye message using an f-string.\n\n\n\n\n\n\nShow the code\n\n\n\n\n\n# before the loop:\nn_correct = 0\n\n# in the correct-answer branch:\nn_correct = n_correct + 1\n\n# goodbye message:\ngoodbye = visual.TextStim(win,\n    text=f'You got {n_correct} out of {len(images)} correct. Thank you!',\n    color='white')\n\n\n\nB. Add sounds. Play a sound on correct answers.\n\n\n\n\n\n\nShow the code\n\n\n\n\n\nfrom psychopy import sound\n\n# once, before the loop:\ncorrect_sound = sound.Sound('correct.wav')\n\n# in the correct-answer branch:\ncorrect_sound.play()\n\n\n\nC. Write a reusable function. The prepare–draw–flip–wait pattern repeats constantly — exactly what functions are for. Write show_image() and use it in your loop.\n\n\n\n\n\n\nShow the code\n\n\n\n\n\ndef show_image(win, image_path, keyList=None):\n    stim = visual.ImageStim(win, image=image_path)\n    stim.draw()\n    win.flip()\n    keys = event.waitKeys(keyList=keyList)\n    return keys[0]\n\n# the trial loop becomes wonderfully short:\nfor image in images:\n    key = show_image(win, image, keyList=['left', 'right'])\n    ...",
-    "crumbs": [
-      "Home",
-      "Session 2 · PsychoPy",
-      "Block 4 · Completing the loop",
-      "10 · Exercise 5: Responses and Feedback"
-    ]
-  },
-  {
-    "objectID": "session2-psychopy/index.html",
-    "href": "session2-psychopy/index.html",
-    "title": "Session 2: Introduction to PsychoPy",
-    "section": "",
-    "text": "Welcome back! In Session 1 you learned to think in Python: variables, lists, loops, conditionals, and functions. That is all we need to program sophisticated experiments. For this session, we are going to work in the PsychoPy Coder on your own laptop. By the end of today, you will have built a working experiment that shows images in random order, collects keyboard responses, and gives feedback on every trial. Today, we change environment.",
-    "crumbs": [
-      "Home",
-      "Session 2 · PsychoPy",
-      "How the day works"
-    ]
-  },
-  {
-    "objectID": "session2-psychopy/index.html#learning-outcomes",
-    "href": "session2-psychopy/index.html#learning-outcomes",
-    "title": "Session 2: Introduction to PsychoPy",
-    "section": "Learning outcomes",
-    "text": "Learning outcomes\nAfter this session, you can:\n\nOpen and close a PsychoPy window and explain the draw–flip cycle (prepare, draw, flip) that gives experiments their precise timing.\nPresent text and image stimuli (TextStim, ImageStim), for a fixed duration (core.wait()) or until a keypress (event.waitKeys()).\nLoad stimulus files dynamically with glob.glob() instead of hardcoding filenames.\nRandomise trial order with random.shuffle() and explain why randomisation matters.\nCollect and restrict keyboard responses (keyList=['left','right']) and use the response in your code.\nGive conditional feedback: evaluate a response against a rule and show a success or failure image.\n\n\nHow today works\nToday alternates between two modes. In short lecture segments we introduce each concept and demonstrate it live on the projector; in the exercises you put the concepts to work on your own, at your own pace, with the teaching team circulating. The chapters on this site follow the same order as the lectures, so everything shown at the front is here to re-read.",
-    "crumbs": [
-      "Home",
-      "Session 2 · PsychoPy",
-      "How the day works"
-    ]
-  },
-  {
-    "objectID": "session2-psychopy/index.html#todays-programme",
-    "href": "session2-psychopy/index.html#todays-programme",
-    "title": "Session 2: Introduction to PsychoPy",
-    "section": "Today’s programme",
-    "text": "Today’s programme\nTimes are approximate; the exercises are where you should linger.\n\n\n\n~Duration\nWhat\nChapters\n\n\n\n\n10 min\nPython refresher: quick-fire “what does this print?”\n1\n\n\n15 min\nPsychoPy concepts: the window and the draw–flip cycle\n2–3\n\n\n25 min\nShowing stimuli: text and images\n4\n\n\n10 min\nLoading stimulus files with glob\n5\n\n\n25 min\nExercise 4 — Display the CogWheel stimuli\n6\n\n\n10 min\nRandomisation\n7\n\n\n15 min\nCollecting keyboard responses\n8\n\n\n15 min\nFeedback: conditional display\n9\n\n\n30 min\nExercise 5 — Responses and feedback\n10\n\n\n20 min\nConnecting to CogComm: from cogwheels to words\n11\n\n\n\nMilestones: Exercise 4 running before we move on to randomisation; Exercise 5 running by the end — that script is the one Session 3 extends.",
-    "crumbs": [
-      "Home",
-      "Session 2 · PsychoPy",
-      "How the day works"
-    ]
-  },
-  {
-    "objectID": "session2-psychopy/index.html#before-you-start",
-    "href": "session2-psychopy/index.html#before-you-start",
-    "title": "Session 2: Introduction to PsychoPy",
-    "section": "Before you start",
-    "text": "Before you start\n\nGet the materials. Download the workshop folder, unzip it, and keep everything together: your scripts must live next to the stimuli/ folder.\nCheck your setup. Open the PsychoPy Coder, open materials/setup_check.py from the workshop folder, and press Run. You should see a window saying Your setup works! If you do not, ask for help (do not start the chapters with a broken install).\n\nReady? Head to Chapter 1 — Warming up.",
-    "crumbs": [
-      "Home",
-      "Session 2 · PsychoPy",
-      "How the day works"
-    ]
-  },
-  {
-    "objectID": "session2-psychopy/08_responses.html",
-    "href": "session2-psychopy/08_responses.html",
-    "title": "8 · Collecting Keyboard Responses",
-    "section": "",
-    "text": "Block 3 · aim to finish chapters 7-9 by the afternoon break (~14:15)\nSo far, any key advances the experiment. For a real task we want a specific response (i.e., left or right arrow), and we want to know which one was pressed. Both jobs are done by the keyList argument:",
-    "crumbs": [
-      "Home",
-      "Session 2 · PsychoPy",
-      "Block 3 · Making it an experiment",
-      "8 · Collecting Keyboard Responses"
-    ]
-  },
-  {
-    "objectID": "session2-psychopy/08_responses.html#try-it",
-    "href": "session2-psychopy/08_responses.html#try-it",
-    "title": "8 · Collecting Keyboard Responses",
-    "section": "Try it",
-    "text": "Try it\nIn a scratch script (or your experiment), show one image and collect a left/right response for it, printing the key to the console.\n\n\n\n\n\n\nShow the code\n\n\n\n\n\nimg = visual.ImageStim(win, image=images[0])\nimg.draw()\nwin.flip()\n\nkeys = event.waitKeys(keyList=['left', 'right'])\nkey = keys[0]\nprint('Response was:', key)\n\n\n\n\n\n\n\n\n\nTip: a polite emergency exit\n\n\n\nAdd 'escape' to your keyList and handle it: if key == 'escape': win.close(); core.quit(). Very handy in fullscreen experiments.",
-    "crumbs": [
-      "Home",
-      "Session 2 · PsychoPy",
-      "Block 3 · Making it an experiment",
-      "8 · Collecting Keyboard Responses"
-    ]
-  },
-  {
-    "objectID": "session2-psychopy/09_feedback.html",
-    "href": "session2-psychopy/09_feedback.html",
-    "title": "9 · Conditional Feedback",
-    "section": "",
-    "text": "Block 3 · aim to finish chapters 7-9 by the afternoon break (~14:15)\n\nTo give feedback we must know whether a response was correct, but “correct” is not something the computer knows by itself. We have to operationalise it: define a rule, in code, that maps stimulus properties onto expected responses. In the CogWheel experiment, that rule lives in the filenames: images ending in _L.jpg require a left response, _R.jpg a right response.\nYou already met the tool for reading that rule in Chapter 1: the substring check.\n# derive the correct answer from the stimulus filename\nif '_L' in image:\n    correct_key = 'left'\nelse:\n    correct_key = 'right'\n\n# compare the response to the correct answer\nif key == correct_key:\n    feedback = visual.ImageStim(win, image='success.jpg')\nelse:\n    feedback = visual.ImageStim(win, image='failure.jpg')\n\nfeedback.draw()\nwin.flip()\ncore.wait(2)     # show the feedback for exactly 2 seconds\nNotice the structure: two small decisions rather than one big one. The first if-block derives the correct answer from the stimulus; the second compares it to the response. Splitting logic like this is good style — and much easier to debug.\n\n\n\n\n\n\n🔮 Predict first\n\n\n\n\nWhat does '_L' in 'stimuli/stimulus7_L.jpg' evaluate to? (b) Why core.wait(2) rather than event.waitKeys() for feedback? (c) Why does the feedback need its own draw() and flip() when we already flipped for the stimulus?\n\n\n\n\n\n\n\nCheck your prediction\n\n\n\n\n\n\nTrue. (b) Feedback should be a fixed, brief event, identical for everyone and not something to sit on or skip. (c) Every new screen needs its own draw-flip: the stimulus flip put the cogwheel on stage; replacing it with feedback means drawing backstage and raising the curtain again.\n\n\n\n\n\n\nThis is the last piece you need. On to the main exercise of the day.",
-    "crumbs": [
-      "Home",
-      "Session 2 · PsychoPy",
-      "Block 3 · Making it an experiment",
-      "9 · Conditional Feedback"
-    ]
-  },
-  {
-    "objectID": "session2-psychopy/07_random.html",
-    "href": "session2-psychopy/07_random.html",
-    "title": "7 · Randomising Trial Order",
-    "section": "",
-    "text": "Block 3 · aim to finish chapters 7-9 by the afternoon break (~14:15)\n\nRight now every participant sees the stimuli in the same order. That is a problem: people get better with practice, tired with time, bored towards the end. With a fixed order these order effects are confounded with the stimuli themselves. Stimulus 1 always meets a fresh participant, stimulus 20 a weary one. The simplest fix: give every participant a different random order, so order effects average out.\n\n\n\n\n\n\n🔮 Predict first\n\n\n\nA fellow student writes this. What happens when it runs?\nimport random\n\nimages = ['stim1_L.jpg', 'stim2_R.jpg', 'stim3_L.jpg']\nimages = random.shuffle(images)\n\nfor image in images:\n    print(image)\n\n\n\n\n\n\nCheck your prediction\n\n\n\n\n\nIt crashes: TypeError: 'NoneType' object is not iterable. random.shuffle() reorders the list in place and returns None, so the assignment replaced the list with None, and the loop had nothing to iterate over. This is today’s most classic gotcha. The fix:\nrandom.shuffle(images)   # its own line: no assignment!\n\n\n\n\n\nThe correct pattern, which you should now add to your Exercise 4 script (right after the glob line):\nimport random\n\nimages = glob.glob('stimuli/stimulus*.jpg')\nrandom.shuffle(images)   # shuffles IN PLACE\nRun your experiment twice. You should get two different orders. That’s randomisation working.",
-    "crumbs": [
-      "Home",
-      "Session 2 · PsychoPy",
-      "Block 3 · Making it an experiment",
-      "7 · Randomising Trial Order"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Programming experiments: Python x PsychoPy",
-    "section": "",
-    "text": "Welcome! Over the coming workshop sessions, you’ll go from typing your very first line of Python to watching a full behavioural experiment run on your own screen: window, stimuli, responses, feedback, the lot. Between you and that moment stand a handful of Python concepts and a few dozen extremely fixable error messages. We assume no programming experience. If you can rename a file, you’re qualified to start.",
-    "crumbs": [
-      "Home",
-      "Workshop overview"
-    ]
-  },
-  {
-    "objectID": "index.html#why-programming",
-    "href": "index.html#why-programming",
-    "title": "Programming experiments: Python x PsychoPy",
-    "section": "Why programming?",
-    "text": "Why programming?\nNearly every empirical experiment in cognitive science — reaction-time studies, reading paradigms, eye-tracking, EEG — is implemented in code. A working knowledge of Python allows you to build precisely the experiment your research question requires, to understand the structure and provenance of your data, and to diagnose problems when they arise.\nThe aim of these three sessions is a modest form of fluency: by the end, the experiment running on your screen should be a system you can read, modify, and reason about. These skills will hopefully outlast the course: designing, implementing, and troubleshooting your own experiments is part of the everyday craft of working scientists, in cognitive science and well beyond.",
-    "crumbs": [
-      "Home",
-      "Workshop overview"
-    ]
-  },
-  {
-    "objectID": "index.html#why-python-and-not-r",
-    "href": "index.html#why-python-and-not-r",
-    "title": "Programming experiments: Python x PsychoPy",
-    "section": "Why Python and not R?",
-    "text": "Why Python and not R?\nThe Python programming language is optimal for coding experiments because it has a special library called PsychoPy for doing so.\nIn contrast, the R programming language is optimal for statistical analyses, as it was designed specifically for this purpose.\nTherefore, this workshop on programming for experiments focuses on Python instead of R, which you instead cover in your Methods 1 practical classes.\nHowever, as you will learn over the course of the semester, many of the programming concepts that we cover in Session 1 are generalizable to R and all other languages.",
-    "crumbs": [
-      "Home",
-      "Workshop overview"
-    ]
-  },
-  {
-    "objectID": "index.html#the-three-sessions",
-    "href": "index.html#the-three-sessions",
-    "title": "Programming experiments: Python x PsychoPy",
-    "section": "The three sessions",
-    "text": "The three sessions\nSession 1 · Python basics Variables, lists, loops, conditionals, functions. These are the handful of building blocks that all programs are made of. Everything you learn here gets used directly in Session 2.\nSession 2 · Introduction to PsychoPy PsychoPy is the Python library psychologists use to run experiments: it opens windows, draws stimuli, and records keypresses with precise timing. You build the CogWheel experiment step by step and leave with a script that runs: images in random order, keyboard responses, feedback on every trial, and more..\nSession 3 · From cogwheels to words (materials coming) Swap the images for words, add a clock and a logfile, and your CogWheel script becomes a self-paced reading experiment, the direct starting point for your Portfolio 2 prototype.",
-    "crumbs": [
-      "Home",
-      "Workshop overview"
-    ]
-  },
-  {
-    "objectID": "index.html#how-the-sessions-work",
-    "href": "index.html#how-the-sessions-work",
-    "title": "Programming experiments: Python x PsychoPy",
-    "section": "How the sessions work",
-    "text": "How the sessions work\nEach session follows the same rhythm: a short lecture introduces the concepts and demonstrates them live, and you then put them to work in a set of exercises you complete on your own, at your own pace, with the teaching team circulating. Three habits will serve you well throughout:\n\nPredict before you run. Whenever you see a 🔮 Predict first box, write down what the code will do before running it.\nRun constantly. Run your code after every small change, not after twenty lines. Small steps make bugs easy to find.\nNever stay stuck. Ten minutes on the same bug is the signal to ask: check the error message, unfold the solution, or wave a teacher over. Sitting silently with a bug is the one wrong way to use these sessions.",
-    "crumbs": [
-      "Home",
-      "Workshop overview"
-    ]
-  },
-  {
-    "objectID": "index.html#what-you-need",
-    "href": "index.html#what-you-need",
-    "title": "Programming experiments: Python x PsychoPy",
-    "section": "What you need",
-    "text": "What you need\n\nYour own laptop with PsychoPy installed. Install instructions are sent out before Session 1, and each session starts with a setup check. If the install fights back, come 15 minutes early.\nCuriosity. A willingness to try things, break things, and read the occasional error message will carry you further than any prior experience would.\n\nReady? Start with Session 1.",
-    "crumbs": [
-      "Home",
-      "Workshop overview"
-    ]
-  },
-  {
-    "objectID": "session1-python/02_variables.html",
-    "href": "session1-python/02_variables.html",
-    "title": "2 · Basics: Variables & variable types",
-    "section": "",
-    "text": "Block 2 · Chapter 2 of 3 before the first break. Understand what a variable is in Python & the different types of variables.",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Block 2 · Variables and data types",
-      "Variables and regular data types"
-    ]
-  },
-  {
-    "objectID": "session1-python/02_variables.html#what-is-a-variable",
-    "href": "session1-python/02_variables.html#what-is-a-variable",
-    "title": "2 · Basics: Variables & variable types",
-    "section": "What is a variable?",
-    "text": "What is a variable?\nA variable is a name we give to a value so we can store it and use it later in our code. The name stays the same, but the value stored in it can change while the program is running. A variable can store a number, a word, or a list of values.",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Block 2 · Variables and data types",
-      "Variables and regular data types"
-    ]
-  },
-  {
-    "objectID": "session1-python/02_variables.html#your-first-variable",
-    "href": "session1-python/02_variables.html#your-first-variable",
-    "title": "2 · Basics: Variables & variable types",
-    "section": "Your first variable",
-    "text": "Your first variable\nLet’s create our first variable in Python. We will call it my_name and store a name in it.\nmy_name = \"anna\"\nWe can also add comments to explain what our code is doing. In Python, a comment starts with #. Everything after # on that line is ignored by Python.\n# This variable stores my name.\nmy_name = \"anna\"\nNow run the code by selecting it in your file and pressing Shift+Enter.\nYou will see the code executed in the console below. If you then type my_name on a new line and press Enter, Python will print the value stored in the variable:\n&gt;&gt;&gt; my_name = 'anna'\n&gt;&gt;&gt; my_name\n'anna'\nAn easier way to see the output is to use the print() function:\n# This variable stores my name.\nmy_name = \"anna\"\n\n# This line prints the value stored in my_name.\nprint(my_name)\nSelect these lines and press Shift+Enter. You should see the value of my_name appear in the console.",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Block 2 · Variables and data types",
-      "Variables and regular data types"
-    ]
-  },
-  {
-    "objectID": "session1-python/02_variables.html#variable-types",
-    "href": "session1-python/02_variables.html#variable-types",
-    "title": "2 · Basics: Variables & variable types",
-    "section": "Variable types",
-    "text": "Variable types\nPython allows us to create variables that store different kinds of data. Today we will focus on some of the most common variable types.\nWe can find the type of a variable by using the type() function:\n# Query the type of my_name.\ntype(my_name)\nThis returns &lt;class 'str'&gt;, which means that my_name is a string variable.",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Block 2 · Variables and data types",
-      "Variables and regular data types"
-    ]
-  },
-  {
     "objectID": "session1-python/05_exercise2_lists.html",
     "href": "session1-python/05_exercise2_lists.html",
     "title": "Exercise 2 · Lists",
@@ -579,81 +49,16 @@
     ]
   },
   {
-    "objectID": "session1-python/04_lists.html",
-    "href": "session1-python/04_lists.html",
-    "title": "3 · Lists",
+    "objectID": "session1-python/03_exercise1_variables.html",
+    "href": "session1-python/03_exercise1_variables.html",
+    "title": "Exercise 1a: Variables & variable types",
     "section": "",
-    "text": "Block 2 · Learning goals: Understand what a list is and how to use lists effectively.",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Block 3 · Lists & Loops",
-      "Lists"
-    ]
-  },
-  {
-    "objectID": "session1-python/04_lists.html#what-are-lists",
-    "href": "session1-python/04_lists.html#what-are-lists",
-    "title": "3 · Lists",
-    "section": "What are lists?",
-    "text": "What are lists?\nLists = literally a list of “elements” that can be changed (are mutable).\nHow to define lists?\n\nVariable name = [ item1, item2, item3…itemN ]\n\nLists can contain items of the same type and different types.\n\n\n\n\n\n\nMake some lists\n\n\n\n\n\nYou can create lists with all strings, all numeric data, or a combination, see below.\n\n# first simple lists of same type items.\nshopping = [ \"apples\", \"pears\", \"bananas\" ] \ntest_scores = [ 90, 60, 100, 82]\n\n# now mixed items.\nmixed_list = [ \"cats\", 7, 309.45 ]\nYou can print lists as below.\n\nprint(test_scores)\nprint(mixed_list)\nYou can also combine lists.\n\n# now lists of lists!\ncombined = [ shopping, test_scores, mixed_list ]\n\n\n\n\n\n\n\n\n\nIndexing lists\n\n\n\n\n\nWe can also index lists (just like we indexed character strings), i.e., by using the square brackets after the list name, and putting the index inside of the square brackets. See below.\n\n# Let's index our lists!\n\nprint(shopping[0])\nprint(shopping[1])\nprint(shopping[2])\n\n# Sub-indexing. What does the below return?\nprint(shopping[0][0:2])\nYou may recognize the above syntax for indexing lists from the previous learning block.\nIf you do, that’s because we were already working with lists when we used the .split method for character strings. Splitting a character string by a delimiter such as a space returns a list, where each item is a string of characters that were not separated by the delimiter.\n\n\n\n\n\n\n\n\n\nChanging list items\n\n\n\n\n\nLists are mutable, meaning that we can change their items. For example, you can:\n\nReplace a list item with another (using indexing)\nAppend an item to the end of a list.\nInsert a new item into a list between two existing items.\n\n\n# Here is our original list. \nprint(shopping)\n\n# And now let's replace the second list item with \"kiwi\"\nshopping[1] = \"kiwi\"\n\n# Let's print our mutated list.\nprint(shopping)\n\n# Now let's add an item to our list. \nshopping.append(\"raspberry\")\n\n# Let's print our elaborated list.\nprint(shopping)\n\n# We can also add an item by inserting it at a particular location in the list.\nshopping.insert(1, \"blueberry\")\n\n# Let's look at our further mutated list. \nprint(shopping)",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Block 3 · Lists & Loops",
-      "Lists"
-    ]
-  },
-  {
-    "objectID": "session1-python/02_variables.html#data-type-1-regular-string-variables",
-    "href": "session1-python/02_variables.html#data-type-1-regular-string-variables",
-    "title": "2 · Basics: Variables & variable types",
-    "section": "Data Type 1: Regular string variables",
-    "text": "Data Type 1: Regular string variables\nString variables are defined by strings of characters. String variables are specified using single or double quotation marks around the string.\n# If you use single quotes here, it won't work. Why?\ndog_name_possessive = 'anna's dog's name is..'\n\n# If you use double-quotes here it will work. \ndog_name_possessive = \"anna's dog's name is..\"\n\n\n\n\n\n\n🤔 Think first\n\n\n\nWhy does the single-quoted version fail while the double-quoted version works?\n\n\n\n\n\n\nCheck your thinking\n\n\n\n\n\nThe apostrophe in anna’s ends the single-quoted string early. Python thinks the string stops after anna, and the rest is nonsense to it. Double quotes let Python see the apostrophe as just another character inside the string.\n\n\n\n\n\n\nIndexing\nStrings are stored like arrays of characters, meaning that you can individually access single characters in the string using indexing (square brackets around the indices you want to extract).\n# Here you are indexing the first 4 characters in the variable my_name_possessive. \n# You use square brackets around the indices that you want to extract.\ndog_name_possessive[0:4] # extract 4 characters from the 0th character.\n\n# you can also count backwards from the end of a string using the minus sign, e.g.:\ndog_name_possessive[-4:]\nYou may have noticed that we start indexing at 0 instead of 1. This is because Python is a zero-indexed language, so whenever you have a multi-item variable, the first item is always indexed using 0 instead of 1. CAREFUL: R is a 1-indexed langauge, so you always index the first item in a multi-item variable using 1 in R instead of 0.\n\nBefore you run it: what will dog_name_possessive[0:4] give you?\n\nanna — characters 0, 1, 2 and 3. The index range [0:4] starts at 0 and stops before 4, so you get exactly 4 characters. (The console shows it wrapped in quotes — 'anna' — because it is a string.)\n\n\n:::",
+    "text": "Block 2 · Your first exercise! Everything you need is in Chapter 2.\nHow exercises work: try each task yourself first. The point is the attempt, not speed. Every part has a folded Show the code with a working solution; stuck for ten minutes means unfold it, understand it, move on. That is the intended way to use this material, not cheating.",
     "crumbs": [
       "Home",
       "Session 1 · Python basics",
       "Block 2 · Variables and data types",
-      "Variables and regular data types"
-    ]
-  },
-  {
-    "objectID": "session1-python/02_variables.html#string-methods",
-    "href": "session1-python/02_variables.html#string-methods",
-    "title": "2 · Basics: Variables & variable types",
-    "section": "String methods",
-    "text": "String methods\nString variables have many built-in methods that we can call on them. Here are some useful string methods:\n\nsplit()\nIf you type the name of your string variable followed by .split(), Python splits the string into smaller pieces, using the space character as the default delimiter. Try it in the console:\ndog_name_possessive.split()\n&gt;&gt;&gt; [\"anna's\", \"dog's\", 'name', 'is..']\nThe split() method returns a list of strings. Each item is one part of the original text, separated by the chosen delimiter.\nYou can store the output in a variable, and since it is a list, you can index it, even down to characters within each item:\nsplit_variable = dog_name_possessive.split()\nsplit_variable[0]\nsplit_variable[0][0]  # first letter of first word.\nsplit_variable[1][1]  # second letter of second word.\n&gt;&gt;&gt; split_variable[0]\n&gt;&gt;&gt; \"anna's\"\n&gt;&gt;&gt; split_variable[0][0]  # first letter of first word.\n&gt;&gt;&gt; 'a'\n&gt;&gt;&gt; split_variable[1][1]  # second letter of second word.\n&gt;&gt;&gt; 'o'\nSo split_variable[1][1] means: take item 1 of the list (\"dog's\": remember, zero-indexed!), then character 1 of that string.\nYou can also use split() with a different delimiter, such as an underscore:\nsubject_id = \"S_01\"\nsubject_id.split(\"_\")\n['S', '01']\n\nGiven responses = \"left right left left\", what does responses.split() return?\n\n['left', 'right', 'left', 'left']: a list of four strings, one per word. Repeats are kept; split() just cuts, it doesn’t deduplicate.\n\n\n\nGiven date = \"2026-09-14\", what does date.split(\"-\") return?\n\nThe delimiter is the cut line — it doesn’t survive into the pieces.\n\n\n['2026', '09', '14']. Three pieces, dashes gone. Note they are strings, not numbers: '09' keeps its leading zero, and you couldn’t do maths with it without converting first.\n\n\n\n\nupper()\nThe upper() method converts all letters in a string to uppercase.\nname = \"anna\"\nname.upper()\n&gt;&gt;&gt; 'ANNA'\nNote that upper() does not change name itself — it returns a new, uppercased string. If you want to keep it, store it:\nname_upper = name.upper()\nprint(name_upper)\n&gt;&gt;&gt; ANNA\n# or store the result in a new variable.\nname_upper = name.upper()\nprint(name_upper)\nHere are a few more useful string methods:\nword = \" subject_01 \"\nprint(word.lower())\nprint(word.strip())\nprint(word.replace(\"p\", \"P\"))\nprint(word.startswith(\" \"))\nprint(word.endswith(\" \"))\n\n\nlen()\nAnd, finally, we can get the length of a string variable using len() (not a string-specific method)\nlen(word)\n&gt;&gt;&gt; 12\nThe 10 characters of subject_01 plus the two spaces. Invisible characters count, which is exactly why .strip() exists.\nThere’s lots more that you can do with strings, but these are the basics!",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Block 2 · Variables and data types",
-      "Variables and regular data types"
-    ]
-  },
-  {
-    "objectID": "session1-python/02_variables.html#data-type-2-regular-numeric-variables",
-    "href": "session1-python/02_variables.html#data-type-2-regular-numeric-variables",
-    "title": "2 · Basics: Variables & variable types",
-    "section": "Data Type 2: Regular numeric variables",
-    "text": "Data Type 2: Regular numeric variables\nNow let’s turn to our other fundamental variable type: numeric. There are two basic numeric types:\n\nIntegers: whole numbers (no decimal point)\nFloating points: numbers with a decimal point\n\n# This is an integer.\na = 1\ntype(a)\n&gt;&gt;&gt; int\n# This is a floating point.\nb = 1.5\ntype(b)\n&gt;&gt;&gt; float\nc = 1.00\n\nc stores the value one, but what does type(c) return? float or int?\n\n&lt;class 'float'&gt;: a floating point. The value is a whole number, but writing it with a decimal point makes it a float. What matters is how it is written, not what it equals.\n\n\nThe same logic applies to operations:\n# What happens when you combine types in operations?\nd = b + c\ntype(d)\n&gt;&gt;&gt; float\nAdding the float b to the float c gives a float — d is 2.5. And even when an operation on two floats produces a whole number, the result stays a floating point:\ne = 1.5 + 1.5\ntype(e)\nprint(e)\n&lt;class 'float'&gt;\n3.0\nThe value is three — but Python shows it as 3.0: the .0 is the float’s badge. It never silently becomes an integer.\nStandard numeric operations are addition (shown above), subtraction, multiplication and division:\nprint(a - b)   # subtraction\nprint(a * b)   # multiplication\nprint(a / b)   # division\n-0.5\n1.5\n0.6666666666666666",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Block 2 · Variables and data types",
-      "Variables and regular data types"
-    ]
-  },
-  {
-    "objectID": "session1-python/02_variables.html#printing-variables-with-f-strings",
-    "href": "session1-python/02_variables.html#printing-variables-with-f-strings",
-    "title": "2 · Basics: Variables & variable types",
-    "section": "Printing variables with f-strings",
-    "text": "Printing variables with f-strings\nImagine that you want to print reaction times for a given subject on an experiment screen. The subject is different in each experiment, and so is their reaction time.\nYou can create a special expression called an f-string, where you embed variables inside a string: start the string with f, then place variable names inside curly brackets {}.\nsubject_id = \"S_01\"\nreaction_time = 0.45\nmessage = f\"Reaction time for {subject_id}: {reaction_time:.2f} seconds\"\nHere {subject_id} inserts the value of the subject ID variable, and {reaction_time:.2f} inserts the value of reaction_time, where .2f formats the number with two digits after the decimal point.\n\nWhat exactly does print(message) show?\n\nReaction time for S_01: 0.45 seconds: the curly-bracket parts are replaced by the variables’ values, and everything else is printed as-is. In Session 2, messages like this become the text you show on the experiment screen.\n\n\nAll predictions checked? Next: Exercise 1a — Variables & data types.",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Block 2 · Variables and data types",
-      "Variables and regular data types"
+      "Exercise 1a: Variables & data types"
     ]
   },
   {
@@ -745,6 +150,306 @@
       "Session 1 · Python basics",
       "Block 2 · Variables and data types",
       "Exercise 1a: Variables & data types"
+    ]
+  },
+  {
+    "objectID": "session1-python/01_getting_started.html",
+    "href": "session1-python/01_getting_started.html",
+    "title": "1 · Getting Started: Setting up your Python environment",
+    "section": "",
+    "text": "Block 1 · Chapter 1 of 3 before the first break. Set up your first Python code file in UCloud & run your first line of Python.",
+    "crumbs": [
+      "Home",
+      "Session 1 · Python basics",
+      "Block 1 · Getting started",
+      "Getting started"
+    ]
+  },
+  {
+    "objectID": "session1-python/01_getting_started.html#python-coder-in-ucloud",
+    "href": "session1-python/01_getting_started.html#python-coder-in-ucloud",
+    "title": "1 · Getting Started: Setting up your Python environment",
+    "section": "Python Coder in UCloud",
+    "text": "Python Coder in UCloud\nToday we will learn the fundamentals of Python in UCloud, where Python is already installed. This gives everyone a consistent setup and lets us focus on the language itself instead of troubleshooting software installation or technical setup.\nNext week, when you use PsychoPy, you will install it on your laptop and work with the version of Python bundled with it. We start with plain Python first so you can build a solid foundation before adding the extra complexity of PsychoPy.",
+    "crumbs": [
+      "Home",
+      "Session 1 · Python basics",
+      "Block 1 · Getting started",
+      "Getting started"
+    ]
+  },
+  {
+    "objectID": "session1-python/01_getting_started.html#how-to-open-python-coder-in-ucloud",
+    "href": "session1-python/01_getting_started.html#how-to-open-python-coder-in-ucloud",
+    "title": "1 · Getting Started: Setting up your Python environment",
+    "section": "How to open Python Coder in UCloud",
+    "text": "How to open Python Coder in UCloud\n\nOpen UCloud.\nGo to your E26_LICS_Methods1 workspace using the drop-down menu in the top-left corner.\nOpen the Applications page by clicking the shopping bag icon in the right panel.\nSearch for “Coder” and click the application.\nThe Job Parameters page should open. Fill in the fields the same way you do for your RStudio jobs:\n\nChoose a meaningful job name\nSelect the machine type (only one option is available)\nClick “Add Folder #1” and choose your cogsci_methods01_e26 folder\nUnder “Initialization”, select the ucloud_init_env_final.sh script\nChoose a reasonable number of hours\n\nClick the green “Submit” button.\nWhen the job is ready, click “Open Interface” at the top left.",
+    "crumbs": [
+      "Home",
+      "Session 1 · Python basics",
+      "Block 1 · Getting started",
+      "Getting started"
+    ]
+  },
+  {
+    "objectID": "session1-python/01_getting_started.html#install-the-python-language-extension",
+    "href": "session1-python/01_getting_started.html#install-the-python-language-extension",
+    "title": "1 · Getting Started: Setting up your Python environment",
+    "section": "Install the Python language extension",
+    "text": "Install the Python language extension\nRemember that we need to reinstall packages in UCloud every time we start a new job, because each job is assigned to a new remote computer. The same is true for Python: we need to install the Python language extension in the Coder application each time we start a new job. Here’s how:\n\nIn the far-left panel, click the icon with four squares. This is the marketplace icon.\nType “Python” into the search bar. The Python extension should be at the top of the list (from ms-Python).\nClick the Python extension, then click the Install button.",
+    "crumbs": [
+      "Home",
+      "Session 1 · Python basics",
+      "Block 1 · Getting started",
+      "Getting started"
+    ]
+  },
+  {
+    "objectID": "session1-python/01_getting_started.html#create-your-first-python-code-file",
+    "href": "session1-python/01_getting_started.html#create-your-first-python-code-file",
+    "title": "1 · Getting Started: Setting up your Python environment",
+    "section": "Create your first Python code file",
+    "text": "Create your first Python code file\nYou can now create a new Python code file. Here’s how:\n\nIn the far-left panel, find the icon that looks like three horizontal lines stacked on top of each other. Click it.\nA pop-up menu will appear. Click File &gt; New File.\nA drop-down menu will appear asking for the file type. Type “Python” and you should see: Create new file (python) Built-in.\nYou will be prompted to choose where to save the file. For now, we will use: /work/cogsci_methods01_e26/name_of_your_file.py\n\nYou can choose any name for the file (it does not have to be “name_of_your_file.py”). The only rules are that you cannot use spaces and it must have a .py extension, because this tells the remote computer that it is a Python file when you reopen it later.",
+    "crumbs": [
+      "Home",
+      "Session 1 · Python basics",
+      "Block 1 · Getting started",
+      "Getting started"
+    ]
+  },
+  {
+    "objectID": "session1-python/01_getting_started.html#hello-world-run-your-first-line-of-python-code",
+    "href": "session1-python/01_getting_started.html#hello-world-run-your-first-line-of-python-code",
+    "title": "1 · Getting Started: Setting up your Python environment",
+    "section": "“Hello world!”: Run your first line of Python code",
+    "text": "“Hello world!”: Run your first line of Python code\nIn your new code file, enter your first line of Python code:\nprint(\"Hello world!\")\n\nYour first prediction! Throughout these sessions, boxes like this ask you to guess what code will do before you run it. That’s where the learning happens, and wrong guesses are very welcome and encouraged. After a few tries the box will offer to show you the answer, so you can never get stuck. So: what exactly will appear in the console when this line runs? Take a guess.\n\nHello world!. Note that there are no quotation marks. The quotes tell Python where the text starts and ends; they are not part of the text itself.\n\n\nNow run the code by highlighting it and pressing Shift+Enter. You should see a dedicated terminal open below.\nTerminal shows what you expected? Next: Chapter 2 — Variables and types.",
+    "crumbs": [
+      "Home",
+      "Session 1 · Python basics",
+      "Block 1 · Getting started",
+      "Getting started"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Programming experiments: Python x PsychoPy",
+    "section": "",
+    "text": "Welcome! Over the coming workshop sessions, you’ll go from typing your very first line of Python to watching a full behavioural experiment run on your own screen: window, stimuli, responses, feedback, the lot. Between you and that moment stand a handful of Python concepts and a few dozen extremely fixable error messages. We assume no programming experience. If you can rename a file, you’re qualified to start.",
+    "crumbs": [
+      "Home",
+      "Workshop overview"
+    ]
+  },
+  {
+    "objectID": "index.html#why-programming",
+    "href": "index.html#why-programming",
+    "title": "Programming experiments: Python x PsychoPy",
+    "section": "Why programming?",
+    "text": "Why programming?\nNearly every empirical experiment in cognitive science (e.g. reaction-time studies, reading paradigms, eye-tracking, EEG) is implemented in code. A working knowledge of Python allows you to build precisely the experiment your research question requires, to understand the structure and provenance of your data, and to diagnose problems when they arise.\nThe aim of these three sessions is a modest form of fluency: by the end, the experiment running on your screen should be a system you can read, modify, and reason about. These skills will hopefully outlast the course: designing, implementing, and troubleshooting your own experiments is part of the everyday craft of working scientists, in cognitive science and well beyond.",
+    "crumbs": [
+      "Home",
+      "Workshop overview"
+    ]
+  },
+  {
+    "objectID": "index.html#why-python-and-not-r",
+    "href": "index.html#why-python-and-not-r",
+    "title": "Programming experiments: Python x PsychoPy",
+    "section": "Why Python and not R?",
+    "text": "Why Python and not R?\nThe Python programming language is optimal for coding experiments because it has a special library called PsychoPy for doing so.\nIn contrast, the R programming language is optimal for statistical analyses, as it was designed specifically for this purpose.\nTherefore, this workshop on programming for experiments focuses on Python instead of R, which you instead cover in your Methods 1 practical classes.\nHowever, as you will learn over the course of the semester, many of the programming concepts that we cover in Session 1 are generalizable to R and all other languages.",
+    "crumbs": [
+      "Home",
+      "Workshop overview"
+    ]
+  },
+  {
+    "objectID": "index.html#the-three-sessions",
+    "href": "index.html#the-three-sessions",
+    "title": "Programming experiments: Python x PsychoPy",
+    "section": "The three sessions",
+    "text": "The three sessions\nSession 1 · Python basics Variables, lists, loops, conditionals, functions. These are the handful of building blocks that all programs are made of. Everything you learn here gets used directly in Session 2.\n[Session 2 · Introduction to PsychoPy] (materials coming) PsychoPy is the Python library psychologists use to run experiments: it opens windows, draws stimuli, and records keypresses with precise timing. You build an experiment step by step and leave with a script that runs: images in random order, keyboard responses, feedback on every trial, and more..\nSession 3 · From cogwheels to words (materials coming) Swap the images for words, add a clock and a logfile, and your CogWheel script becomes a self-paced reading experiment, the direct starting point for your Portfolio 2 prototype.",
+    "crumbs": [
+      "Home",
+      "Workshop overview"
+    ]
+  },
+  {
+    "objectID": "index.html#how-the-sessions-work",
+    "href": "index.html#how-the-sessions-work",
+    "title": "Programming experiments: Python x PsychoPy",
+    "section": "How the sessions work",
+    "text": "How the sessions work\nEach session follows the same rhythm: a short lecture introduces the concepts and demonstrates them live, and you then put them to work in a set of exercises you complete on your own, at your own pace, with the teaching team circulating. Three habits will serve you well throughout:\n\nPredict before you run. Whenever you see a 🔮 Predict first box, write down what the code will do before running it.\nRun constantly. Run your code after every small change, not after twenty lines. Small steps make bugs easy to find.\nNever stay stuck. Ten minutes on the same bug is the signal to ask: check the error message, unfold the solution, or wave a teacher over. Sitting silently with a bug is the one wrong way to use these sessions.",
+    "crumbs": [
+      "Home",
+      "Workshop overview"
+    ]
+  },
+  {
+    "objectID": "index.html#what-you-need",
+    "href": "index.html#what-you-need",
+    "title": "Programming experiments: Python x PsychoPy",
+    "section": "What you need",
+    "text": "What you need\n\nYour own laptop with PsychoPy installed. Install instructions are sent out before Session 2, and each session starts with a setup check. If the install fights back, come 15 minutes early.\nCuriosity. A willingness to try things, break things, and read the occasional error message will carry you further than any prior experience would.\n\nReady? Start with Session 1.",
+    "crumbs": [
+      "Home",
+      "Workshop overview"
+    ]
+  },
+  {
+    "objectID": "session1-python/02_variables.html",
+    "href": "session1-python/02_variables.html",
+    "title": "2 · Basics: Variables & variable types",
+    "section": "",
+    "text": "Block 2 · Chapter 2 of 3 before the first break. Understand what a variable is in Python & the different types of variables.",
+    "crumbs": [
+      "Home",
+      "Session 1 · Python basics",
+      "Block 2 · Variables and data types",
+      "Variables and regular data types"
+    ]
+  },
+  {
+    "objectID": "session1-python/02_variables.html#what-is-a-variable",
+    "href": "session1-python/02_variables.html#what-is-a-variable",
+    "title": "2 · Basics: Variables & variable types",
+    "section": "What is a variable?",
+    "text": "What is a variable?\nA variable is a name we give to a value so we can store it and use it later in our code. The name stays the same, but the value stored in it can change while the program is running. A variable can store a number, a word, or a list of values.",
+    "crumbs": [
+      "Home",
+      "Session 1 · Python basics",
+      "Block 2 · Variables and data types",
+      "Variables and regular data types"
+    ]
+  },
+  {
+    "objectID": "session1-python/02_variables.html#your-first-variable",
+    "href": "session1-python/02_variables.html#your-first-variable",
+    "title": "2 · Basics: Variables & variable types",
+    "section": "Your first variable",
+    "text": "Your first variable\nLet’s create our first variable in Python. We will call it my_name and store a name in it.\nmy_name = \"anna\"\nWe can also add comments to explain what our code is doing. In Python, a comment starts with #. Everything after # on that line is ignored by Python.\n# This variable stores my name.\nmy_name = \"anna\"\nNow run the code by selecting it in your file and pressing Shift+Enter.\nYou will see the code executed in the console below. If you then type my_name on a new line and press Enter, Python will print the value stored in the variable:\n&gt;&gt;&gt; my_name = 'anna'\n&gt;&gt;&gt; my_name\n'anna'\nAn easier way to see the output is to use the print() function:\n# This variable stores my name.\nmy_name = \"anna\"\n\n# This line prints the value stored in my_name.\nprint(my_name)\nSelect these lines and press Shift+Enter. You should see the value of my_name appear in the console.",
+    "crumbs": [
+      "Home",
+      "Session 1 · Python basics",
+      "Block 2 · Variables and data types",
+      "Variables and regular data types"
+    ]
+  },
+  {
+    "objectID": "session1-python/02_variables.html#variable-types",
+    "href": "session1-python/02_variables.html#variable-types",
+    "title": "2 · Basics: Variables & variable types",
+    "section": "Variable types",
+    "text": "Variable types\nPython allows us to create variables that store different kinds of data. Today we will focus on some of the most common variable types.\nWe can find the type of a variable by using the type() function:\n# Query the type of my_name.\ntype(my_name)\nThis returns &lt;class 'str'&gt;, which means that my_name is a string variable.",
+    "crumbs": [
+      "Home",
+      "Session 1 · Python basics",
+      "Block 2 · Variables and data types",
+      "Variables and regular data types"
+    ]
+  },
+  {
+    "objectID": "session1-python/02_variables.html#data-type-1-regular-string-variables",
+    "href": "session1-python/02_variables.html#data-type-1-regular-string-variables",
+    "title": "2 · Basics: Variables & variable types",
+    "section": "Data Type 1: Regular string variables",
+    "text": "Data Type 1: Regular string variables\nString variables are defined by strings of characters. String variables are specified using single or double quotation marks around the string.\n# If you use single quotes here, it won't work. Why?\ndog_name_possessive = 'anna's dog's name is..'\n\n# If you use double-quotes here it will work. \ndog_name_possessive = \"anna's dog's name is..\"\n\n\n\n\n\n\n🤔 Think first\n\n\n\nWhy does the single-quoted version fail while the double-quoted version works?\n\n\n\n\n\n\nCheck your thinking\n\n\n\n\n\nThe apostrophe in anna’s ends the single-quoted string early. Python thinks the string stops after anna, and the rest is nonsense to it. Double quotes let Python see the apostrophe as just another character inside the string.\n\n\n\n\n\n\nIndexing\nStrings are stored like arrays of characters, meaning that you can individually access single characters in the string using indexing (square brackets around the indices you want to extract).\n# Here you are indexing the first 4 characters in the variable my_name_possessive. \n# You use square brackets around the indices that you want to extract.\ndog_name_possessive[0:4] # extract 4 characters from the 0th character.\n\n# you can also count backwards from the end of a string using the minus sign, e.g.:\ndog_name_possessive[-4:]\nYou may have noticed that we start indexing at 0 instead of 1. This is because Python is a zero-indexed language, so whenever you have a multi-item variable, the first item is always indexed using 0 instead of 1. CAREFUL: R is a 1-indexed langauge, so you always index the first item in a multi-item variable using 1 in R instead of 0.\n\nBefore you run it: what will dog_name_possessive[0:4] give you?\n\nanna — characters 0, 1, 2 and 3. The index range [0:4] starts at 0 and stops before 4, so you get exactly 4 characters. (The console shows it wrapped in quotes — 'anna' — because it is a string.)\n\n\n:::",
+    "crumbs": [
+      "Home",
+      "Session 1 · Python basics",
+      "Block 2 · Variables and data types",
+      "Variables and regular data types"
+    ]
+  },
+  {
+    "objectID": "session1-python/02_variables.html#string-methods",
+    "href": "session1-python/02_variables.html#string-methods",
+    "title": "2 · Basics: Variables & variable types",
+    "section": "String methods",
+    "text": "String methods\nString variables have many built-in methods that we can call on them. Here are some useful string methods:\n\nsplit()\nIf you type the name of your string variable followed by .split(), Python splits the string into smaller pieces, using the space character as the default delimiter. Try it in the console:\ndog_name_possessive.split()\n&gt;&gt;&gt; [\"anna's\", \"dog's\", 'name', 'is..']\nThe split() method returns a list of strings. Each item is one part of the original text, separated by the chosen delimiter.\nYou can store the output in a variable, and since it is a list, you can index it, even down to characters within each item:\nsplit_variable = dog_name_possessive.split()\nsplit_variable[0]\nsplit_variable[0][0]  # first letter of first word.\nsplit_variable[1][1]  # second letter of second word.\n&gt;&gt;&gt; split_variable[0]\n&gt;&gt;&gt; \"anna's\"\n&gt;&gt;&gt; split_variable[0][0]  # first letter of first word.\n&gt;&gt;&gt; 'a'\n&gt;&gt;&gt; split_variable[1][1]  # second letter of second word.\n&gt;&gt;&gt; 'o'\nSo split_variable[1][1] means: take item 1 of the list (\"dog's\": remember, zero-indexed!), then character 1 of that string.\nYou can also use split() with a different delimiter, such as an underscore:\nsubject_id = \"S_01\"\nsubject_id.split(\"_\")\n['S', '01']\n\nGiven responses = \"left right left left\", what does responses.split() return?\n\n['left', 'right', 'left', 'left']: a list of four strings, one per word. Repeats are kept; split() just cuts, it doesn’t deduplicate.\n\n\n\nGiven date = \"2026-09-14\", what does date.split(\"-\") return?\n\nThe delimiter is the cut line — it doesn’t survive into the pieces.\n\n\n['2026', '09', '14']. Three pieces, dashes gone. Note they are strings, not numbers: '09' keeps its leading zero, and you couldn’t do maths with it without converting first.\n\n\n\n\nupper()\nThe upper() method converts all letters in a string to uppercase.\nname = \"anna\"\nname.upper()\n&gt;&gt;&gt; 'ANNA'\nNote that upper() does not change name itself — it returns a new, uppercased string. If you want to keep it, store it:\nname_upper = name.upper()\nprint(name_upper)\n&gt;&gt;&gt; ANNA\n# or store the result in a new variable.\nname_upper = name.upper()\nprint(name_upper)\nHere are a few more useful string methods:\nword = \" subject_01 \"\nprint(word.lower())\nprint(word.strip())\nprint(word.replace(\"p\", \"P\"))\nprint(word.startswith(\" \"))\nprint(word.endswith(\" \"))\n\n\nlen()\nAnd, finally, we can get the length of a string variable using len() (not a string-specific method)\nlen(word)\n&gt;&gt;&gt; 12\nThe 10 characters of subject_01 plus the two spaces. Invisible characters count, which is exactly why .strip() exists.\nThere’s lots more that you can do with strings, but these are the basics!",
+    "crumbs": [
+      "Home",
+      "Session 1 · Python basics",
+      "Block 2 · Variables and data types",
+      "Variables and regular data types"
+    ]
+  },
+  {
+    "objectID": "session1-python/02_variables.html#data-type-2-regular-numeric-variables",
+    "href": "session1-python/02_variables.html#data-type-2-regular-numeric-variables",
+    "title": "2 · Basics: Variables & variable types",
+    "section": "Data Type 2: Regular numeric variables",
+    "text": "Data Type 2: Regular numeric variables\nNow let’s turn to our other fundamental variable type: numeric. There are two basic numeric types:\n\nIntegers: whole numbers (no decimal point)\nFloating points: numbers with a decimal point\n\n# This is an integer.\na = 1\ntype(a)\n&gt;&gt;&gt; int\n# This is a floating point.\nb = 1.5\ntype(b)\n&gt;&gt;&gt; float\nc = 1.00\n\nc stores the value one, but what does type(c) return? float or int?\n\n&lt;class 'float'&gt;: a floating point. The value is a whole number, but writing it with a decimal point makes it a float. What matters is how it is written, not what it equals.\n\n\nThe same logic applies to operations:\n# What happens when you combine types in operations?\nd = b + c\ntype(d)\n&gt;&gt;&gt; float\nAdding the float b to the float c gives a float — d is 2.5. And even when an operation on two floats produces a whole number, the result stays a floating point:\ne = 1.5 + 1.5\ntype(e)\nprint(e)\n&lt;class 'float'&gt;\n3.0\nThe value is three — but Python shows it as 3.0: the .0 is the float’s badge. It never silently becomes an integer.\nStandard numeric operations are addition (shown above), subtraction, multiplication and division:\nprint(a - b)   # subtraction\nprint(a * b)   # multiplication\nprint(a / b)   # division\n-0.5\n1.5\n0.6666666666666666",
+    "crumbs": [
+      "Home",
+      "Session 1 · Python basics",
+      "Block 2 · Variables and data types",
+      "Variables and regular data types"
+    ]
+  },
+  {
+    "objectID": "session1-python/02_variables.html#printing-variables-with-f-strings",
+    "href": "session1-python/02_variables.html#printing-variables-with-f-strings",
+    "title": "2 · Basics: Variables & variable types",
+    "section": "Printing variables with f-strings",
+    "text": "Printing variables with f-strings\nImagine that you want to print reaction times for a given subject on an experiment screen. The subject is different in each experiment, and so is their reaction time.\nYou can create a special expression called an f-string, where you embed variables inside a string: start the string with f, then place variable names inside curly brackets {}.\nsubject_id = \"S_01\"\nreaction_time = 0.45\nmessage = f\"Reaction time for {subject_id}: {reaction_time:.2f} seconds\"\nHere {subject_id} inserts the value of the subject ID variable, and {reaction_time:.2f} inserts the value of reaction_time, where .2f formats the number with two digits after the decimal point.\n\nWhat exactly does print(message) show?\n\nReaction time for S_01: 0.45 seconds: the curly-bracket parts are replaced by the variables’ values, and everything else is printed as-is. In Session 2, messages like this become the text you show on the experiment screen.\n\n\nAll predictions checked? Next: Exercise 1a — Variables & data types.",
+    "crumbs": [
+      "Home",
+      "Session 1 · Python basics",
+      "Block 2 · Variables and data types",
+      "Variables and regular data types"
+    ]
+  },
+  {
+    "objectID": "session1-python/04_lists.html",
+    "href": "session1-python/04_lists.html",
+    "title": "3 · Lists",
+    "section": "",
+    "text": "Block 2 · Learning goals: Understand what a list is and how to use lists effectively.",
+    "crumbs": [
+      "Home",
+      "Session 1 · Python basics",
+      "Block 3 · Lists & Loops",
+      "Lists"
+    ]
+  },
+  {
+    "objectID": "session1-python/04_lists.html#what-are-lists",
+    "href": "session1-python/04_lists.html#what-are-lists",
+    "title": "3 · Lists",
+    "section": "What are lists?",
+    "text": "What are lists?\nLists = literally a list of “elements” that can be changed (are mutable).\nHow to define lists?\n\nVariable name = [ item1, item2, item3…itemN ]\n\nLists can contain items of the same type and different types.\n\n\n\n\n\n\nMake some lists\n\n\n\n\n\nYou can create lists with all strings, all numeric data, or a combination, see below.\n\n# first simple lists of same type items.\nshopping = [ \"apples\", \"pears\", \"bananas\" ] \ntest_scores = [ 90, 60, 100, 82]\n\n# now mixed items.\nmixed_list = [ \"cats\", 7, 309.45 ]\nYou can print lists as below.\n\nprint(test_scores)\nprint(mixed_list)\nYou can also combine lists.\n\n# now lists of lists!\ncombined = [ shopping, test_scores, mixed_list ]\n\n\n\n\n\n\n\n\n\nIndexing lists\n\n\n\n\n\nWe can also index lists (just like we indexed character strings), i.e., by using the square brackets after the list name, and putting the index inside of the square brackets. See below.\n\n# Let's index our lists!\n\nprint(shopping[0])\nprint(shopping[1])\nprint(shopping[2])\n\n# Sub-indexing. What does the below return?\nprint(shopping[0][0:2])\nYou may recognize the above syntax for indexing lists from the previous learning block.\nIf you do, that’s because we were already working with lists when we used the .split method for character strings. Splitting a character string by a delimiter such as a space returns a list, where each item is a string of characters that were not separated by the delimiter.\n\n\n\n\n\n\n\n\n\nChanging list items\n\n\n\n\n\nLists are mutable, meaning that we can change their items. For example, you can:\n\nReplace a list item with another (using indexing)\nAppend an item to the end of a list.\nInsert a new item into a list between two existing items.\n\n\n# Here is our original list. \nprint(shopping)\n\n# And now let's replace the second list item with \"kiwi\"\nshopping[1] = \"kiwi\"\n\n# Let's print our mutated list.\nprint(shopping)\n\n# Now let's add an item to our list. \nshopping.append(\"raspberry\")\n\n# Let's print our elaborated list.\nprint(shopping)\n\n# We can also add an item by inserting it at a particular location in the list.\nshopping.insert(1, \"blueberry\")\n\n# Let's look at our further mutated list. \nprint(shopping)",
+    "crumbs": [
+      "Home",
+      "Session 1 · Python basics",
+      "Block 3 · Lists & Loops",
+      "Lists"
+    ]
+  },
+  {
+    "objectID": "session1-python/06_loops.html",
+    "href": "session1-python/06_loops.html",
+    "title": "3 · Loops",
+    "section": "",
+    "text": "Block 3 · Learning goals: Understand basic for and while loops.",
+    "crumbs": [
+      "Home",
+      "Session 1 · Python basics",
+      "Block 3 · Lists & Loops",
+      "Loops"
+    ]
+  },
+  {
+    "objectID": "session1-python/06_loops.html#what-is-a-loop",
+    "href": "session1-python/06_loops.html#what-is-a-loop",
+    "title": "3 · Loops",
+    "section": "What is a loop?",
+    "text": "What is a loop?\nA loop is a programming structure that repeats a block of code.\nIn this lesson, you will meet two common types of loop:\n\nFor loops repeat code once for each item in a collection, such as a list.\nWhile loops repeat code while a condition is true.\n\n\n\n\n\n\n\nBasic for loops\n\n\n\n\n\nFor loops repeat the same code once for each item in a collection, such as a list.\nImagine that you have five subject IDs and want to print each one.\nYou could write a separate print() statement for every subject:\nprint(\"S01\")\nprint(\"S02\")\n...\nprint(\"S05\")\nHowever, this becomes repetitive and difficult to update. Instead, store the IDs in a list and loop through the items:\nsubject_ids = ['S01', 'S02', 'S03', 'S04', 'S05']\n\nfor subject in subject_ids:\n    print(subject)\nIn plain language, this loop means:\n\nFor every item in subject_ids, store that item in subject and print it.\n\nThe indented line is the body of the loop: it runs once per item. Each repetition is called an iteration. During each iteration, subject temporarily holds the current ID.\nYou can also loop through the index positions in a list. This is useful when you need both an item’s position and its value.\nNotice the syntax: the for statement ends with a colon, and the loop body must be indented.\n\n# Get the total number of subjects.\nnumber_of_subjects = len(subject_ids)\n\n# Create indices from 0 up to, but not including, number_of_subjects.\nsubject_index_range = range(number_of_subjects)\n\n# Use each index to retrieve the corresponding subject ID.\nfor index in subject_index_range:\n    print(f\"Subject {index + 1}: {subject_ids[index]}\")\n\nSometimes you need to update a number on every iteration of a loop.\nThis number is called a counter variable. The example below counts how many days have been processed.\n\n# Define a list to loop over.\nweekdays = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']\n\n# Start a counter at zero.\nday_of_week = 0\n\n# Print each day, then add 1 to the counter.\nfor day in weekdays:\n    print(f\"The current day is {day}\")\n    day_of_week += 1\n\n# Print the final count after the loop has finished.\nprint(f\"There are {day_of_week} days in the list.\")\n\n\n\n\n\n\n\n\n\nBasic while loops\n\n\n\n\n\nWhile loops repeat a block of code while a condition is True.\nYou will learn more about conditions after the logical-operators lesson. For now, this example prints the first six weekdays:\n\n# Start at the first item in the list.\nday_of_week = 0\n\n# Keep looping while day_of_week is less than 6.\nwhile day_of_week &lt; 6:\n    print(f\"The current day is {weekdays[day_of_week]}\")\n    # Move to the next index so the condition will eventually become False.\n    day_of_week += 1\nThe condition is day_of_week &lt; 6. On each iteration, day_of_week increases by 1. Once it reaches 6, the condition is False and the loop stops.\n\n\n\n\n\n\n\n\n\nSummary\n\n\n\nLoops repeat code. Use a for loop when you want to work through each item in a collection, such as a list of subject IDs. Use an index-based for loop when you also need each item’s position. A counter variable records progress by changing on every iteration. Use a while loop when repetition should continue only while a condition is True.",
+    "crumbs": [
+      "Home",
+      "Session 1 · Python basics",
+      "Block 3 · Lists & Loops",
+      "Loops"
     ]
   }
 ]
