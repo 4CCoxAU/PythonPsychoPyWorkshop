@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>3 · Loops – Python &amp; PsychoPy Workshop - Aarhus University, Fall 2026</title>
+<title>4 · Loops – Python &amp; PsychoPy Workshop - Aarhus University, Fall 2026</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -473,6 +473,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#what-is-a-loop" id="toc-what-is-a-loop" class="nav-link active" data-scroll-target="#what-is-a-loop">What is a loop?</a></li>
+  <li><a href="#for-loops" id="toc-for-loops" class="nav-link" data-scroll-target="#for-loops">For loops</a></li>
+  <li><a href="#looping-by-index" id="toc-looping-by-index" class="nav-link" data-scroll-target="#looping-by-index">Looping by index</a></li>
+  <li><a href="#counter-variables" id="toc-counter-variables" class="nav-link" data-scroll-target="#counter-variables">Counter variables</a></li>
+  <li><a href="#while-loops" id="toc-while-loops" class="nav-link" data-scroll-target="#while-loops">While loops</a></li>
   </ul>
 </nav>
     </div>
@@ -482,7 +486,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../session1-python/index.html">Session 1 · Python basics</a></li><li class="breadcrumb-item"><a href="../session1-python/04_lists.html">Block 3 · Lists &amp; Loops</a></li><li class="breadcrumb-item"><a href="../session1-python/06_loops.html">Loops</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">3 · Loops</h1>
+<h1 class="title">4 · Loops</h1>
 </div>
 
 
@@ -500,104 +504,118 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <div class="milestone">
-<p><strong>Block 3</strong> · Learning goals: Understand basic for and while loops.</p>
+<p><strong>Block 3</strong> · Chapter follows Exercise 2. Understand basic for and while loops.</p>
 </div>
 <section id="what-is-a-loop" class="level2">
 <h2 class="anchored" data-anchor-id="what-is-a-loop">What is a loop?</h2>
-<p>A loop is a programming structure that repeats a block of code.</p>
-<p>In this lesson, you will meet two common types of loop:</p>
+<p>A loop is a programming structure that repeats a block of code. In this lesson you will meet the two common types:</p>
 <ol type="1">
 <li><strong>For loops</strong> repeat code once for each item in a collection, such as a list.</li>
 <li><strong>While loops</strong> repeat code while a condition is true.</li>
 </ol>
-<div class="callout callout-style-default callout-tip callout-titled" title="Basic for loops">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Basic for loops
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p><em>For loops</em> repeat the same code once for each item in a collection, such as a list.</p>
-<p>Imagine that you have five subject IDs and want to print each one.</p>
-<p>You could write a separate <code>print()</code> statement for every subject:</p>
+<p>This is the single most important chapter of the day for what comes next: when we start learning PsychoPy, we’ll learn that <em>an experiment is a loop</em>: for each stimulus: show it, record a response, give feedback.</p>
+</section>
+<section id="for-loops" class="level2">
+<h2 class="anchored" data-anchor-id="for-loops">For loops</h2>
+<p>Imagine you have five subject IDs and want to print each one. You could write a separate <code>print()</code> for every subject:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"S01"</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"S02"</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>...</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"S05"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>However, this becomes repetitive and difficult to update. Instead, store the IDs in a list and loop through the items:</p>
+<p>This becomes repetitive and difficult to update. Instead, store the IDs in a list and loop through the items:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>subject_ids <span class="op">=</span> [<span class="st">'S01'</span>, <span class="st">'S02'</span>, <span class="st">'S03'</span>, <span class="st">'S04'</span>, <span class="st">'S05'</span>]</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> subject <span class="kw">in</span> subject_ids:</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(subject)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>In plain language, this loop means:</p>
-<blockquote class="blockquote">
-<p>For every item in <code>subject_ids</code>, store that item in <code>subject</code> and print it.</p>
-</blockquote>
-<p>The indented line is the <strong>body</strong> of the loop: it runs once per item. Each repetition is called an <strong>iteration</strong>. During each iteration, <code>subject</code> temporarily holds the current ID.</p>
-<p>You can also loop through the index positions in a list. This is useful when you need both an item’s position and its value.</p>
-<p>Notice the syntax: the <code>for</code> statement ends with a colon, and the loop body must be indented.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the total number of subjects.</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>number_of_subjects <span class="op">=</span> <span class="bu">len</span>(subject_ids)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Create indices from 0 up to, but not including, number_of_subjects.</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>subject_index_range <span class="op">=</span> <span class="bu">range</span>(number_of_subjects)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Use each index to retrieve the corresponding subject ID.</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> index <span class="kw">in</span> subject_index_range:</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Subject </span><span class="sc">{</span>index <span class="op">+</span> <span class="dv">1</span><span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>subject_ids[index]<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Sometimes you need to update a number on every iteration of a loop.</p>
-<p>This number is called a <strong>counter variable</strong>. The example below counts how many days have been processed.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Define a list to loop over.</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>weekdays <span class="op">=</span> [<span class="st">'monday'</span>, <span class="st">'tuesday'</span>, <span class="st">'wednesday'</span>, <span class="st">'thursday'</span>, <span class="st">'friday'</span>, <span class="st">'saturday'</span>, <span class="st">'sunday'</span>]</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Start a counter at zero.</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>day_of_week <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Print each day, then add 1 to the counter.</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> day <span class="kw">in</span> weekdays:</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"The current day is </span><span class="sc">{</span>day<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    day_of_week <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the final count after the loop has finished.</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"There are </span><span class="sc">{</span>day_of_week<span class="sc">}</span><span class="ss"> days in the list."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre class="repl"><code>&gt;&gt;&gt; S01
+&gt;&gt;&gt; S02
+&gt;&gt;&gt; S03
+&gt;&gt;&gt; S04
+&gt;&gt;&gt; S05</code></pre>
+<p>In plain language: <em>for every item in <code>subject_ids</code>, store that item in <code>subject</code> and print it.</em> Notice the syntax: the <code>for</code> statement ends with a colon, and the next line is indented. That indented part is the <strong>body</strong> of the loop, and it runs once per item. Each repetition is called an <strong>iteration</strong>; during each one, <code>subject</code> temporarily holds the current ID.</p>
+<div class="predict-check" data-answer="cat dog owl" data-multiline="true" data-placeholder="One line per loop iteration…">
+<p>Your turn. Using a list from Exercise 2: what does this print?</p>
+<pre><code>animals = ['cat', 'dog', 'owl']
+for animal in animals:
+    print(animal)</code></pre>
+<div class="pc-hint" data-if-contains="animals">
+<p>The loop variable holds one <em>item</em> at a time. Not the list, and not the word “animals”.</p>
+</div>
+<div class="pc-explanation">
+<p>Three lines: <code>cat</code>, <code>dog</code>, <code>owl</code>; one iteration per item, one print per iteration.</p>
 </div>
 </div>
+</section>
+<section id="looping-by-index" class="level2">
+<h2 class="anchored" data-anchor-id="looping-by-index">Looping by index</h2>
+<p>You can also loop through the <em>index positions</em> of a list. This is useful when you need both an item’s position and its value:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the total number of subjects.</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>number_of_subjects <span class="op">=</span> <span class="bu">len</span>(subject_ids)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create indices from 0 up to, but not including, number_of_subjects.</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>subject_index_range <span class="op">=</span> <span class="bu">range</span>(number_of_subjects)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Use each index to retrieve the corresponding subject ID.</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> index <span class="kw">in</span> subject_index_range:</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Subject </span><span class="sc">{</span>index <span class="op">+</span> <span class="dv">1</span><span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>subject_ids[index]<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre class="repl"><code>Subject 1: S01
+Subject 2: S02
+Subject 3: S03
+Subject 4: S04
+Subject 5: S05</code></pre>
+<p>Look closely at <code>index + 1</code>: the <em>indices</em> run 0-4 (zero-indexed, as ever), but humans count subjects from 1, so we print <code>index + 1</code> while using plain <code>index</code> for the lookup.</p>
+</section>
+<section id="counter-variables" class="level2">
+<h2 class="anchored" data-anchor-id="counter-variables">Counter variables</h2>
+<p>Sometimes you need to update a number on every iteration. This number is called a <strong>counter variable</strong> — here counting how many days have been processed:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>weekdays <span class="op">=</span> [<span class="st">'monday'</span>, <span class="st">'tuesday'</span>, <span class="st">'wednesday'</span>, <span class="st">'thursday'</span>, <span class="st">'friday'</span>, <span class="st">'saturday'</span>, <span class="st">'sunday'</span>]</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Start a counter at zero.</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>day_of_week <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Print each day, then add 1 to the counter.</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> day <span class="kw">in</span> weekdays:</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"The current day is </span><span class="sc">{</span>day<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    day_of_week <span class="op">+=</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre class="repl"><code>The current day is monday
+The current day is tuesday
+The current day is wednesday
+The current day is thursday
+The current day is friday
+The current day is saturday
+The current day is sunday</code></pre>
+<p>(<code>+= 1</code> is shorthand for <code>day_of_week = day_of_week + 1</code>. Add one to what’s there.). Notice the syntax: the <code>for</code> statement ends with a colon, and the loop body must be indented.</p>
+<div class="predict-check" data-answer="There are 7 days in the list." data-accept="7">
+<p>After the loop finishes, we print the counter:</p>
+<pre><code>print(f"There are {day_of_week} days in the list.")</code></pre>
+<p>What exactly appears?</p>
+<div class="pc-hint" data-if-contains="6">
+<p>Careful. The counter started at 0, but it was incremented once for <em>every</em> item. How many increments happened?</p>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled" title="Basic while loops">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Basic while loops
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p><em>While loops</em> repeat a block of code while a condition is <code>True</code>.</p>
-<p>You will learn more about conditions after the logical-operators lesson. For now, this example prints the first six weekdays:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Start at the first item in the list.</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>day_of_week <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Keep looping while day_of_week is less than 6.</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> day_of_week <span class="op">&lt;</span> <span class="dv">6</span>:</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"The current day is </span><span class="sc">{</span>weekdays[day_of_week]<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Move to the next index so the condition will eventually become False.</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    day_of_week <span class="op">+=</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>The condition is <code>day_of_week &lt; 6</code>. On each iteration, <code>day_of_week</code> increases by 1. Once it reaches <code>6</code>, the condition is <code>False</code> and the loop stops.</p>
+<div class="pc-explanation">
+<p><code>There are 7 days in the list.</code>. The counter went 0→7, one <code>+= 1</code> per iteration. Starting at 0 doesn’t mean ending one short: seven items, seven increments.</p>
 </div>
 </div>
+</section>
+<section id="while-loops" class="level2">
+<h2 class="anchored" data-anchor-id="while-loops">While loops</h2>
+<p><em>While loops</em> repeat a block of code <strong>while a condition is <code>True</code></strong>. You will learn more about conditions in the logical-operations lesson. For now, read this example and predict before running:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>day_of_week <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> day_of_week <span class="op">&lt;</span> <span class="dv">6</span>:</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"The current day is </span><span class="sc">{</span>weekdays[day_of_week]<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Move to the next index so the condition will eventually become False.</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    day_of_week <span class="op">+=</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="predict-check" data-answer="6" data-accept="six">
+<p>Before you run it: how many lines does this print?</p>
+<div class="pc-hint" data-if-contains="7">
+<p>The condition is <code>day_of_week &lt; 6</code>: strictly less than. Which values of the counter pass that test?</p>
 </div>
+<div class="pc-explanation">
+<p><code>6</code> lines: monday through saturday. The counter values 0,1,2,3,4,5 pass the <code>&lt; 6</code> test; when it reaches 6, the condition is <code>False</code> and the loop stops <em>before</em> printing sunday. <code>&lt;</code> versus <code>&lt;=</code> is a one-character difference with a one-iteration consequence.</p>
+</div>
+</div>
+<p>One warning while we’re here: the comment in the body is not decoration. If you forget the <code>day_of_week += 1</code>, the condition <em>never</em> becomes <code>False</code> — and the loop runs forever. It happens to everyone once; when it happens to you, click the console and press <strong>Ctrl-C</strong> to stop it.</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Summary">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -608,9 +626,10 @@ Summary
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Loops repeat code. Use a <code>for</code> loop when you want to work through each item in a collection, such as a list of subject IDs. Use an index-based <code>for</code> loop when you also need each item’s position. A counter variable records progress by changing on every iteration. Use a <code>while</code> loop when repetition should continue only while a condition is <code>True</code>.</p>
+<p>Loops repeat code. Use a <code>for</code> loop to work through each item in a collection, and an index-based <code>for</code> loop when you also need each item’s position. A counter variable records progress by changing on every iteration. Use a <code>while</code> loop when repetition should continue only while a condition is <code>True</code>, and make sure something in the body eventually makes it <code>False</code>.</p>
 </div>
 </div>
+<p><strong>Predictions checked?</strong> Next: Exercise 3: Loops.</p>
 
 
 </section>

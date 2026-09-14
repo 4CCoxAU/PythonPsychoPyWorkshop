@@ -473,6 +473,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#what-are-lists" id="toc-what-are-lists" class="nav-link active" data-scroll-target="#what-are-lists">What are lists?</a></li>
+  <li><a href="#making-lists" id="toc-making-lists" class="nav-link" data-scroll-target="#making-lists">Making lists</a></li>
+  <li><a href="#indexing-lists" id="toc-indexing-lists" class="nav-link" data-scroll-target="#indexing-lists">Indexing lists</a></li>
+  <li><a href="#changing-list-items" id="toc-changing-list-items" class="nav-link" data-scroll-target="#changing-list-items">Changing list items</a></li>
   </ul>
 </nav>
     </div>
@@ -500,116 +503,95 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <div class="milestone">
-<p><strong>Block 2</strong> · Learning goals: Understand what a list is and how to use lists effectively.</p>
+<p><strong>Block 3</strong> · Chapter 4 of the day. Understand what a list is and how to use lists effectively.</p>
 </div>
 <section id="what-are-lists" class="level2">
 <h2 class="anchored" data-anchor-id="what-are-lists">What are lists?</h2>
-<p>Lists = literally a list of “elements” that can be changed (are mutable).</p>
-<p>How to define lists?</p>
-<ul>
-<li>Variable name = [ item1, item2, item3…itemN ]</li>
-</ul>
-<p>Lists can contain items of the same type and different types.</p>
-<div class="callout callout-style-default callout-tip callout-titled" title="Make some lists">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<p>A list is, literally, a list of items, stored in order, that can be changed (lists are <em>mutable</em>, a word that will matter shortly). You define one with square brackets, items separated by commas:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>variable_name <span class="op">=</span> [item1, item2, item3]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Lists can contain items of the same type or of different types, and this is the data structure experiments run on: a list of stimuli, a list of responses, a list of reaction times.</p>
+</section>
+<section id="making-lists" class="level2">
+<h2 class="anchored" data-anchor-id="making-lists">Making lists</h2>
+<p>You can create lists with all strings, all numeric data, or a combination:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># First, simple lists of same-type items.</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>shopping <span class="op">=</span> [<span class="st">"apples"</span>, <span class="st">"pears"</span>, <span class="st">"bananas"</span>]</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>test_scores <span class="op">=</span> [<span class="dv">90</span>, <span class="dv">60</span>, <span class="dv">100</span>, <span class="dv">82</span>]</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Now mixed items.</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>mixed_list <span class="op">=</span> [<span class="st">"cats"</span>, <span class="dv">7</span>, <span class="fl">309.45</span>]</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(test_scores)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(mixed_list)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre class="repl"><code>&gt;&gt;&gt; [90, 60, 100, 82]
+&gt;&gt;&gt; ['cats', 7, 309.45]</code></pre>
+<p>You can also put lists <em>inside</em> lists:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>combined <span class="op">=</span> [shopping, test_scores, mixed_list]</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(combined)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre class="repl"><code>&gt;&gt;&gt; [['apples', 'pears', 'bananas'], [90, 60, 100, 82], ['cats', 7, 309.45]]</code></pre>
+<p>Three items: each of which is itself a list. Keep that picture in mind for the prediction below.</p>
+</section>
+<section id="indexing-lists" class="level2">
+<h2 class="anchored" data-anchor-id="indexing-lists">Indexing lists</h2>
+<p>We index lists just like we indexed character strings: square brackets after the name, index inside.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(shopping[<span class="dv">0</span>])</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(shopping[<span class="dv">1</span>])</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(shopping[<span class="dv">2</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre class="repl"><code>apples
+pears
+bananas</code></pre>
+<p>You may recognise this syntax from the previous block. That’s because we were already working with lists when we used <code>.split()</code>: splitting a string returns a list, and everything you learned there (zero-indexing, negative indexing, two brackets for two levels) applies to <em>all</em> lists.</p>
+<div class="predict-check" data-answer="'ap'" data-accept="ap||&quot;ap&quot;">
+<p>Sub-indexing, then: what does <code>shopping[0][0:2]</code> return?</p>
+<div class="pc-hint" data-if-contains="apples">
+<p>That’s <code>shopping[0]</code>: the whole first item. The second bracket slices <em>into</em> that string: which characters does <code>[0:2]</code> take?</p>
 </div>
-<div class="callout-title-container flex-fill">
-Make some lists
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>You can create lists with all strings, all numeric data, or a combination, see below.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># first simple lists of same type items.</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>shopping <span class="op">=</span> [ <span class="st">"apples"</span>, <span class="st">"pears"</span>, <span class="st">"bananas"</span> ] </span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>test_scores <span class="op">=</span> [ <span class="dv">90</span>, <span class="dv">60</span>, <span class="dv">100</span>, <span class="dv">82</span>]</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># now mixed items.</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>mixed_list <span class="op">=</span> [ <span class="st">"cats"</span>, <span class="dv">7</span>, <span class="fl">309.45</span> ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>You can print lists as below.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(test_scores)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(mixed_list)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>You can also combine lists.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># now lists of lists!</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>combined <span class="op">=</span> [ shopping, test_scores, mixed_list ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled" title="Indexing lists">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Indexing lists
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>We can also index lists (just like we indexed character strings), i.e., by using the square brackets after the list name, and putting the index inside of the square brackets. See below.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's index our lists!</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(shopping[<span class="dv">0</span>])</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(shopping[<span class="dv">1</span>])</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(shopping[<span class="dv">2</span>])</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Sub-indexing. What does the below return?</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(shopping[<span class="dv">0</span>][<span class="dv">0</span>:<span class="dv">2</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>You may recognize the above syntax for indexing lists from the previous learning block.</p>
-<p>If you do, that’s because we were already working with lists when we used the <code>.split</code> method for character strings. Splitting a character string by a delimiter such as a space returns a list, where each item is a string of characters that were not separated by the delimiter.</p>
+<div class="pc-explanation">
+<p><code>'ap'</code>: <code>shopping[0]</code> picks the string <code>'apples'</code> out of the list, and <code>[0:2]</code> slices characters 0 and 1 out of that string. Stops before 2, as always.</p>
 </div>
 </div>
+<div class="predict-check" data-answer="[90, 60, 100, 82]" data-accept="[90,60,100,82]||90, 60, 100, 82||test_scores">
+<p>And the list of lists: what does <code>combined[1]</code> give you?</p>
+<div class="pc-hint" data-if-contains="60">
+<p>Close if you answered <code>60</code>, but count the brackets. One pair of brackets goes one level deep. What lives at position 1 of <code>combined</code>?</p>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled" title="Changing list items">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<div class="pc-explanation">
+<p><code>[90, 60, 100, 82]</code> — the entire second list. <code>combined</code>’s items are whole lists, so one index retrieves a whole list. To reach <code>60</code> you’d go two levels: <code>combined[1][1]</code>.</p>
 </div>
-<div class="callout-title-container flex-fill">
-Changing list items
 </div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Lists are mutable, meaning that we can change their items. For example, you can:</p>
+</section>
+<section id="changing-list-items" class="level2">
+<h2 class="anchored" data-anchor-id="changing-list-items">Changing list items</h2>
+<p>Lists are <em>mutable</em>: we can change their contents after creating them. Remember <code>upper()</code>, which returned a new string and left the original untouched? Lists are the opposite. These operations change the list itself, in place. Three ways to do it:</p>
 <ol type="1">
-<li>Replace a list item with another (using indexing)</li>
-<li>Append an item to the end of a list.</li>
-<li>Insert a new item into a list between two existing items.</li>
+<li><strong>Replace</strong> an item, using indexing.</li>
+<li><strong>Append</strong> an item to the end.</li>
+<li><strong>Insert</strong> an item at a chosen position.</li>
 </ol>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Here is our original list. </span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(shopping)</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># And now let's replace the second list item with "kiwi"</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>shopping[<span class="dv">1</span>] <span class="op">=</span> <span class="st">"kiwi"</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's print our mutated list.</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(shopping)</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Now let's add an item to our list. </span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>shopping.append(<span class="st">"raspberry"</span>)</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's print our elaborated list.</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(shopping)</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="co"># We can also add an item by inserting it at a particular location in the list.</span></span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>shopping.insert(<span class="dv">1</span>, <span class="st">"blueberry"</span>)</span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's look at our further mutated list. </span></span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(shopping)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Predict each <code>print()</code> before you run it. This is where the bracket-counting pays off. Our starting point:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(shopping)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre class="repl"><code>['apples', 'pears', 'bananas']</code></pre>
+<p>Replace the second item:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>shopping[<span class="dv">1</span>] <span class="op">=</span> <span class="st">"kiwi"</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(shopping)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre class="repl"><code>['apples', 'kiwi', 'bananas']</code></pre>
+<p>Goodbye pears: index 1 is the <em>second</em> item. Now append:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>shopping.append(<span class="st">"raspberry"</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(shopping)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre class="repl"><code>['apples', 'kiwi', 'bananas', 'raspberry']</code></pre>
+<p><code>append()</code> always adds at the end. Finally, insert at a particular position:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>shopping.insert(<span class="dv">1</span>, <span class="st">"blueberry"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="predict-check" data-answer="['apples', 'blueberry', 'kiwi', 'bananas', 'raspberry']" data-accept="['apples','blueberry','kiwi','bananas','raspberry']||apples, blueberry, kiwi, bananas, raspberry">
+<p>The finale: what does <code>print(shopping)</code> show now? Type the full list.</p>
+<div class="pc-hint" data-if-contains="kiwi', 'blueberry">
+<p>Almost — <code>insert(1, ...)</code> puts the new item <em>at</em> index 1, and everything from there shifts right. Who ends up second?</p>
+</div>
+<div class="pc-explanation">
+<p><code>['apples', 'blueberry', 'kiwi', 'bananas', 'raspberry']</code>. <code>insert(1, ...)</code> places blueberry at index 1 and shifts kiwi, bananas and raspberry one step right. Nothing is overwritten. That’s the difference from <code>shopping[1] = ...</code>, which <em>replaces</em>.</p>
 </div>
 </div>
-</div>
+<p>In the PsychoPy sessions, these operations will become very familiar: <code>stimuli</code> is a list of image filenames, <code>responses.append(key)</code> collects what the participant pressed, and shuffling a list gives every participant their own trial order.</p>
+<p><strong>All predictions checked?</strong> Next: <a href="../session1-python/05_exercise2_lists.html">Exercise 2 — Lists</a>.</p>
 
 
 </section>

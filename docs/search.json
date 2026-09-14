@@ -40,7 +40,59 @@
     "href": "session1-python/05_exercise2_lists.html",
     "title": "Exercise 2 · Lists",
     "section": "",
-    "text": "Block 3 · Learning goals: Understand what a list is and how to use them effectively.\n\n\n\n\n\n\n\nDefining lists\n\n\n\n\n\nMake variables containing 10-item lists. Make one of each list below:\n 1. All character items\n\n 2. All integer items\n\n 3. All floating point numeric items\n\n 4. Mixed character, floating point and integer items. \nNow combine lists 1-3 in a single long list.\n\n\n\n\n\n\n\n\n\nIndexing lists\n\n\n\n\n\nReturn the 4th item in each of lists 1-3.\nReturn the first item in the list of lists (the combined list you made above).\nDo you notice anything unexpected about the output?\nCan you figure out how to index the first word only in the combined list?\n\n\n\n\n\n\n\n\n\nChanging list items\n\n\n\n\n\nOkay, now let’s take advantage of list mutability by changing our lists.\n\nReplace a list item with another (using indexing) in one of your lists.\nAppend an item to the end of one of your lists list.\nInsert a new item into a list between two existing items.\nReplace the first list item in your combined list with a new item.",
+    "text": "Block 3 · Exercise for Chapter 3 — Lists.\nSame drill as Exercise 1a: try first, Hint when stuck, Show the code as the safety net. Work in the same .py file, with # Exercise 2 comments to keep it navigable.",
+    "crumbs": [
+      "Home",
+      "Session 1 · Python basics",
+      "Block 3 · Lists & Loops",
+      "Exercise 2: Lists"
+    ]
+  },
+  {
+    "objectID": "session1-python/05_exercise2_lists.html#part-1-defining-lists",
+    "href": "session1-python/05_exercise2_lists.html#part-1-defining-lists",
+    "title": "Exercise 2 · Lists",
+    "section": "Part 1: Defining lists",
+    "text": "Part 1: Defining lists\nMake variables containing 10-item lists, one of each:\n\nAll string items.\nAll integer items.\nAll floating-point items.\nMixed strings, integers and floats.\n\nThen combine lists 1–3 into a single variable called combined.\n\n\n\n\n\n\nHint\n\n\n\n\n\nTen items is a typing exercise, not a thinking one. Short words and simple numbers are fine. For combined: square brackets around the three list names.\n\n\n\n\n\n\n\n\n\nShow the code\n\n\n\n\n\nwords = [\"cat\", \"dog\", \"owl\", \"fox\", \"bat\", \"elk\", \"hen\", \"ant\", \"bee\", \"cow\"]\nintegers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\nfloats = [1.5, 2.5, 3.5, 4.5, 5.5, 6.5, 7.5, 8.5, 9.5, 10.5]\nmixed = [\"cat\", 1, 1.5, \"dog\", 2, 2.5, \"owl\", 3, 3.5, \"fox\"]\n\ncombined = [words, integers, floats]",
+    "crumbs": [
+      "Home",
+      "Session 1 · Python basics",
+      "Block 3 · Lists & Loops",
+      "Exercise 2: Lists"
+    ]
+  },
+  {
+    "objectID": "session1-python/05_exercise2_lists.html#part-2-indexing-lists",
+    "href": "session1-python/05_exercise2_lists.html#part-2-indexing-lists",
+    "title": "Exercise 2 · Lists",
+    "section": "Part 2: Indexing lists",
+    "text": "Part 2: Indexing lists\n\nReturn the 4th item of each of lists 1-3.\nReturn the first item of combined. Do you notice anything unexpected about the output?\nNow figure out how to index the first word only from combined.\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nTask 1: the 4th item. Which index is that? Task 2: how big is the thing that came back? Compare it with what task 1 gave you. Task 3: combined[0] got you a whole list… so you’re one bracket-pair away.\n\n\n\n\n\n\n\n\n\nShow the code\n\n\n\n\n\nprint(words[3])       # fox, the 4th item is at index 3!\nprint(integers[3])    # 4\nprint(floats[3])      # 4.5\n\nprint(combined[0])    # ['cat', 'dog', ..., 'cow']: an ENTIRE list comes back,\n                      # because combined's items are themselves lists.\n\nprint(combined[0][0]) # cat: first list, then first item of that list.",
+    "crumbs": [
+      "Home",
+      "Session 1 · Python basics",
+      "Block 3 · Lists & Loops",
+      "Exercise 2: Lists"
+    ]
+  },
+  {
+    "objectID": "session1-python/05_exercise2_lists.html#part-3-changing-list-items",
+    "href": "session1-python/05_exercise2_lists.html#part-3-changing-list-items",
+    "title": "Exercise 2 · Lists",
+    "section": "Part 3: Changing list items",
+    "text": "Part 3: Changing list items\nNow let’s take advantage of list mutability:\n\nReplace an item in one of your lists with another, using indexing.\nAppend an item to the end of one of your lists.\nInsert a new item between two existing items.\nReplace the first item of combined with a new item, then print combined. How much changed?\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nReplacement is assignment: list[index] = new_thing. For task 4: combined[0] is a whole list, so what you assign to it replaces… how much? Any value works, even a string.\n\n\n\n\n\n\n\n\n\nShow the code\n\n\n\n\n\nwords[0] = \"pig\"                  # 1. replace by index\nwords.append(\"emu\")               # 2. append to the end\nwords.insert(2, \"yak\")            # 3. insert between existing items\nprint(words)\n\ncombined[0] = \"gone\"              # 4. replaces the ENTIRE first list with one string!\nprint(combined)                   # ['gone', [1, 2, ...], [1.5, 2.5, ...]]\n\n\n\nEverything runs and makes sense? Then onwards to Loops.",
+    "crumbs": [
+      "Home",
+      "Session 1 · Python basics",
+      "Block 3 · Lists & Loops",
+      "Exercise 2: Lists"
+    ]
+  },
+  {
+    "objectID": "session1-python/05_exercise2_lists.html#done-early",
+    "href": "session1-python/05_exercise2_lists.html#done-early",
+    "title": "Exercise 2 · Lists",
+    "section": "Done early?",
+    "text": "Done early?\nUsing only indexing and mutation on your combined list from before task 4, no retyping of values, make combined end up as [10, \"cat\", 10.5].",
     "crumbs": [
       "Home",
       "Session 1 · Python basics",
@@ -405,7 +457,7 @@
     "href": "session1-python/04_lists.html",
     "title": "3 · Lists",
     "section": "",
-    "text": "Block 2 · Learning goals: Understand what a list is and how to use lists effectively.",
+    "text": "Block 3 · Chapter 4 of the day. Understand what a list is and how to use lists effectively.",
     "crumbs": [
       "Home",
       "Session 1 · Python basics",
@@ -418,7 +470,46 @@
     "href": "session1-python/04_lists.html#what-are-lists",
     "title": "3 · Lists",
     "section": "What are lists?",
-    "text": "What are lists?\nLists = literally a list of “elements” that can be changed (are mutable).\nHow to define lists?\n\nVariable name = [ item1, item2, item3…itemN ]\n\nLists can contain items of the same type and different types.\n\n\n\n\n\n\nMake some lists\n\n\n\n\n\nYou can create lists with all strings, all numeric data, or a combination, see below.\n\n# first simple lists of same type items.\nshopping = [ \"apples\", \"pears\", \"bananas\" ] \ntest_scores = [ 90, 60, 100, 82]\n\n# now mixed items.\nmixed_list = [ \"cats\", 7, 309.45 ]\nYou can print lists as below.\n\nprint(test_scores)\nprint(mixed_list)\nYou can also combine lists.\n\n# now lists of lists!\ncombined = [ shopping, test_scores, mixed_list ]\n\n\n\n\n\n\n\n\n\nIndexing lists\n\n\n\n\n\nWe can also index lists (just like we indexed character strings), i.e., by using the square brackets after the list name, and putting the index inside of the square brackets. See below.\n\n# Let's index our lists!\n\nprint(shopping[0])\nprint(shopping[1])\nprint(shopping[2])\n\n# Sub-indexing. What does the below return?\nprint(shopping[0][0:2])\nYou may recognize the above syntax for indexing lists from the previous learning block.\nIf you do, that’s because we were already working with lists when we used the .split method for character strings. Splitting a character string by a delimiter such as a space returns a list, where each item is a string of characters that were not separated by the delimiter.\n\n\n\n\n\n\n\n\n\nChanging list items\n\n\n\n\n\nLists are mutable, meaning that we can change their items. For example, you can:\n\nReplace a list item with another (using indexing)\nAppend an item to the end of a list.\nInsert a new item into a list between two existing items.\n\n\n# Here is our original list. \nprint(shopping)\n\n# And now let's replace the second list item with \"kiwi\"\nshopping[1] = \"kiwi\"\n\n# Let's print our mutated list.\nprint(shopping)\n\n# Now let's add an item to our list. \nshopping.append(\"raspberry\")\n\n# Let's print our elaborated list.\nprint(shopping)\n\n# We can also add an item by inserting it at a particular location in the list.\nshopping.insert(1, \"blueberry\")\n\n# Let's look at our further mutated list. \nprint(shopping)",
+    "text": "What are lists?\nA list is, literally, a list of items, stored in order, that can be changed (lists are mutable, a word that will matter shortly). You define one with square brackets, items separated by commas:\nvariable_name = [item1, item2, item3]\nLists can contain items of the same type or of different types, and this is the data structure experiments run on: a list of stimuli, a list of responses, a list of reaction times.",
+    "crumbs": [
+      "Home",
+      "Session 1 · Python basics",
+      "Block 3 · Lists & Loops",
+      "Lists"
+    ]
+  },
+  {
+    "objectID": "session1-python/04_lists.html#making-lists",
+    "href": "session1-python/04_lists.html#making-lists",
+    "title": "3 · Lists",
+    "section": "Making lists",
+    "text": "Making lists\nYou can create lists with all strings, all numeric data, or a combination:\n# First, simple lists of same-type items.\nshopping = [\"apples\", \"pears\", \"bananas\"]\ntest_scores = [90, 60, 100, 82]\n\n# Now mixed items.\nmixed_list = [\"cats\", 7, 309.45]\n\nprint(test_scores)\nprint(mixed_list)\n&gt;&gt;&gt; [90, 60, 100, 82]\n&gt;&gt;&gt; ['cats', 7, 309.45]\nYou can also put lists inside lists:\ncombined = [shopping, test_scores, mixed_list]\nprint(combined)\n&gt;&gt;&gt; [['apples', 'pears', 'bananas'], [90, 60, 100, 82], ['cats', 7, 309.45]]\nThree items: each of which is itself a list. Keep that picture in mind for the prediction below.",
+    "crumbs": [
+      "Home",
+      "Session 1 · Python basics",
+      "Block 3 · Lists & Loops",
+      "Lists"
+    ]
+  },
+  {
+    "objectID": "session1-python/04_lists.html#indexing-lists",
+    "href": "session1-python/04_lists.html#indexing-lists",
+    "title": "3 · Lists",
+    "section": "Indexing lists",
+    "text": "Indexing lists\nWe index lists just like we indexed character strings: square brackets after the name, index inside.\nprint(shopping[0])\nprint(shopping[1])\nprint(shopping[2])\napples\npears\nbananas\nYou may recognise this syntax from the previous block. That’s because we were already working with lists when we used .split(): splitting a string returns a list, and everything you learned there (zero-indexing, negative indexing, two brackets for two levels) applies to all lists.\n\nSub-indexing, then: what does shopping[0][0:2] return?\n\nThat’s shopping[0]: the whole first item. The second bracket slices into that string: which characters does [0:2] take?\n\n\n'ap': shopping[0] picks the string 'apples' out of the list, and [0:2] slices characters 0 and 1 out of that string. Stops before 2, as always.\n\n\n\nAnd the list of lists: what does combined[1] give you?\n\nClose if you answered 60, but count the brackets. One pair of brackets goes one level deep. What lives at position 1 of combined?\n\n\n[90, 60, 100, 82] — the entire second list. combined’s items are whole lists, so one index retrieves a whole list. To reach 60 you’d go two levels: combined[1][1].",
+    "crumbs": [
+      "Home",
+      "Session 1 · Python basics",
+      "Block 3 · Lists & Loops",
+      "Lists"
+    ]
+  },
+  {
+    "objectID": "session1-python/04_lists.html#changing-list-items",
+    "href": "session1-python/04_lists.html#changing-list-items",
+    "title": "3 · Lists",
+    "section": "Changing list items",
+    "text": "Changing list items\nLists are mutable: we can change their contents after creating them. Remember upper(), which returned a new string and left the original untouched? Lists are the opposite. These operations change the list itself, in place. Three ways to do it:\n\nReplace an item, using indexing.\nAppend an item to the end.\nInsert an item at a chosen position.\n\nPredict each print() before you run it. This is where the bracket-counting pays off. Our starting point:\nprint(shopping)\n['apples', 'pears', 'bananas']\nReplace the second item:\nshopping[1] = \"kiwi\"\nprint(shopping)\n['apples', 'kiwi', 'bananas']\nGoodbye pears: index 1 is the second item. Now append:\nshopping.append(\"raspberry\")\nprint(shopping)\n['apples', 'kiwi', 'bananas', 'raspberry']\nappend() always adds at the end. Finally, insert at a particular position:\nshopping.insert(1, \"blueberry\")\n\nThe finale: what does print(shopping) show now? Type the full list.\n\nAlmost — insert(1, ...) puts the new item at index 1, and everything from there shifts right. Who ends up second?\n\n\n['apples', 'blueberry', 'kiwi', 'bananas', 'raspberry']. insert(1, ...) places blueberry at index 1 and shifts kiwi, bananas and raspberry one step right. Nothing is overwritten. That’s the difference from shopping[1] = ..., which replaces.\n\n\nIn the PsychoPy sessions, these operations will become very familiar: stimuli is a list of image filenames, responses.append(key) collects what the participant pressed, and shuffling a list gives every participant their own trial order.\nAll predictions checked? Next: Exercise 2 — Lists.",
     "crumbs": [
       "Home",
       "Session 1 · Python basics",
@@ -429,9 +520,9 @@
   {
     "objectID": "session1-python/06_loops.html",
     "href": "session1-python/06_loops.html",
-    "title": "3 · Loops",
+    "title": "4 · Loops",
     "section": "",
-    "text": "Block 3 · Learning goals: Understand basic for and while loops.",
+    "text": "Block 3 · Chapter follows Exercise 2. Understand basic for and while loops.",
     "crumbs": [
       "Home",
       "Session 1 · Python basics",
@@ -442,9 +533,61 @@
   {
     "objectID": "session1-python/06_loops.html#what-is-a-loop",
     "href": "session1-python/06_loops.html#what-is-a-loop",
-    "title": "3 · Loops",
+    "title": "4 · Loops",
     "section": "What is a loop?",
-    "text": "What is a loop?\nA loop is a programming structure that repeats a block of code.\nIn this lesson, you will meet two common types of loop:\n\nFor loops repeat code once for each item in a collection, such as a list.\nWhile loops repeat code while a condition is true.\n\n\n\n\n\n\n\nBasic for loops\n\n\n\n\n\nFor loops repeat the same code once for each item in a collection, such as a list.\nImagine that you have five subject IDs and want to print each one.\nYou could write a separate print() statement for every subject:\nprint(\"S01\")\nprint(\"S02\")\n...\nprint(\"S05\")\nHowever, this becomes repetitive and difficult to update. Instead, store the IDs in a list and loop through the items:\nsubject_ids = ['S01', 'S02', 'S03', 'S04', 'S05']\n\nfor subject in subject_ids:\n    print(subject)\nIn plain language, this loop means:\n\nFor every item in subject_ids, store that item in subject and print it.\n\nThe indented line is the body of the loop: it runs once per item. Each repetition is called an iteration. During each iteration, subject temporarily holds the current ID.\nYou can also loop through the index positions in a list. This is useful when you need both an item’s position and its value.\nNotice the syntax: the for statement ends with a colon, and the loop body must be indented.\n\n# Get the total number of subjects.\nnumber_of_subjects = len(subject_ids)\n\n# Create indices from 0 up to, but not including, number_of_subjects.\nsubject_index_range = range(number_of_subjects)\n\n# Use each index to retrieve the corresponding subject ID.\nfor index in subject_index_range:\n    print(f\"Subject {index + 1}: {subject_ids[index]}\")\n\nSometimes you need to update a number on every iteration of a loop.\nThis number is called a counter variable. The example below counts how many days have been processed.\n\n# Define a list to loop over.\nweekdays = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']\n\n# Start a counter at zero.\nday_of_week = 0\n\n# Print each day, then add 1 to the counter.\nfor day in weekdays:\n    print(f\"The current day is {day}\")\n    day_of_week += 1\n\n# Print the final count after the loop has finished.\nprint(f\"There are {day_of_week} days in the list.\")\n\n\n\n\n\n\n\n\n\nBasic while loops\n\n\n\n\n\nWhile loops repeat a block of code while a condition is True.\nYou will learn more about conditions after the logical-operators lesson. For now, this example prints the first six weekdays:\n\n# Start at the first item in the list.\nday_of_week = 0\n\n# Keep looping while day_of_week is less than 6.\nwhile day_of_week &lt; 6:\n    print(f\"The current day is {weekdays[day_of_week]}\")\n    # Move to the next index so the condition will eventually become False.\n    day_of_week += 1\nThe condition is day_of_week &lt; 6. On each iteration, day_of_week increases by 1. Once it reaches 6, the condition is False and the loop stops.\n\n\n\n\n\n\n\n\n\nSummary\n\n\n\nLoops repeat code. Use a for loop when you want to work through each item in a collection, such as a list of subject IDs. Use an index-based for loop when you also need each item’s position. A counter variable records progress by changing on every iteration. Use a while loop when repetition should continue only while a condition is True.",
+    "text": "What is a loop?\nA loop is a programming structure that repeats a block of code. In this lesson you will meet the two common types:\n\nFor loops repeat code once for each item in a collection, such as a list.\nWhile loops repeat code while a condition is true.\n\nThis is the single most important chapter of the day for what comes next: when we start learning PsychoPy, we’ll learn that an experiment is a loop: for each stimulus: show it, record a response, give feedback.",
+    "crumbs": [
+      "Home",
+      "Session 1 · Python basics",
+      "Block 3 · Lists & Loops",
+      "Loops"
+    ]
+  },
+  {
+    "objectID": "session1-python/06_loops.html#for-loops",
+    "href": "session1-python/06_loops.html#for-loops",
+    "title": "4 · Loops",
+    "section": "For loops",
+    "text": "For loops\nImagine you have five subject IDs and want to print each one. You could write a separate print() for every subject:\nprint(\"S01\")\nprint(\"S02\")\n...\nprint(\"S05\")\nThis becomes repetitive and difficult to update. Instead, store the IDs in a list and loop through the items:\nsubject_ids = ['S01', 'S02', 'S03', 'S04', 'S05']\n\nfor subject in subject_ids:\n    print(subject)\n&gt;&gt;&gt; S01\n&gt;&gt;&gt; S02\n&gt;&gt;&gt; S03\n&gt;&gt;&gt; S04\n&gt;&gt;&gt; S05\nIn plain language: for every item in subject_ids, store that item in subject and print it. Notice the syntax: the for statement ends with a colon, and the next line is indented. That indented part is the body of the loop, and it runs once per item. Each repetition is called an iteration; during each one, subject temporarily holds the current ID.\n\nYour turn. Using a list from Exercise 2: what does this print?\nanimals = ['cat', 'dog', 'owl']\nfor animal in animals:\n    print(animal)\n\nThe loop variable holds one item at a time. Not the list, and not the word “animals”.\n\n\nThree lines: cat, dog, owl; one iteration per item, one print per iteration.",
+    "crumbs": [
+      "Home",
+      "Session 1 · Python basics",
+      "Block 3 · Lists & Loops",
+      "Loops"
+    ]
+  },
+  {
+    "objectID": "session1-python/06_loops.html#looping-by-index",
+    "href": "session1-python/06_loops.html#looping-by-index",
+    "title": "4 · Loops",
+    "section": "Looping by index",
+    "text": "Looping by index\nYou can also loop through the index positions of a list. This is useful when you need both an item’s position and its value:\n# Get the total number of subjects.\nnumber_of_subjects = len(subject_ids)\n\n# Create indices from 0 up to, but not including, number_of_subjects.\nsubject_index_range = range(number_of_subjects)\n\n# Use each index to retrieve the corresponding subject ID.\nfor index in subject_index_range:\n    print(f\"Subject {index + 1}: {subject_ids[index]}\")\nSubject 1: S01\nSubject 2: S02\nSubject 3: S03\nSubject 4: S04\nSubject 5: S05\nLook closely at index + 1: the indices run 0-4 (zero-indexed, as ever), but humans count subjects from 1, so we print index + 1 while using plain index for the lookup.",
+    "crumbs": [
+      "Home",
+      "Session 1 · Python basics",
+      "Block 3 · Lists & Loops",
+      "Loops"
+    ]
+  },
+  {
+    "objectID": "session1-python/06_loops.html#counter-variables",
+    "href": "session1-python/06_loops.html#counter-variables",
+    "title": "4 · Loops",
+    "section": "Counter variables",
+    "text": "Counter variables\nSometimes you need to update a number on every iteration. This number is called a counter variable — here counting how many days have been processed:\nweekdays = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']\n\n# Start a counter at zero.\nday_of_week = 0\n\n# Print each day, then add 1 to the counter.\nfor day in weekdays:\n    print(f\"The current day is {day}\")\n    day_of_week += 1\nThe current day is monday\nThe current day is tuesday\nThe current day is wednesday\nThe current day is thursday\nThe current day is friday\nThe current day is saturday\nThe current day is sunday\n(+= 1 is shorthand for day_of_week = day_of_week + 1. Add one to what’s there.). Notice the syntax: the for statement ends with a colon, and the loop body must be indented.\n\nAfter the loop finishes, we print the counter:\nprint(f\"There are {day_of_week} days in the list.\")\nWhat exactly appears?\n\nCareful. The counter started at 0, but it was incremented once for every item. How many increments happened?\n\n\nThere are 7 days in the list.. The counter went 0→7, one += 1 per iteration. Starting at 0 doesn’t mean ending one short: seven items, seven increments.",
+    "crumbs": [
+      "Home",
+      "Session 1 · Python basics",
+      "Block 3 · Lists & Loops",
+      "Loops"
+    ]
+  },
+  {
+    "objectID": "session1-python/06_loops.html#while-loops",
+    "href": "session1-python/06_loops.html#while-loops",
+    "title": "4 · Loops",
+    "section": "While loops",
+    "text": "While loops\nWhile loops repeat a block of code while a condition is True. You will learn more about conditions in the logical-operations lesson. For now, read this example and predict before running:\nday_of_week = 0\n\nwhile day_of_week &lt; 6:\n    print(f\"The current day is {weekdays[day_of_week]}\")\n    # Move to the next index so the condition will eventually become False.\n    day_of_week += 1\n\nBefore you run it: how many lines does this print?\n\nThe condition is day_of_week &lt; 6: strictly less than. Which values of the counter pass that test?\n\n\n6 lines: monday through saturday. The counter values 0,1,2,3,4,5 pass the &lt; 6 test; when it reaches 6, the condition is False and the loop stops before printing sunday. &lt; versus &lt;= is a one-character difference with a one-iteration consequence.\n\n\nOne warning while we’re here: the comment in the body is not decoration. If you forget the day_of_week += 1, the condition never becomes False — and the loop runs forever. It happens to everyone once; when it happens to you, click the console and press Ctrl-C to stop it.\n\n\n\n\n\n\nSummary\n\n\n\nLoops repeat code. Use a for loop to work through each item in a collection, and an index-based for loop when you also need each item’s position. A counter variable records progress by changing on every iteration. Use a while loop when repetition should continue only while a condition is True, and make sure something in the body eventually makes it False.\n\n\nPredictions checked? Next: Exercise 3: Loops.",
     "crumbs": [
       "Home",
       "Session 1 · Python basics",
