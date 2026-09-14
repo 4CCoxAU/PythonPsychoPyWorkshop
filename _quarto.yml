@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "Python & PsychoPy Workshop - Aarhus University, Department of Linguistics, Cognitive Science and Semiotics, Fall 2026"
+  title: "Python & PsychoPy Workshop - Aarhus University, Fall 2026"
   description: "How to get started with Python and PsychoPy for Cognitive Science research."
   navbar:
     background: "#14213D"
@@ -91,6 +91,7 @@ format:
       light: cosmo
       dark: darkly
     css: styles.css
+    include-after-body: assets/predict-check.html
     toc: true
     toc-depth: 3
     number-sections: false

@@ -3,7 +3,7 @@ title: "1 · Getting Started: Setting up your Python environment"
 ---
 
 ::: {.milestone}
-**Block 1** · Learning goals: Set up your first Python code file in UCloud & run your code.  
+**Block 1** · Chapter 1 of 3 before the first break. Set up your first Python code file in UCloud & run your first line of Python.
 :::
 
 ## Python Coder in UCloud
@@ -12,7 +12,7 @@ Today we will learn the fundamentals of Python in UCloud, where Python is alread
 
 Next week, when you use PsychoPy, you will install it on your laptop and work with the version of Python bundled with it. We start with plain Python first so you can build a solid foundation before adding the extra complexity of PsychoPy.
 
-::: {.callout-tip collapse="true" title="How to open Python Coder in UCloud"}
+## How to open Python Coder in UCloud
 
 1. Open [UCloud](https://cloud.sdu.dk/).
 
@@ -34,9 +34,7 @@ Next week, when you use PsychoPy, you will install it on your laptop and work wi
 
 7. When the job is ready, click "Open Interface" at the top left.
 
-:::
-
-::: {.callout-tip collapse="true" title="Install the Python language extension pack"}
+## Install the Python language extension
 
 Remember that we need to reinstall packages in UCloud every time we start a new job, because each job is assigned to a new remote computer. The same is true for Python: we need to install the Python language extension in the Coder application each time we start a new job. Here's how:
 
@@ -46,10 +44,8 @@ Remember that we need to reinstall packages in UCloud every time we start a new 
 
 3. Click the Python extension, then click the Install button.
 
-:::
 
-
-::: {.callout-tip collapse="true" title="Create your first Python code file"}
+## Create your first Python code file
 
 You can now create a new Python code file. Here's how:
 
@@ -60,14 +56,11 @@ You can now create a new Python code file. Here's how:
 3. A drop-down menu will appear asking for the file type. Type "Python" and you should see: *Create new file (python) Built-in*.
 
 4. You will be prompted to choose where to save the file. For now, we will use:
-   */work/cogsci_methods01_e26/name_of_your_file.py*
+   `/work/cogsci_methods01_e26/name_of_your_file.py`
 
 You can choose any name for the file (it does not have to be "name_of_your_file.py"). The only rules are that you cannot use spaces and it must have a .py extension, because this tells the remote computer that it is a Python file when you reopen it later.
 
-:::
-
-
-::: {.callout-tip collapse="true" title="Hello world!: Run your first line of Python code"}
+## "Hello world!": Run your first line of Python code
 
 In your new code file, enter your first line of Python code:
 
@@ -75,8 +68,15 @@ In your new code file, enter your first line of Python code:
 print("Hello world!")
 ```
 
-Now run the code by highlighting it and pressing Shift+Enter.
+::: {.predict-check data-answer="Hello world!"}
+Your first prediction! Throughout these sessions, boxes like this ask you to guess what code will do *before* you run it. That's where the learning happens, and wrong guesses are very welcome and encouraged. After a few tries the box will offer to show you the answer, so you can never get stuck. So: what exactly will appear in the console when this line runs? Take a guess.
 
-You should see a dedicated terminal open and print the output of your code.
-
+::: {.pc-explanation}
+`Hello world!`. Note that there are no quotation marks. The quotes tell Python where the text starts and ends; they are not part of the text itself.
 :::
+:::
+
+Now run the code by highlighting it and pressing Shift+Enter. You should see a dedicated terminal open below.
+
+Terminal shows what you expected? Next: [Chapter 2 — Variables and types](02_variables.qmd).
+

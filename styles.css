@@ -1,127 +1,23 @@
-/* Session 2 site styling — navy/orange to match the deck */
+/* Workshop site styling — navy/orange accents on top of cosmo (light) / darkly (dark).
+   RULE: no unconditional colours on page furniture — themes handle that.
+   Custom components only, with body.quarto-dark overrides where needed. */
+
 :root {
   --ink: #14213d;
   --accent: #fca311;
   --accent-dark: #b87700;
-  --bg: #111827;
-  --bg-soft: #1b2437;
-  --panel: #1f2a3d;
-  --text: #e7ebf5;
-  --muted: #a8b2c7;
-  --border: #2b3a52;
 }
 
-html {
-  color-scheme: dark;
-}
+body.quarto-light { color-scheme: light; }
+body.quarto-dark  { color-scheme: dark; }
 
-body {
-  background: var(--bg) !important;
-  color: var(--text) !important;
-}
-
-main, .page-columns, .quarto-container, .content {
-  background: var(--bg) !important;
-  color: var(--text) !important;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  color: #f8fafc !important;
-}
 h1.title { font-weight: 700; }
-
 .sidebar-title, .navbar-title { font-weight: 600; }
 
-.navbar, .sidebar, .sidebar nav, .quarto-title-block {
-  background: var(--panel) !important;
-  color: var(--text) !important;
-}
+/* light-mode heading tint (dark mode: leave to darkly) */
+body.quarto-light h1, body.quarto-light h2, body.quarto-light h3 { color: var(--ink); }
 
-.navbar a, .sidebar a, .sidebar-item a, .toc a {
-  color: var(--text) !important;
-}
-
-pre, code, .sourceCode, .cell-output {
-  background: #0b1220 !important;
-  color: #edf4ff !important;
-}
-
-pre {
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 0.9rem 1rem;
-}
-
-code {
-  background: transparent !important;
-}
-
-pre.sourceCode,
-pre.sourceCode *,
-.sourceCode *,
-.sourceCode span {
-  color: #edf4ff !important;
-  background: transparent !important;
-}
-
-.sourceCode .kw { color: #d8b4fe !important; }
-.sourceCode .dt { color: #fbbf24 !important; }
-.sourceCode .st, .sourceCode .s, .sourceCode .s1, .sourceCode .s2 { color: #86efac !important; }
-.sourceCode .cf, .sourceCode .fu { color: #7dd3fc !important; }
-.sourceCode .co, .sourceCode .c1 { color: #a8b7cf !important; }
-.sourceCode .dv, .sourceCode .bn, .sourceCode .fl { color: #fdba74 !important; }
-.sourceCode .op, .sourceCode .bu, .sourceCode .p, .sourceCode .n { color: #f8fafc !important; }
-
-.callout, .callout-body, .callout-header, .callout-title {
-  background: rgb(91, 90, 90) !important;
-  color: var(--text) !important;
-  border-color: var(--border) !important;
-}
-
-details > summary::marker,
-div.callout.callout-titled .callout-header .callout-toggle-container {
-  align-items: center;
-  background: #fff3bf !important;
-  border-radius: 3px;
-  display: inline-flex !important;
-  height: 1.45rem;
-  justify-content: center;
-  margin-right: 0.55rem;
-  min-width: 1.45rem;
-}
-
-div.callout.callout-titled .callout-header .callout-toggle,
-div.callout.callout-titled .callout-header.collapsed .callout-toggle,
-div.callout.callout-titled .callout-header:not(.collapsed) .callout-toggle {
-  color: #111827 !important;
-  font-size: 1.15rem !important;
-  font-weight: 900 !important;
-  line-height: 1 !important;
-  opacity: 1 !important;
-}
-
-div.callout.callout-titled .callout-header .callout-toggle::before,
-div.callout.callout-titled .callout-header.collapsed .callout-toggle::before,
-div.callout.callout-titled .callout-header:not(.collapsed) .callout-toggle::before {
-  color: #111827 !important;
-  font-size: 1.15rem !important;
-  font-weight: 900 !important;
-  opacity: 1 !important;
-}
-
-.milestone {
-  background: #1b2437;
-  color: var(--text);
-  border-left: 4px solid var(--accent);
-}
-
-.success-clip {
-  background: #1b2437;
-  color: var(--muted);
-  border-color: var(--border);
-}
-
-/* milestone banner at the top of each chapter */
+/* ---- milestone banner ---- */
 .milestone {
   display: inline-block;
   background: #eef1f6;
@@ -133,16 +29,16 @@ div.callout.callout-titled .callout-header:not(.collapsed) .callout-toggle::befo
   margin-bottom: 1rem;
 }
 .milestone strong { color: var(--accent-dark); }
+body.quarto-dark .milestone { background: #1b2437; color: #e7ebf5; }
+body.quarto-dark .milestone strong { color: var(--accent); }
 
-/* predict-first boxes */
-div.callout.predict {
-  border-left-color: #7048b5 !important;
-}
+/* ---- predict-first callouts ---- */
+div.callout.predict { border-left-color: #7048b5 !important; }
 
-/* checkpoint styling nudge */
+/* ---- checkpoint nudge ---- */
 div.callout-important .callout-title-container { font-weight: 700; }
 
-/* exercise banner */
+/* ---- exercise banner (navy: works in both modes) ---- */
 .exercise-banner {
   background: var(--ink);
   color: #fff;
@@ -160,7 +56,7 @@ div.callout-important .callout-title-container { font-weight: 700; }
 .exercise-banner .ex-title { font-size: 1.25rem; font-weight: 700; margin-top: 0.15rem; }
 .exercise-banner .ex-sub { color: #cadcfc; font-size: 0.95rem; margin-top: 0.25rem; }
 
-/* video placeholder for success clips */
+/* ---- success-clip placeholder ---- */
 .success-clip {
   border: 2px dashed #c9d2e0;
   border-radius: 8px;
@@ -170,3 +66,14 @@ div.callout-important .callout-title-container { font-weight: 700; }
   background: #fafbfd;
   margin: 1rem 0;
 }
+body.quarto-dark .success-clip { background: #1b2437; border-color: #2b3a52; color: #a8b2c7; }
+
+/* ---- console/REPL blocks: mimic the dark console in UCloud ---- */
+pre.repl {
+  background: #1e1e1e;
+  color: #e8e8e8;
+  border-radius: 6px;
+  padding: 0.8rem 1rem;
+  font-size: 0.92rem;
+}
+pre.repl code { background: transparent; color: inherit; }

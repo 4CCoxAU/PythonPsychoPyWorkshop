@@ -3,16 +3,16 @@ title: "2 · Basics: Variables & variable types"
 ---
 
 ::: {.milestone}
-**Block 1** · Learning goals: Understand what a variable is in Python & different types of variables.  
+**Block 2** · Chapter 2 of 3 before the first break. Understand what a variable is in Python & the different types of variables.
 :::
 
 ## What is a variable?
 
-A variable is a name we give to a value so we can store it and use it later in our code. The name stays the same, but the value stored in it can change while the program is running.
+A variable is a name we give to a value so we can store it and use it later in our code. The name stays the same, but the value stored in it can change while the program is running. A variable can store a number, a word, or a list of values.
 
-For example, a variable can store a number, a word, or a list of values.
 
-::: {.callout-tip collapse="true" title="Make a variable and inspect its value in the console"}
+## Your first variable
+
 
 Let's create our first variable in Python. We will call it `my_name` and store a name in it.
 
@@ -29,9 +29,13 @@ my_name = "anna"
 
 Now run the code by selecting it in your file and pressing *Shift+Enter*.
 
-You will see the code be executed in the console below. If you then type `my_name` in a new line and press *Enter*, Python will print the value stored in the variable.
+You will see the code executed in the console below. If you then type `my_name` on a new line and press *Enter*, Python will print the value stored in the variable:
 
-![](images/my_name_output.PNG){width="50%" fig-align="center" fig-cap="center"}
+```{.repl}
+>>> my_name = 'anna'
+>>> my_name
+'anna'
+```
 
 An easier way to see the output is to use the `print()` function:
 
@@ -44,8 +48,6 @@ print(my_name)
 ```
 
 Select these lines and press *Shift+Enter*. You should see the value of `my_name` appear in the console.
-
-:::
 
 ## Variable types
 
@@ -60,7 +62,7 @@ type(my_name)
 
 This returns `<class 'str'>`, which means that `my_name` is a string variable.
 
-::: {.callout-tip collapse="true" title="Data Type 1: Regular string variables"}
+## Data Type 1: Regular string variables
 
 String variables are defined by strings of characters. String variables are specified using single or double quotation marks around the string.
 
@@ -73,7 +75,16 @@ dog_name_possessive = "anna's dog's name is.."
 
 ```
 
-Strings are stored like arrays of characters, meaning that you can individually access single characters in the string using *indexing*.
+::: {.callout-note .predict icon="false" title="🤔 Think first"}
+Why does the single-quoted version fail while the double-quoted version works?
+
+::: {.callout-tip collapse="true" title="Check your thinking"}
+The apostrophe in *anna's* ends the single-quoted string early. Python thinks the string stops after `anna`, and the rest is nonsense to it. Double quotes let Python see the apostrophe as just another character inside the string.
+:::
+:::
+
+### Indexing
+Strings are stored like arrays of characters, meaning that you can individually access single characters in the string using *indexing* (square brackets around the indices you want to extract).
 
 ```python
 # Here you are indexing the first 4 characters in the variable my_name_possessive. 
@@ -85,37 +96,55 @@ dog_name_possessive[-4:]
 
 ```
 
-You may have noticed that we start indexing at 0 instead of 1. This is because Python is a zero-indexed language, so whenever you have a multi-item variable, the first item is always indexed using 0 instead of 1. CAREFUL: R is a 1-indexed langauge, so you always index the first item in a multi-item variable using 1 in R instead of 0. 
+You may have noticed that we start indexing at 0 instead of 1. This is because Python is a *zero-indexed* language, so whenever you have a multi-item variable, the first item is always indexed using 0 instead of 1. CAREFUL: R is a 1-indexed langauge, so you always index the first item in a multi-item variable using 1 in R instead of 0.
+
+::: {.predict-check data-answer="anna" data-accept="'anna'"}
+Before you run it: what will `dog_name_possessive[0:4]` give you?
+
+::: {.pc-explanation}
+`anna` — characters 0, 1, 2 and 3. The index range `[0:4]` starts *at* 0 and stops *before* 4, so you get exactly 4 characters. (The console shows it wrapped in quotes — `'anna'` — because it is a string.)
+:::
+:::
 
 :::
 
-::: {.callout-tip collapse="true" title="String methods"}
+## String methods
 
 String variables have many built-in methods that we can call on them. Here are some useful string methods:
 
-1. split()
+### split()
 
-If you type the name of your string variable followed by `.split()`, Python will split the string into smaller pieces using the space character as the default delimiter:
+If you type the name of your string variable followed by `.split()`, Python splits the string into smaller pieces, using the space character as the default delimiter. Try it in the console:
 
 ```python
-# You can split strings by delimiters (e.g., space by default).
 dog_name_possessive.split()
 ```
-The `split()` method returns a list of strings. Each item in the list is one part of the original text, separated by the chosen delimiter (space by default).
+
+```{.repl}
+>>> ["anna's", "dog's", 'name', 'is..']
+```
+
+The `split()` method returns a **list** of strings. Each item is one part of the original text, separated by the chosen delimiter.
+
+You can store the output in a variable, and since it is a list, you can index it, even down to characters *within* each item:
 
 ```python
-# you can store the output from this in a variable. 
 split_variable = dog_name_possessive.split()
-
-# and you will see that this is an indexable list.
 split_variable[0]
-
-# and you can extract individual characters using indexing too!
-split_variable[0][0] # first letter in first word.
-split_variable[1][0] # first letter in second word.
-split_variable[1][1] # second letter in second word. 
-
+split_variable[0][0]  # first letter of first word.
+split_variable[1][1]  # second letter of second word.
 ```
+
+```{.repl}
+>>> split_variable[0]
+>>> "anna's"
+>>> split_variable[0][0]  # first letter of first word.
+>>> 'a'
+>>> split_variable[1][1]  # second letter of second word.
+>>> 'o'
+```
+
+So `split_variable[1][1]` means: take item 1 of the list (`"dog's"`: remember, zero-indexed!), then character 1 of that string.
 
 You can also use `split()` with a different delimiter, such as an underscore:
 
@@ -124,14 +153,55 @@ subject_id = "S_01"
 subject_id.split("_")
 ```
 
-2. upper()
+```{.repl}
+['S', '01']
+```
+
+::: {.predict-check data-answer="['left', 'right', 'left', 'left']" data-accept="['left','right','left','left']||left, right, left, left||left right left left"}
+Given `responses = "left right left left"`, what does `responses.split()` return?
+
+::: {.pc-explanation}
+`['left', 'right', 'left', 'left']`: a list of four strings, one per word. Repeats are kept; `split()` just cuts, it doesn't deduplicate.
+:::
+:::
+
+::: {.predict-check data-answer="['2026', '09', '14']" data-accept="['2026','09','14']||2026, 09, 14||2026 09 14"}
+Given `date = "2026-09-14"`, what does `date.split("-")` return?
+
+::: {.pc-hint data-if-contains="-"}
+The delimiter is the cut line — it doesn't survive into the pieces.
+:::
+
+::: {.pc-explanation}
+`['2026', '09', '14']`. Three pieces, dashes gone. Note they are *strings*, not numbers: `'09'` keeps its leading zero, and you couldn't do maths with it without converting first.
+:::
+:::
+
+### upper()
 
 The `upper()` method converts all letters in a string to uppercase.
 
 ```python
 name = "anna"
 name.upper()
+```
 
+```{.repl}
+>>> 'ANNA'
+```
+
+Note that `upper()` does not change `name` itself — it *returns* a new, uppercased string. If you want to keep it, store it:
+
+```python
+name_upper = name.upper()
+print(name_upper)
+```
+
+```{.repl}
+>>> ANNA
+```
+
+```python
 # or store the result in a new variable.
 name_upper = name.upper()
 print(name_upper)
@@ -148,84 +218,123 @@ print(word.startswith(" "))
 print(word.endswith(" "))
 ```
 
+### len()
 And, finally, we can get the length of a string variable using len() (not a string-specific method)
 
 ```python
 len(word)
 ````
 
+```{.repl}
+>>> 12
+```
+
+The 10 characters of `subject_01` *plus* the two spaces. Invisible characters count, which is exactly why `.strip()` exists.
+
 There's lots more that you can do with strings, but these are the basics!
 
-:::
 
+## Data Type 2: Regular numeric variables
 
-::: {.callout-tip collapse="true" title="Data Type 2: Regular numeric variables"}
+Now let's turn to our other fundamental variable type: numeric. There are two basic numeric types:
 
-Okay, now let's turn to our other fundamental variable type: numeric. There are two basic types of numeric variables: 
-
-1. Integers: Whole numbers (no decimal point)
-2. Floating points: Numbers with a decimal point
+1. **Integers**: whole numbers (no decimal point)
+2. **Floating points**: numbers with a decimal point
 
 ```python
-
-# this is an integer.
+# This is an integer.
 a = 1
 type(a)
+```
 
-# this is a floating point.
-b = 1.5 
-type (b)
+```{.repl}
+>>> int
+```
 
-# this is also a floating point. Why?
+```python
+# This is a floating point.
+b = 1.5
+type(b)
+```
+
+```{.repl}
+>>> float
+```
+
+```python
 c = 1.00
-type(c) 
+```
 
-# what happens when you perform operations?
+::: {.predict-check data-answer="<class 'float'>" data-accept="float||'float'"}
+`c` stores the value one, but what does `type(c)` return? float or int?
+
+::: {.pc-explanation}
+`<class 'float'>`: a floating point. The *value* is a whole number, but writing it with a decimal point makes it a float. What matters is how it is written, not what it equals.
+:::
+:::
+
+The same logic applies to operations:
+
+```python
+# What happens when you combine types in operations?
 d = b + c
 type(d)
+```
 
-# even when operations on two floats produce a whole number, the output will be represented as a floating point (i.e., with a decimal)
+```{.repl}
+>>> float
+```
+
+Adding the float `b` to the float `c` gives a float — `d` is `2.5`. And even when an operation on two floats produces a whole number, the result stays a floating point:
+
+```python
 e = 1.5 + 1.5
 type(e)
-
+print(e)
 ```
 
-Standard numeric operations are addition (shown above), subtraction, multiplication and division. Below you can see the operators used for these.
-
-```python
-# for subtraction use '-'
-print(a - b)
-
-# for multiplication, use '*'
-print(a * b)
-
-# for division use '/'
-print(a / b)
-
-
+```{.repl}
+<class 'float'>
+3.0
 ```
 
-:::
+The value is three — but Python shows it as `3.0`: the `.0` is the float's badge. It never silently becomes an integer.
 
-::: {.callout-tip collapse="true" title="Printing variables"}
-
-Imagine that you want to print reaction times for a given subject on an experiment screen.
-
-The subject is different in each experiment, and so is their reaction time. 
-
-You can create a special expression called an "f-string" where you embed the subject ID variable and the reaction time variable in a string. 
-
-Start the string with `f`, then place the variable names inside curly brackets: `{}`.
+Standard numeric operations are addition (shown above), subtraction, multiplication and division:
 
 ```python
+print(a - b)   # subtraction
+print(a * b)   # multiplication
+print(a / b)   # division
+```
+
+```{.repl}
+-0.5
+1.5
+0.6666666666666666
+```
+
+## Printing variables with f-strings
+
+Imagine that you want to print reaction times for a given subject on an experiment screen. The subject is different in each experiment, and so is their reaction time.
+
+You can create a special expression called an **f-string**, where you embed variables inside a string: start the string with `f`, then place variable names inside curly brackets `{}`.
+
+```python
+subject_id = "S_01"
 reaction_time = 0.45
 message = f"Reaction time for {subject_id}: {reaction_time:.2f} seconds"
-print(message)
 ```
-In this example `{subject_id} inserts the value of the subject ID variable in the string and `{reaction_time:.2f}` inserts the value of `reaction_time`. The `.2f` formats the number with two digits after the decimal point.
 
-This prints `Reaction time for S_10: 0.45 seconds`.
+Here `{subject_id}` inserts the value of the subject ID variable, and `{reaction_time:.2f}` inserts the value of `reaction_time`, where `.2f` formats the number with two digits after the decimal point.
 
+::: {.predict-check data-answer="Reaction time for S_01: 0.45 seconds"}
+What exactly does `print(message)` show?
+
+::: {.pc-explanation}
+`Reaction time for S_01: 0.45 seconds`: the curly-bracket parts are replaced by the variables' values, and everything else is printed as-is. In Session 2, messages like this become the text you show *on the experiment screen*.
+:::
 :::
 
+All predictions checked? Next: [Exercise 1a — Variables & data types](03_exercise1_variables.qmd).
 
