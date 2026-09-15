@@ -2,23 +2,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.7.32">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>Exercise 1a: Variables &amp; variable types – Python &amp; PsychoPy Workshop - Aarhus University, Fall 2026</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
+code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: 1.5em;}
-div.column{flex: auto;}
-@media screen {
-div.columns{gap: min(4vw, 1.5em);}
-div.column{overflow-x: auto;}
-}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -79,14 +73,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bb62276ab45c84d9efd712f51ff97b5a.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-5a1953863e1f72ef3b996ef827f01ca7.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bb62276ab45c84d9efd712f51ff97b5a.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-234273d1456647dabc34a594ac50e507.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-0348920b7671f696dc9078d39bff215e.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-234273d1456647dabc34a594ac50e507.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-8111375b329e67f367d25c6ca2fac386.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-f47233b3dada9760e9eff975721b4787.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-8111375b329e67f367d25c6ca2fac386.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-0f0bb2b35f0c3ae46b2773d2b92c9e2d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-6353a5bacca7b1f5ff6dee18f156d94f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-0f0bb2b35f0c3ae46b2773d2b92c9e2d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -418,6 +412,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Loops</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../session1-python/07_exercise3_loops.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exercise 3: Loops</span></a>
+  </div>
+</li>
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
@@ -431,13 +431,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../session1-python/07_exercise3_loops.qmd" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Exercise 3: Loops</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../session1-python/08_logical_operations.qmd" class="sidebar-item-text sidebar-link">
+  <a href="../session1-python/08_logical_operations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Logical operations</span></a>
   </div>
 </li>
@@ -454,18 +448,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../session1-python/09_functions.qmd" class="sidebar-item-text sidebar-link">
+  <a href="../session1-python/09_functions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Functions &amp; modules</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../session1-python/10_exercise4.qmd" class="sidebar-item-text sidebar-link">
+  <a href="../session1-python/10_exercise4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exercise 4</span></a>
   </div>
 </li>
       </ul>
   </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../session1-python/11_github.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syncing with GitHub</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -538,21 +538,21 @@ Create variables, take strings apart and put them back together, and build the p
 <li>Print its <em>type</em> to the console.</li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled" title="Show the code">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Show the code
+Show the code
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># My favourite number of coffees per day.</span></span>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># My favourite number of coffees per day.</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>coffees <span class="op">=</span> <span class="dv">3</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(coffees)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(coffees))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(coffees))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -566,12 +566,12 @@ Create variables, take strings apart and put them back together, and build the p
 <li>Print the last four characters.</li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled" title="Hint">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Hint
+Hint
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -582,21 +582,21 @@ Create variables, take strings apart and put them back together, and build the p
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled" title="Show the code">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Show the code
+Show the code
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Null hypothesis: Eating ice cream does not improve mood"</span>)</span>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Null hypothesis: Eating ice cream does not improve mood"</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>null_hypothesis <span class="op">=</span> <span class="st">"Null hypothesis: Eating ice cream does not improve mood"</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(null_hypothesis[<span class="dv">0</span>:<span class="dv">4</span>])   <span class="co"># Null</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(null_hypothesis[<span class="op">-</span><span class="dv">4</span>:])   <span class="co"># mood</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(null_hypothesis[<span class="op">-</span><span class="dv">4</span>:])   <span class="co"># mood</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -615,12 +615,12 @@ Create variables, take strings apart and put them back together, and build the p
 <li>Get the length of <code>null_hypothesis</code>.</li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled" title="Hint">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Hint
+Hint
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -631,18 +631,18 @@ Create variables, take strings apart and put them back together, and build the p
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled" title="Show the code">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Show the code
+Show the code
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>split_var <span class="op">=</span> null_hypothesis.split()</span>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>split_var <span class="op">=</span> null_hypothesis.split()</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(split_var[<span class="dv">1</span>])            <span class="co"># hypothesis: — note the colon came along!</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(split_var[<span class="dv">1</span>][<span class="dv">1</span>])         <span class="co"># y</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>split_by_colon <span class="op">=</span> null_hypothesis.split(<span class="st">":"</span>)</span>
@@ -650,7 +650,7 @@ Create variables, take strings apart and put them back together, and build the p
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>hypothesis_word_upper <span class="op">=</span> hypothesis_word.upper()   <span class="co"># 'HYPOTHESIS:'</span></span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(null_hypothesis.replace(<span class="st">"hypothesis"</span>, hypothesis_word_upper))</span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(hypothesis_word_upper.startswith(<span class="st">"H"</span>))      <span class="co"># True</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(null_hypothesis))                       <span class="co"># 55</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(null_hypothesis))                       <span class="co"># 55</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -666,25 +666,25 @@ Create variables, take strings apart and put them back together, and build the p
 <li>Multiply them and store the output in a new variable.</li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled" title="Show the code">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Show the code
+Show the code
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>n_trials <span class="op">=</span> <span class="dv">20</span></span>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>n_trials <span class="op">=</span> <span class="dv">20</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>mean_rt <span class="op">=</span> <span class="fl">0.45</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(n_trials), <span class="bu">type</span>(mean_rt))</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(n_trials <span class="op">+</span> mean_rt)    <span class="co"># 20.45 — int + float gives float</span></span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(n_trials <span class="op">-</span> mean_rt)</span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(n_trials <span class="op">/</span> mean_rt)</span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>product <span class="op">=</span> n_trials <span class="op">*</span> mean_rt</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(product)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(product)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -698,12 +698,12 @@ Create variables, take strings apart and put them back together, and build the p
 <li>Print an expression that says <code>The current subject is [ID] and their reaction time is [RT]</code>, both values inserted from your variables. Bonus: show the reaction time with exactly 2 decimals.</li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled" title="Hint">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Hint
+Hint
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -714,21 +714,21 @@ Create variables, take strings apart and put them back together, and build the p
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled" title="Show the code">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Show the code
+Show the code
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>subject_id <span class="op">=</span> <span class="st">"S_01"</span></span>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>subject_id <span class="op">=</span> <span class="st">"S_01"</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>reaction_time <span class="op">=</span> <span class="fl">0.4567</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The current subject is </span><span class="sc">{</span>subject_id<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The current subject is </span><span class="sc">{</span>subject_id<span class="sc">}</span><span class="ss"> and their reaction time is </span><span class="sc">{</span>reaction_time<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The current subject is </span><span class="sc">{</span>subject_id<span class="sc">}</span><span class="ss"> and their reaction time is </span><span class="sc">{</span>reaction_time<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -743,369 +743,187 @@ Create variables, take strings apart and put them back together, and build the p
 
 </main> <!-- /main -->
 <!-- ============================================================
-
      PREDICT-CHECK WIDGET  (injected on every page via _quarto.yml)
-
      Turns  ::: {.predict-check data-answer="..."}  divs into an
-
      interactive "type your prediction → check" box.
-
      Just runs with html code, to make it simple and works with 
-
      GitHub Pages and offline.
-
      ============================================================ -->
-
 <style>
-
 .predict-check {
-
   border: 1.5px solid var(--ink, #14213d);
-
   border-left: 5px solid var(--accent, #fca311);
-
   border-radius: 8px;
-
   padding: 1rem 1.2rem;
-
   margin: 1.2rem 0;
-
   background: #fdf8ee;
-
 }
-
 .predict-check .pc-label {
-
   color: var(--accent-dark, #b87700);
-
   font-weight: 700;
-
   font-size: 0.85rem;
-
   letter-spacing: 0.06em;
-
   text-transform: uppercase;
-
   margin-bottom: 0.4rem;
-
 }
-
 .predict-check .pc-ui { margin-top: 0.7rem; display: flex; gap: 0.5rem; flex-wrap: wrap; }
-
 .predict-check input.pc-input, .predict-check textarea.pc-input {
-
   flex: 1 1 220px;
-
   font-family: var(--bs-font-monospace, monospace);
-
   font-size: 0.95rem;
-
   padding: 0.45rem 0.6rem;
-
   border: 1px solid #d5d0c3;
-
   border-radius: 6px;
-
 }
-
 .predict-check textarea.pc-input { min-height: 4.5rem; }
-
 .predict-check button.pc-btn {
-
   background: var(--ink, #14213d); color: #fff; border: none; border-radius: 6px;
-
   padding: 0.45rem 1rem; font-weight: 600; cursor: pointer;
-
 }
-
 .predict-check button.pc-btn:disabled { background: #9aa5b8; cursor: not-allowed; }
-
 .predict-check button.pc-reveal {
-
   background: #fff; color: var(--ink, #14213d); border: 1.5px solid var(--ink, #14213d);
-
   border-radius: 6px; padding: 0.45rem 1rem; font-weight: 600; cursor: pointer;
-
 }
-
 .predict-check .pc-feedback { margin-top: 0.6rem; font-size: 0.95rem; display: none; border-radius: 6px; padding: 0.55rem 0.8rem; }
-
 .predict-check .pc-feedback.pc-wrong { display: block; background: #fdf0ef; color: #8a2d23; border: 1px solid #f3c9c4; }
-
 .predict-check .pc-feedback.pc-right { display: block; background: #eef7ee; color: #1d5c2f; border: 1px solid #c4e3c8; }
-
 .predict-check .pc-explanation {
-
   display: none; margin-top: 0.8rem; padding-top: 0.8rem; border-top: 1px dashed #d5d0c3;
-
 }
-
 .predict-check .pc-hint { display: none; }
-
 .predict-check.pc-done input.pc-input, .predict-check.pc-done textarea.pc-input { background: #f3efe4; }
 
-
-
 /* ---- dark-mode (Quarto toggles body.quarto-dark) ---- */
-
 body.quarto-dark .predict-check { background: #1b2437; border-color: #2b3a52; border-left-color: var(--accent, #fca311); }
-
 body.quarto-dark .predict-check .pc-label { color: var(--accent, #fca311); }
-
 body.quarto-dark .predict-check input.pc-input,
-
 body.quarto-dark .predict-check textarea.pc-input {
-
   background: #111827; color: #e7ebf5; border-color: #2b3a52;
-
 }
-
 body.quarto-dark .predict-check button.pc-btn { background: var(--accent, #fca311); color: #14213d; }
-
 body.quarto-dark .predict-check button.pc-btn:disabled { background: #2b3a52; color: #6b7690; }
-
 body.quarto-dark .predict-check button.pc-reveal { background: transparent; color: var(--accent, #fca311); border-color: var(--accent, #fca311); }
-
 body.quarto-dark .predict-check .pc-feedback.pc-wrong { background: #3a1f1c; color: #f0b3aa; border-color: #6e3a33; }
-
 body.quarto-dark .predict-check .pc-feedback.pc-right { background: #1c3320; color: #a8dcb0; border-color: #33663c; }
-
 body.quarto-dark .predict-check .pc-explanation { border-top-color: #2b3a52; }
-
 body.quarto-dark .predict-check.pc-done input.pc-input,
-
 body.quarto-dark .predict-check.pc-done textarea.pc-input { background: #1b2437; }
-
 </style>
-
 <script>
-
 (function () {
-
   "use strict";
 
-
-
   // --- matching logic -------------------------------------------------
-
   function norm(s) { return String(s).replace(/[ \t]+/g, " ").replace(/\s+$/gm, "").trim(); }
-
   function stripQuotes(s) { return String(s).trim().replace(/^["'\u2018\u2019\u201C\u201D]+|["'\u2018\u2019\u201C\u201D]+$/g, ""); }
-
   function isCorrect(input, candidates) {
-
     var n = norm(input);
-
     return candidates.some(function (c) { return n === c; });
-
   }
-
   // Built-in near-miss detectors: return a hint string or null.
-
   function builtinHint(input, candidates) {
-
     var n = norm(input);
-
     if (candidates.some(function (c) { return norm(stripQuotes(n)) === c && n !== c; }))
-
       return "Close, but look again: are the quotation marks part of what gets printed?";
-
     if (candidates.some(function (c) { return n.toLowerCase() === c.toLowerCase() && n !== c; }))
-
       return "Almost, check upper- versus lowercase. Python prints text exactly as it is.";
-
     if (candidates.some(function (c) { return n.replace(/\s+/g, "") === c.replace(/\s+/g, "") && n !== c; }))
-
       return "Very close, count the spaces carefully.";
-
     return null;
-
   }
-
-
 
   function init() {
-
     var boxes = document.querySelectorAll(".predict-check");
-
     Array.prototype.forEach.call(boxes, function (box) {
-
       if (box.dataset.pcInit) return;
-
       box.dataset.pcInit = "1";
 
-
-
       var answer = box.getAttribute("data-answer") || "";
-
       var accept = (box.getAttribute("data-accept") || "").split("||").filter(function (x) { return x.length; });
-
       var candidates = [answer].concat(accept).map(norm);
-
       var multiline = box.getAttribute("data-multiline") === "true";
-
       var maxAttempts = parseInt(box.getAttribute("data-attempts") || "3", 10);
 
-
-
       var explanation = box.querySelector(".pc-explanation");
-
       var hints = Array.prototype.slice.call(box.querySelectorAll(".pc-hint"));
 
-
-
       // header label
-
       var label = document.createElement("div");
-
       label.className = "pc-label";
-
       label.textContent = "\uD83D\uDD2E Predict first";
-
       box.insertBefore(label, box.firstChild);
 
-
-
       // input + buttons
-
       var ui = document.createElement("div");
-
       ui.className = "pc-ui";
-
       var input = document.createElement(multiline ? "textarea" : "input");
-
       input.className = "pc-input";
-
       input.setAttribute("placeholder", box.getAttribute("data-placeholder") || "Type your prediction, then check\u2026");
-
       input.setAttribute("aria-label", "Your prediction");
-
       if (!multiline) input.setAttribute("type", "text");
-
       var btn = document.createElement("button");
-
       btn.className = "pc-btn";
-
       btn.type = "button";
-
       btn.textContent = "Check";
-
       btn.disabled = true;
-
       var reveal = document.createElement("button");
-
       reveal.className = "pc-reveal";
-
       reveal.type = "button";
-
       reveal.textContent = "Show the answer";
-
       reveal.style.display = "none";
-
       ui.appendChild(input); ui.appendChild(btn); ui.appendChild(reveal);
 
-
-
       var feedback = document.createElement("div");
-
       feedback.className = "pc-feedback";
 
-
-
       // keep explanation last
-
       if (explanation) { box.appendChild(explanation); }
-
       box.appendChild(ui);
-
       box.insertBefore(feedback, explanation || null);
 
-
-
       var attempts = 0;
-
       function finish(correct) {
-
         box.classList.add("pc-done");
-
         input.disabled = true; btn.disabled = true; reveal.style.display = "none";
-
         if (explanation) explanation.style.display = "block";
-
         feedback.className = "pc-feedback " + (correct ? "pc-right" : "pc-wrong");
-
         feedback.textContent = correct
-
           ? "\u2713 Correct! Well predicted. Now run it and watch it happen."
-
           : "Compare the answer below with what you predicted. The difference is the interesting part.";
-
       }
 
-
-
       input.addEventListener("input", function () { btn.disabled = norm(input.value).length === 0; });
-
       input.addEventListener("keydown", function (e) {
-
         if (e.key === "Enter" && !multiline && !btn.disabled) { e.preventDefault(); btn.click(); }
-
       });
-
       reveal.addEventListener("click", function () { finish(false); });
 
-
-
       btn.addEventListener("click", function () {
-
         var val = input.value;
-
         if (isCorrect(val, candidates)) { finish(true); return; }
-
         attempts += 1;
 
-
-
         // author-provided hints first (first match wins)
-
         var msg = null;
-
         for (var i = 0; i < hints.length; i++) {
-
           var needle = hints[i].getAttribute("data-if-contains");
-
           if (needle && val.indexOf(needle) !== -1) { msg = hints[i].textContent.trim(); break; }
-
         }
-
         if (!msg) msg = builtinHint(val, candidates);
-
         if (!msg) msg = "Not quite. Read the code once more. What exactly will it give you?";
 
-
-
         var left = maxAttempts - attempts;
-
         feedback.className = "pc-feedback pc-wrong";
-
         feedback.textContent = msg;
-
         if (left <= 0) reveal.style.display = "inline-block";
-
       });
-
     });
-
   }
 
-
-
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
-
   else init();
-
 })();
-
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -1171,14 +989,13 @@ body.quarto-dark .predict-check.pc-done textarea.pc-input { background: #1b2437;
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-      const outerScaffold = trigger.parentElement.cloneNode(true);
-      const codeEl = outerScaffold.querySelector('code');
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
         }
-      }
-      return codeEl.innerText;
+        return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

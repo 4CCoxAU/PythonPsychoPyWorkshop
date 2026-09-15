@@ -47,10 +47,10 @@ website:
                 text: "Exercise 2: Lists"
               - href: session1-python/06_loops.qmd
                 text: "Loops"
+              - href: session1-python/07_exercise3_loops.qmd
+                text: "Exercise 3: Loops"
           - section: "Block 4 · Logical operations"
             contents:
-                - href: session1-python/07_exercise3_loops.qmd
-                  text: "Exercise 3: Loops"
                 - href: session1-python/08_logical_operations.qmd
                   text: "Logical operations"
           - section: "Block 5 · Functions & modules"

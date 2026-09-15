@@ -2,23 +2,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.7.32">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>5 · Logical operations – Python &amp; PsychoPy Workshop - Aarhus University, Fall 2026</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
+code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: 1.5em;}
-div.column{flex: auto;}
-@media screen {
-div.columns{gap: min(4vw, 1.5em);}
-div.column{overflow-x: auto;}
-}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -79,14 +73,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bb62276ab45c84d9efd712f51ff97b5a.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-5a1953863e1f72ef3b996ef827f01ca7.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bb62276ab45c84d9efd712f51ff97b5a.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-234273d1456647dabc34a594ac50e507.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-0348920b7671f696dc9078d39bff215e.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-234273d1456647dabc34a594ac50e507.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-8111375b329e67f367d25c6ca2fac386.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-f47233b3dada9760e9eff975721b4787.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-8111375b329e67f367d25c6ca2fac386.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-0f0bb2b35f0c3ae46b2773d2b92c9e2d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-6353a5bacca7b1f5ff6dee18f156d94f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-0f0bb2b35f0c3ae46b2773d2b92c9e2d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -318,7 +312,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../session1-python/index.html">Session 1 · Python basics</a></li><li class="breadcrumb-item"><a href="../session1-python/07_exercise3_loops.html">Block 4 · Logical operations</a></li><li class="breadcrumb-item"><a href="../session1-python/08_logical_operations.html">Logical operations</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../session1-python/index.html">Session 1 · Python basics</a></li><li class="breadcrumb-item"><a href="../session1-python/08_logical_operations.html">Block 4 · Logical operations</a></li><li class="breadcrumb-item"><a href="../session1-python/08_logical_operations.html">Logical operations</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -418,6 +412,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Loops</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../session1-python/07_exercise3_loops.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exercise 3: Loops</span></a>
+  </div>
+</li>
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
@@ -429,12 +429,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           </a> 
       </div>
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../session1-python/07_exercise3_loops.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Exercise 3: Loops</span></a>
-  </div>
-</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../session1-python/08_logical_operations.html" class="sidebar-item-text sidebar-link active">
@@ -466,6 +460,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
       </ul>
   </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../session1-python/11_github.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syncing with GitHub</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -480,9 +480,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#what-is-a-relational-operator" id="toc-what-is-a-relational-operator" class="nav-link active" data-scroll-target="#what-is-a-relational-operator">What is a relational operator?</a></li>
   <li><a href="#what-is-a-logical-operator" id="toc-what-is-a-logical-operator" class="nav-link" data-scroll-target="#what-is-a-logical-operator">What is a logical operator?</a></li>
-  <li><a href="#if-statements-relational-and-logical-operators" id="toc-if-statements-relational-and-logical-operators" class="nav-link" data-scroll-target="#if-statements-relational-and-logical-operators"><em>If</em> statements, relational and logical operators</a>
+  <li><a href="#if-statements-putting-operators-to-work" id="toc-if-statements-putting-operators-to-work" class="nav-link" data-scroll-target="#if-statements-putting-operators-to-work"><em>If</em> statements: putting operators to work</a>
   <ul class="collapse">
-  <li><a href="#if-else-statements" id="toc-if-else-statements" class="nav-link" data-scroll-target="#if-else-statements">If-else statements</a></li>
+  <li><a href="#ifelse-statements" id="toc-ifelse-statements" class="nav-link" data-scroll-target="#ifelse-statements">If–else statements</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -491,7 +491,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../session1-python/index.html">Session 1 · Python basics</a></li><li class="breadcrumb-item"><a href="../session1-python/07_exercise3_loops.html">Block 4 · Logical operations</a></li><li class="breadcrumb-item"><a href="../session1-python/08_logical_operations.html">Logical operations</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../session1-python/index.html">Session 1 · Python basics</a></li><li class="breadcrumb-item"><a href="../session1-python/08_logical_operations.html">Block 4 · Logical operations</a></li><li class="breadcrumb-item"><a href="../session1-python/08_logical_operations.html">Logical operations</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">5 · Logical operations</h1>
 </div>
@@ -511,539 +511,368 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <div class="milestone">
-<p><strong>Block 4</strong> · Understand relational and logical operators.</p>
+<p><strong>Block 4</strong> · Understand relational and logical operators: the decision-making machinery behind every experiment.</p>
 </div>
 <section id="what-is-a-relational-operator" class="level2">
 <h2 class="anchored" data-anchor-id="what-is-a-relational-operator">What is a relational operator?</h2>
-<p>We often want to write code that allows us to make <em>relational comparisons</em>. A relational comparison assesses the relationship between two different values, such as whether one value is greater than, less than, or equal to another.</p>
-<p>Python has several built-in <em>relational operators</em> listed below:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Less than</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="op">&lt;</span> <span class="dv">2</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Greater than.</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="op">&gt;</span> <span class="dv">2</span> </span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Less than or equal to.</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="op">&lt;=</span> <span class="dv">2</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Greater than or equal to.</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="op">&gt;=</span> <span class="dv">2</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Equal to.</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="op">==</span><span class="dv">2</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Not equal to.</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="op">!=</span><span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>If we execute the above relational comparisons in Python, then each one should output a <em>True</em> or <em>False</em> value. <strong>Why?</strong></p>
-<pre class="repl"><code>&gt;&gt;&gt; True
-&gt;&gt;&gt; False
-&gt;&gt;&gt; True
-&gt;&gt;&gt; False
-&gt;&gt;&gt; False
-&gt;&gt;&gt; True </code></pre>
-<div class="predict-check" data-answer="Relational comparisons can only be true or false" data-multiline="false" data-placeholder="Enter prediction here…">
-<p>Why do these relational comparisons return <em>True</em> or <em>False</em> only?</p>
+<p>We often want to write code that makes <em>relational comparisons</em>. A relational comparison assesses the relationship between two different values, such as whether one value is greater than, less than, or equal to another. Python has several built-in relational operators:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="op">&lt;</span> <span class="dv">2</span>    <span class="co"># Less than</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="op">&gt;</span> <span class="dv">2</span>    <span class="co"># Greater than</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="op">&lt;=</span> <span class="dv">2</span>   <span class="co"># Less than or equal to</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="op">&gt;=</span> <span class="dv">2</span>   <span class="co"># Greater than or equal to</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="op">==</span> <span class="dv">2</span>   <span class="co"># Equal to</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="op">!=</span> <span class="dv">2</span>   <span class="co"># Not equal to</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre class="repl"><code>True
+False
+True
+False
+False
+True</code></pre>
+<p>Note the double equals: <code>==</code> <em>compares</em>, while a single <code>=</code> <em>assigns</em>. Mixing them up is one of the most common bugs in beginner code (Python will refuse to run <code>if x = 1:</code>, which is its way of protecting you).</p>
+<div class="predict callout callout-style-default callout-note no-icon callout-titled" title="🤔 Think first">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
 </div>
-<div class="pc-explanation">
-<p>Relational comparisons can only be <em>True</em> or <em>False</em> because they are checking for a single condition.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="op">&lt;</span> <span class="dv">2</span> <span class="co"># this can ONLY return true or false</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># because is EITHER less than 2 (in which case the expression is true)</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># OR greater than 2 (in which case the expression is false). </span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout-title-container flex-fill">
+🤔 Think first
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Why do these relational comparisons return only <em>True</em> or <em>False</em>, never a number or a string?</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Check your thinking">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Check your thinking
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>A relational comparison checks a single condition, and a condition can only hold or not hold: <code>1 &lt; 2</code> is either true or it isn’t. There is no third option. This yes/no output is called a <strong>Boolean</strong> value, and it is exactly what <code>if</code> statements (below) run on.</p>
+</div>
+</div>
+</div>
+</div>
 </div>
 </section>
 <section id="what-is-a-logical-operator" class="level2">
 <h2 class="anchored" data-anchor-id="what-is-a-logical-operator">What is a logical operator?</h2>
-<p>Relational operators compare two values to test whether a condition is true or false.</p>
-<p>Logical operators can be used to compare whether multiple relational comparisons are true or false. Let’s look at some examples:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># and: True only when both conditions are True.</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="va">True</span> <span class="kw">and</span> <span class="va">True</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># or: True when at least one condition is True.</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="va">True</span> <span class="kw">or</span> <span class="va">False</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># xor: True when exactly one condition is True.</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="va">True</span> <span class="op">!=</span> <span class="va">False</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>If we run the above code, the output will be:</p>
-<pre class="rep1"><code>&gt;&gt;&gt; True
+<p>Relational operators compare two <em>values</em>. <strong>Logical operators</strong> combine the results of multiple comparisons:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="va">True</span> <span class="kw">and</span> <span class="va">True</span>    <span class="co"># and: True only when both sides are True.</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="va">True</span> <span class="kw">or</span> <span class="va">False</span>    <span class="co"># or: True when at least one side is True.</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="va">True</span> <span class="op">!=</span> <span class="va">False</span>    <span class="co"># xor: True when exactly one side is True.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre class="repl"><code>&gt;&gt;&gt; True
 &gt;&gt;&gt; True
 &gt;&gt;&gt; True</code></pre>
-<p>So, let’s put this into context:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">1</span> </span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="dv">2</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> <span class="dv">3</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># and</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>y <span class="op">&gt;</span> x <span class="kw">and</span> z <span class="op">&gt;</span> x <span class="co"># this should return a value of true because BOTH y &gt; x evaluates to true and z &gt; x evaluates to true.</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"># or </span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>y <span class="op">&lt;</span> x <span class="kw">or</span> z <span class="op">&lt;</span> x <span class="co"># this should evaluate to false. why?</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co"># xor</span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>(x <span class="op">==</span> y) <span class="op">!=</span> (y <span class="op">&gt;</span> x) <span class="co"># True because the two conditions have different results: False != True.</span></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="co"># chained logical operations (can be applied to any combination of the above)</span></span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>y <span class="op">&gt;</span> x <span class="kw">and</span> z <span class="op">&gt;</span> x <span class="kw">and</span> <span class="dv">10</span> <span class="op">&gt;</span> x <span class="co"># True because each condition is true. </span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Now you can check the output:</p>
-<pre class="rep1"><code>&gt;&gt;&gt; True
-&gt;&gt;&gt; False
-&gt;&gt;&gt; True 
-&gt;&gt;&gt; True</code></pre>
-<div class="predict-check" data-answer="Why parentheses around xor statements?" data-multiline="false" data-placeholder="Enter prediction here…">
-<p>Why are there parentheses around the relational comparisons for <strong>xor</strong> but not other logical operations?</p>
+<p>Now let’s put this into context. Predict all four before running:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>y <span class="op">&gt;</span> x <span class="kw">and</span> z <span class="op">&gt;</span> x           <span class="co"># both sides true?</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>y <span class="op">&lt;</span> x <span class="kw">or</span> z <span class="op">&lt;</span> x            <span class="co"># at least one side true?</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>(x <span class="op">==</span> y) <span class="op">!=</span> (y <span class="op">&gt;</span> x)       <span class="co"># exactly one side true?</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>y <span class="op">&gt;</span> x <span class="kw">and</span> z <span class="op">&gt;</span> x <span class="kw">and</span> <span class="dv">10</span> <span class="op">&gt;</span> x  <span class="co"># operators can chain: every side must be true.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="predict-check" data-answer="True False True True" data-multiline="true" data-placeholder="Four lines: True or False for each…">
+<p>What do the four expressions return, in order?</p>
+<div class="pc-hint" data-if-contains="False False">
+<p>Check the <code>or</code> line again — but also the xor: <code>(x == y)</code> is False and <code>(y &gt; x)</code> is True. Are those results <em>different</em> from each other?</p>
 </div>
 <div class="pc-explanation">
-<p>Here, <code>!=</code> compares the results of two complete conditions. The parentheses make Python evaluate <code>(x == y)</code> and <code>(y &gt; x)</code> first, and then compare those Boolean results. Without the parentheses, Python interprets the expression as a chained comparison instead of an XOR operation.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>(x <span class="op">==</span> y) <span class="op">!=</span> (y <span class="op">&gt;</span> x)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># False != True, so the result is True.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>True</code>, <code>False</code>, <code>True</code>, <code>True</code>.</p>
+<p>The <code>or</code> line is <code>False</code>: it needs <em>at least one</em> true side, but <code>y &lt; x</code> and <code>z &lt; x</code> are both false. The xor line is <code>True</code>: <code>False != True</code> — the two conditions disagree, which is exactly what xor detects.</p>
+</div>
+</div>
+<div class="predict callout callout-style-default callout-note no-icon callout-titled" title="🤔 Think first">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+🤔 Think first
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Why are there parentheses around the comparisons in the <strong>xor</strong> line, but not in the other logical operations?</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Check your thinking">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Check your thinking
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The parentheses make Python evaluate <code>(x == y)</code> and <code>(y &gt; x)</code> first, then compare those two Boolean results with <code>!=</code>. Without them, Python reads <code>x == y != y &gt; x</code> as one <em>chained comparison</em> — a different (and here, misleading) computation. When combining complete conditions, parentheses make your intention unambiguous — to Python and to the humans reading your code.</p>
+</div>
+</div>
+</div>
+</div>
 </div>
 </section>
-<section id="if-statements-relational-and-logical-operators" class="level2">
-<h2 class="anchored" data-anchor-id="if-statements-relational-and-logical-operators"><em>If</em> statements, relational and logical operators</h2>
-<p>Okay, we are very excitingly going to learn about how to use operators inside of <em>if</em> statements.</p>
-<p><em>If</em> statements evaluate the output of logical and relational operations and execute subsequent code only <em>if</em> specified conditions are met.</p>
-<p>Let’s start with an example:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="dv">2</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> <span class="dv">3</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co"># this *if* statement checks if x &lt; y .</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co"># The subsequent code (inside of the statement) is run *only if* x &lt; y evaluates as true.</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> x <span class="op">&lt;</span> y:</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>   <span class="bu">print</span>(x <span class="op">&lt;</span> y)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Here x is indeed less than y, so <code>x &lt; y</code> evaluates to true and the the code <em>inside</em> the statement (after the colon / indentation) is run.</p>
-<p>Notice the syntax for if statements is always:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>   <span class="co"># a boolean comparison is one that results in true or false (so relational and logical comparisons)</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>   <span class="cf">if</span> some_boolean_comparison: </span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>        code that runs INSIDE the statement, which only executes <span class="cf">if</span> a condition <span class="kw">is</span> met (some_boolean_comparison <span class="kw">is</span> true)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Because code printed <em>inside if</em> statements is executed <em>only if</em> the statement evalutes as true, if statements are called <em>control flow</em> statements, meaning that they control the flow of what code is executed.</p>
-<section id="if-else-statements" class="level3">
-<h3 class="anchored" data-anchor-id="if-else-statements">If-else statements</h3>
-<p>Okay, this is the final flourish (for today). Let’s say we want to evaluate whether a condition true, and run one line of code if it is true and another line of code if it is not true. Enter the <em>if-else</em> statement.</p>
-<p><em>If-else</em> statements allow you to do exactly this. Here’s an example:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># this is the if statement. </span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> x <span class="op">&lt;</span> y:</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>     <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>x<span class="sc">}</span><span class="ss"> is less than </span><span class="sc">{</span>y<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co"># this is the else.</span></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>: </span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>     <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>x<span class="sc">}</span><span class="ss"> is greater than </span><span class="sc">{</span>y<span class="sc">}</span><span class="ss">"</span>) <span class="co"># this will be printed *only* if the above condition is not met.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Note the colon after <code>else</code> and the subsequent indentation / line break. This is the necessary syntax for <em>else</em> statements.</p>
-<p>We can use logical operators in <em>if</em> statements:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> x <span class="op">&lt;</span> y <span class="kw">and</span> x<span class="op">==</span><span class="dv">1</span>:</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>     <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>x<span class="sc">}</span><span class="ss"> is less than </span><span class="sc">{</span>y<span class="sc">}</span><span class="ss"> and equals 1"</span>)</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>: </span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>x<span class="sc">}</span><span class="ss"> is not both less than </span><span class="sc">{</span>y<span class="sc">}</span><span class="ss"> and equal to 1"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Finally, we can actually have nested if statements and elif statements:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> x <span class="op">&lt;</span> <span class="dv">10</span>:</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> x<span class="op">==</span><span class="dv">1</span>:</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>         <span class="bu">print</span>(<span class="st">"x is equal to 1"</span>)</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> x<span class="op">==</span><span class="dv">2</span>:</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>         <span class="bu">print</span>(<span class="st">"x is equal to 2"</span>)</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>         <span class="bu">print</span>(<span class="st">"x is less than 10 but not equal to 1 or 2)</span></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="er">else: </span></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>     <span class="bu">print</span>(<span class="st">"x is greater than 10"</span>)</span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="predict-check" data-answer="Else if" data-multiline="false" data-placeholder="Enter prediction here…">
-<p>What does <em>elif</em> stand for in plain language?</p>
+<section id="if-statements-putting-operators-to-work" class="level2">
+<h2 class="anchored" data-anchor-id="if-statements-putting-operators-to-work"><em>If</em> statements: putting operators to work</h2>
+<p>Now, very excitingly, we can use operators inside <strong><em>if</em> statements</strong>, which evaluate a condition and execute the code inside them <em>only if</em> the condition is met:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># The indented code runs *only if* x &lt; y evaluates to True.</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> x <span class="op">&lt;</span> y:</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(x <span class="op">&lt;</span> y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre class="repl"><code>&gt;&gt;&gt; True</code></pre>
+<p>Here <code>x</code> is indeed less than <code>y</code>, so the condition holds and the code inside the statement runs. The syntax pattern (notice the colon and the indentation: same shape as loops):</p>
+<pre><code>if some_condition_that_is_true_or_false:
+    code that runs ONLY when the condition is True</code></pre>
+<p>Because the indented code is executed only conditionally, <code>if</code> statements are called <em>control flow</em> statements: they control which code runs.</p>
+<section id="ifelse-statements" class="level3">
+<h3 class="anchored" data-anchor-id="ifelse-statements">If–else statements</h3>
+<p>The final flourish for today. Suppose you want to run one line when a condition is true and a <em>different</em> line when it is not: enter <strong>if-else</strong>:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> x <span class="op">&lt;</span> y:</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>x<span class="sc">}</span><span class="ss"> is less than </span><span class="sc">{</span>y<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>x<span class="sc">}</span><span class="ss"> is not less than </span><span class="sc">{</span>y<span class="sc">}</span><span class="ss">"</span>)  <span class="co"># runs *only* when the condition fails.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre class="repl"><code>&gt;&gt;&gt; 1 is less than 2</code></pre>
+<p>Note the colon after <code>else</code> and the indentation: the same syntax rules as <code>if</code>. We can of course use logical operators in the condition:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> x <span class="op">&lt;</span> y <span class="kw">and</span> x <span class="op">==</span> <span class="dv">1</span>:</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>x<span class="sc">}</span><span class="ss"> is less than </span><span class="sc">{</span>y<span class="sc">}</span><span class="ss"> and equals 1"</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>x<span class="sc">}</span><span class="ss"> is not both less than </span><span class="sc">{</span>y<span class="sc">}</span><span class="ss"> and equal to 1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre class="repl"><code>&gt;&gt;&gt; 1 is less than 2 and equals 1</code></pre>
+<p>Finally, conditions can have more than two branches. <code>elif</code> tests a new condition when the previous one failed, and statements can even be <em>nested</em>:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> x <span class="op">&lt;</span> <span class="dv">10</span>:</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> x <span class="op">==</span> <span class="dv">1</span>:</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"x is equal to 1"</span>)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> x <span class="op">==</span> <span class="dv">2</span>:</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"x is equal to 2"</span>)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"x is less than 10 but not equal to 1 or 2"</span>)</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"x is 10 or more"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="predict-check" data-answer="x is equal to 2" data-accept="x is equal to 2.">
+<p>Suppose we set <code>x = 2</code> and run the nested block. What prints?</p>
+<div class="pc-hint" data-if-contains="less than 10">
+<p>True, 2 <em>is</em> less than 10, so we enter the outer block. But then the inner checks run: which one catches x = 2 first?</p>
 </div>
 <div class="pc-explanation">
-<p><em>elif</em> stands for <em>else if</em>. It lets Python test another condition when the preceding <code>if</code> or <code>elif</code> condition was <code>False</code>. If that new condition is <code>True</code>, Python runs its indented code.</p>
+<p><code>x is equal to 2</code>: the outer <code>if x &lt; 10</code> passes, then the inner <code>if x == 1</code> fails, so the <code>elif x == 2</code> gets its turn and matches. Only one branch of an if/elif/else chain ever runs: the <em>first</em> one whose condition is <code>True</code>.</p>
+</div>
+</div>
+<div class="predict-check" data-answer="else if" data-accept="Else if||else-if||Else If">
+<p>And a naming question: what does <em>elif</em> stand for in plain language?</p>
+<div class="pc-explanation">
+<p><em>Else if</em>: test another condition, but only when the preceding <code>if</code> (or <code>elif</code>) came up <code>False</code>.</p>
+</div>
+</div>
 <div class="callout callout-style-default callout-note callout-titled" title="Summary">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Summary
+Summary
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>So, you have learned how to perform basic <em>boolean</em> operations, meaning operations the result in boolean (true or false) output. Relational operators allow for comparisons of values, while logical operators allow for comparing the boolean output of two (or more) conditions.</p>
-<p>You also learned how to implement boolean operations in <em>if</em> statements, <em>elif</em> staetments and how to write nested <em>if</em> statements.</p>
+<p>You have learned to perform basic <em>Boolean</em> operations. Operations that result in true-or-false output. Relational operators compare values; logical operators combine the Boolean results of two or more conditions. And <code>if</code>, <code>if–else</code>, <code>elif</code> and nested statements let those conditions control which code runs. In the PsychoPy sessions, this is precisely how feedback works: <em>if</em> the participant pressed the correct key, show the success image, <em>else</em>, show failure.</p>
 </div>
 </div>
-<p><strong>Lesson completed?</strong> Next: <a href="../session1-python/09_functions.html">Functions</a>.</p>
+<p><strong>Predictions checked? Green sticky.</strong> Next: <a href="../session1-python/09_functions.html">Functions</a>.</p>
 
 
-</div>
 </section>
 </section>
 
 </main> <!-- /main -->
 <!-- ============================================================
-
      PREDICT-CHECK WIDGET  (injected on every page via _quarto.yml)
-
      Turns  ::: {.predict-check data-answer="..."}  divs into an
-
      interactive "type your prediction → check" box.
-
      Just runs with html code, to make it simple and works with 
-
      GitHub Pages and offline.
-
      ============================================================ -->
-
 <style>
-
 .predict-check {
-
   border: 1.5px solid var(--ink, #14213d);
-
   border-left: 5px solid var(--accent, #fca311);
-
   border-radius: 8px;
-
   padding: 1rem 1.2rem;
-
   margin: 1.2rem 0;
-
   background: #fdf8ee;
-
 }
-
 .predict-check .pc-label {
-
   color: var(--accent-dark, #b87700);
-
   font-weight: 700;
-
   font-size: 0.85rem;
-
   letter-spacing: 0.06em;
-
   text-transform: uppercase;
-
   margin-bottom: 0.4rem;
-
 }
-
 .predict-check .pc-ui { margin-top: 0.7rem; display: flex; gap: 0.5rem; flex-wrap: wrap; }
-
 .predict-check input.pc-input, .predict-check textarea.pc-input {
-
   flex: 1 1 220px;
-
   font-family: var(--bs-font-monospace, monospace);
-
   font-size: 0.95rem;
-
   padding: 0.45rem 0.6rem;
-
   border: 1px solid #d5d0c3;
-
   border-radius: 6px;
-
 }
-
 .predict-check textarea.pc-input { min-height: 4.5rem; }
-
 .predict-check button.pc-btn {
-
   background: var(--ink, #14213d); color: #fff; border: none; border-radius: 6px;
-
   padding: 0.45rem 1rem; font-weight: 600; cursor: pointer;
-
 }
-
 .predict-check button.pc-btn:disabled { background: #9aa5b8; cursor: not-allowed; }
-
 .predict-check button.pc-reveal {
-
   background: #fff; color: var(--ink, #14213d); border: 1.5px solid var(--ink, #14213d);
-
   border-radius: 6px; padding: 0.45rem 1rem; font-weight: 600; cursor: pointer;
-
 }
-
 .predict-check .pc-feedback { margin-top: 0.6rem; font-size: 0.95rem; display: none; border-radius: 6px; padding: 0.55rem 0.8rem; }
-
 .predict-check .pc-feedback.pc-wrong { display: block; background: #fdf0ef; color: #8a2d23; border: 1px solid #f3c9c4; }
-
 .predict-check .pc-feedback.pc-right { display: block; background: #eef7ee; color: #1d5c2f; border: 1px solid #c4e3c8; }
-
 .predict-check .pc-explanation {
-
   display: none; margin-top: 0.8rem; padding-top: 0.8rem; border-top: 1px dashed #d5d0c3;
-
 }
-
 .predict-check .pc-hint { display: none; }
-
 .predict-check.pc-done input.pc-input, .predict-check.pc-done textarea.pc-input { background: #f3efe4; }
 
-
-
 /* ---- dark-mode (Quarto toggles body.quarto-dark) ---- */
-
 body.quarto-dark .predict-check { background: #1b2437; border-color: #2b3a52; border-left-color: var(--accent, #fca311); }
-
 body.quarto-dark .predict-check .pc-label { color: var(--accent, #fca311); }
-
 body.quarto-dark .predict-check input.pc-input,
-
 body.quarto-dark .predict-check textarea.pc-input {
-
   background: #111827; color: #e7ebf5; border-color: #2b3a52;
-
 }
-
 body.quarto-dark .predict-check button.pc-btn { background: var(--accent, #fca311); color: #14213d; }
-
 body.quarto-dark .predict-check button.pc-btn:disabled { background: #2b3a52; color: #6b7690; }
-
 body.quarto-dark .predict-check button.pc-reveal { background: transparent; color: var(--accent, #fca311); border-color: var(--accent, #fca311); }
-
 body.quarto-dark .predict-check .pc-feedback.pc-wrong { background: #3a1f1c; color: #f0b3aa; border-color: #6e3a33; }
-
 body.quarto-dark .predict-check .pc-feedback.pc-right { background: #1c3320; color: #a8dcb0; border-color: #33663c; }
-
 body.quarto-dark .predict-check .pc-explanation { border-top-color: #2b3a52; }
-
 body.quarto-dark .predict-check.pc-done input.pc-input,
-
 body.quarto-dark .predict-check.pc-done textarea.pc-input { background: #1b2437; }
-
 </style>
-
 <script>
-
 (function () {
-
   "use strict";
 
-
-
   // --- matching logic -------------------------------------------------
-
   function norm(s) { return String(s).replace(/[ \t]+/g, " ").replace(/\s+$/gm, "").trim(); }
-
   function stripQuotes(s) { return String(s).trim().replace(/^["'\u2018\u2019\u201C\u201D]+|["'\u2018\u2019\u201C\u201D]+$/g, ""); }
-
   function isCorrect(input, candidates) {
-
     var n = norm(input);
-
     return candidates.some(function (c) { return n === c; });
-
   }
-
   // Built-in near-miss detectors: return a hint string or null.
-
   function builtinHint(input, candidates) {
-
     var n = norm(input);
-
     if (candidates.some(function (c) { return norm(stripQuotes(n)) === c && n !== c; }))
-
       return "Close, but look again: are the quotation marks part of what gets printed?";
-
     if (candidates.some(function (c) { return n.toLowerCase() === c.toLowerCase() && n !== c; }))
-
       return "Almost, check upper- versus lowercase. Python prints text exactly as it is.";
-
     if (candidates.some(function (c) { return n.replace(/\s+/g, "") === c.replace(/\s+/g, "") && n !== c; }))
-
       return "Very close, count the spaces carefully.";
-
     return null;
-
   }
-
-
 
   function init() {
-
     var boxes = document.querySelectorAll(".predict-check");
-
     Array.prototype.forEach.call(boxes, function (box) {
-
       if (box.dataset.pcInit) return;
-
       box.dataset.pcInit = "1";
 
-
-
       var answer = box.getAttribute("data-answer") || "";
-
       var accept = (box.getAttribute("data-accept") || "").split("||").filter(function (x) { return x.length; });
-
       var candidates = [answer].concat(accept).map(norm);
-
       var multiline = box.getAttribute("data-multiline") === "true";
-
       var maxAttempts = parseInt(box.getAttribute("data-attempts") || "3", 10);
 
-
-
       var explanation = box.querySelector(".pc-explanation");
-
       var hints = Array.prototype.slice.call(box.querySelectorAll(".pc-hint"));
 
-
-
       // header label
-
       var label = document.createElement("div");
-
       label.className = "pc-label";
-
       label.textContent = "\uD83D\uDD2E Predict first";
-
       box.insertBefore(label, box.firstChild);
 
-
-
       // input + buttons
-
       var ui = document.createElement("div");
-
       ui.className = "pc-ui";
-
       var input = document.createElement(multiline ? "textarea" : "input");
-
       input.className = "pc-input";
-
       input.setAttribute("placeholder", box.getAttribute("data-placeholder") || "Type your prediction, then check\u2026");
-
       input.setAttribute("aria-label", "Your prediction");
-
       if (!multiline) input.setAttribute("type", "text");
-
       var btn = document.createElement("button");
-
       btn.className = "pc-btn";
-
       btn.type = "button";
-
       btn.textContent = "Check";
-
       btn.disabled = true;
-
       var reveal = document.createElement("button");
-
       reveal.className = "pc-reveal";
-
       reveal.type = "button";
-
       reveal.textContent = "Show the answer";
-
       reveal.style.display = "none";
-
       ui.appendChild(input); ui.appendChild(btn); ui.appendChild(reveal);
 
-
-
       var feedback = document.createElement("div");
-
       feedback.className = "pc-feedback";
 
-
-
       // keep explanation last
-
       if (explanation) { box.appendChild(explanation); }
-
       box.appendChild(ui);
-
       box.insertBefore(feedback, explanation || null);
 
-
-
       var attempts = 0;
-
       function finish(correct) {
-
         box.classList.add("pc-done");
-
         input.disabled = true; btn.disabled = true; reveal.style.display = "none";
-
         if (explanation) explanation.style.display = "block";
-
         feedback.className = "pc-feedback " + (correct ? "pc-right" : "pc-wrong");
-
         feedback.textContent = correct
-
           ? "\u2713 Correct! Well predicted. Now run it and watch it happen."
-
           : "Compare the answer below with what you predicted. The difference is the interesting part.";
-
       }
 
-
-
       input.addEventListener("input", function () { btn.disabled = norm(input.value).length === 0; });
-
       input.addEventListener("keydown", function (e) {
-
         if (e.key === "Enter" && !multiline && !btn.disabled) { e.preventDefault(); btn.click(); }
-
       });
-
       reveal.addEventListener("click", function () { finish(false); });
 
-
-
       btn.addEventListener("click", function () {
-
         var val = input.value;
-
         if (isCorrect(val, candidates)) { finish(true); return; }
-
         attempts += 1;
 
-
-
         // author-provided hints first (first match wins)
-
         var msg = null;
-
         for (var i = 0; i < hints.length; i++) {
-
           var needle = hints[i].getAttribute("data-if-contains");
-
           if (needle && val.indexOf(needle) !== -1) { msg = hints[i].textContent.trim(); break; }
-
         }
-
         if (!msg) msg = builtinHint(val, candidates);
-
         if (!msg) msg = "Not quite. Read the code once more. What exactly will it give you?";
 
-
-
         var left = maxAttempts - attempts;
-
         feedback.className = "pc-feedback pc-wrong";
-
         feedback.textContent = msg;
-
         if (left <= 0) reveal.style.display = "inline-block";
-
       });
-
     });
-
   }
 
-
-
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
-
   else init();
-
 })();
-
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -1109,14 +938,13 @@ body.quarto-dark .predict-check.pc-done textarea.pc-input { background: #1b2437;
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-      const outerScaffold = trigger.parentElement.cloneNode(true);
-      const codeEl = outerScaffold.querySelector('code');
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
         }
-      }
-      return codeEl.innerText;
+        return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

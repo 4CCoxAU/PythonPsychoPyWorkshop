@@ -36,172 +36,446 @@
     ]
   },
   {
-    "objectID": "session1-python/05_exercise2_lists.html",
-    "href": "session1-python/05_exercise2_lists.html",
-    "title": "Exercise 2 · Lists",
+    "objectID": "session1-python/10_exercise4.html",
+    "href": "session1-python/10_exercise4.html",
+    "title": "Exercise 4 · Functions & modules",
     "section": "",
-    "text": "Block 3 · Exercise for Chapter 3 — Lists.\nSame drill as Exercise 1a: try first, Hint when stuck, Show the code as the safety net. Work in the same .py file, with # Exercise 2 comments to keep it navigable.",
+    "text": "Block 5 · Exercise for Chapter 5 — Functions.\nSame drill as the earlier exercises: try first, then use the Hint if you get stuck. Work in the same .py file, with comments such as # Exercise 4 to keep it navigable.",
     "crumbs": [
       "Home",
       "Session 1 · Python basics",
-      "Block 3 · Lists & Loops",
-      "Exercise 2: Lists"
+      "Block 5 · Functions & modules",
+      "Exercise 4"
     ]
   },
   {
-    "objectID": "session1-python/05_exercise2_lists.html#part-1-defining-lists",
-    "href": "session1-python/05_exercise2_lists.html#part-1-defining-lists",
-    "title": "Exercise 2 · Lists",
-    "section": "Part 1: Defining lists",
-    "text": "Part 1: Defining lists\nMake variables containing 10-item lists, one of each:\n\nAll string items.\nAll integer items.\nAll floating-point items.\nMixed strings, integers and floats.\n\nThen combine lists 1–3 into a single variable called combined.\n\n\n\n\n\n\nNoteHint\n\n\n\n\n\nTen items is a typing exercise, not a thinking one. Short words and simple numbers are fine. For combined: square brackets around the three list names.\n\n\n\n\n\n\n\n\n\nTipShow the code\n\n\n\n\n\nwords = [\"cat\", \"dog\", \"owl\", \"fox\", \"bat\", \"elk\", \"hen\", \"ant\", \"bee\", \"cow\"]\nintegers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\nfloats = [1.5, 2.5, 3.5, 4.5, 5.5, 6.5, 7.5, 8.5, 9.5, 10.5]\nmixed = [\"cat\", 1, 1.5, \"dog\", 2, 2.5, \"owl\", 3, 3.5, \"fox\"]\n\ncombined = [words, integers, floats]",
+    "objectID": "session1-python/10_exercise4.html#part-1-write-your-own-simple-function.",
+    "href": "session1-python/10_exercise4.html#part-1-write-your-own-simple-function.",
+    "title": "Exercise 4 · Functions & modules",
+    "section": "Part 1: Write your own simple function.",
+    "text": "Part 1: Write your own simple function.\nWrite your own function that prints the expression “this is my first function!”, then call the function.\n\n\n\n\n\n\nHint\n\n\n\n\n\nBe sure to define the function first, using the proper indentation.\n\n\n\n\n\n\n\n\n\nShow the code\n\n\n\n\n\n\ndef first_function():\n     print(\"This is my first function!\")",
     "crumbs": [
       "Home",
       "Session 1 · Python basics",
-      "Block 3 · Lists & Loops",
-      "Exercise 2: Lists"
+      "Block 5 · Functions & modules",
+      "Exercise 4"
     ]
   },
   {
-    "objectID": "session1-python/05_exercise2_lists.html#part-2-indexing-lists",
-    "href": "session1-python/05_exercise2_lists.html#part-2-indexing-lists",
-    "title": "Exercise 2 · Lists",
-    "section": "Part 2: Indexing lists",
-    "text": "Part 2: Indexing lists\n\nReturn the 4th item of each of lists 1-3.\nReturn the first item of combined. Do you notice anything unexpected about the output?\nNow figure out how to index the first word only from combined.\n\n\n\n\n\n\n\nNoteHint\n\n\n\n\n\nTask 1: the 4th item. Which index is that? Task 2: how big is the thing that came back? Compare it with what task 1 gave you. Task 3: combined[0] got you a whole list… so you’re one bracket-pair away.\n\n\n\n\n\n\n\n\n\nTipShow the code\n\n\n\n\n\nprint(words[3])       # fox, the 4th item is at index 3!\nprint(integers[3])    # 4\nprint(floats[3])      # 4.5\n\nprint(combined[0])    # ['cat', 'dog', ..., 'cow']: an ENTIRE list comes back,\n                      # because combined's items are themselves lists.\n\nprint(combined[0][0]) # cat: first list, then first item of that list.",
+    "objectID": "session1-python/10_exercise4.html#part-2-inputs-relational-operators.",
+    "href": "session1-python/10_exercise4.html#part-2-inputs-relational-operators.",
+    "title": "Exercise 4 · Functions & modules",
+    "section": "Part 2: Inputs & relational operators.",
+    "text": "Part 2: Inputs & relational operators.\nWhew, we’ve gotten past that really basic exercise, let’s add layers:\n\nRedefine the above function with an input argument name\nInside the function, evaluate whether the name is “anna”\nIf the name is “anna” print “may be your teacher” else print “is not your teacher”\nNow call this function from the console, first passing your name.\nThen pass the name “anna”.\nWhat does your function print on each call?\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nDefine the function with a parameter named name, then compare it with the string \"anna\".\n\n\n\n\n\n\n\n\n\nShow the code\n\n\n\n\n\n\ndef first_function(name):\n     if name == \"anna\":\n          print(\"May be your teacher.\")\n     else:\n          print(\"Is not your teacher.\")\n\nfirst_function(\"bob\")  # Replace \"bob\" with your own name.\nfirst_function(\"anna\")",
     "crumbs": [
       "Home",
       "Session 1 · Python basics",
-      "Block 3 · Lists & Loops",
-      "Exercise 2: Lists"
+      "Block 5 · Functions & modules",
+      "Exercise 4"
     ]
   },
   {
-    "objectID": "session1-python/05_exercise2_lists.html#part-3-changing-list-items",
-    "href": "session1-python/05_exercise2_lists.html#part-3-changing-list-items",
-    "title": "Exercise 2 · Lists",
-    "section": "Part 3: Changing list items",
-    "text": "Part 3: Changing list items\nNow let’s take advantage of list mutability:\n\nReplace an item in one of your lists with another, using indexing.\nAppend an item to the end of one of your lists.\nInsert a new item between two existing items.\nReplace the first item of combined with a new item, then print combined. How much changed?\n\n\n\n\n\n\n\nNoteHint\n\n\n\n\n\nReplacement is assignment: list[index] = new_thing. For task 4: combined[0] is a whole list, so what you assign to it replaces… how much? Any value works, even a string.\n\n\n\n\n\n\n\n\n\nTipShow the code\n\n\n\n\n\nwords[0] = \"pig\"                  # 1. replace by index\nwords.append(\"emu\")               # 2. append to the end\nwords.insert(2, \"yak\")            # 3. insert between existing items\nprint(words)\n\ncombined[0] = \"gone\"              # 4. replaces the ENTIRE first list with one string!\nprint(combined)                   # ['gone', [1, 2, ...], [1.5, 2.5, ...]]\n\n\n\nEverything runs and makes sense? Then onwards to Loops.",
+    "objectID": "session1-python/10_exercise4.html#part-3-outputs-relationallogical-operators.",
+    "href": "session1-python/10_exercise4.html#part-3-outputs-relationallogical-operators.",
+    "title": "Exercise 4 · Functions & modules",
+    "section": "Part 3: Outputs & relational/logical operators.",
+    "text": "Part 3: Outputs & relational/logical operators.\nNow let’s redefine the above function, this time with outputs:\n\nDefine a variable called teacher which has a value of True if the input argument name is “anna”, otherwise is false.\nReturn this output variable in the function.\nCall the function, pass \"anna\" as input, and store the returned value in a variable in the console.\nPrint the value of the output variable in the console. What is it?\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nRemember to use return at the end of your function to specify outputs…\n\n\n\n\n\n\n\n\n\nShow the code\n\n\n\n\n\n\ndef first_function(name):\n     if name == \"anna\":\n          print(\"May be your teacher.\")\n          teacher = True\n     else:\n          print(\"Is not your teacher.\")\n          teacher = False\n\n     return teacher\n\nfunc_output = first_function(\"anna\")\nprint(func_output)",
     "crumbs": [
       "Home",
       "Session 1 · Python basics",
-      "Block 3 · Lists & Loops",
-      "Exercise 2: Lists"
+      "Block 5 · Functions & modules",
+      "Exercise 4"
     ]
   },
   {
-    "objectID": "session1-python/05_exercise2_lists.html#done-early",
-    "href": "session1-python/05_exercise2_lists.html#done-early",
-    "title": "Exercise 2 · Lists",
-    "section": "Done early?",
-    "text": "Done early?\nUsing only indexing and mutation on your combined list from before task 4, no retyping of values, make combined end up as [10, \"cat\", 10.5].",
+    "objectID": "session1-python/10_exercise4.html#part-4-store-your-function-in-a-module.",
+    "href": "session1-python/10_exercise4.html#part-4-store-your-function-in-a-module.",
+    "title": "Exercise 4 · Functions & modules",
+    "section": "Part 4: Store your function in a module.",
+    "text": "Part 4: Store your function in a module.\nNow let’s store your function in a module and use it:\n\nFirst, make a new .py file in the same folder as your exercise .py file. Name the file my_module.py.\nCopy your function from the last exercise into this file and save.\nIn your exercise file, import the module with import my_module.\nCall the function with my_module.first_function(\"anna\") and store the returned value.\nPrint the returned value. Does it work?\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nWhen a function is stored in a module, call it using the module name, a dot, and the function name: my_module.first_function(\"anna\").\n\n\n\n\n\n\n\n\n\nShow the code\n\n\n\n\n\nimport my_module\n\nteacher = my_module.first_function(\"anna\")\nprint(teacher)",
     "crumbs": [
       "Home",
       "Session 1 · Python basics",
-      "Block 3 · Lists & Loops",
-      "Exercise 2: Lists"
+      "Block 5 · Functions & modules",
+      "Exercise 4"
     ]
   },
   {
-    "objectID": "session1-python/03_exercise1_variables.html",
-    "href": "session1-python/03_exercise1_variables.html",
-    "title": "Exercise 1a: Variables & variable types",
+    "objectID": "session1-python/10_exercise4.html#part-5-get-creative",
+    "href": "session1-python/10_exercise4.html#part-5-get-creative",
+    "title": "Exercise 4 · Functions & modules",
+    "section": "Part 5: Get creative",
+    "text": "Part 5: Get creative\nOkay, now’s the exciting part. You can run wild (not too wild) with your creativity:\nMake as many functions as you have time for that incorporate all of the code concepts we’ve learned today:\n\nVariable types\nLists & loops (for loops, while loops)\nLogical operations / relational operations\nFunction inputs / outputs\nModules\n\nStore these functions in a module file, import this file in your exercise .py file and call the functions.\nThere are no right answers here, only correct syntax.",
+    "crumbs": [
+      "Home",
+      "Session 1 · Python basics",
+      "Block 5 · Functions & modules",
+      "Exercise 4"
+    ]
+  },
+  {
+    "objectID": "session1-python/08_logical_operations.html",
+    "href": "session1-python/08_logical_operations.html",
+    "title": "5 · Logical operations",
     "section": "",
-    "text": "Block 2 · Your first exercise! Everything you need is in Chapter 2.\nHow exercises work: try each task yourself first. The point is the attempt, not speed. Every part has a folded Show the code with a working solution; stuck for ten minutes means unfold it, understand it, move on. That is the intended way to use this material, not cheating.",
+    "text": "Block 4 · Understand relational and logical operators: the decision-making machinery behind every experiment.",
     "crumbs": [
       "Home",
       "Session 1 · Python basics",
-      "Block 2 · Variables and data types",
-      "Exercise 1a: Variables & data types"
+      "Block 4 · Logical operations",
+      "Logical operations"
     ]
   },
   {
-    "objectID": "session1-python/03_exercise1_variables.html#setup",
-    "href": "session1-python/03_exercise1_variables.html#setup",
-    "title": "Exercise 1a: Variables & variable types",
-    "section": "Setup",
-    "text": "Setup\nCreate a new Python code file in the Coder on UCloud, and save it in /work/cogsci_methods01_e26 (or whatever you have named your methods cogsci folder). Do all of today’s tasks in this file.",
+    "objectID": "session1-python/08_logical_operations.html#what-is-a-relational-operator",
+    "href": "session1-python/08_logical_operations.html#what-is-a-relational-operator",
+    "title": "5 · Logical operations",
+    "section": "What is a relational operator?",
+    "text": "What is a relational operator?\nWe often want to write code that makes relational comparisons. A relational comparison assesses the relationship between two different values, such as whether one value is greater than, less than, or equal to another. Python has several built-in relational operators:\n1 &lt; 2    # Less than\n1 &gt; 2    # Greater than\n1 &lt;= 2   # Less than or equal to\n1 &gt;= 2   # Greater than or equal to\n1 == 2   # Equal to\n1 != 2   # Not equal to\nTrue\nFalse\nTrue\nFalse\nFalse\nTrue\nNote the double equals: == compares, while a single = assigns. Mixing them up is one of the most common bugs in beginner code (Python will refuse to run if x = 1:, which is its way of protecting you).\n\n\n\n\n\n\n🤔 Think first\n\n\n\nWhy do these relational comparisons return only True or False, never a number or a string?\n\n\n\n\n\n\nCheck your thinking\n\n\n\n\n\nA relational comparison checks a single condition, and a condition can only hold or not hold: 1 &lt; 2 is either true or it isn’t. There is no third option. This yes/no output is called a Boolean value, and it is exactly what if statements (below) run on.",
     "crumbs": [
       "Home",
       "Session 1 · Python basics",
-      "Block 2 · Variables and data types",
-      "Exercise 1a: Variables & data types"
+      "Block 4 · Logical operations",
+      "Logical operations"
     ]
   },
   {
-    "objectID": "session1-python/03_exercise1_variables.html#part-1-your-first-variable",
-    "href": "session1-python/03_exercise1_variables.html#part-1-your-first-variable",
-    "title": "Exercise 1a: Variables & variable types",
-    "section": "Part 1: Your first variable",
-    "text": "Part 1: Your first variable\n\nMake a variable of any type, with a comment above it describing it.\nPrint its value to the console.\nPrint its type to the console.\n\n\n\n\n\n\n\nTipShow the code\n\n\n\n\n\n# My favourite number of coffees per day.\ncoffees = 3\nprint(coffees)\nprint(type(coffees))",
+    "objectID": "session1-python/08_logical_operations.html#what-is-a-logical-operator",
+    "href": "session1-python/08_logical_operations.html#what-is-a-logical-operator",
+    "title": "5 · Logical operations",
+    "section": "What is a logical operator?",
+    "text": "What is a logical operator?\nRelational operators compare two values. Logical operators combine the results of multiple comparisons:\nTrue and True    # and: True only when both sides are True.\nTrue or False    # or: True when at least one side is True.\nTrue != False    # xor: True when exactly one side is True.\n&gt;&gt;&gt; True\n&gt;&gt;&gt; True\n&gt;&gt;&gt; True\nNow let’s put this into context. Predict all four before running:\nx = 1\ny = 2\nz = 3\n\ny &gt; x and z &gt; x           # both sides true?\ny &lt; x or z &lt; x            # at least one side true?\n(x == y) != (y &gt; x)       # exactly one side true?\ny &gt; x and z &gt; x and 10 &gt; x  # operators can chain: every side must be true.\n\nWhat do the four expressions return, in order?\n\nCheck the or line again — but also the xor: (x == y) is False and (y &gt; x) is True. Are those results different from each other?\n\n\nTrue, False, True, True.\nThe or line is False: it needs at least one true side, but y &lt; x and z &lt; x are both false. The xor line is True: False != True — the two conditions disagree, which is exactly what xor detects.\n\n\n\n\n\n\n\n\n🤔 Think first\n\n\n\nWhy are there parentheses around the comparisons in the xor line, but not in the other logical operations?\n\n\n\n\n\n\nCheck your thinking\n\n\n\n\n\nThe parentheses make Python evaluate (x == y) and (y &gt; x) first, then compare those two Boolean results with !=. Without them, Python reads x == y != y &gt; x as one chained comparison — a different (and here, misleading) computation. When combining complete conditions, parentheses make your intention unambiguous — to Python and to the humans reading your code.",
     "crumbs": [
       "Home",
       "Session 1 · Python basics",
-      "Block 2 · Variables and data types",
-      "Exercise 1a: Variables & data types"
+      "Block 4 · Logical operations",
+      "Logical operations"
     ]
   },
   {
-    "objectID": "session1-python/03_exercise1_variables.html#part-2-strings",
-    "href": "session1-python/03_exercise1_variables.html#part-2-strings",
-    "title": "Exercise 1a: Variables & variable types",
-    "section": "Part 2: Strings",
-    "text": "Part 2: Strings\n\nPrint the string \"Null hypothesis: Eating ice cream does not improve mood\".\nStore it in a variable called null_hypothesis.\nPrint the first four characters of null_hypothesis.\nPrint the last four characters.\n\n\n\n\n\n\n\nNoteHint\n\n\n\n\n\nSquare brackets with a range: [start:stop]. And remember, stop is where it stops before. For the last few characters, count backwards with a minus.\n\n\n\n\n\n\n\n\n\nTipShow the code\n\n\n\n\n\nprint(\"Null hypothesis: Eating ice cream does not improve mood\")\nnull_hypothesis = \"Null hypothesis: Eating ice cream does not improve mood\"\nprint(null_hypothesis[0:4])   # Null\nprint(null_hypothesis[-4:])   # mood",
+    "objectID": "session1-python/08_logical_operations.html#if-statements-putting-operators-to-work",
+    "href": "session1-python/08_logical_operations.html#if-statements-putting-operators-to-work",
+    "title": "5 · Logical operations",
+    "section": "If statements: putting operators to work",
+    "text": "If statements: putting operators to work\nNow, very excitingly, we can use operators inside if statements, which evaluate a condition and execute the code inside them only if the condition is met:\nx = 1\ny = 2\nz = 3\n\n# The indented code runs *only if* x &lt; y evaluates to True.\nif x &lt; y:\n    print(x &lt; y)\n&gt;&gt;&gt; True\nHere x is indeed less than y, so the condition holds and the code inside the statement runs. The syntax pattern (notice the colon and the indentation: same shape as loops):\nif some_condition_that_is_true_or_false:\n    code that runs ONLY when the condition is True\nBecause the indented code is executed only conditionally, if statements are called control flow statements: they control which code runs.\n\nIf–else statements\nThe final flourish for today. Suppose you want to run one line when a condition is true and a different line when it is not: enter if-else:\nif x &lt; y:\n    print(f\"{x} is less than {y}\")\nelse:\n    print(f\"{x} is not less than {y}\")  # runs *only* when the condition fails.\n&gt;&gt;&gt; 1 is less than 2\nNote the colon after else and the indentation: the same syntax rules as if. We can of course use logical operators in the condition:\nif x &lt; y and x == 1:\n    print(f\"{x} is less than {y} and equals 1\")\nelse:\n    print(f\"{x} is not both less than {y} and equal to 1\")\n&gt;&gt;&gt; 1 is less than 2 and equals 1\nFinally, conditions can have more than two branches. elif tests a new condition when the previous one failed, and statements can even be nested:\nif x &lt; 10:\n    if x == 1:\n        print(\"x is equal to 1\")\n    elif x == 2:\n        print(\"x is equal to 2\")\n    else:\n        print(\"x is less than 10 but not equal to 1 or 2\")\nelse:\n    print(\"x is 10 or more\")\n\nSuppose we set x = 2 and run the nested block. What prints?\n\nTrue, 2 is less than 10, so we enter the outer block. But then the inner checks run: which one catches x = 2 first?\n\n\nx is equal to 2: the outer if x &lt; 10 passes, then the inner if x == 1 fails, so the elif x == 2 gets its turn and matches. Only one branch of an if/elif/else chain ever runs: the first one whose condition is True.\n\n\n\nAnd a naming question: what does elif stand for in plain language?\n\nElse if: test another condition, but only when the preceding if (or elif) came up False.\n\n\n\n\n\n\n\n\nSummary\n\n\n\nYou have learned to perform basic Boolean operations. Operations that result in true-or-false output. Relational operators compare values; logical operators combine the Boolean results of two or more conditions. And if, if–else, elif and nested statements let those conditions control which code runs. In the PsychoPy sessions, this is precisely how feedback works: if the participant pressed the correct key, show the success image, else, show failure.\n\n\nPredictions checked? Green sticky. Next: Functions.",
     "crumbs": [
       "Home",
       "Session 1 · Python basics",
-      "Block 2 · Variables and data types",
-      "Exercise 1a: Variables & data types"
+      "Block 4 · Logical operations",
+      "Logical operations"
     ]
   },
   {
-    "objectID": "session1-python/03_exercise1_variables.html#part-3-string-methods",
-    "href": "session1-python/03_exercise1_variables.html#part-3-string-methods",
-    "title": "Exercise 1a: Variables & variable types",
-    "section": "Part 3: String methods",
-    "text": "Part 3: String methods\n\nSplit null_hypothesis by spaces and store the output in a variable called split_var.\nPrint split_var[1]. What is the output? What is the function of the square brackets, and of the index inside them?\nPrint the second character of split_var[1].\nSplit null_hypothesis by the colon (:) character and store the output in a new variable.\nIndex the word 'hypothesis' out of split_var and store it in a variable called hypothesis_word. Look closely at what you get.\nConvert hypothesis_word to upper case and store it in hypothesis_word_upper.\nUse .replace() to replace the word hypothesis in null_hypothesis with hypothesis_word_upper.\nTest whether hypothesis_word_upper starts with \"H\".\nGet the length of null_hypothesis.\n\n\n\n\n\n\n\nNoteHint\n\n\n\n\n\nTasks 2–3: one pair of brackets picks an item from the list; a second pair picks a character from that string. Task 5: split() cut on spaces, so what happened to the colon that had no space before it? Task 7: .replace() wants two things: what to find, and what to put there.\n\n\n\n\n\n\n\n\n\nTipShow the code\n\n\n\n\n\nsplit_var = null_hypothesis.split()\nprint(split_var[1])            # hypothesis: — note the colon came along!\nprint(split_var[1][1])         # y\nsplit_by_colon = null_hypothesis.split(\":\")\nhypothesis_word = split_var[1]                    # 'hypothesis:' (colon included)\nhypothesis_word_upper = hypothesis_word.upper()   # 'HYPOTHESIS:'\nprint(null_hypothesis.replace(\"hypothesis\", hypothesis_word_upper))\nprint(hypothesis_word_upper.startswith(\"H\"))      # True\nprint(len(null_hypothesis))                       # 55",
+    "objectID": "session1-python/06_loops.html",
+    "href": "session1-python/06_loops.html",
+    "title": "4 · Loops",
+    "section": "",
+    "text": "Block 3 · Chapter follows Exercise 2. Understand basic for and while loops.",
     "crumbs": [
       "Home",
       "Session 1 · Python basics",
-      "Block 2 · Variables and data types",
-      "Exercise 1a: Variables & data types"
+      "Block 3 · Lists & Loops",
+      "Loops"
     ]
   },
   {
-    "objectID": "session1-python/03_exercise1_variables.html#part-4-numbers",
-    "href": "session1-python/03_exercise1_variables.html#part-4-numbers",
-    "title": "Exercise 1a: Variables & variable types",
-    "section": "Part 4: Numbers",
-    "text": "Part 4: Numbers\n\nMake an integer variable and a floating-point variable.\nPrint the types of both.\nAdd them. What type is the result?\nSubtract them. What happens?\nDivide them.\nMultiply them and store the output in a new variable.\n\n\n\n\n\n\n\nTipShow the code\n\n\n\n\n\nn_trials = 20\nmean_rt = 0.45\nprint(type(n_trials), type(mean_rt))\nprint(n_trials + mean_rt)    # 20.45 — int + float gives float\nprint(n_trials - mean_rt)\nprint(n_trials / mean_rt)\nproduct = n_trials * mean_rt\nprint(product)",
+    "objectID": "session1-python/06_loops.html#what-is-a-loop",
+    "href": "session1-python/06_loops.html#what-is-a-loop",
+    "title": "4 · Loops",
+    "section": "What is a loop?",
+    "text": "What is a loop?\nA loop is a programming structure that repeats a block of code. In this lesson you will meet the two common types:\n\nFor loops repeat code once for each item in a collection, such as a list.\nWhile loops repeat code while a condition is true.\n\nThis is the single most important chapter of the day for what comes next: when we start learning PsychoPy, we’ll learn that an experiment is a loop: for each stimulus: show it, record a response, give feedback.",
     "crumbs": [
       "Home",
       "Session 1 · Python basics",
-      "Block 2 · Variables and data types",
-      "Exercise 1a: Variables & data types"
+      "Block 3 · Lists & Loops",
+      "Loops"
     ]
   },
   {
-    "objectID": "session1-python/03_exercise1_variables.html#part-5-f-strings",
-    "href": "session1-python/03_exercise1_variables.html#part-5-f-strings",
-    "title": "Exercise 1a: Variables & variable types",
-    "section": "Part 5: f-strings",
-    "text": "Part 5: f-strings\nImagine printing information about the current subject on an experiment screen. The subject differs in each experiment, and so does their reaction time.\n\nMake a variable with a subject ID and one with a reaction time.\nPrint an expression that says The current subject is followed by the subject’s ID, using an f-string.\nPrint an expression that says The current subject is [ID] and their reaction time is [RT], both values inserted from your variables. Bonus: show the reaction time with exactly 2 decimals.\n\n\n\n\n\n\n\nNoteHint\n\n\n\n\n\nAn f-string starts with f before the opening quote, and variables go inside curly brackets. For the bonus: the decimals recipe was {variable:.2f}. Where do the colon and .2f sit?\n\n\n\n\n\n\n\n\n\nTipShow the code\n\n\n\n\n\nsubject_id = \"S_01\"\nreaction_time = 0.4567\nprint(f\"The current subject is {subject_id}\")\nprint(f\"The current subject is {subject_id} and their reaction time is {reaction_time:.2f}\")\n\n\n\nEverything runs? Take a breather, or try the stretch task below.",
+    "objectID": "session1-python/06_loops.html#for-loops",
+    "href": "session1-python/06_loops.html#for-loops",
+    "title": "4 · Loops",
+    "section": "For loops",
+    "text": "For loops\nImagine you have five subject IDs and want to print each one. You could write a separate print() for every subject:\nprint(\"S01\")\nprint(\"S02\")\n...\nprint(\"S05\")\nThis becomes repetitive and difficult to update. Instead, store the IDs in a list and loop through the items:\nsubject_ids = ['S01', 'S02', 'S03', 'S04', 'S05']\n\nfor subject in subject_ids:\n    print(subject)\n&gt;&gt;&gt; S01\n&gt;&gt;&gt; S02\n&gt;&gt;&gt; S03\n&gt;&gt;&gt; S04\n&gt;&gt;&gt; S05\nIn plain language: for every item in subject_ids, store that item in subject and print it. Notice the syntax: the for statement ends with a colon, and the next line is indented. That indented part is the body of the loop, and it runs once per item. Each repetition is called an iteration; during each one, subject temporarily holds the current ID.\n\nYour turn. Using a list from Exercise 2: what does this print?\nanimals = ['cat', 'dog', 'owl']\nfor animal in animals:\n    print(animal)\n\nThe loop variable holds one item at a time. Not the list, and not the word “animals”.\n\n\nThree lines: cat, dog, owl; one iteration per item, one print per iteration.",
     "crumbs": [
       "Home",
       "Session 1 · Python basics",
-      "Block 2 · Variables and data types",
-      "Exercise 1a: Variables & data types"
+      "Block 3 · Lists & Loops",
+      "Loops"
     ]
   },
   {
-    "objectID": "session1-python/03_exercise1_variables.html#done-early",
-    "href": "session1-python/03_exercise1_variables.html#done-early",
-    "title": "Exercise 1a: Variables & variable types",
-    "section": "Done early?",
-    "text": "Done early?\nBuild the full sentence in one go: using only split_var, .upper() and an f-string, print We failed to reject the NULL HYPOTHESIS., without typing the words “null” or “hypothesis” yourself.",
+    "objectID": "session1-python/06_loops.html#looping-by-index",
+    "href": "session1-python/06_loops.html#looping-by-index",
+    "title": "4 · Loops",
+    "section": "Looping by index",
+    "text": "Looping by index\nYou can also loop through the index positions of a list. This is useful when you need both an item’s position and its value:\n# Get the total number of subjects.\nnumber_of_subjects = len(subject_ids)\n\n# Create indices from 0 up to, but not including, number_of_subjects.\nsubject_index_range = range(number_of_subjects)\n\n# Use each index to retrieve the corresponding subject ID.\nfor index in subject_index_range:\n    print(f\"Subject {index + 1}: {subject_ids[index]}\")\nSubject 1: S01\nSubject 2: S02\nSubject 3: S03\nSubject 4: S04\nSubject 5: S05\nLook closely at index + 1: the indices run 0-4 (zero-indexed, as ever), but humans count subjects from 1, so we print index + 1 while using plain index for the lookup.",
+    "crumbs": [
+      "Home",
+      "Session 1 · Python basics",
+      "Block 3 · Lists & Loops",
+      "Loops"
+    ]
+  },
+  {
+    "objectID": "session1-python/06_loops.html#counter-variables",
+    "href": "session1-python/06_loops.html#counter-variables",
+    "title": "4 · Loops",
+    "section": "Counter variables",
+    "text": "Counter variables\nSometimes you need to update a number on every iteration. This number is called a counter variable — here counting how many days have been processed:\nweekdays = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']\n\n# Start a counter at zero.\nday_of_week = 0\n\n# Print each day, then add 1 to the counter.\nfor day in weekdays:\n    print(f\"The current day is {day}\")\n    day_of_week += 1\nThe current day is monday\nThe current day is tuesday\nThe current day is wednesday\nThe current day is thursday\nThe current day is friday\nThe current day is saturday\nThe current day is sunday\n(+= 1 is shorthand for day_of_week = day_of_week + 1. Add one to what’s there.). Notice the syntax: the for statement ends with a colon, and the loop body must be indented.\n\nAfter the loop finishes, we print the counter:\nprint(f\"There are {day_of_week} days in the list.\")\nWhat exactly appears?\n\nCareful. The counter started at 0, but it was incremented once for every item. How many increments happened?\n\n\nThere are 7 days in the list.. The counter went 0→7, one += 1 per iteration. Starting at 0 doesn’t mean ending one short: seven items, seven increments.",
+    "crumbs": [
+      "Home",
+      "Session 1 · Python basics",
+      "Block 3 · Lists & Loops",
+      "Loops"
+    ]
+  },
+  {
+    "objectID": "session1-python/06_loops.html#while-loops",
+    "href": "session1-python/06_loops.html#while-loops",
+    "title": "4 · Loops",
+    "section": "While loops",
+    "text": "While loops\nWhile loops repeat a block of code while a condition is True. You will learn more about conditions in the logical-operations lesson. For now, read this example and predict before running:\nday_of_week = 0\n\nwhile day_of_week &lt; 6:\n    print(f\"The current day is {weekdays[day_of_week]}\")\n    # Move to the next index so the condition will eventually become False.\n    day_of_week += 1\n\nBefore you run it: how many lines does this print?\n\nThe condition is day_of_week &lt; 6: strictly less than. Which values of the counter pass that test?\n\n\n6 lines: monday through saturday. The counter values 0,1,2,3,4,5 pass the &lt; 6 test; when it reaches 6, the condition is False and the loop stops before printing sunday. &lt; versus &lt;= is a one-character difference with a one-iteration consequence.\n\n\nOne warning while we’re here: the comment in the body is not decoration. If you forget the day_of_week += 1, the condition never becomes False — and the loop runs forever. It happens to everyone once; when it happens to you, click the console and press Ctrl-C to stop it.\n\n\n\n\n\n\nSummary\n\n\n\nLoops repeat code. Use a for loop to work through each item in a collection, and an index-based for loop when you also need each item’s position. A counter variable records progress by changing on every iteration. Use a while loop when repetition should continue only while a condition is True, and make sure something in the body eventually makes it False.\n\n\nPredictions checked? Next: Exercise 3: Loops.",
+    "crumbs": [
+      "Home",
+      "Session 1 · Python basics",
+      "Block 3 · Lists & Loops",
+      "Loops"
+    ]
+  },
+  {
+    "objectID": "session1-python/04_lists.html",
+    "href": "session1-python/04_lists.html",
+    "title": "3 · Lists",
+    "section": "",
+    "text": "Block 3 · Chapter 4 of the day. Understand what a list is and how to use lists effectively.",
+    "crumbs": [
+      "Home",
+      "Session 1 · Python basics",
+      "Block 3 · Lists & Loops",
+      "Lists"
+    ]
+  },
+  {
+    "objectID": "session1-python/04_lists.html#what-are-lists",
+    "href": "session1-python/04_lists.html#what-are-lists",
+    "title": "3 · Lists",
+    "section": "What are lists?",
+    "text": "What are lists?\nA list is, literally, a list of items, stored in order, that can be changed (lists are mutable, a word that will matter shortly). You define one with square brackets, items separated by commas:\nvariable_name = [item1, item2, item3]\nLists can contain items of the same type or of different types, and this is the data structure experiments run on: a list of stimuli, a list of responses, a list of reaction times.",
+    "crumbs": [
+      "Home",
+      "Session 1 · Python basics",
+      "Block 3 · Lists & Loops",
+      "Lists"
+    ]
+  },
+  {
+    "objectID": "session1-python/04_lists.html#making-lists",
+    "href": "session1-python/04_lists.html#making-lists",
+    "title": "3 · Lists",
+    "section": "Making lists",
+    "text": "Making lists\nYou can create lists with all strings, all numeric data, or a combination:\n# First, simple lists of same-type items.\nshopping = [\"apples\", \"pears\", \"bananas\"]\ntest_scores = [90, 60, 100, 82]\n\n# Now mixed items.\nmixed_list = [\"cats\", 7, 309.45]\n\nprint(test_scores)\nprint(mixed_list)\n&gt;&gt;&gt; [90, 60, 100, 82]\n&gt;&gt;&gt; ['cats', 7, 309.45]\nYou can also put lists inside lists:\ncombined = [shopping, test_scores, mixed_list]\nprint(combined)\n&gt;&gt;&gt; [['apples', 'pears', 'bananas'], [90, 60, 100, 82], ['cats', 7, 309.45]]\nThree items: each of which is itself a list. Keep that picture in mind for the prediction below.",
+    "crumbs": [
+      "Home",
+      "Session 1 · Python basics",
+      "Block 3 · Lists & Loops",
+      "Lists"
+    ]
+  },
+  {
+    "objectID": "session1-python/04_lists.html#indexing-lists",
+    "href": "session1-python/04_lists.html#indexing-lists",
+    "title": "3 · Lists",
+    "section": "Indexing lists",
+    "text": "Indexing lists\nWe index lists just like we indexed character strings: square brackets after the name, index inside.\nprint(shopping[0])\nprint(shopping[1])\nprint(shopping[2])\napples\npears\nbananas\nYou may recognise this syntax from the previous block. That’s because we were already working with lists when we used .split(): splitting a string returns a list, and everything you learned there (zero-indexing, negative indexing, two brackets for two levels) applies to all lists.\n\nSub-indexing, then: what does shopping[0][0:2] return?\n\nThat’s shopping[0]: the whole first item. The second bracket slices into that string: which characters does [0:2] take?\n\n\n'ap': shopping[0] picks the string 'apples' out of the list, and [0:2] slices characters 0 and 1 out of that string. Stops before 2, as always.\n\n\n\nAnd the list of lists: what does combined[1] give you?\n\nClose if you answered 60, but count the brackets. One pair of brackets goes one level deep. What lives at position 1 of combined?\n\n\n[90, 60, 100, 82] — the entire second list. combined’s items are whole lists, so one index retrieves a whole list. To reach 60 you’d go two levels: combined[1][1].",
+    "crumbs": [
+      "Home",
+      "Session 1 · Python basics",
+      "Block 3 · Lists & Loops",
+      "Lists"
+    ]
+  },
+  {
+    "objectID": "session1-python/04_lists.html#changing-list-items",
+    "href": "session1-python/04_lists.html#changing-list-items",
+    "title": "3 · Lists",
+    "section": "Changing list items",
+    "text": "Changing list items\nLists are mutable: we can change their contents after creating them. Remember upper(), which returned a new string and left the original untouched? Lists are the opposite. These operations change the list itself, in place. Three ways to do it:\n\nReplace an item, using indexing.\nAppend an item to the end.\nInsert an item at a chosen position.\n\nPredict each print() before you run it. This is where the bracket-counting pays off. Our starting point:\nprint(shopping)\n['apples', 'pears', 'bananas']\nReplace the second item:\nshopping[1] = \"kiwi\"\nprint(shopping)\n['apples', 'kiwi', 'bananas']\nGoodbye pears: index 1 is the second item. Now append:\nshopping.append(\"raspberry\")\nprint(shopping)\n['apples', 'kiwi', 'bananas', 'raspberry']\nappend() always adds at the end. Finally, insert at a particular position:\nshopping.insert(1, \"blueberry\")\n\nThe finale: what does print(shopping) show now? Type the full list.\n\nAlmost — insert(1, ...) puts the new item at index 1, and everything from there shifts right. Who ends up second?\n\n\n['apples', 'blueberry', 'kiwi', 'bananas', 'raspberry']. insert(1, ...) places blueberry at index 1 and shifts kiwi, bananas and raspberry one step right. Nothing is overwritten. That’s the difference from shopping[1] = ..., which replaces.\n\n\nIn the PsychoPy sessions, these operations will become very familiar: stimuli is a list of image filenames, responses.append(key) collects what the participant pressed, and shuffling a list gives every participant their own trial order.\nAll predictions checked? Next: Exercise 2 — Lists.",
+    "crumbs": [
+      "Home",
+      "Session 1 · Python basics",
+      "Block 3 · Lists & Loops",
+      "Lists"
+    ]
+  },
+  {
+    "objectID": "session1-python/02_variables.html",
+    "href": "session1-python/02_variables.html",
+    "title": "2 · Basics: Variables & variable types",
+    "section": "",
+    "text": "Block 2 · Chapter 2 of 3 before the first break. Understand what a variable is in Python & the different types of variables.",
     "crumbs": [
       "Home",
       "Session 1 · Python basics",
       "Block 2 · Variables and data types",
-      "Exercise 1a: Variables & data types"
+      "Variables and regular data types"
+    ]
+  },
+  {
+    "objectID": "session1-python/02_variables.html#what-is-a-variable",
+    "href": "session1-python/02_variables.html#what-is-a-variable",
+    "title": "2 · Basics: Variables & variable types",
+    "section": "What is a variable?",
+    "text": "What is a variable?\nA variable is a name we give to a value so we can store it and use it later in our code. The name stays the same, but the value stored in it can change while the program is running. A variable can store a number, a word, or a list of values.",
+    "crumbs": [
+      "Home",
+      "Session 1 · Python basics",
+      "Block 2 · Variables and data types",
+      "Variables and regular data types"
+    ]
+  },
+  {
+    "objectID": "session1-python/02_variables.html#your-first-variable",
+    "href": "session1-python/02_variables.html#your-first-variable",
+    "title": "2 · Basics: Variables & variable types",
+    "section": "Your first variable",
+    "text": "Your first variable\nLet’s create our first variable in Python. We will call it my_name and store a name in it.\nmy_name = \"anna\"\nWe can also add comments to explain what our code is doing. In Python, a comment starts with #. Everything after # on that line is ignored by Python.\n# This variable stores my name.\nmy_name = \"anna\"\nNow run the code by selecting it in your file and pressing Shift+Enter.\nYou will see the code executed in the console below. If you then type my_name on a new line and press Enter, Python will print the value stored in the variable:\n&gt;&gt;&gt; my_name = 'anna'\n&gt;&gt;&gt; my_name\n'anna'\nAn easier way to see the output is to use the print() function:\n# This variable stores my name.\nmy_name = \"anna\"\n\n# This line prints the value stored in my_name.\nprint(my_name)\nSelect these lines and press Shift+Enter. You should see the value of my_name appear in the console.",
+    "crumbs": [
+      "Home",
+      "Session 1 · Python basics",
+      "Block 2 · Variables and data types",
+      "Variables and regular data types"
+    ]
+  },
+  {
+    "objectID": "session1-python/02_variables.html#variable-types",
+    "href": "session1-python/02_variables.html#variable-types",
+    "title": "2 · Basics: Variables & variable types",
+    "section": "Variable types",
+    "text": "Variable types\nPython allows us to create variables that store different kinds of data. Today we will focus on some of the most common variable types.\nWe can find the type of a variable by using the type() function:\n# Query the type of my_name.\ntype(my_name)\nThis returns &lt;class 'str'&gt;, which means that my_name is a string variable.",
+    "crumbs": [
+      "Home",
+      "Session 1 · Python basics",
+      "Block 2 · Variables and data types",
+      "Variables and regular data types"
+    ]
+  },
+  {
+    "objectID": "session1-python/02_variables.html#data-type-1-regular-string-variables",
+    "href": "session1-python/02_variables.html#data-type-1-regular-string-variables",
+    "title": "2 · Basics: Variables & variable types",
+    "section": "Data Type 1: Regular string variables",
+    "text": "Data Type 1: Regular string variables\nString variables are defined by strings of characters. String variables are specified using single or double quotation marks around the string.\n# If you use single quotes here, it won't work. Why?\ndog_name_possessive = 'anna's dog's name is..'\n\n# If you use double-quotes here it will work. \ndog_name_possessive = \"anna's dog's name is..\"\n\n\n\n\n\n\n🤔 Think first\n\n\n\nWhy does the single-quoted version fail while the double-quoted version works?\n\n\n\n\n\n\nCheck your thinking\n\n\n\n\n\nThe apostrophe in anna’s ends the single-quoted string early. Python thinks the string stops after anna, and the rest is nonsense to it. Double quotes let Python see the apostrophe as just another character inside the string.\n\n\n\n\n\n\nIndexing\nStrings are stored like arrays of characters, meaning that you can individually access single characters in the string using indexing (square brackets around the indices you want to extract).\n# Here you are indexing the first 4 characters in the variable my_name_possessive. \n# You use square brackets around the indices that you want to extract.\ndog_name_possessive[0:4] # extract 4 characters from the 0th character.\n\n# you can also count backwards from the end of a string using the minus sign, e.g.:\ndog_name_possessive[-4:]\nYou may have noticed that we start indexing at 0 instead of 1. This is because Python is a zero-indexed language, so whenever you have a multi-item variable, the first item is always indexed using 0 instead of 1. CAREFUL: R is a 1-indexed langauge, so you always index the first item in a multi-item variable using 1 in R instead of 0.\n\nBefore you run it: what will dog_name_possessive[0:4] give you?\n\nanna — characters 0, 1, 2 and 3. The index range [0:4] starts at 0 and stops before 4, so you get exactly 4 characters. (The console shows it wrapped in quotes — 'anna' — because it is a string.)\n\n\n:::",
+    "crumbs": [
+      "Home",
+      "Session 1 · Python basics",
+      "Block 2 · Variables and data types",
+      "Variables and regular data types"
+    ]
+  },
+  {
+    "objectID": "session1-python/02_variables.html#string-methods",
+    "href": "session1-python/02_variables.html#string-methods",
+    "title": "2 · Basics: Variables & variable types",
+    "section": "String methods",
+    "text": "String methods\nString variables have many built-in methods that we can call on them. Here are some useful string methods:\n\nsplit()\nIf you type the name of your string variable followed by .split(), Python splits the string into smaller pieces, using the space character as the default delimiter. Try it in the console:\ndog_name_possessive.split()\n&gt;&gt;&gt; [\"anna's\", \"dog's\", 'name', 'is..']\nThe split() method returns a list of strings. Each item is one part of the original text, separated by the chosen delimiter.\nYou can store the output in a variable, and since it is a list, you can index it, even down to characters within each item:\nsplit_variable = dog_name_possessive.split()\nsplit_variable[0]\nsplit_variable[0][0]  # first letter of first word.\nsplit_variable[1][1]  # second letter of second word.\n&gt;&gt;&gt; split_variable[0]\n&gt;&gt;&gt; \"anna's\"\n&gt;&gt;&gt; split_variable[0][0]  # first letter of first word.\n&gt;&gt;&gt; 'a'\n&gt;&gt;&gt; split_variable[1][1]  # second letter of second word.\n&gt;&gt;&gt; 'o'\nSo split_variable[1][1] means: take item 1 of the list (\"dog's\": remember, zero-indexed!), then character 1 of that string.\nYou can also use split() with a different delimiter, such as an underscore:\nsubject_id = \"S_01\"\nsubject_id.split(\"_\")\n['S', '01']\n\nGiven responses = \"left right left left\", what does responses.split() return?\n\n['left', 'right', 'left', 'left']: a list of four strings, one per word. Repeats are kept; split() just cuts, it doesn’t deduplicate.\n\n\n\nGiven date = \"2026-09-14\", what does date.split(\"-\") return?\n\nThe delimiter is the cut line — it doesn’t survive into the pieces.\n\n\n['2026', '09', '14']. Three pieces, dashes gone. Note they are strings, not numbers: '09' keeps its leading zero, and you couldn’t do maths with it without converting first.\n\n\n\n\nupper()\nThe upper() method converts all letters in a string to uppercase.\nname = \"anna\"\nname.upper()\n&gt;&gt;&gt; 'ANNA'\nNote that upper() does not change name itself — it returns a new, uppercased string. If you want to keep it, store it:\nname_upper = name.upper()\nprint(name_upper)\n&gt;&gt;&gt; ANNA\n# or store the result in a new variable.\nname_upper = name.upper()\nprint(name_upper)\nHere are a few more useful string methods:\nword = \" subject_01 \"\nprint(word.lower())\nprint(word.strip())\nprint(word.replace(\"p\", \"P\"))\nprint(word.startswith(\" \"))\nprint(word.endswith(\" \"))\n\n\nlen()\nAnd, finally, we can get the length of a string variable using len() (not a string-specific method)\nlen(word)\n&gt;&gt;&gt; 12\nThe 10 characters of subject_01 plus the two spaces. Invisible characters count, which is exactly why .strip() exists.\nThere’s lots more that you can do with strings, but these are the basics!",
+    "crumbs": [
+      "Home",
+      "Session 1 · Python basics",
+      "Block 2 · Variables and data types",
+      "Variables and regular data types"
+    ]
+  },
+  {
+    "objectID": "session1-python/02_variables.html#data-type-2-regular-numeric-variables",
+    "href": "session1-python/02_variables.html#data-type-2-regular-numeric-variables",
+    "title": "2 · Basics: Variables & variable types",
+    "section": "Data Type 2: Regular numeric variables",
+    "text": "Data Type 2: Regular numeric variables\nNow let’s turn to our other fundamental variable type: numeric. There are two basic numeric types:\n\nIntegers: whole numbers (no decimal point)\nFloating points: numbers with a decimal point\n\n# This is an integer.\na = 1\ntype(a)\n&gt;&gt;&gt; int\n# This is a floating point.\nb = 1.5\ntype(b)\n&gt;&gt;&gt; float\nc = 1.00\n\nc stores the value one, but what does type(c) return? float or int?\n\n&lt;class 'float'&gt;: a floating point. The value is a whole number, but writing it with a decimal point makes it a float. What matters is how it is written, not what it equals.\n\n\nThe same logic applies to operations:\n# What happens when you combine types in operations?\nd = b + c\ntype(d)\n&gt;&gt;&gt; float\nAdding the float b to the float c gives a float — d is 2.5. And even when an operation on two floats produces a whole number, the result stays a floating point:\ne = 1.5 + 1.5\ntype(e)\nprint(e)\n&lt;class 'float'&gt;\n3.0\nThe value is three — but Python shows it as 3.0: the .0 is the float’s badge. It never silently becomes an integer.\nStandard numeric operations are addition (shown above), subtraction, multiplication and division:\nprint(a - b)   # subtraction\nprint(a * b)   # multiplication\nprint(a / b)   # division\n-0.5\n1.5\n0.6666666666666666",
+    "crumbs": [
+      "Home",
+      "Session 1 · Python basics",
+      "Block 2 · Variables and data types",
+      "Variables and regular data types"
+    ]
+  },
+  {
+    "objectID": "session1-python/02_variables.html#printing-variables-with-f-strings",
+    "href": "session1-python/02_variables.html#printing-variables-with-f-strings",
+    "title": "2 · Basics: Variables & variable types",
+    "section": "Printing variables with f-strings",
+    "text": "Printing variables with f-strings\nImagine that you want to print reaction times for a given subject on an experiment screen. The subject is different in each experiment, and so is their reaction time.\nYou can create a special expression called an f-string, where you embed variables inside a string: start the string with f, then place variable names inside curly brackets {}.\nsubject_id = \"S_01\"\nreaction_time = 0.45\nmessage = f\"Reaction time for {subject_id}: {reaction_time:.2f} seconds\"\nHere {subject_id} inserts the value of the subject ID variable, and {reaction_time:.2f} inserts the value of reaction_time, where .2f formats the number with two digits after the decimal point.\n\nWhat exactly does print(message) show?\n\nReaction time for S_01: 0.45 seconds: the curly-bracket parts are replaced by the variables’ values, and everything else is printed as-is. In Session 2, messages like this become the text you show on the experiment screen.\n\n\nAll predictions checked? Next: Exercise 1a — Variables & data types.",
+    "crumbs": [
+      "Home",
+      "Session 1 · Python basics",
+      "Block 2 · Variables and data types",
+      "Variables and regular data types"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Programming experiments: Python x PsychoPy",
+    "section": "",
+    "text": "Welcome! Over the coming workshop sessions, you’ll go from typing your very first line of Python to watching a full behavioural experiment run on your own screen: window, stimuli, responses, feedback, the lot. Between you and that moment stand a handful of Python concepts and a few dozen extremely fixable error messages. We assume no programming experience. If you can rename a file, you’re qualified to start.",
+    "crumbs": [
+      "Home",
+      "Workshop overview"
+    ]
+  },
+  {
+    "objectID": "index.html#why-programming",
+    "href": "index.html#why-programming",
+    "title": "Programming experiments: Python x PsychoPy",
+    "section": "Why programming?",
+    "text": "Why programming?\nNearly every empirical experiment in cognitive science (e.g. reaction-time studies, reading paradigms, eye-tracking, EEG) is implemented in code. A working knowledge of Python allows you to build precisely the experiment your research question requires, to understand the structure and provenance of your data, and to diagnose problems when they arise.\nThe aim of these three sessions is a modest form of fluency: by the end, the experiment running on your screen should be a system you can read, modify, and reason about. These skills will hopefully outlast the course: designing, implementing, and troubleshooting your own experiments is part of the everyday craft of working scientists, in cognitive science and well beyond.",
+    "crumbs": [
+      "Home",
+      "Workshop overview"
+    ]
+  },
+  {
+    "objectID": "index.html#why-python-and-not-r",
+    "href": "index.html#why-python-and-not-r",
+    "title": "Programming experiments: Python x PsychoPy",
+    "section": "Why Python and not R?",
+    "text": "Why Python and not R?\nThe Python programming language is optimal for coding experiments because it has a special library called PsychoPy for doing so.\nIn contrast, the R programming language is optimal for statistical analyses, as it was designed specifically for this purpose.\nTherefore, this workshop on programming for experiments focuses on Python instead of R, which you instead cover in your Methods 1 practical classes.\nHowever, as you will learn over the course of the semester, many of the programming concepts that we cover in Session 1 are generalizable to R and all other languages.",
+    "crumbs": [
+      "Home",
+      "Workshop overview"
+    ]
+  },
+  {
+    "objectID": "index.html#the-three-sessions",
+    "href": "index.html#the-three-sessions",
+    "title": "Programming experiments: Python x PsychoPy",
+    "section": "The three sessions",
+    "text": "The three sessions\nSession 1 · Python basics Variables, lists, loops, conditionals, functions. These are the handful of building blocks that all programs are made of. Everything you learn here gets used directly in Session 2.\n[Session 2 · Introduction to PsychoPy] (materials coming) PsychoPy is the Python library psychologists use to run experiments: it opens windows, draws stimuli, and records keypresses with precise timing. You build an experiment step by step and leave with a script that runs: images in random order, keyboard responses, feedback on every trial, and more..\nSession 3 · From cogwheels to words (materials coming) Swap the images for words, add a clock and a logfile, and your CogWheel script becomes a self-paced reading experiment, the direct starting point for your Portfolio 2 prototype.",
+    "crumbs": [
+      "Home",
+      "Workshop overview"
+    ]
+  },
+  {
+    "objectID": "index.html#how-the-sessions-work",
+    "href": "index.html#how-the-sessions-work",
+    "title": "Programming experiments: Python x PsychoPy",
+    "section": "How the sessions work",
+    "text": "How the sessions work\nEach session follows the same rhythm: a short lecture introduces the concepts and demonstrates them live, and you then put them to work in a set of exercises you complete on your own, at your own pace, with the teaching team circulating. Three habits will serve you well throughout:\n\nPredict before you run. Whenever you see a 🔮 Predict first box, write down what the code will do before running it.\nRun constantly. Run your code after every small change, not after twenty lines. Small steps make bugs easy to find.\nNever stay stuck. Ten minutes on the same bug is the signal to ask: check the error message, unfold the solution, or wave a teacher over. Sitting silently with a bug is the one wrong way to use these sessions.",
+    "crumbs": [
+      "Home",
+      "Workshop overview"
+    ]
+  },
+  {
+    "objectID": "index.html#what-you-need",
+    "href": "index.html#what-you-need",
+    "title": "Programming experiments: Python x PsychoPy",
+    "section": "What you need",
+    "text": "What you need\n\nYour own laptop with PsychoPy installed. Install instructions are sent out before Session 2, and each session starts with a setup check. If the install fights back, come 15 minutes early.\nCuriosity. A willingness to try things, break things, and read the occasional error message will carry you further than any prior experience would.\n\nReady? Start with Session 1.",
+    "crumbs": [
+      "Home",
+      "Workshop overview"
     ]
   },
   {
@@ -283,316 +557,172 @@
     ]
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Programming experiments: Python x PsychoPy",
+    "objectID": "session1-python/03_exercise1_variables.html",
+    "href": "session1-python/03_exercise1_variables.html",
+    "title": "Exercise 1a: Variables & variable types",
     "section": "",
-    "text": "Welcome! Over the coming workshop sessions, you’ll go from typing your very first line of Python to watching a full behavioural experiment run on your own screen: window, stimuli, responses, feedback, the lot. Between you and that moment stand a handful of Python concepts and a few dozen extremely fixable error messages. We assume no programming experience. If you can rename a file, you’re qualified to start.",
+    "text": "Block 2 · Your first exercise! Everything you need is in Chapter 2.\nHow exercises work: try each task yourself first. The point is the attempt, not speed. Every part has a folded Show the code with a working solution; stuck for ten minutes means unfold it, understand it, move on. That is the intended way to use this material, not cheating.",
     "crumbs": [
       "Home",
-      "Workshop overview"
+      "Session 1 · Python basics",
+      "Block 2 · Variables and data types",
+      "Exercise 1a: Variables & data types"
     ]
   },
   {
-    "objectID": "index.html#why-programming",
-    "href": "index.html#why-programming",
-    "title": "Programming experiments: Python x PsychoPy",
-    "section": "Why programming?",
-    "text": "Why programming?\nNearly every empirical experiment in cognitive science (e.g. reaction-time studies, reading paradigms, eye-tracking, EEG) is implemented in code. A working knowledge of Python allows you to build precisely the experiment your research question requires, to understand the structure and provenance of your data, and to diagnose problems when they arise.\nThe aim of these three sessions is a modest form of fluency: by the end, the experiment running on your screen should be a system you can read, modify, and reason about. These skills will hopefully outlast the course: designing, implementing, and troubleshooting your own experiments is part of the everyday craft of working scientists, in cognitive science and well beyond.",
+    "objectID": "session1-python/03_exercise1_variables.html#setup",
+    "href": "session1-python/03_exercise1_variables.html#setup",
+    "title": "Exercise 1a: Variables & variable types",
+    "section": "Setup",
+    "text": "Setup\nCreate a new Python code file in the Coder on UCloud, and save it in /work/cogsci_methods01_e26 (or whatever you have named your methods cogsci folder). Do all of today’s tasks in this file.",
     "crumbs": [
       "Home",
-      "Workshop overview"
+      "Session 1 · Python basics",
+      "Block 2 · Variables and data types",
+      "Exercise 1a: Variables & data types"
     ]
   },
   {
-    "objectID": "index.html#why-python-and-not-r",
-    "href": "index.html#why-python-and-not-r",
-    "title": "Programming experiments: Python x PsychoPy",
-    "section": "Why Python and not R?",
-    "text": "Why Python and not R?\nThe Python programming language is optimal for coding experiments because it has a special library called PsychoPy for doing so.\nIn contrast, the R programming language is optimal for statistical analyses, as it was designed specifically for this purpose.\nTherefore, this workshop on programming for experiments focuses on Python instead of R, which you instead cover in your Methods 1 practical classes.\nHowever, as you will learn over the course of the semester, many of the programming concepts that we cover in Session 1 are generalizable to R and all other languages.",
+    "objectID": "session1-python/03_exercise1_variables.html#part-1-your-first-variable",
+    "href": "session1-python/03_exercise1_variables.html#part-1-your-first-variable",
+    "title": "Exercise 1a: Variables & variable types",
+    "section": "Part 1: Your first variable",
+    "text": "Part 1: Your first variable\n\nMake a variable of any type, with a comment above it describing it.\nPrint its value to the console.\nPrint its type to the console.\n\n\n\n\n\n\n\nShow the code\n\n\n\n\n\n# My favourite number of coffees per day.\ncoffees = 3\nprint(coffees)\nprint(type(coffees))",
     "crumbs": [
       "Home",
-      "Workshop overview"
+      "Session 1 · Python basics",
+      "Block 2 · Variables and data types",
+      "Exercise 1a: Variables & data types"
     ]
   },
   {
-    "objectID": "index.html#the-three-sessions",
-    "href": "index.html#the-three-sessions",
-    "title": "Programming experiments: Python x PsychoPy",
-    "section": "The three sessions",
-    "text": "The three sessions\nSession 1 · Python basics Variables, lists, loops, conditionals, functions. These are the handful of building blocks that all programs are made of. Everything you learn here gets used directly in Session 2.\n[Session 2 · Introduction to PsychoPy] (materials coming) PsychoPy is the Python library psychologists use to run experiments: it opens windows, draws stimuli, and records keypresses with precise timing. You build an experiment step by step and leave with a script that runs: images in random order, keyboard responses, feedback on every trial, and more..\nSession 3 · From cogwheels to words (materials coming) Swap the images for words, add a clock and a logfile, and your CogWheel script becomes a self-paced reading experiment, the direct starting point for your Portfolio 2 prototype.",
+    "objectID": "session1-python/03_exercise1_variables.html#part-2-strings",
+    "href": "session1-python/03_exercise1_variables.html#part-2-strings",
+    "title": "Exercise 1a: Variables & variable types",
+    "section": "Part 2: Strings",
+    "text": "Part 2: Strings\n\nPrint the string \"Null hypothesis: Eating ice cream does not improve mood\".\nStore it in a variable called null_hypothesis.\nPrint the first four characters of null_hypothesis.\nPrint the last four characters.\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nSquare brackets with a range: [start:stop]. And remember, stop is where it stops before. For the last few characters, count backwards with a minus.\n\n\n\n\n\n\n\n\n\nShow the code\n\n\n\n\n\nprint(\"Null hypothesis: Eating ice cream does not improve mood\")\nnull_hypothesis = \"Null hypothesis: Eating ice cream does not improve mood\"\nprint(null_hypothesis[0:4])   # Null\nprint(null_hypothesis[-4:])   # mood",
     "crumbs": [
       "Home",
-      "Workshop overview"
+      "Session 1 · Python basics",
+      "Block 2 · Variables and data types",
+      "Exercise 1a: Variables & data types"
     ]
   },
   {
-    "objectID": "index.html#how-the-sessions-work",
-    "href": "index.html#how-the-sessions-work",
-    "title": "Programming experiments: Python x PsychoPy",
-    "section": "How the sessions work",
-    "text": "How the sessions work\nEach session follows the same rhythm: a short lecture introduces the concepts and demonstrates them live, and you then put them to work in a set of exercises you complete on your own, at your own pace, with the teaching team circulating. Three habits will serve you well throughout:\n\nPredict before you run. Whenever you see a 🔮 Predict first box, write down what the code will do before running it.\nRun constantly. Run your code after every small change, not after twenty lines. Small steps make bugs easy to find.\nNever stay stuck. Ten minutes on the same bug is the signal to ask: check the error message, unfold the solution, or wave a teacher over. Sitting silently with a bug is the one wrong way to use these sessions.",
+    "objectID": "session1-python/03_exercise1_variables.html#part-3-string-methods",
+    "href": "session1-python/03_exercise1_variables.html#part-3-string-methods",
+    "title": "Exercise 1a: Variables & variable types",
+    "section": "Part 3: String methods",
+    "text": "Part 3: String methods\n\nSplit null_hypothesis by spaces and store the output in a variable called split_var.\nPrint split_var[1]. What is the output? What is the function of the square brackets, and of the index inside them?\nPrint the second character of split_var[1].\nSplit null_hypothesis by the colon (:) character and store the output in a new variable.\nIndex the word 'hypothesis' out of split_var and store it in a variable called hypothesis_word. Look closely at what you get.\nConvert hypothesis_word to upper case and store it in hypothesis_word_upper.\nUse .replace() to replace the word hypothesis in null_hypothesis with hypothesis_word_upper.\nTest whether hypothesis_word_upper starts with \"H\".\nGet the length of null_hypothesis.\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nTasks 2–3: one pair of brackets picks an item from the list; a second pair picks a character from that string. Task 5: split() cut on spaces, so what happened to the colon that had no space before it? Task 7: .replace() wants two things: what to find, and what to put there.\n\n\n\n\n\n\n\n\n\nShow the code\n\n\n\n\n\nsplit_var = null_hypothesis.split()\nprint(split_var[1])            # hypothesis: — note the colon came along!\nprint(split_var[1][1])         # y\nsplit_by_colon = null_hypothesis.split(\":\")\nhypothesis_word = split_var[1]                    # 'hypothesis:' (colon included)\nhypothesis_word_upper = hypothesis_word.upper()   # 'HYPOTHESIS:'\nprint(null_hypothesis.replace(\"hypothesis\", hypothesis_word_upper))\nprint(hypothesis_word_upper.startswith(\"H\"))      # True\nprint(len(null_hypothesis))                       # 55",
     "crumbs": [
       "Home",
-      "Workshop overview"
+      "Session 1 · Python basics",
+      "Block 2 · Variables and data types",
+      "Exercise 1a: Variables & data types"
     ]
   },
   {
-    "objectID": "index.html#what-you-need",
-    "href": "index.html#what-you-need",
-    "title": "Programming experiments: Python x PsychoPy",
-    "section": "What you need",
-    "text": "What you need\n\nYour own laptop with PsychoPy installed. Install instructions are sent out before Session 2, and each session starts with a setup check. If the install fights back, come 15 minutes early.\nCuriosity. A willingness to try things, break things, and read the occasional error message will carry you further than any prior experience would.\n\nReady? Start with Session 1.",
+    "objectID": "session1-python/03_exercise1_variables.html#part-4-numbers",
+    "href": "session1-python/03_exercise1_variables.html#part-4-numbers",
+    "title": "Exercise 1a: Variables & variable types",
+    "section": "Part 4: Numbers",
+    "text": "Part 4: Numbers\n\nMake an integer variable and a floating-point variable.\nPrint the types of both.\nAdd them. What type is the result?\nSubtract them. What happens?\nDivide them.\nMultiply them and store the output in a new variable.\n\n\n\n\n\n\n\nShow the code\n\n\n\n\n\nn_trials = 20\nmean_rt = 0.45\nprint(type(n_trials), type(mean_rt))\nprint(n_trials + mean_rt)    # 20.45 — int + float gives float\nprint(n_trials - mean_rt)\nprint(n_trials / mean_rt)\nproduct = n_trials * mean_rt\nprint(product)",
     "crumbs": [
       "Home",
-      "Workshop overview"
+      "Session 1 · Python basics",
+      "Block 2 · Variables and data types",
+      "Exercise 1a: Variables & data types"
     ]
   },
   {
-    "objectID": "session1-python/02_variables.html",
-    "href": "session1-python/02_variables.html",
-    "title": "2 · Basics: Variables & variable types",
+    "objectID": "session1-python/03_exercise1_variables.html#part-5-f-strings",
+    "href": "session1-python/03_exercise1_variables.html#part-5-f-strings",
+    "title": "Exercise 1a: Variables & variable types",
+    "section": "Part 5: f-strings",
+    "text": "Part 5: f-strings\nImagine printing information about the current subject on an experiment screen. The subject differs in each experiment, and so does their reaction time.\n\nMake a variable with a subject ID and one with a reaction time.\nPrint an expression that says The current subject is followed by the subject’s ID, using an f-string.\nPrint an expression that says The current subject is [ID] and their reaction time is [RT], both values inserted from your variables. Bonus: show the reaction time with exactly 2 decimals.\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nAn f-string starts with f before the opening quote, and variables go inside curly brackets. For the bonus: the decimals recipe was {variable:.2f}. Where do the colon and .2f sit?\n\n\n\n\n\n\n\n\n\nShow the code\n\n\n\n\n\nsubject_id = \"S_01\"\nreaction_time = 0.4567\nprint(f\"The current subject is {subject_id}\")\nprint(f\"The current subject is {subject_id} and their reaction time is {reaction_time:.2f}\")\n\n\n\nEverything runs? Take a breather, or try the stretch task below.",
+    "crumbs": [
+      "Home",
+      "Session 1 · Python basics",
+      "Block 2 · Variables and data types",
+      "Exercise 1a: Variables & data types"
+    ]
+  },
+  {
+    "objectID": "session1-python/03_exercise1_variables.html#done-early",
+    "href": "session1-python/03_exercise1_variables.html#done-early",
+    "title": "Exercise 1a: Variables & variable types",
+    "section": "Done early?",
+    "text": "Done early?\nBuild the full sentence in one go: using only split_var, .upper() and an f-string, print We failed to reject the NULL HYPOTHESIS., without typing the words “null” or “hypothesis” yourself.",
+    "crumbs": [
+      "Home",
+      "Session 1 · Python basics",
+      "Block 2 · Variables and data types",
+      "Exercise 1a: Variables & data types"
+    ]
+  },
+  {
+    "objectID": "session1-python/05_exercise2_lists.html",
+    "href": "session1-python/05_exercise2_lists.html",
+    "title": "Exercise 2 · Lists",
     "section": "",
-    "text": "Block 2 · Chapter 2 of 3 before the first break. Understand what a variable is in Python & the different types of variables.",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Block 2 · Variables and data types",
-      "Variables and regular data types"
-    ]
-  },
-  {
-    "objectID": "session1-python/02_variables.html#what-is-a-variable",
-    "href": "session1-python/02_variables.html#what-is-a-variable",
-    "title": "2 · Basics: Variables & variable types",
-    "section": "What is a variable?",
-    "text": "What is a variable?\nA variable is a name we give to a value so we can store it and use it later in our code. The name stays the same, but the value stored in it can change while the program is running. A variable can store a number, a word, or a list of values.",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Block 2 · Variables and data types",
-      "Variables and regular data types"
-    ]
-  },
-  {
-    "objectID": "session1-python/02_variables.html#your-first-variable",
-    "href": "session1-python/02_variables.html#your-first-variable",
-    "title": "2 · Basics: Variables & variable types",
-    "section": "Your first variable",
-    "text": "Your first variable\nLet’s create our first variable in Python. We will call it my_name and store a name in it.\nmy_name = \"anna\"\nWe can also add comments to explain what our code is doing. In Python, a comment starts with #. Everything after # on that line is ignored by Python.\n# This variable stores my name.\nmy_name = \"anna\"\nNow run the code by selecting it in your file and pressing Shift+Enter.\nYou will see the code executed in the console below. If you then type my_name on a new line and press Enter, Python will print the value stored in the variable:\n&gt;&gt;&gt; my_name = 'anna'\n&gt;&gt;&gt; my_name\n'anna'\nAn easier way to see the output is to use the print() function:\n# This variable stores my name.\nmy_name = \"anna\"\n\n# This line prints the value stored in my_name.\nprint(my_name)\nSelect these lines and press Shift+Enter. You should see the value of my_name appear in the console.",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Block 2 · Variables and data types",
-      "Variables and regular data types"
-    ]
-  },
-  {
-    "objectID": "session1-python/02_variables.html#variable-types",
-    "href": "session1-python/02_variables.html#variable-types",
-    "title": "2 · Basics: Variables & variable types",
-    "section": "Variable types",
-    "text": "Variable types\nPython allows us to create variables that store different kinds of data. Today we will focus on some of the most common variable types.\nWe can find the type of a variable by using the type() function:\n# Query the type of my_name.\ntype(my_name)\nThis returns &lt;class 'str'&gt;, which means that my_name is a string variable.",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Block 2 · Variables and data types",
-      "Variables and regular data types"
-    ]
-  },
-  {
-    "objectID": "session1-python/02_variables.html#data-type-1-regular-string-variables",
-    "href": "session1-python/02_variables.html#data-type-1-regular-string-variables",
-    "title": "2 · Basics: Variables & variable types",
-    "section": "Data Type 1: Regular string variables",
-    "text": "Data Type 1: Regular string variables\nString variables are defined by strings of characters. String variables are specified using single or double quotation marks around the string.\n# If you use single quotes here, it won't work. Why?\ndog_name_possessive = 'anna's dog's name is..'\n\n# If you use double-quotes here it will work. \ndog_name_possessive = \"anna's dog's name is..\"\n\n\n\n\n\n\nNote🤔 Think first\n\n\n\nWhy does the single-quoted version fail while the double-quoted version works?\n\n\n\n\n\n\nTipCheck your thinking\n\n\n\n\n\nThe apostrophe in anna’s ends the single-quoted string early. Python thinks the string stops after anna, and the rest is nonsense to it. Double quotes let Python see the apostrophe as just another character inside the string.\n\n\n\n\n\n\nIndexing\nStrings are stored like arrays of characters, meaning that you can individually access single characters in the string using indexing (square brackets around the indices you want to extract).\n# Here you are indexing the first 4 characters in the variable my_name_possessive. \n# You use square brackets around the indices that you want to extract.\ndog_name_possessive[0:4] # extract 4 characters from the 0th character.\n\n# you can also count backwards from the end of a string using the minus sign, e.g.:\ndog_name_possessive[-4:]\nYou may have noticed that we start indexing at 0 instead of 1. This is because Python is a zero-indexed language, so whenever you have a multi-item variable, the first item is always indexed using 0 instead of 1. CAREFUL: R is a 1-indexed langauge, so you always index the first item in a multi-item variable using 1 in R instead of 0.\n\nBefore you run it: what will dog_name_possessive[0:4] give you?\n\nanna — characters 0, 1, 2 and 3. The index range [0:4] starts at 0 and stops before 4, so you get exactly 4 characters. (The console shows it wrapped in quotes — 'anna' — because it is a string.)\n\n\n:::",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Block 2 · Variables and data types",
-      "Variables and regular data types"
-    ]
-  },
-  {
-    "objectID": "session1-python/02_variables.html#string-methods",
-    "href": "session1-python/02_variables.html#string-methods",
-    "title": "2 · Basics: Variables & variable types",
-    "section": "String methods",
-    "text": "String methods\nString variables have many built-in methods that we can call on them. Here are some useful string methods:\n\nsplit()\nIf you type the name of your string variable followed by .split(), Python splits the string into smaller pieces, using the space character as the default delimiter. Try it in the console:\ndog_name_possessive.split()\n&gt;&gt;&gt; [\"anna's\", \"dog's\", 'name', 'is..']\nThe split() method returns a list of strings. Each item is one part of the original text, separated by the chosen delimiter.\nYou can store the output in a variable, and since it is a list, you can index it, even down to characters within each item:\nsplit_variable = dog_name_possessive.split()\nsplit_variable[0]\nsplit_variable[0][0]  # first letter of first word.\nsplit_variable[1][1]  # second letter of second word.\n&gt;&gt;&gt; split_variable[0]\n&gt;&gt;&gt; \"anna's\"\n&gt;&gt;&gt; split_variable[0][0]  # first letter of first word.\n&gt;&gt;&gt; 'a'\n&gt;&gt;&gt; split_variable[1][1]  # second letter of second word.\n&gt;&gt;&gt; 'o'\nSo split_variable[1][1] means: take item 1 of the list (\"dog's\": remember, zero-indexed!), then character 1 of that string.\nYou can also use split() with a different delimiter, such as an underscore:\nsubject_id = \"S_01\"\nsubject_id.split(\"_\")\n['S', '01']\n\nGiven responses = \"left right left left\", what does responses.split() return?\n\n['left', 'right', 'left', 'left']: a list of four strings, one per word. Repeats are kept; split() just cuts, it doesn’t deduplicate.\n\n\n\nGiven date = \"2026-09-14\", what does date.split(\"-\") return?\n\nThe delimiter is the cut line — it doesn’t survive into the pieces.\n\n\n['2026', '09', '14']. Three pieces, dashes gone. Note they are strings, not numbers: '09' keeps its leading zero, and you couldn’t do maths with it without converting first.\n\n\n\n\nupper()\nThe upper() method converts all letters in a string to uppercase.\nname = \"anna\"\nname.upper()\n&gt;&gt;&gt; 'ANNA'\nNote that upper() does not change name itself — it returns a new, uppercased string. If you want to keep it, store it:\nname_upper = name.upper()\nprint(name_upper)\n&gt;&gt;&gt; ANNA\n# or store the result in a new variable.\nname_upper = name.upper()\nprint(name_upper)\nHere are a few more useful string methods:\nword = \" subject_01 \"\nprint(word.lower())\nprint(word.strip())\nprint(word.replace(\"p\", \"P\"))\nprint(word.startswith(\" \"))\nprint(word.endswith(\" \"))\n\n\nlen()\nAnd, finally, we can get the length of a string variable using len() (not a string-specific method)\nlen(word)\n&gt;&gt;&gt; 12\nThe 10 characters of subject_01 plus the two spaces. Invisible characters count, which is exactly why .strip() exists.\nThere’s lots more that you can do with strings, but these are the basics!",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Block 2 · Variables and data types",
-      "Variables and regular data types"
-    ]
-  },
-  {
-    "objectID": "session1-python/02_variables.html#data-type-2-regular-numeric-variables",
-    "href": "session1-python/02_variables.html#data-type-2-regular-numeric-variables",
-    "title": "2 · Basics: Variables & variable types",
-    "section": "Data Type 2: Regular numeric variables",
-    "text": "Data Type 2: Regular numeric variables\nNow let’s turn to our other fundamental variable type: numeric. There are two basic numeric types:\n\nIntegers: whole numbers (no decimal point)\nFloating points: numbers with a decimal point\n\n# This is an integer.\na = 1\ntype(a)\n&gt;&gt;&gt; int\n# This is a floating point.\nb = 1.5\ntype(b)\n&gt;&gt;&gt; float\nc = 1.00\n\nc stores the value one, but what does type(c) return? float or int?\n\n&lt;class 'float'&gt;: a floating point. The value is a whole number, but writing it with a decimal point makes it a float. What matters is how it is written, not what it equals.\n\n\nThe same logic applies to operations:\n# What happens when you combine types in operations?\nd = b + c\ntype(d)\n&gt;&gt;&gt; float\nAdding the float b to the float c gives a float — d is 2.5. And even when an operation on two floats produces a whole number, the result stays a floating point:\ne = 1.5 + 1.5\ntype(e)\nprint(e)\n&lt;class 'float'&gt;\n3.0\nThe value is three — but Python shows it as 3.0: the .0 is the float’s badge. It never silently becomes an integer.\nStandard numeric operations are addition (shown above), subtraction, multiplication and division:\nprint(a - b)   # subtraction\nprint(a * b)   # multiplication\nprint(a / b)   # division\n-0.5\n1.5\n0.6666666666666666",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Block 2 · Variables and data types",
-      "Variables and regular data types"
-    ]
-  },
-  {
-    "objectID": "session1-python/02_variables.html#printing-variables-with-f-strings",
-    "href": "session1-python/02_variables.html#printing-variables-with-f-strings",
-    "title": "2 · Basics: Variables & variable types",
-    "section": "Printing variables with f-strings",
-    "text": "Printing variables with f-strings\nImagine that you want to print reaction times for a given subject on an experiment screen. The subject is different in each experiment, and so is their reaction time.\nYou can create a special expression called an f-string, where you embed variables inside a string: start the string with f, then place variable names inside curly brackets {}.\nsubject_id = \"S_01\"\nreaction_time = 0.45\nmessage = f\"Reaction time for {subject_id}: {reaction_time:.2f} seconds\"\nHere {subject_id} inserts the value of the subject ID variable, and {reaction_time:.2f} inserts the value of reaction_time, where .2f formats the number with two digits after the decimal point.\n\nWhat exactly does print(message) show?\n\nReaction time for S_01: 0.45 seconds: the curly-bracket parts are replaced by the variables’ values, and everything else is printed as-is. In Session 2, messages like this become the text you show on the experiment screen.\n\n\nAll predictions checked? Next: Exercise 1a — Variables & data types.",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Block 2 · Variables and data types",
-      "Variables and regular data types"
-    ]
-  },
-  {
-    "objectID": "session1-python/04_lists.html",
-    "href": "session1-python/04_lists.html",
-    "title": "3 · Lists",
-    "section": "",
-    "text": "Block 3 · Chapter 4 of the day. Understand what a list is and how to use lists effectively.",
+    "text": "Block 3 · Exercise for Chapter 3 — Lists.\nSame drill as Exercise 1a: try first, Hint when stuck, Show the code as the safety net. Work in the same .py file, with # Exercise 2 comments to keep it navigable.",
     "crumbs": [
       "Home",
       "Session 1 · Python basics",
       "Block 3 · Lists & Loops",
-      "Lists"
+      "Exercise 2: Lists"
     ]
   },
   {
-    "objectID": "session1-python/04_lists.html#what-are-lists",
-    "href": "session1-python/04_lists.html#what-are-lists",
-    "title": "3 · Lists",
-    "section": "What are lists?",
-    "text": "What are lists?\nA list is, literally, a list of items, stored in order, that can be changed (lists are mutable, a word that will matter shortly). You define one with square brackets, items separated by commas:\nvariable_name = [item1, item2, item3]\nLists can contain items of the same type or of different types, and this is the data structure experiments run on: a list of stimuli, a list of responses, a list of reaction times.",
+    "objectID": "session1-python/05_exercise2_lists.html#part-1-defining-lists",
+    "href": "session1-python/05_exercise2_lists.html#part-1-defining-lists",
+    "title": "Exercise 2 · Lists",
+    "section": "Part 1: Defining lists",
+    "text": "Part 1: Defining lists\nMake variables containing 10-item lists, one of each:\n\nAll string items.\nAll integer items.\nAll floating-point items.\nMixed strings, integers and floats.\n\nThen combine lists 1–3 into a single variable called combined.\n\n\n\n\n\n\nHint\n\n\n\n\n\nTen items is a typing exercise, not a thinking one. Short words and simple numbers are fine. For combined: square brackets around the three list names.\n\n\n\n\n\n\n\n\n\nShow the code\n\n\n\n\n\nwords = [\"cat\", \"dog\", \"owl\", \"fox\", \"bat\", \"elk\", \"hen\", \"ant\", \"bee\", \"cow\"]\nintegers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\nfloats = [1.5, 2.5, 3.5, 4.5, 5.5, 6.5, 7.5, 8.5, 9.5, 10.5]\nmixed = [\"cat\", 1, 1.5, \"dog\", 2, 2.5, \"owl\", 3, 3.5, \"fox\"]\n\ncombined = [words, integers, floats]",
     "crumbs": [
       "Home",
       "Session 1 · Python basics",
       "Block 3 · Lists & Loops",
-      "Lists"
+      "Exercise 2: Lists"
     ]
   },
   {
-    "objectID": "session1-python/04_lists.html#making-lists",
-    "href": "session1-python/04_lists.html#making-lists",
-    "title": "3 · Lists",
-    "section": "Making lists",
-    "text": "Making lists\nYou can create lists with all strings, all numeric data, or a combination:\n# First, simple lists of same-type items.\nshopping = [\"apples\", \"pears\", \"bananas\"]\ntest_scores = [90, 60, 100, 82]\n\n# Now mixed items.\nmixed_list = [\"cats\", 7, 309.45]\n\nprint(test_scores)\nprint(mixed_list)\n&gt;&gt;&gt; [90, 60, 100, 82]\n&gt;&gt;&gt; ['cats', 7, 309.45]\nYou can also put lists inside lists:\ncombined = [shopping, test_scores, mixed_list]\nprint(combined)\n&gt;&gt;&gt; [['apples', 'pears', 'bananas'], [90, 60, 100, 82], ['cats', 7, 309.45]]\nThree items: each of which is itself a list. Keep that picture in mind for the prediction below.",
+    "objectID": "session1-python/05_exercise2_lists.html#part-2-indexing-lists",
+    "href": "session1-python/05_exercise2_lists.html#part-2-indexing-lists",
+    "title": "Exercise 2 · Lists",
+    "section": "Part 2: Indexing lists",
+    "text": "Part 2: Indexing lists\n\nReturn the 4th item of each of lists 1-3.\nReturn the first item of combined. Do you notice anything unexpected about the output?\nNow figure out how to index the first word only from combined.\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nTask 1: the 4th item. Which index is that? Task 2: how big is the thing that came back? Compare it with what task 1 gave you. Task 3: combined[0] got you a whole list… so you’re one bracket-pair away.\n\n\n\n\n\n\n\n\n\nShow the code\n\n\n\n\n\nprint(words[3])       # fox, the 4th item is at index 3!\nprint(integers[3])    # 4\nprint(floats[3])      # 4.5\n\nprint(combined[0])    # ['cat', 'dog', ..., 'cow']: an ENTIRE list comes back,\n                      # because combined's items are themselves lists.\n\nprint(combined[0][0]) # cat: first list, then first item of that list.",
     "crumbs": [
       "Home",
       "Session 1 · Python basics",
       "Block 3 · Lists & Loops",
-      "Lists"
+      "Exercise 2: Lists"
     ]
   },
   {
-    "objectID": "session1-python/04_lists.html#indexing-lists",
-    "href": "session1-python/04_lists.html#indexing-lists",
-    "title": "3 · Lists",
-    "section": "Indexing lists",
-    "text": "Indexing lists\nWe index lists just like we indexed character strings: square brackets after the name, index inside.\nprint(shopping[0])\nprint(shopping[1])\nprint(shopping[2])\napples\npears\nbananas\nYou may recognise this syntax from the previous block. That’s because we were already working with lists when we used .split(): splitting a string returns a list, and everything you learned there (zero-indexing, negative indexing, two brackets for two levels) applies to all lists.\n\nSub-indexing, then: what does shopping[0][0:2] return?\n\nThat’s shopping[0]: the whole first item. The second bracket slices into that string: which characters does [0:2] take?\n\n\n'ap': shopping[0] picks the string 'apples' out of the list, and [0:2] slices characters 0 and 1 out of that string. Stops before 2, as always.\n\n\n\nAnd the list of lists: what does combined[1] give you?\n\nClose if you answered 60, but count the brackets. One pair of brackets goes one level deep. What lives at position 1 of combined?\n\n\n[90, 60, 100, 82] — the entire second list. combined’s items are whole lists, so one index retrieves a whole list. To reach 60 you’d go two levels: combined[1][1].",
+    "objectID": "session1-python/05_exercise2_lists.html#part-3-changing-list-items",
+    "href": "session1-python/05_exercise2_lists.html#part-3-changing-list-items",
+    "title": "Exercise 2 · Lists",
+    "section": "Part 3: Changing list items",
+    "text": "Part 3: Changing list items\nNow let’s take advantage of list mutability:\n\nReplace an item in one of your lists with another, using indexing.\nAppend an item to the end of one of your lists.\nInsert a new item between two existing items.\nReplace the first item of combined with a new item, then print combined. How much changed?\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nReplacement is assignment: list[index] = new_thing. For task 4: combined[0] is a whole list, so what you assign to it replaces… how much? Any value works, even a string.\n\n\n\n\n\n\n\n\n\nShow the code\n\n\n\n\n\nwords[0] = \"pig\"                  # 1. replace by index\nwords.append(\"emu\")               # 2. append to the end\nwords.insert(2, \"yak\")            # 3. insert between existing items\nprint(words)\n\ncombined[0] = \"gone\"              # 4. replaces the ENTIRE first list with one string!\nprint(combined)                   # ['gone', [1, 2, ...], [1.5, 2.5, ...]]\n\n\n\nEverything runs and makes sense? Then onwards to Loops.",
     "crumbs": [
       "Home",
       "Session 1 · Python basics",
       "Block 3 · Lists & Loops",
-      "Lists"
+      "Exercise 2: Lists"
     ]
   },
   {
-    "objectID": "session1-python/04_lists.html#changing-list-items",
-    "href": "session1-python/04_lists.html#changing-list-items",
-    "title": "3 · Lists",
-    "section": "Changing list items",
-    "text": "Changing list items\nLists are mutable: we can change their contents after creating them. Remember upper(), which returned a new string and left the original untouched? Lists are the opposite. These operations change the list itself, in place. Three ways to do it:\n\nReplace an item, using indexing.\nAppend an item to the end.\nInsert an item at a chosen position.\n\nPredict each print() before you run it. This is where the bracket-counting pays off. Our starting point:\nprint(shopping)\n['apples', 'pears', 'bananas']\nReplace the second item:\nshopping[1] = \"kiwi\"\nprint(shopping)\n['apples', 'kiwi', 'bananas']\nGoodbye pears: index 1 is the second item. Now append:\nshopping.append(\"raspberry\")\nprint(shopping)\n['apples', 'kiwi', 'bananas', 'raspberry']\nappend() always adds at the end. Finally, insert at a particular position:\nshopping.insert(1, \"blueberry\")\n\nThe finale: what does print(shopping) show now? Type the full list.\n\nAlmost — insert(1, ...) puts the new item at index 1, and everything from there shifts right. Who ends up second?\n\n\n['apples', 'blueberry', 'kiwi', 'bananas', 'raspberry']. insert(1, ...) places blueberry at index 1 and shifts kiwi, bananas and raspberry one step right. Nothing is overwritten. That’s the difference from shopping[1] = ..., which replaces.\n\n\nIn the PsychoPy sessions, these operations will become very familiar: stimuli is a list of image filenames, responses.append(key) collects what the participant pressed, and shuffling a list gives every participant their own trial order.\nAll predictions checked? Next: Exercise 2 — Lists.",
+    "objectID": "session1-python/05_exercise2_lists.html#done-early",
+    "href": "session1-python/05_exercise2_lists.html#done-early",
+    "title": "Exercise 2 · Lists",
+    "section": "Done early?",
+    "text": "Done early?\nUsing only indexing and mutation on your combined list from before task 4, no retyping of values, make combined end up as [10, \"cat\", 10.5].",
     "crumbs": [
       "Home",
       "Session 1 · Python basics",
       "Block 3 · Lists & Loops",
-      "Lists"
-    ]
-  },
-  {
-    "objectID": "session1-python/06_loops.html",
-    "href": "session1-python/06_loops.html",
-    "title": "4 · Loops",
-    "section": "",
-    "text": "Block 3 · Chapter follows Exercise 2. Understand basic for and while loops.",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Block 3 · Lists & Loops",
-      "Loops"
-    ]
-  },
-  {
-    "objectID": "session1-python/06_loops.html#what-is-a-loop",
-    "href": "session1-python/06_loops.html#what-is-a-loop",
-    "title": "4 · Loops",
-    "section": "What is a loop?",
-    "text": "What is a loop?\nA loop is a programming structure that repeats a block of code. In this lesson you will meet the two common types:\n\nFor loops repeat code once for each item in a collection, such as a list.\nWhile loops repeat code while a condition is true.\n\nThis is the single most important chapter of the day for what comes next: when we start learning PsychoPy, we’ll learn that an experiment is a loop: for each stimulus: show it, record a response, give feedback.",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Block 3 · Lists & Loops",
-      "Loops"
-    ]
-  },
-  {
-    "objectID": "session1-python/06_loops.html#for-loops",
-    "href": "session1-python/06_loops.html#for-loops",
-    "title": "4 · Loops",
-    "section": "For loops",
-    "text": "For loops\nImagine you have five subject IDs and want to print each one. You could write a separate print() for every subject:\nprint(\"S01\")\nprint(\"S02\")\n...\nprint(\"S05\")\nThis becomes repetitive and difficult to update. Instead, store the IDs in a list and loop through the items:\nsubject_ids = ['S01', 'S02', 'S03', 'S04', 'S05']\n\nfor subject in subject_ids:\n    print(subject)\n&gt;&gt;&gt; S01\n&gt;&gt;&gt; S02\n&gt;&gt;&gt; S03\n&gt;&gt;&gt; S04\n&gt;&gt;&gt; S05\nIn plain language: for every item in subject_ids, store that item in subject and print it. Notice the syntax: the for statement ends with a colon, and the next line is indented. That indented part is the body of the loop, and it runs once per item. Each repetition is called an iteration; during each one, subject temporarily holds the current ID.\n\nYour turn. Using a list from Exercise 2: what does this print?\nanimals = ['cat', 'dog', 'owl']\nfor animal in animals:\n    print(animal)\n\nThe loop variable holds one item at a time. Not the list, and not the word “animals”.\n\n\nThree lines: cat, dog, owl; one iteration per item, one print per iteration.",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Block 3 · Lists & Loops",
-      "Loops"
-    ]
-  },
-  {
-    "objectID": "session1-python/06_loops.html#looping-by-index",
-    "href": "session1-python/06_loops.html#looping-by-index",
-    "title": "4 · Loops",
-    "section": "Looping by index",
-    "text": "Looping by index\nYou can also loop through the index positions of a list. This is useful when you need both an item’s position and its value:\n# Get the total number of subjects.\nnumber_of_subjects = len(subject_ids)\n\n# Create indices from 0 up to, but not including, number_of_subjects.\nsubject_index_range = range(number_of_subjects)\n\n# Use each index to retrieve the corresponding subject ID.\nfor index in subject_index_range:\n    print(f\"Subject {index + 1}: {subject_ids[index]}\")\nSubject 1: S01\nSubject 2: S02\nSubject 3: S03\nSubject 4: S04\nSubject 5: S05\nLook closely at index + 1: the indices run 0-4 (zero-indexed, as ever), but humans count subjects from 1, so we print index + 1 while using plain index for the lookup.",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Block 3 · Lists & Loops",
-      "Loops"
-    ]
-  },
-  {
-    "objectID": "session1-python/06_loops.html#counter-variables",
-    "href": "session1-python/06_loops.html#counter-variables",
-    "title": "4 · Loops",
-    "section": "Counter variables",
-    "text": "Counter variables\nSometimes you need to update a number on every iteration. This number is called a counter variable — here counting how many days have been processed:\nweekdays = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']\n\n# Start a counter at zero.\nday_of_week = 0\n\n# Print each day, then add 1 to the counter.\nfor day in weekdays:\n    print(f\"The current day is {day}\")\n    day_of_week += 1\nThe current day is monday\nThe current day is tuesday\nThe current day is wednesday\nThe current day is thursday\nThe current day is friday\nThe current day is saturday\nThe current day is sunday\n(+= 1 is shorthand for day_of_week = day_of_week + 1. Add one to what’s there.). Notice the syntax: the for statement ends with a colon, and the loop body must be indented.\n\nAfter the loop finishes, we print the counter:\nprint(f\"There are {day_of_week} days in the list.\")\nWhat exactly appears?\n\nCareful. The counter started at 0, but it was incremented once for every item. How many increments happened?\n\n\nThere are 7 days in the list.. The counter went 0→7, one += 1 per iteration. Starting at 0 doesn’t mean ending one short: seven items, seven increments.",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Block 3 · Lists & Loops",
-      "Loops"
-    ]
-  },
-  {
-    "objectID": "session1-python/06_loops.html#while-loops",
-    "href": "session1-python/06_loops.html#while-loops",
-    "title": "4 · Loops",
-    "section": "While loops",
-    "text": "While loops\nWhile loops repeat a block of code while a condition is True. You will learn more about conditions in the logical-operations lesson. For now, read this example and predict before running:\nday_of_week = 0\n\nwhile day_of_week &lt; 6:\n    print(f\"The current day is {weekdays[day_of_week]}\")\n    # Move to the next index so the condition will eventually become False.\n    day_of_week += 1\n\nBefore you run it: how many lines does this print?\n\nThe condition is day_of_week &lt; 6: strictly less than. Which values of the counter pass that test?\n\n\n6 lines: monday through saturday. The counter values 0,1,2,3,4,5 pass the &lt; 6 test; when it reaches 6, the condition is False and the loop stops before printing sunday. &lt; versus &lt;= is a one-character difference with a one-iteration consequence.\n\n\nOne warning while we’re here: the comment in the body is not decoration. If you forget the day_of_week += 1, the condition never becomes False — and the loop runs forever. It happens to everyone once; when it happens to you, click the console and press Ctrl-C to stop it.\n\n\n\n\n\n\nNoteSummary\n\n\n\nLoops repeat code. Use a for loop to work through each item in a collection, and an index-based for loop when you also need each item’s position. A counter variable records progress by changing on every iteration. Use a while loop when repetition should continue only while a condition is True, and make sure something in the body eventually makes it False.\n\n\nPredictions checked? Next: Exercise 3: Loops.",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Block 3 · Lists & Loops",
-      "Loops"
+      "Exercise 2: Lists"
     ]
   },
   {
@@ -604,7 +734,7 @@
     "crumbs": [
       "Home",
       "Session 1 · Python basics",
-      "Block 4 · Logical operations",
+      "Block 3 · Lists & Loops",
       "Exercise 3: Loops"
     ]
   },
@@ -613,37 +743,11 @@
     "href": "session1-python/07_exercise3_loops.html#part-1-basic-for-loops",
     "title": "Exercise 3 · Loops",
     "section": "Part 1: Basic for loops",
-    "text": "Part 1: Basic for loops\nMake a list where each item is one of the five basic senses (hearing, seeing, etc.) as a character string.\nThen use a for loop to iterate over all 5 senses and print their names.\nBonus:\nUse a formatted string expression to print:\n“One of the five human senses is {sense}” on each iteration of the loop (where sense is updated on each iteration of the loop).\n\n\n\n\n\n\nNoteHint\n\n\n\n\n\nKeep it simple, this is the most basic type of for loop. For formatted strings, remember the module on printing variable expressions.\n\n\n\n\n\n\n\n\n\nTipShow the code\n\n\n\n\n\nbasic_senses = ['hearing', 'seeing', 'tasting', 'touching', 'smelling']\n\nfor sense in basic_senses:\n     print(sense)\n     print(f\"One of the five human senses is {sense}\")",
+    "text": "Part 1: Basic for loops\nMake a list where each item is one of the five basic senses (hearing, seeing, etc.) as a character string.\nThen use a for loop to iterate over all 5 senses and print their names.\nBonus:\nUse a formatted string expression to print:\n“One of the five human senses is {sense}” on each iteration of the loop (where sense is updated on each iteration of the loop).\n\n\n\n\n\n\nHint\n\n\n\n\n\nKeep it simple, this is the most basic type of for loop. For formatted strings, remember the module on printing variable expressions.\n\n\n\n\n\n\n\n\n\nShow the code\n\n\n\n\n\nbasic_senses = ['hearing', 'seeing', 'tasting', 'touching', 'smelling']\n\nfor sense in basic_senses:\n     print(sense)\n     print(f\"One of the five human senses is {sense}\")",
     "crumbs": [
       "Home",
       "Session 1 · Python basics",
-      "Block 4 · Logical operations",
-      "Exercise 3: Loops"
-    ]
-  },
-  {
-    "objectID": "session1-python/07_exercise3_loops.html#part-3-changing-list-items",
-    "href": "session1-python/07_exercise3_loops.html#part-3-changing-list-items",
-    "title": "Exercise 3 · Loops",
-    "section": "Part 3: Changing list items",
-    "text": "Part 3: Changing list items\nNow let’s take advantage of list mutability:\n\nReplace an item in one of your lists with another, using indexing.\nAppend an item to the end of one of your lists.\nInsert a new item between two existing items.\nReplace the first item of combined with a new item, then print combined. How much changed?\n\n\n\n\n\n\n\nNoteHint\n\n\n\n\n\nReplacement is assignment: list[index] = new_thing. For task 4: combined[0] is a whole list, so what you assign to it replaces… how much? Any value works, even a string.\n\n\n\n\n\n\n\n\n\nTipShow the code\n\n\n\n\n\nwords[0] = \"pig\"                  # 1. replace by index\nwords.append(\"emu\")               # 2. append to the end\nwords.insert(2, \"yak\")            # 3. insert between existing items\nprint(words)\n\ncombined[0] = \"gone\"              # 4. replaces the ENTIRE first list with one string!\nprint(combined)                   # ['gone', [1, 2, ...], [1.5, 2.5, ...]]\n\n\n\nEverything runs and makes sense? Then onwards to Loops.",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Block 4 · Logical operations",
-      "Exercise 3: Loops"
-    ]
-  },
-  {
-    "objectID": "session1-python/07_exercise3_loops.html#done-early",
-    "href": "session1-python/07_exercise3_loops.html#done-early",
-    "title": "Exercise 3 · Loops",
-    "section": "Done early?",
-    "text": "Done early?\nChallenge: Make a nested for loop! This is a for loop inside of a for loop:\n\nMake a list of fruits.\nIterate over this list in a for loop.\nMake a for loop inside of this outer loop that iterates over each character in the current item and prints it separately!\n\n\n\n\n\n\n\nNoteHint\n\n\n\n\n\nThe outer loop gives you one fruit at a time. Put an inner loop inside it to iterate over the characters in that fruit.\n\n\n\n\n\n\n\n\n\nTipShow the code\n\n\n\n\n\nfruits = [\"apple\", \"banana\", \"cherry\"]\n\nfor fruit in fruits:\n    for character in fruit:\n        print(character)",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Block 4 · Logical operations",
+      "Block 3 · Lists & Loops",
       "Exercise 3: Loops"
     ]
   },
@@ -652,11 +756,11 @@
     "href": "session1-python/07_exercise3_loops.html#part-2-using-counter-variables-in-for-loops",
     "title": "Exercise 3 · Loops",
     "section": "Part 2: Using counter variables in for loops",
-    "text": "Part 2: Using counter variables in for loops\n\nDefine a counter variable sense_number\nRewrite the for loop from Part 1, but increment sense_number on each iteration of the loop.\nAdd a print expression to the loop that prints a sentence containing the value of sense_number and sense on each iteration.\n\n\n\n\n\n\n\nNoteHint\n\n\n\n\n\nBe mindful of where you place the counter variable: Should it come before or after the print() statement?\n\n\n\n\n\n\n\n\n\nTipShow the code\n\n\n\n\n\n\nsense_number = 0\n\nfor sense in basic_senses:\n     sense_number += 1\n     print(f(\"Sense #{sense_number} is {sense}\"))",
+    "text": "Part 2: Using counter variables in for loops\n\nDefine a counter variable sense_number\nRewrite the for loop from Part 1, but increment sense_number on each iteration of the loop.\nAdd a print expression to the loop that prints a sentence containing the value of sense_number and sense on each iteration.\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nBe mindful of where you place the counter variable: Should it come before or after the print() statement?\n\n\n\n\n\n\n\n\n\nShow the code\n\n\n\n\n\n\nsense_number = 0\n\nfor sense in basic_senses:\n     sense_number += 1\n     print(f(\"Sense #{sense_number} is {sense}\"))",
     "crumbs": [
       "Home",
       "Session 1 · Python basics",
-      "Block 4 · Logical operations",
+      "Block 3 · Lists & Loops",
       "Exercise 3: Loops"
     ]
   },
@@ -665,11 +769,11 @@
     "href": "session1-python/07_exercise3_loops.html#part-3-for-loops-by-list-indexing",
     "title": "Exercise 3 · Loops",
     "section": "Part 3: For loops by list indexing",
-    "text": "Part 3: For loops by list indexing\nWe can also iterate loops using indexing.\n\nMake a new list variable numeric_order, this time containing the words “first”, “second”, “third”, “fourth”, etc. through “tenth”. So, there should be 10 items in this list.\nWrite code to return the total number of items in numeric_order and store this value in a variable called len_order.\nUse range() to generate a range of values from 0 up to but not including len_order. Store this range of values in a variable called order_range\nWrite a for loop that iterates over order_range, indexes each item of numeric_order using the current iteration number and prints it.\n\n\n\n\n\n\n\nNoteHint\n\n\n\n\n\nRemember to use the index to the current loop iteration to get the current value of numeric_order.\n\n\n\n\n\n\n\n\n\nTipShow the code\n\n\n\n\n\n\nnumeric_order = [\n    \"first\", \"second\", \"third\", \"fourth\", \"fifth\",\n    \"sixth\", \"seventh\", \"eighth\", \"ninth\", \"tenth\"\n]\n\nlen_order = len(numeric_order)\norder_range = range(len_order)\n\nfor range_i in order_range:\n    print(numeric_order[range_i])",
+    "text": "Part 3: For loops by list indexing\nWe can also iterate loops using indexing.\n\nMake a new list variable numeric_order, this time containing the words “first”, “second”, “third”, “fourth”, etc. through “tenth”. So, there should be 10 items in this list.\nWrite code to return the total number of items in numeric_order and store this value in a variable called len_order.\nUse range() to generate a range of values from 0 up to but not including len_order. Store this range of values in a variable called order_range\nWrite a for loop that iterates over order_range, indexes each item of numeric_order using the current iteration number and prints it.\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nRemember to use the index to the current loop iteration to get the current value of numeric_order.\n\n\n\n\n\n\n\n\n\nShow the code\n\n\n\n\n\n\nnumeric_order = [\n    \"first\", \"second\", \"third\", \"fourth\", \"fifth\",\n    \"sixth\", \"seventh\", \"eighth\", \"ninth\", \"tenth\"\n]\n\nlen_order = len(numeric_order)\norder_range = range(len_order)\n\nfor range_i in order_range:\n    print(numeric_order[range_i])",
     "crumbs": [
       "Home",
       "Session 1 · Python basics",
-      "Block 4 · Logical operations",
+      "Block 3 · Lists & Loops",
       "Exercise 3: Loops"
     ]
   },
@@ -678,168 +782,25 @@
     "href": "session1-python/07_exercise3_loops.html#part-4-while-loops",
     "title": "Exercise 3 · Loops",
     "section": "Part 4: While loops",
-    "text": "Part 4: While loops\nOkay, now an exercise for our last type of loop, the while loop.\n\nCreate a counter variable that is initialized with a value of 0.\nWrite a loop that iteratively increases the counter by 2 while the counter is less than 30.\nOn each iteration of the loop print “I am current age, not yet 30”, where current_age is the value of the counter.\n\n\n\n\n\n\n\nNoteHint\n\n\n\n\n\nThe operator for less than is &lt;, we will learn more about comparison operators in the next section.\n\n\n\n\n\n\n\n\n\nTipShow the code\n\n\n\n\n\n\ncurrent_age = 0\n\nwhile current_age &lt; 30:\n    print(f\"I am {current_age}, not yet 30\")\n    current_age += 2\n\n\n\nEverything runs and makes sense? Then onwards to Logical operations.",
+    "text": "Part 4: While loops\nOkay, now an exercise for our last type of loop, the while loop.\n\nCreate a counter variable that is initialized with a value of 0.\nWrite a loop that iteratively increases the counter by 2 while the counter is less than 30.\nOn each iteration of the loop print “I am current age, not yet 30”, where current_age is the value of the counter.\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nThe operator for less than is &lt;, we will learn more about comparison operators in the next section.\n\n\n\n\n\n\n\n\n\nShow the code\n\n\n\n\n\n\ncurrent_age = 0\n\nwhile current_age &lt; 30:\n    print(f\"I am {current_age}, not yet 30\")\n    current_age += 2\n\n\n\nEverything runs and makes sense? Then onwards to Logical operations.",
     "crumbs": [
       "Home",
       "Session 1 · Python basics",
-      "Block 4 · Logical operations",
+      "Block 3 · Lists & Loops",
       "Exercise 3: Loops"
     ]
   },
   {
-    "objectID": "session1-python/10_exercise4.html",
-    "href": "session1-python/10_exercise4.html",
-    "title": "Exercise 4 · Functions & modules",
-    "section": "",
-    "text": "Block 5 · Exercise for Chapter 5 — Functions.\nSame drill as the earlier exercises: try first, then use the Hint if you get stuck. Work in the same .py file, with comments such as # Exercise 4 to keep it navigable.",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Block 5 · Functions & modules",
-      "Exercise 4"
-    ]
-  },
-  {
-    "objectID": "session1-python/10_exercise4.html#part-1-basic-for-loops",
-    "href": "session1-python/10_exercise4.html#part-1-basic-for-loops",
-    "title": "Exercise 4 · Functions & modules",
-    "section": "Part 1: Basic for loops",
-    "text": "Part 1: Basic for loops\n\n\n\n\n\n\nNoteHint\n\n\n\n\n\nKeep it simple, this is the most basic type of for loop. For formatted strings, remember the module on printing variable expressions.\n\n\n\n\n\n\n\n\n\nTipShow the code\n\n\n\n\n\nbasic_senses = ['hearing', 'seeing', 'tasting', 'touching', 'smelling']\n\nfor sense in basic_senses:\n     print(sense)\n     print(f\"One of the five human senses is {sense}\")",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Block 5 · Functions & modules",
-      "Exercise 4"
-    ]
-  },
-  {
-    "objectID": "session1-python/10_exercise4.html#part-2-using-counter-variables-in-for-loops",
-    "href": "session1-python/10_exercise4.html#part-2-using-counter-variables-in-for-loops",
-    "title": "Exercise 4 · Functions & modules",
-    "section": "Part 2: Using counter variables in for loops",
-    "text": "Part 2: Using counter variables in for loops\n\nDefine a counter variable sense_number\nRewrite the for loop from Part 1, but increment sense_number on each iteration of the loop.\nAdd a print expression to the loop that prints a sentence containing the value of sense_number and sense on each iteration.\n\n\n\n\n\n\n\nNoteHint\n\n\n\n\n\nBe mindful of where you place the counter variable: Should it come before or after the print() statement?\n\n\n\n\n\n\n\n\n\nTipShow the code\n\n\n\n\n\n\nsense_number = 0\n\nfor sense in basic_senses:\n     sense_number += 1\n     print(f(\"Sense #{sense_number} is {sense}\"))",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Block 5 · Functions & modules",
-      "Exercise 4"
-    ]
-  },
-  {
-    "objectID": "session1-python/10_exercise4.html#part-3-for-loops-by-list-indexing",
-    "href": "session1-python/10_exercise4.html#part-3-for-loops-by-list-indexing",
-    "title": "Exercise 4 · Functions & modules",
-    "section": "Part 3: For loops by list indexing",
-    "text": "Part 3: For loops by list indexing\nWe can also iterate loops using indexing.\n\nMake a new list variable numeric_order, this time containing the words “first”, “second”, “third”, “fourth”, etc. through “tenth”. So, there should be 10 items in this list.\nWrite code to return the total number of items in numeric_order and store this value in a variable called len_order.\nUse range() to generate a range of values from 0 up to but not including len_order. Store this range of values in a variable called order_range\nWrite a for loop that iterates over order_range, indexes each item of numeric_order using the current iteration number and prints it.\n\n\n\n\n\n\n\nNoteHint\n\n\n\n\n\nRemember to use the index to the current loop iteration to get the current value of numeric_order.\n\n\n\n\n\n\n\n\n\nTipShow the code\n\n\n\n\n\n\nnumeric_order = [\n    \"first\", \"second\", \"third\", \"fourth\", \"fifth\",\n    \"sixth\", \"seventh\", \"eighth\", \"ninth\", \"tenth\"\n]\n\nlen_order = len(numeric_order)\norder_range = range(len_order)\n\nfor range_i in order_range:\n    print(numeric_order[range_i])",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Block 5 · Functions & modules",
-      "Exercise 4"
-    ]
-  },
-  {
-    "objectID": "session1-python/10_exercise4.html#part-4-while-loops",
-    "href": "session1-python/10_exercise4.html#part-4-while-loops",
-    "title": "Exercise 4 · Functions & modules",
-    "section": "Part 4: While loops",
-    "text": "Part 4: While loops\nOkay, now an exercise for our last type of loop, the while loop.\n\nCreate a counter variable that is initialized with a value of 0.\nWrite a loop that iteratively increases the counter by 2 while the counter is less than 30.\nOn each iteration of the loop print “I am current age, not yet 30”, where current_age is the value of the counter.\n\n\n\n\n\n\n\nNoteHint\n\n\n\n\n\nThe operator for less than is &lt;, we will learn more about comparison operators in the next section.\n\n\n\n\n\n\n\n\n\nTipShow the code\n\n\n\n\n\n\ncurrent_age = 0\n\nwhile current_age &lt; 30:\n    print(f\"I am {current_age}, not yet 30\")\n    current_age += 2\n\n\n\nEverything runs and makes sense? Then onwards to Logical operations.",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Block 5 · Functions & modules",
-      "Exercise 4"
-    ]
-  },
-  {
-    "objectID": "session1-python/10_exercise4.html#done-early",
-    "href": "session1-python/10_exercise4.html#done-early",
-    "title": "Exercise 4 · Functions & modules",
+    "objectID": "session1-python/07_exercise3_loops.html#done-early",
+    "href": "session1-python/07_exercise3_loops.html#done-early",
+    "title": "Exercise 3 · Loops",
     "section": "Done early?",
-    "text": "Done early?\nChallenge: Make a nested for loop! This is a for loop inside of a for loop:\n\nMake a list of fruits.\nIterate over this list in a for loop.\nMake a for loop inside of this outer loop that iterates over each character in the current item and prints it separately!\n\n\n\n\n\n\n\nNoteHint\n\n\n\n\n\nThe outer loop gives you one fruit at a time. Put an inner loop inside it to iterate over the characters in that fruit.\n\n\n\n\n\n\n\n\n\nTipShow the code\n\n\n\n\n\nfruits = [\"apple\", \"banana\", \"cherry\"]\n\nfor fruit in fruits:\n    for character in fruit:\n        print(character)",
+    "text": "Done early?\nChallenge: Make a nested for loop! This is a for loop inside of a for loop:\n\nMake a list of fruits.\nIterate over this list in a for loop.\nMake a for loop inside of this outer loop that iterates over each character in the current item and prints it separately!\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nThe outer loop gives you one fruit at a time. Put an inner loop inside it to iterate over the characters in that fruit.\n\n\n\n\n\n\n\n\n\nShow the code\n\n\n\n\n\nfruits = [\"apple\", \"banana\", \"cherry\"]\n\nfor fruit in fruits:\n    for character in fruit:\n        print(character)",
     "crumbs": [
       "Home",
       "Session 1 · Python basics",
-      "Block 5 · Functions & modules",
-      "Exercise 4"
-    ]
-  },
-  {
-    "objectID": "session1-python/08_logical_operations.html",
-    "href": "session1-python/08_logical_operations.html",
-    "title": "5 · Logical operations",
-    "section": "",
-    "text": "Block 4 · Understand relational and logical operators.",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Block 4 · Logical operations",
-      "Logical operations"
-    ]
-  },
-  {
-    "objectID": "session1-python/08_logical_operations.html#what-is-a-loop",
-    "href": "session1-python/08_logical_operations.html#what-is-a-loop",
-    "title": "5 · Logical operations",
-    "section": "What is a loop?",
-    "text": "What is a loop?\nA loop is a programming structure that repeats a block of code. In this lesson you will meet the two common types:\n\nFor loops repeat code once for each item in a collection, such as a list.\nWhile loops repeat code while a condition is true.\n\nThis is the single most important chapter of the day for what comes next: when we start learning PsychoPy, we’ll learn that an experiment is a loop: for each stimulus: show it, record a response, give feedback.",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Block 4 · Logical operations",
-      "Logical operations"
-    ]
-  },
-  {
-    "objectID": "session1-python/08_logical_operations.html#for-loops",
-    "href": "session1-python/08_logical_operations.html#for-loops",
-    "title": "5 · Logical operations",
-    "section": "For loops",
-    "text": "For loops\nImagine you have five subject IDs and want to print each one. You could write a separate print() for every subject:\nprint(\"S01\")\nprint(\"S02\")\n...\nprint(\"S05\")\nThis becomes repetitive and difficult to update. Instead, store the IDs in a list and loop through the items:\nsubject_ids = ['S01', 'S02', 'S03', 'S04', 'S05']\n\nfor subject in subject_ids:\n    print(subject)\n&gt;&gt;&gt; S01\n&gt;&gt;&gt; S02\n&gt;&gt;&gt; S03\n&gt;&gt;&gt; S04\n&gt;&gt;&gt; S05\nIn plain language: for every item in subject_ids, store that item in subject and print it. Notice the syntax: the for statement ends with a colon, and the next line is indented. That indented part is the body of the loop, and it runs once per item. Each repetition is called an iteration; during each one, subject temporarily holds the current ID.\n\nYour turn. Using a list from Exercise 2: what does this print?\nanimals = ['cat', 'dog', 'owl']\nfor animal in animals:\n    print(animal)\n\nThe loop variable holds one item at a time. Not the list, and not the word “animals”.\n\n\nThree lines: cat, dog, owl; one iteration per item, one print per iteration.",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Block 4 · Logical operations",
-      "Logical operations"
-    ]
-  },
-  {
-    "objectID": "session1-python/08_logical_operations.html#looping-by-index",
-    "href": "session1-python/08_logical_operations.html#looping-by-index",
-    "title": "5 · Logical operations",
-    "section": "Looping by index",
-    "text": "Looping by index\nYou can also loop through the index positions of a list. This is useful when you need both an item’s position and its value:\n# Get the total number of subjects.\nnumber_of_subjects = len(subject_ids)\n\n# Create indices from 0 up to, but not including, number_of_subjects.\nsubject_index_range = range(number_of_subjects)\n\n# Use each index to retrieve the corresponding subject ID.\nfor index in subject_index_range:\n    print(f\"Subject {index + 1}: {subject_ids[index]}\")\nSubject 1: S01\nSubject 2: S02\nSubject 3: S03\nSubject 4: S04\nSubject 5: S05\nLook closely at index + 1: the indices run 0-4 (zero-indexed, as ever), but humans count subjects from 1, so we print index + 1 while using plain index for the lookup.",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Block 4 · Logical operations",
-      "Logical operations"
-    ]
-  },
-  {
-    "objectID": "session1-python/08_logical_operations.html#counter-variables",
-    "href": "session1-python/08_logical_operations.html#counter-variables",
-    "title": "5 · Logical operations",
-    "section": "Counter variables",
-    "text": "Counter variables\nSometimes you need to update a number on every iteration. This number is called a counter variable — here counting how many days have been processed:\nweekdays = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']\n\n# Start a counter at zero.\nday_of_week = 0\n\n# Print each day, then add 1 to the counter.\nfor day in weekdays:\n    print(f\"The current day is {day}\")\n    day_of_week += 1\nThe current day is monday\nThe current day is tuesday\nThe current day is wednesday\nThe current day is thursday\nThe current day is friday\nThe current day is saturday\nThe current day is sunday\n(+= 1 is shorthand for day_of_week = day_of_week + 1. Add one to what’s there.). Notice the syntax: the for statement ends with a colon, and the loop body must be indented.\n\nAfter the loop finishes, we print the counter:\nprint(f\"There are {day_of_week} days in the list.\")\nWhat exactly appears?\n\nCareful. The counter started at 0, but it was incremented once for every item. How many increments happened?\n\n\nThere are 7 days in the list.. The counter went 0→7, one += 1 per iteration. Starting at 0 doesn’t mean ending one short: seven items, seven increments.",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Block 4 · Logical operations",
-      "Logical operations"
-    ]
-  },
-  {
-    "objectID": "session1-python/08_logical_operations.html#while-loops",
-    "href": "session1-python/08_logical_operations.html#while-loops",
-    "title": "5 · Logical operations",
-    "section": "While loops",
-    "text": "While loops\nWhile loops repeat a block of code while a condition is True. You will learn more about conditions in the logical-operations lesson. For now, read this example and predict before running:\nday_of_week = 0\n\nwhile day_of_week &lt; 6:\n    print(f\"The current day is {weekdays[day_of_week]}\")\n    # Move to the next index so the condition will eventually become False.\n    day_of_week += 1\n\nBefore you run it: how many lines does this print?\n\nThe condition is day_of_week &lt; 6: strictly less than. Which values of the counter pass that test?\n\n\n6 lines: monday through saturday. The counter values 0,1,2,3,4,5 pass the &lt; 6 test; when it reaches 6, the condition is False and the loop stops before printing sunday. &lt; versus &lt;= is a one-character difference with a one-iteration consequence.\n\n\nOne warning while we’re here: the comment in the body is not decoration. If you forget the day_of_week += 1, the condition never becomes False — and the loop runs forever. It happens to everyone once; when it happens to you, click the console and press Ctrl-C to stop it.\n\n\n\n\n\n\nNoteSummary\n\n\n\nLoops repeat code. Use a for loop to work through each item in a collection, and an index-based for loop when you also need each item’s position. A counter variable records progress by changing on every iteration. Use a while loop when repetition should continue only while a condition is True, and make sure something in the body eventually makes it False.\n\n\nPredictions checked? Next: Exercise 3: Loops.",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Block 4 · Logical operations",
-      "Logical operations"
+      "Block 3 · Lists & Loops",
+      "Exercise 3: Loops"
     ]
   },
   {
@@ -853,110 +814,6 @@
       "Session 1 · Python basics",
       "Block 5 · Functions & modules",
       "Functions & modules"
-    ]
-  },
-  {
-    "objectID": "session1-python/09_functions.html#what-is-a-loop",
-    "href": "session1-python/09_functions.html#what-is-a-loop",
-    "title": "4 · Loops",
-    "section": "What is a loop?",
-    "text": "What is a loop?\nA loop is a programming structure that repeats a block of code. In this lesson you will meet the two common types:\n\nFor loops repeat code once for each item in a collection, such as a list.\nWhile loops repeat code while a condition is true.\n\nThis is the single most important chapter of the day for what comes next: when we start learning PsychoPy, we’ll learn that an experiment is a loop: for each stimulus: show it, record a response, give feedback.",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Block 5 · Functions & modules",
-      "Functions & modules"
-    ]
-  },
-  {
-    "objectID": "session1-python/09_functions.html#for-loops",
-    "href": "session1-python/09_functions.html#for-loops",
-    "title": "4 · Loops",
-    "section": "For loops",
-    "text": "For loops\nImagine you have five subject IDs and want to print each one. You could write a separate print() for every subject:\nprint(\"S01\")\nprint(\"S02\")\n...\nprint(\"S05\")\nThis becomes repetitive and difficult to update. Instead, store the IDs in a list and loop through the items:\nsubject_ids = ['S01', 'S02', 'S03', 'S04', 'S05']\n\nfor subject in subject_ids:\n    print(subject)\n&gt;&gt;&gt; S01\n&gt;&gt;&gt; S02\n&gt;&gt;&gt; S03\n&gt;&gt;&gt; S04\n&gt;&gt;&gt; S05\nIn plain language: for every item in subject_ids, store that item in subject and print it. Notice the syntax: the for statement ends with a colon, and the next line is indented. That indented part is the body of the loop, and it runs once per item. Each repetition is called an iteration; during each one, subject temporarily holds the current ID.\n\nYour turn. Using a list from Exercise 2: what does this print?\nanimals = ['cat', 'dog', 'owl']\nfor animal in animals:\n    print(animal)\n\nThe loop variable holds one item at a time. Not the list, and not the word “animals”.\n\n\nThree lines: cat, dog, owl; one iteration per item, one print per iteration.",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Block 5 · Functions & modules",
-      "Functions & modules"
-    ]
-  },
-  {
-    "objectID": "session1-python/09_functions.html#looping-by-index",
-    "href": "session1-python/09_functions.html#looping-by-index",
-    "title": "4 · Loops",
-    "section": "Looping by index",
-    "text": "Looping by index\nYou can also loop through the index positions of a list. This is useful when you need both an item’s position and its value:\n# Get the total number of subjects.\nnumber_of_subjects = len(subject_ids)\n\n# Create indices from 0 up to, but not including, number_of_subjects.\nsubject_index_range = range(number_of_subjects)\n\n# Use each index to retrieve the corresponding subject ID.\nfor index in subject_index_range:\n    print(f\"Subject {index + 1}: {subject_ids[index]}\")\nSubject 1: S01\nSubject 2: S02\nSubject 3: S03\nSubject 4: S04\nSubject 5: S05\nLook closely at index + 1: the indices run 0-4 (zero-indexed, as ever), but humans count subjects from 1, so we print index + 1 while using plain index for the lookup.",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Block 5 · Functions & modules",
-      "Functions & modules"
-    ]
-  },
-  {
-    "objectID": "session1-python/09_functions.html#counter-variables",
-    "href": "session1-python/09_functions.html#counter-variables",
-    "title": "4 · Loops",
-    "section": "Counter variables",
-    "text": "Counter variables\nSometimes you need to update a number on every iteration. This number is called a counter variable — here counting how many days have been processed:\nweekdays = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']\n\n# Start a counter at zero.\nday_of_week = 0\n\n# Print each day, then add 1 to the counter.\nfor day in weekdays:\n    print(f\"The current day is {day}\")\n    day_of_week += 1\nThe current day is monday\nThe current day is tuesday\nThe current day is wednesday\nThe current day is thursday\nThe current day is friday\nThe current day is saturday\nThe current day is sunday\n(+= 1 is shorthand for day_of_week = day_of_week + 1. Add one to what’s there.). Notice the syntax: the for statement ends with a colon, and the loop body must be indented.\n\nAfter the loop finishes, we print the counter:\nprint(f\"There are {day_of_week} days in the list.\")\nWhat exactly appears?\n\nCareful. The counter started at 0, but it was incremented once for every item. How many increments happened?\n\n\nThere are 7 days in the list.. The counter went 0→7, one += 1 per iteration. Starting at 0 doesn’t mean ending one short: seven items, seven increments.",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Block 5 · Functions & modules",
-      "Functions & modules"
-    ]
-  },
-  {
-    "objectID": "session1-python/09_functions.html#while-loops",
-    "href": "session1-python/09_functions.html#while-loops",
-    "title": "4 · Loops",
-    "section": "While loops",
-    "text": "While loops\nWhile loops repeat a block of code while a condition is True. You will learn more about conditions in the logical-operations lesson. For now, read this example and predict before running:\nday_of_week = 0\n\nwhile day_of_week &lt; 6:\n    print(f\"The current day is {weekdays[day_of_week]}\")\n    # Move to the next index so the condition will eventually become False.\n    day_of_week += 1\n\nBefore you run it: how many lines does this print?\n\nThe condition is day_of_week &lt; 6: strictly less than. Which values of the counter pass that test?\n\n\n6 lines: monday through saturday. The counter values 0,1,2,3,4,5 pass the &lt; 6 test; when it reaches 6, the condition is False and the loop stops before printing sunday. &lt; versus &lt;= is a one-character difference with a one-iteration consequence.\n\n\nOne warning while we’re here: the comment in the body is not decoration. If you forget the day_of_week += 1, the condition never becomes False — and the loop runs forever. It happens to everyone once; when it happens to you, click the console and press Ctrl-C to stop it.\n\n\n\n\n\n\nNoteSummary\n\n\n\nLoops repeat code. Use a for loop to work through each item in a collection, and an index-based for loop when you also need each item’s position. A counter variable records progress by changing on every iteration. Use a while loop when repetition should continue only while a condition is True, and make sure something in the body eventually makes it False.\n\n\nPredictions checked? Next: Exercise 3: Loops.",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Block 5 · Functions & modules",
-      "Functions & modules"
-    ]
-  },
-  {
-    "objectID": "session1-python/08_logical_operations.html#what-is-a-relational-operator",
-    "href": "session1-python/08_logical_operations.html#what-is-a-relational-operator",
-    "title": "5 · Logical operations",
-    "section": "What is a relational operator?",
-    "text": "What is a relational operator?\nWe often want to write code that allows us to make relational comparisons. A relational comparison assesses the relationship between two different values, such as whether one value is greater than, less than, or equal to another.\nPython has several built-in relational operators listed below:\n\n# Less than\n1 &lt; 2\n\n# Greater than.\n1 &gt; 2 \n\n# Less than or equal to.\n1 &lt;= 2\n\n# Greater than or equal to.\n1 &gt;= 2\n\n# Equal to.\n1==2\n\n# Not equal to.\n1!=2\nIf we execute the above relational comparisons in Python, then each one should output a True or False value. Why?\n&gt;&gt;&gt; True\n&gt;&gt;&gt; False\n&gt;&gt;&gt; True\n&gt;&gt;&gt; False\n&gt;&gt;&gt; False\n&gt;&gt;&gt; True \n\nWhy do these relational comparisons return True or False only?\n\n\nRelational comparisons can only be True or False because they are checking for a single condition.\n\n1 &lt; 2 # this can ONLY return true or false\n# because is EITHER less than 2 (in which case the expression is true)\n# OR greater than 2 (in which case the expression is false).",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Block 4 · Logical operations",
-      "Logical operations"
-    ]
-  },
-  {
-    "objectID": "session1-python/08_logical_operations.html#what-is-a-logical-operator",
-    "href": "session1-python/08_logical_operations.html#what-is-a-logical-operator",
-    "title": "5 · Logical operations",
-    "section": "What is a logical operator?",
-    "text": "What is a logical operator?\nRelational operators compare two values to test whether a condition is true or false.\nLogical operators can be used to compare whether multiple relational comparisons are true or false. Let’s look at some examples:\n\n# and: True only when both conditions are True.\nTrue and True\n\n# or: True when at least one condition is True.\nTrue or False\n\n# xor: True when exactly one condition is True.\nTrue != False\n\nIf we run the above code, the output will be:\n&gt;&gt;&gt; True\n&gt;&gt;&gt; True\n&gt;&gt;&gt; True\nSo, let’s put this into context:\n\nx = 1 \ny = 2\nz = 3\n\n# and\ny &gt; x and z &gt; x # this should return a value of true because BOTH y &gt; x evaluates to true and z &gt; x evaluates to true.\n\n# or \ny &lt; x or z &lt; x # this should evaluate to false. why?\n\n# xor\n(x == y) != (y &gt; x) # True because the two conditions have different results: False != True.\n\n# chained logical operations (can be applied to any combination of the above)\ny &gt; x and z &gt; x and 10 &gt; x # True because each condition is true. \nNow you can check the output:\n&gt;&gt;&gt; True\n&gt;&gt;&gt; False\n&gt;&gt;&gt; True \n&gt;&gt;&gt; True\n\nWhy are there parentheses around the relational comparisons for xor but not other logical operations?\n\n\nHere, != compares the results of two complete conditions. The parentheses make Python evaluate (x == y) and (y &gt; x) first, and then compare those Boolean results. Without the parentheses, Python interprets the expression as a chained comparison instead of an XOR operation.\n(x == y) != (y &gt; x)\n# False != True, so the result is True.",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Block 4 · Logical operations",
-      "Logical operations"
-    ]
-  },
-  {
-    "objectID": "session1-python/08_logical_operations.html#if-statements-relational-and-logical-operators",
-    "href": "session1-python/08_logical_operations.html#if-statements-relational-and-logical-operators",
-    "title": "5 · Logical operations",
-    "section": "If statements, relational and logical operators",
-    "text": "If statements, relational and logical operators\nOkay, we are very excitingly going to learn about how to use operators inside of if statements.\nIf statements evaluate the output of logical and relational operations and execute subsequent code only if specified conditions are met.\nLet’s start with an example:\n\nx = 1\ny = 2\nz = 3\n\n# this *if* statement checks if x &lt; y .\n# The subsequent code (inside of the statement) is run *only if* x &lt; y evaluates as true.\nif x &lt; y:\n   print(x &lt; y)\nHere x is indeed less than y, so x &lt; y evaluates to true and the the code inside the statement (after the colon / indentation) is run.\nNotice the syntax for if statements is always:\n\n   # a boolean comparison is one that results in true or false (so relational and logical comparisons)\n   if some_boolean_comparison: \n        code that runs INSIDE the statement, which only executes if a condition is met (some_boolean_comparison is true)\nBecause code printed inside if statements is executed only if the statement evalutes as true, if statements are called control flow statements, meaning that they control the flow of what code is executed.\n\nIf-else statements\nOkay, this is the final flourish (for today). Let’s say we want to evaluate whether a condition true, and run one line of code if it is true and another line of code if it is not true. Enter the if-else statement.\nIf-else statements allow you to do exactly this. Here’s an example:\n\n# this is the if statement. \nif x &lt; y:\n     print(f\"{x} is less than {y}\")\n\n# this is the else.\nelse: \n     print(f\"{x} is greater than {y}\") # this will be printed *only* if the above condition is not met.\nNote the colon after else and the subsequent indentation / line break. This is the necessary syntax for else statements.\nWe can use logical operators in if statements:\nif x &lt; y and x==1:\n     print(f\"{x} is less than {y} and equals 1\")\nelse: \n    print(f\"{x} is not both less than {y} and equal to 1\")\nFinally, we can actually have nested if statements and elif statements:\nif x &lt; 10:\n    \n    if x==1:\n         print(\"x is equal to 1\")\n    elif x==2:\n         print(\"x is equal to 2\")\n    else:\n         print(\"x is less than 10 but not equal to 1 or 2)\nelse: \n     print(\"x is greater than 10\")\n\n\nWhat does elif stand for in plain language?\n\n\nelif stands for else if. It lets Python test another condition when the preceding if or elif condition was False. If that new condition is True, Python runs its indented code.\n\n\n\n\n\n\nNoteSummary\n\n\n\nSo, you have learned how to perform basic boolean operations, meaning operations the result in boolean (true or false) output. Relational operators allow for comparisons of values, while logical operators allow for comparing the boolean output of two (or more) conditions.\nYou also learned how to implement boolean operations in if statements, elif staetments and how to write nested if statements.\n\n\nLesson completed? Next: Functions.",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Block 4 · Logical operations",
-      "Logical operations"
     ]
   },
   {
@@ -1003,7 +860,7 @@
     "href": "session1-python/09_functions.html#modules",
     "title": "4 · Functions & modules",
     "section": "Modules",
-    "text": "Modules\nFunctions can become lengthy, and it can be inconvenient to define every function in the main code file for a project.\nTo keep your code organized, you can store function definitions in a separate Python file with a .py extension.\nA Python file containing reusable code is called a module. A module can work like a small library of functions.\nTo use a function from a module, import the module into the file or console where you are working.\nHere is an example:\n# In greeting_types.py:\ndef greetings():\n     print(\"Hello, world!\")\nAfter creating greeting_types.py and defining greetings() there, import the module in the console or another Python file:\nimport greeting_types\n\ngreeting_types.greetings()\nAfter importing the module, you can call the function with the module name and a dot: greeting_types.greetings().\n\n\n\n\n\n\nNoteSummary\n\n\n\nFunctions are reusable recipes that can accept inputs and return outputs. Modules are Python files that help organize and reuse functions.\n\n\nLesson learned? Next: Exercise 4: Putting it all together - Logical operations & functions.",
+    "text": "Modules\nFunctions can become lengthy, and it can be inconvenient to define every function in the main code file for a project.\nTo keep your code organized, you can store function definitions in a separate Python file with a .py extension.\nA Python file containing reusable code is called a module. A module can work like a small library of functions.\nTo use a function from a module, import the module into the file or console where you are working.\nHere is an example:\n# In greeting_types.py:\ndef greetings():\n     print(\"Hello, world!\")\nAfter creating greeting_types.py and defining greetings() there, import the module in the console or another Python file:\nimport greeting_types\n\ngreeting_types.greetings()\nAfter importing the module, you can call the function with the module name and a dot: greeting_types.greetings().\n\n\n\n\n\n\nSummary\n\n\n\nFunctions are reusable recipes that can accept inputs and return outputs. Modules are Python files that help organize and reuse functions.\n\n\nLesson learned? Next: Exercise 4: Putting it all together - Logical operations & functions.",
     "crumbs": [
       "Home",
       "Session 1 · Python basics",
@@ -1012,212 +869,11 @@
     ]
   },
   {
-    "objectID": "session1-python/10_exercise4.html#part-1-write-your-own-simple-function.",
-    "href": "session1-python/10_exercise4.html#part-1-write-your-own-simple-function.",
-    "title": "Exercise 4 · Functions & modules",
-    "section": "Part 1: Write your own simple function.",
-    "text": "Part 1: Write your own simple function.\nWrite your own function that prints the expression “this is my first function!”, then call the function.\n\n\n\n\n\n\nNoteHint\n\n\n\n\n\nBe sure to define the function first, using the proper indentation.\n\n\n\n\n\n\n\n\n\nTipShow the code\n\n\n\n\n\n\ndef first_function():\n     print(\"This is my first function!\")",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Block 5 · Functions & modules",
-      "Exercise 4"
-    ]
-  },
-  {
-    "objectID": "session1-python/10_exercise4.html#part-2-inputs-outputs-and-relationallogical-operators.",
-    "href": "session1-python/10_exercise4.html#part-2-inputs-outputs-and-relationallogical-operators.",
-    "title": "Exercise 4 · Functions & modules",
-    "section": "Part 2: Inputs, outputs and relational/logical operators.",
-    "text": "Part 2: Inputs, outputs and relational/logical operators.\nWhew, we’ve gotten past that really basic exercise, let’s add layers:\n\nRedefine the above function with an input argument name\nInside the function, evaluate whether the name is “anna”\nIf the name is “anna” print “may be your teacher” else print “is not your teacher”\nNow call this function from the console, first passing your name.\nThen pass the name “anna”.\nWhat does your function print on each call?\n\n\n\n\n\n\n\nNoteHint\n\n\n\n\n\nBe sure to define the function with an input variable name, e.g., def(input_var_name).\n\n\n\n\n\n\n\n\n\nTipShow the code\n\n\n\n\n\n\ndef first_function(name):\n     if name==\"anna\":\n          print(\"may be your teacher\")\n     else:\n          print(\"is not your teacher\")",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Block 5 · Functions & modules",
-      "Exercise 4"
-    ]
-  },
-  {
-    "objectID": "session1-python/10_exercise4.html#part-3-store-your-function-in-a",
-    "href": "session1-python/10_exercise4.html#part-3-store-your-function-in-a",
-    "title": "Exercise 4 · Functions & modules",
-    "section": "Part 3: Store your function in a",
-    "text": "Part 3: Store your function in a",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Block 5 · Functions & modules",
-      "Exercise 4"
-    ]
-  },
-  {
-    "objectID": "session1-python/10_exercise4.html#part-4-get-creative",
-    "href": "session1-python/10_exercise4.html#part-4-get-creative",
-    "title": "Exercise 4 · Functions & modules",
-    "section": "Part 4: Get creative",
-    "text": "Part 4: Get creative\nEverything runs and makes sense? Then onwards to Logical operations.",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Block 5 · Functions & modules",
-      "Exercise 4"
-    ]
-  },
-  {
-    "objectID": "session1-python/10_exercise4.html#part-2-inputs-relational-operators.",
-    "href": "session1-python/10_exercise4.html#part-2-inputs-relational-operators.",
-    "title": "Exercise 4 · Functions & modules",
-    "section": "Part 2: Inputs & relational operators.",
-    "text": "Part 2: Inputs & relational operators.\nWhew, we’ve gotten past that really basic exercise, let’s add layers:\n\nRedefine the above function with an input argument name\nInside the function, evaluate whether the name is “anna”\nIf the name is “anna” print “may be your teacher” else print “is not your teacher”\nNow call this function from the console, first passing your name.\nThen pass the name “anna”.\nWhat does your function print on each call?\n\n\n\n\n\n\n\nNoteHint\n\n\n\n\n\nDefine the function with a parameter named name, then compare it with the string \"anna\".\n\n\n\n\n\n\n\n\n\nTipShow the code\n\n\n\n\n\n\ndef first_function(name):\n     if name == \"anna\":\n          print(\"May be your teacher.\")\n     else:\n          print(\"Is not your teacher.\")\n\nfirst_function(\"bob\")  # Replace \"bob\" with your own name.\nfirst_function(\"anna\")",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Block 5 · Functions & modules",
-      "Exercise 4"
-    ]
-  },
-  {
-    "objectID": "session1-python/10_exercise4.html#part-3-outputs-relationallogical-operators.",
-    "href": "session1-python/10_exercise4.html#part-3-outputs-relationallogical-operators.",
-    "title": "Exercise 4 · Functions & modules",
-    "section": "Part 3: Outputs & relational/logical operators.",
-    "text": "Part 3: Outputs & relational/logical operators.\nNow let’s redefine the above function, this time with outputs:\n\nDefine a variable called teacher which has a value of True if the input argument name is “anna”, otherwise is false.\nReturn this output variable in the function.\nCall the function, pass \"anna\" as input, and store the returned value in a variable in the console.\nPrint the value of the output variable in the console. What is it?\n\n\n\n\n\n\n\nNoteHint\n\n\n\n\n\nRemember to use return at the end of your function to specify outputs…\n\n\n\n\n\n\n\n\n\nTipShow the code\n\n\n\n\n\n\ndef first_function(name):\n     if name == \"anna\":\n          print(\"May be your teacher.\")\n          teacher = True\n     else:\n          print(\"Is not your teacher.\")\n          teacher = False\n\n     return teacher\n\nfunc_output = first_function(\"anna\")\nprint(func_output)",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Block 5 · Functions & modules",
-      "Exercise 4"
-    ]
-  },
-  {
-    "objectID": "session1-python/10_exercise4.html#part-4-store-your-function-in-a",
-    "href": "session1-python/10_exercise4.html#part-4-store-your-function-in-a",
-    "title": "Exercise 4 · Functions & modules",
-    "section": "Part 4: Store your function in a",
-    "text": "Part 4: Store your function in a",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Block 5 · Functions & modules",
-      "Exercise 4"
-    ]
-  },
-  {
-    "objectID": "session1-python/10_exercise4.html#part-5-get-creative",
-    "href": "session1-python/10_exercise4.html#part-5-get-creative",
-    "title": "Exercise 4 · Functions & modules",
-    "section": "Part 5: Get creative",
-    "text": "Part 5: Get creative\nOkay, now’s the exciting part. You can run wild (not too wild) with your creativity:\nMake as many functions as you have time for that incorporate all of the code concepts we’ve learned today:\n\nVariable types\nLists & loops (for loops, while loops)\nLogical operations / relational operations\nFunction inputs / outputs\nModules\n\nStore these functions in a module file, import this file in your exercise .py file and call the functions.\nThere are no right answers here, only correct syntax.",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Block 5 · Functions & modules",
-      "Exercise 4"
-    ]
-  },
-  {
-    "objectID": "session1-python/10_exercise4.html#part-4-store-your-function-in-a-module.",
-    "href": "session1-python/10_exercise4.html#part-4-store-your-function-in-a-module.",
-    "title": "Exercise 4 · Functions & modules",
-    "section": "Part 4: Store your function in a module.",
-    "text": "Part 4: Store your function in a module.\nNow let’s store your function in a module and use it:\n\nFirst, make a new .py file in the same folder as your exercise .py file. Name the file my_module.py.\nCopy your function from the last exercise into this file and save.\nIn your exercise file, import the module with import my_module.\nCall the function with my_module.first_function(\"anna\") and store the returned value.\nPrint the returned value. Does it work?\n\n\n\n\n\n\n\nNoteHint\n\n\n\n\n\nWhen a function is stored in a module, call it using the module name, a dot, and the function name: my_module.first_function(\"anna\").\n\n\n\n\n\n\n\n\n\nTipShow the code\n\n\n\n\n\nimport my_module\n\nteacher = my_module.first_function(\"anna\")\nprint(teacher)",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Block 5 · Functions & modules",
-      "Exercise 4"
-    ]
-  },
-  {
     "objectID": "session1-python/11_github.html",
     "href": "session1-python/11_github.html",
     "title": "Syncing with GitHub",
     "section": "",
     "text": "Final step · Clone a GitHub repository into Coder, store your Python code there, and push your changes back to GitHub.",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Syncing with GitHub"
-    ]
-  },
-  {
-    "objectID": "session1-python/11_github.html#python-coder-in-ucloud",
-    "href": "session1-python/11_github.html#python-coder-in-ucloud",
-    "title": "Syncing with Github",
-    "section": "Python Coder in UCloud",
-    "text": "Python Coder in UCloud\nToday we will learn the fundamentals of Python in UCloud, where Python is already installed. This gives everyone a consistent setup and lets us focus on the language itself instead of troubleshooting software installation or technical setup.\nNext week, when you use PsychoPy, you will install it on your laptop and work with the version of Python bundled with it. We start with plain Python first so you can build a solid foundation before adding the extra complexity of PsychoPy.",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Syncing with GitHub"
-    ]
-  },
-  {
-    "objectID": "session1-python/11_github.html#how-to-open-python-coder-in-ucloud",
-    "href": "session1-python/11_github.html#how-to-open-python-coder-in-ucloud",
-    "title": "Syncing with Github",
-    "section": "How to open Python Coder in UCloud",
-    "text": "How to open Python Coder in UCloud\n\nOpen UCloud.\nGo to your E26_LICS_Methods1 workspace using the drop-down menu in the top-left corner.\nOpen the Applications page by clicking the shopping bag icon in the right panel.\nSearch for “Coder” and click the application.\nThe Job Parameters page should open. Fill in the fields the same way you do for your RStudio jobs:\n\nChoose a meaningful job name\nSelect the machine type (only one option is available)\nClick “Add Folder #1” and choose your cogsci_methods01_e26 folder\nUnder “Initialization”, select the ucloud_init_env_final.sh script\nChoose a reasonable number of hours\n\nClick the green “Submit” button.\nWhen the job is ready, click “Open Interface” at the top left.",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Syncing with GitHub"
-    ]
-  },
-  {
-    "objectID": "session1-python/11_github.html#install-the-python-language-extension",
-    "href": "session1-python/11_github.html#install-the-python-language-extension",
-    "title": "Syncing with Github",
-    "section": "Install the Python language extension",
-    "text": "Install the Python language extension\nRemember that we need to reinstall packages in UCloud every time we start a new job, because each job is assigned to a new remote computer. The same is true for Python: we need to install the Python language extension in the Coder application each time we start a new job. Here’s how:\n\nIn the far-left panel, click the icon with four squares. This is the marketplace icon.\nType “Python” into the search bar. The Python extension should be at the top of the list (from ms-Python).\nClick the Python extension, then click the Install button.",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Syncing with GitHub"
-    ]
-  },
-  {
-    "objectID": "session1-python/11_github.html#create-your-first-python-code-file",
-    "href": "session1-python/11_github.html#create-your-first-python-code-file",
-    "title": "Syncing with Github",
-    "section": "Create your first Python code file",
-    "text": "Create your first Python code file\nYou can now create a new Python code file. Here’s how:\n\nIn the far-left panel, find the icon that looks like three horizontal lines stacked on top of each other. Click it.\nA pop-up menu will appear. Click File &gt; New File.\nA drop-down menu will appear asking for the file type. Type “Python” and you should see: Create new file (python) Built-in.\nYou will be prompted to choose where to save the file. For now, we will use: /work/cogsci_methods01_e26/name_of_your_file.py\n\nYou can choose any name for the file (it does not have to be “name_of_your_file.py”). The only rules are that you cannot use spaces and it must have a .py extension, because this tells the remote computer that it is a Python file when you reopen it later.",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Syncing with GitHub"
-    ]
-  },
-  {
-    "objectID": "session1-python/11_github.html#hello-world-run-your-first-line-of-python-code",
-    "href": "session1-python/11_github.html#hello-world-run-your-first-line-of-python-code",
-    "title": "Syncing with Github",
-    "section": "“Hello world!”: Run your first line of Python code",
-    "text": "“Hello world!”: Run your first line of Python code\nIn your new code file, enter your first line of Python code:\nprint(\"Hello world!\")\n\nYour first prediction! Throughout these sessions, boxes like this ask you to guess what code will do before you run it. That’s where the learning happens, and wrong guesses are very welcome and encouraged. After a few tries the box will offer to show you the answer, so you can never get stuck. So: what exactly will appear in the console when this line runs? Take a guess.\n\nHello world!. Note that there are no quotation marks. The quotes tell Python where the text starts and ends; they are not part of the text itself.\n\n\nNow run the code by highlighting it and pressing Shift+Enter. You should see a dedicated terminal open below.\nTerminal shows what you expected? Next: Chapter 2 — Variables and types.",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Syncing with GitHub"
-    ]
-  },
-  {
-    "objectID": "session1-python/11_github.html#open-the-terminal-in-your-coder-application.",
-    "href": "session1-python/11_github.html#open-the-terminal-in-your-coder-application.",
-    "title": "Syncing with Github",
-    "section": "Open the Terminal in your Coder application.",
-    "text": "Open the Terminal in your Coder application.\n\nIn your Coder application, click on the icon showing three horizontal lines on the far left panel.\nClick Terminal &gt; New Terminal\nA new Terminal should appear under your Python code file.\n\nThis terminal is identical to the one that you used in the RStudio application.\nNavigate to /work/your_cogsci_folder (which should be called cogsci_methods01_e26).",
-    "crumbs": [
-      "Home",
-      "Session 1 · Python basics",
-      "Syncing with GitHub"
-    ]
-  },
-  {
-    "objectID": "session1-python/11_github.html#now-follow-the-same-procedure-that-you-have-been-using-in-uclouds-rstudio-application.",
-    "href": "session1-python/11_github.html#now-follow-the-same-procedure-that-you-have-been-using-in-uclouds-rstudio-application.",
-    "title": "Syncing with Github",
-    "section": "Now follow the same procedure that you have been using in UCloud’s RStudio application.",
-    "text": "Now follow the same procedure that you have been using in UCloud’s RStudio application.\n\nMake a Github repository for your Python code\nIn the UCloud terminal you just opened:\n\nUse the clone_git_repo.sh to clone your Github repository into /work/cogsci_methods01_e26\nSave your Python code in this repository on UCloud\nWhen you are done working for the day, use the submit_assignment_git.sh script to push your changes back to Github\n\nRepeat 2b-c every time you start a new Job to work on your Python code and you will have a versioned Python code file on Github!\n\n\n\n\n\n\n\nNoteCongratulations\n\n\n\nCongratulations, you have completed Session 1 of this 3-session Python / Psychopy workshop!",
     "crumbs": [
       "Home",
       "Session 1 · Python basics",
@@ -1241,7 +897,7 @@
     "href": "session1-python/11_github.html#clone-and-sync-your-repository",
     "title": "Syncing with GitHub",
     "section": "Clone and sync your repository",
-    "text": "Clone and sync your repository\n\nCreate a GitHub repository for your Python code.\nIn the UCloud terminal, use clone_git_repo.sh to clone the repository into /work/cogsci_methods01_e26.\nSave your Python code inside the cloned repository.\nWhen you finish working, use submit_assignment_git.sh to push your changes back to GitHub.\n\nWhen you start a new Job, repeat the steps for working in the repository and submitting your changes. This keeps your Python code versioned on GitHub.\n\n\n\n\n\n\nNoteCongratulations\n\n\n\nCongratulations! You have completed Session 1 of this three-session Python and PsychoPy workshop.",
+    "text": "Clone and sync your repository\n\nCreate a GitHub repository for your Python code.\nIn the UCloud terminal, use clone_git_repo.sh to clone the repository into /work/cogsci_methods01_e26.\nSave your Python code inside the cloned repository.\nWhen you finish working, use submit_assignment_git.sh to push your changes back to GitHub.\n\nWhen you start a new Job, repeat the steps for working in the repository and submitting your changes. This keeps your Python code versioned on GitHub.\n\n\n\n\n\n\nCongratulations\n\n\n\nCongratulations! You have completed Session 1 of this three-session Python and PsychoPy workshop.",
     "crumbs": [
       "Home",
       "Session 1 · Python basics",
