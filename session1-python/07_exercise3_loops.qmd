@@ -58,7 +58,7 @@ for sense in basic_senses:
 ## Part 2: Using counter variables in *for* loops
 
 1. Define a counter variable `sense_number`
-2. Rewrite the *for* loop from Part 1, but increment `sense_number` on each iteration of the loop.
+2. Rewrite the *for* loop from Part 1, but add 1 to `sense_number` on each iteration of the loop.
 3. Add a print expression to the loop that prints a sentence containing the value of `sense_number` and `sense` on each iteration.
 
 ::: {.callout-note collapse="true" title="Hint"}

@@ -72,7 +72,7 @@ y > x and z > x and 10 > x  # operators can chain: every side must be true.
 ::: {.predict-check data-answer="True
 False
 True
-True" data-multiline="true" data-placeholder="Four lines: True or False for each…"}
+True" data-multiline="true" data-placeholder="One line with your answers: True or False for each…"}
 What do the four expressions return, in order?
 
 ::: {.pc-hint data-if-contains="False

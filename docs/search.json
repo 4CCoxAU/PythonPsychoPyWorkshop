@@ -756,7 +756,7 @@
     "href": "session1-python/07_exercise3_loops.html#part-2-using-counter-variables-in-for-loops",
     "title": "Exercise 3 · Loops",
     "section": "Part 2: Using counter variables in for loops",
-    "text": "Part 2: Using counter variables in for loops\n\nDefine a counter variable sense_number\nRewrite the for loop from Part 1, but increment sense_number on each iteration of the loop.\nAdd a print expression to the loop that prints a sentence containing the value of sense_number and sense on each iteration.\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nBe mindful of where you place the counter variable: Should it come before or after the print() statement?\n\n\n\n\n\n\n\n\n\n🔒 Example code will be available here after the workshop",
+    "text": "Part 2: Using counter variables in for loops\n\nDefine a counter variable sense_number\nRewrite the for loop from Part 1, but add 1 to sense_number on each iteration of the loop.\nAdd a print expression to the loop that prints a sentence containing the value of sense_number and sense on each iteration.\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nBe mindful of where you place the counter variable: Should it come before or after the print() statement?\n\n\n\n\n\n\n\n\n\n🔒 Example code will be available here after the workshop",
     "crumbs": [
       "Home",
       "Session 1 · Python basics",
