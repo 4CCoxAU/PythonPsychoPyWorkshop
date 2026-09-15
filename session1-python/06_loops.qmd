@@ -47,7 +47,7 @@ In plain language: *for every item in `subject_ids`, store that item in `subject
 
 ::: {.predict-check data-answer="cat
 dog
-owl" data-multiline="true" data-placeholder="One line per loop iteration…"}
+owl" data-multiline="true" data-placeholder="Write output on one line…"}
 Your turn. Using a list from Exercise 2: what does this print?
 
 ```
