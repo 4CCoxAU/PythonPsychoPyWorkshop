@@ -190,4 +190,4 @@ And a naming question: what does *elif* stand for in plain language?
 You have learned to perform basic *Boolean* operations. Operations that result in true-or-false output. Relational operators compare values; logical operators combine the Boolean results of two or more conditions. And `if`, `if–else`, `elif` and nested statements let those conditions control which code runs. In the PsychoPy sessions, this is precisely how feedback works: *if* the participant pressed the correct key, show the success image, *else*, show failure.
 :::
 
-**Predictions checked? Green sticky.** Next: [Functions](09_functions.qmd).
+**Predictions checked?** Next: [Functions](09_functions.qmd).
