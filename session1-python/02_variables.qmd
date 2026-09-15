@@ -102,10 +102,8 @@ You may have noticed that we start indexing at 0 instead of 1. This is because P
 Before you run it: what will `dog_name_possessive[0:4]` give you?
 
 ::: {.pc-explanation}
-`anna` — characters 0, 1, 2 and 3. The index range `[0:4]` starts *at* 0 and stops *before* 4, so you get exactly 4 characters. (The console shows it wrapped in quotes — `'anna'` — because it is a string.)
+`anna`: characters 0, 1, 2 and 3. The index range `[0:4]` starts *at* 0 and stops *before* 4, so you get exactly 4 characters. (The console shows it wrapped in quotes (`'anna'`) because it is a string.)
 :::
-:::
-
 :::
 
 ## String methods
@@ -154,10 +152,10 @@ subject_id.split("_")
 ```
 
 ```{.repl}
-['S', '01']
+>>> ['S', '01']
 ```
 
-::: {.predict-check data-answer="['left', 'right', 'left', 'left']" data-accept="['left','right','left','left']||left, right, left, left||left right left left"}
+::: {.predict-check data-answer="['left', 'right', 'left', 'left']" data-accept="['left','right','left','left']||left, right, left, left||left right left left||[\"left\", \"right\", \"left\", \"left\"]||[\"left\",\"right\",\"left\",\"left\"]"}
 Given `responses = "left right left left"`, what does `responses.split()` return?
 
 ::: {.pc-explanation}
@@ -165,11 +163,11 @@ Given `responses = "left right left left"`, what does `responses.split()` return
 :::
 :::
 
-::: {.predict-check data-answer="['2026', '09', '14']" data-accept="['2026','09','14']||2026, 09, 14||2026 09 14"}
+::: {.predict-check data-answer="['2026', '09', '14']" data-accept="['2026','09','14']||2026, 09, 14||2026 09 14||[\"2026\", \"09\", \"14\"]||[\"2026\",\"09\",\"14\"]"}
 Given `date = "2026-09-14"`, what does `date.split("-")` return?
 
 ::: {.pc-hint data-if-contains="-"}
-The delimiter is the cut line — it doesn't survive into the pieces.
+The delimiter is the cut line. It doesn't survive into the pieces.
 :::
 
 ::: {.pc-explanation}

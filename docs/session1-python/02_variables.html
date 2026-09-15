@@ -604,10 +604,9 @@ Check your thinking
 <div class="predict-check" data-answer="anna" data-accept="'anna'">
 <p>Before you run it: what will <code>dog_name_possessive[0:4]</code> give you?</p>
 <div class="pc-explanation">
-<p><code>anna</code> — characters 0, 1, 2 and 3. The index range <code>[0:4]</code> starts <em>at</em> 0 and stops <em>before</em> 4, so you get exactly 4 characters. (The console shows it wrapped in quotes — <code>'anna'</code> — because it is a string.)</p>
+<p><code>anna</code>: characters 0, 1, 2 and 3. The index range <code>[0:4]</code> starts <em>at</em> 0 and stops <em>before</em> 4, so you get exactly 4 characters. (The console shows it wrapped in quotes (<code>'anna'</code>) because it is a string.)</p>
 </div>
 </div>
-<p>:::</p>
 </section>
 </section>
 <section id="string-methods" class="level2">
@@ -634,17 +633,17 @@ Check your thinking
 <p>You can also use <code>split()</code> with a different delimiter, such as an underscore:</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>subject_id <span class="op">=</span> <span class="st">"S_01"</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>subject_id.split(<span class="st">"_"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<pre class="repl"><code>['S', '01']</code></pre>
-<div class="predict-check" data-answer="['left', 'right', 'left', 'left']" data-accept="['left','right','left','left']||left, right, left, left||left right left left">
+<pre class="repl"><code>&gt;&gt;&gt; ['S', '01']</code></pre>
+<div class="predict-check" data-answer="['left', 'right', 'left', 'left']" data-accept="['left','right','left','left']||left, right, left, left||left right left left||[&quot;left&quot;, &quot;right&quot;, &quot;left&quot;, &quot;left&quot;]||[&quot;left&quot;,&quot;right&quot;,&quot;left&quot;,&quot;left&quot;]">
 <p>Given <code>responses = "left right left left"</code>, what does <code>responses.split()</code> return?</p>
 <div class="pc-explanation">
 <p><code>['left', 'right', 'left', 'left']</code>: a list of four strings, one per word. Repeats are kept; <code>split()</code> just cuts, it doesn’t deduplicate.</p>
 </div>
 </div>
-<div class="predict-check" data-answer="['2026', '09', '14']" data-accept="['2026','09','14']||2026, 09, 14||2026 09 14">
+<div class="predict-check" data-answer="['2026', '09', '14']" data-accept="['2026','09','14']||2026, 09, 14||2026 09 14||[&quot;2026&quot;, &quot;09&quot;, &quot;14&quot;]||[&quot;2026&quot;,&quot;09&quot;,&quot;14&quot;]">
 <p>Given <code>date = "2026-09-14"</code>, what does <code>date.split("-")</code> return?</p>
 <div class="pc-hint" data-if-contains="-">
-<p>The delimiter is the cut line — it doesn’t survive into the pieces.</p>
+<p>The delimiter is the cut line. It doesn’t survive into the pieces.</p>
 </div>
 <div class="pc-explanation">
 <p><code>['2026', '09', '14']</code>. Three pieces, dashes gone. Note they are <em>strings</em>, not numbers: <code>'09'</code> keeps its leading zero, and you couldn’t do maths with it without converting first.</p>
