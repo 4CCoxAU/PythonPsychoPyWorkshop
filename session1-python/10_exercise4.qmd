@@ -3,113 +3,140 @@ title: "Exercise 4 · Functions & modules"
 ---
 
 ::: {.milestone}
-**Block 5** · Exercise for [Chapter 5 — Functions](09_functions.qmd).
+**Block 5** · Exercise for [Block 5: Functions & modules](09_functions.qmd). The last one of the day!
 :::
 
 ::: {.exercise-banner}
 <div class="ex-kicker">Hands-on · on your own · hints before code</div>
-<div class="ex-title">Exercise 4 — Functions & modules</div>
+<div class="ex-title">Exercise 4: Functions & modules</div>
 <div class="ex-sub">Write your own functions, use logical and relational operators, and store a function in a module.</div>
 :::
 
+Same drill as the earlier exercises: try first, then the *Hint*, then *Show the code*. Work in the same `.py` file, with comments such as `# Exercise 4` to keep it navigable.
 
-Same drill as the earlier exercises: try first, then use the *Hint* if you get stuck. Work in the same `.py` file, with comments such as `# Exercise 4` to keep it navigable.
 
-## Part 1: Write your own simple function.
+## Part 1: Write your own simple function
 
-Write your own function that prints the expression "this is my first function!", then call the function.
+Write a function that prints the expression `this is my first function!`, then call the function.
 
 ::: {.callout-note collapse="true" title="Hint"}
-Be sure to define the function first, using the proper indentation.
+Define the function first (`def`, a name, parentheses, a colon, an indented body) — then call it by name, with parentheses.
 :::
 
+:::: {.content-visible when-meta="show-solutions"}
+
 ::: {.callout-tip collapse="true" title="Show the code"}
-
 ```python
-
 def first_function():
-     print("This is my first function!")
+    print("This is my first function!")
 
+first_function()
 ```
 :::
 
-## Part 2: Inputs & relational operators. 
+::::
 
-Whew, we've gotten past that really basic exercise, let's add layers:
+:::: {.content-visible unless-meta="show-solutions"}
 
-1. Redefine the above function with an input argument `name`
-2. Inside the function, evaluate whether the name is "anna"
-3. If the name is "anna" print "may be your teacher" else print "is not your teacher"
-4. Now call this function from the console, first passing your name.
-5. Then pass the name "anna". 
+::: {.callout-tip icon="false" title="🔒 Example code will be available here after the workshop"}
+:::
+
+::::
+
+## Part 2: Inputs & relational operators
+
+Whew, we've gotten past that really basic exercise — let's add layers:
+
+1. Redefine the function with an input argument `name`.
+2. Inside the function, evaluate whether the name is `"anna"`.
+3. If it is, print `may be your teacher` else print `is not your teacher`.
+4. Call the function from the console, first passing your own name.
+5. Then pass the name `"anna"`.
 6. What does your function print on each call?
 
 ::: {.callout-note collapse="true" title="Hint"}
-Define the function with a parameter named `name`, then compare it with the string `"anna"`.
+Define the function with a parameter named `name`, then compare it with the string `"anna"`. Remember which operator *compares* and which *assigns*.
 :::
 
+
+:::: {.content-visible when-meta="show-solutions"}
+
 ::: {.callout-tip collapse="true" title="Show the code"}
-
 ```python
-
 def first_function(name):
-     if name == "anna":
-          print("May be your teacher.")
-     else:
-          print("Is not your teacher.")
+    if name == "anna":
+        print("May be your teacher.")
+    else:
+        print("Is not your teacher.")
 
-first_function("bob")  # Replace "bob" with your own name.
+first_function("bob")   # Replace "bob" with your own name.
 first_function("anna")
-
 ```
 :::
 
-## Part 3: Outputs & relational/logical operators.
+::::
 
-Now let's redefine the above function, this time with outputs:
+:::: {.content-visible unless-meta="show-solutions"}
 
-1. Define a variable called `teacher` which has a value of True if the input argument name is "anna", otherwise is false.
-2. Return this output variable in the function.
-3. Call the function, pass `"anna"` as input, and store the returned value in a variable in the console.
-4. Print the value of the output variable in the console. What is it? 
+::: {.callout-tip icon="false" title="🔒 Example code will be available here after the workshop"}
+:::
+
+::::
+
+## Part 3: Outputs & relational/logical operators
+
+Now redefine the function, this time with an output:
+
+1. Inside the function, define a variable called `teacher` with the value `True` if the input name is `"anna"`, otherwise `False`.
+2. Return this variable from the function.
+3. Call the function with `"anna"` as input and store the returned value in a variable in the console.
+4. Print that variable. What is it? And could you have gotten `teacher` from the console *without* the `return`?
 
 ::: {.callout-note collapse="true" title="Hint"}
-Remember to use `return` at the end of your function to specify outputs...
+Set `teacher` inside both branches of your `if`/`else`, and put `return teacher` at the end of the function — *outside* the `if`/`else`, but still inside the function. Indentation is doing the work here.
 :::
 
+:::: {.content-visible when-meta="show-solutions"}
+
 ::: {.callout-tip collapse="true" title="Show the code"}
-
 ```python
-
 def first_function(name):
-     if name == "anna":
-          print("May be your teacher.")
-          teacher = True
-     else:
-          print("Is not your teacher.")
-          teacher = False
+    if name == "anna":
+        print("May be your teacher.")
+        teacher = True
+    else:
+        print("Is not your teacher.")
+        teacher = False
 
-     return teacher
+    return teacher
 
 func_output = first_function("anna")
-print(func_output)
-
+print(func_output)   # True — and no: without return, teacher is local and unreachable.
 ```
 :::
 
-## Part 4: Store your function in a module. 
+::::
 
-Now let's store your function in a module and use it:
+:::: {.content-visible unless-meta="show-solutions"}
 
-1. First, make a new `.py` file in the same folder as your exercise `.py` file. Name the file `my_module.py`.
-2. Copy your function from the last exercise into this file and save.
+::: {.callout-tip icon="false" title="🔒 Example code will be available here after the workshop"}
+:::
+
+::::
+
+## Part 4: Store your function in a module
+
+1. Make a new `.py` file **in the same folder** as your exercise file. Name it `my_module.py`.
+2. Copy your function from Part 3 into it and save.
 3. In your exercise file, import the module with `import my_module`.
 4. Call the function with `my_module.first_function("anna")` and store the returned value.
 5. Print the returned value. Does it work?
 
 ::: {.callout-note collapse="true" title="Hint"}
-When a function is stored in a module, call it using the module name, a dot, and the function name: `my_module.first_function("anna")`.
+Module name, dot, function name: `my_module.first_function("anna")`. If Python says `ModuleNotFoundError`, check the two files really are in the same folder and that the module is saved.
 :::
+
+:::: {.content-visible when-meta="show-solutions"}
 
 ::: {.callout-tip collapse="true" title="Show the code"}
 ```python
@@ -120,28 +147,29 @@ print(teacher)
 ```
 :::
 
+::::
+
+:::: {.content-visible unless-meta="show-solutions"}
+
+::: {.callout-tip icon="false" title="🔒 Example code will be available here after the workshop"}
+:::
+
+::::
 
 ## Part 5: Get creative
 
-Okay, now's the exciting part. You can run wild (not too wild) with your creativity:
+Now the exciting part: run wild (not *too* wild). Make as many functions as you have time for, incorporating all of today's concepts:
 
-Make as many functions as you have time for that incorporate all of the code concepts we've learned today:
-
-1. Variable types 
+1. Variable types
 2. Lists & loops (for loops, while loops)
-3. Logical operations / relational operations
-4. Function inputs / outputs
+3. Logical / relational operations
+4. Function inputs & outputs
 5. Modules
 
-Store these functions in a module file, import this file in your exercise .py file and call the functions. 
 
-There are no right answers here, only correct syntax. 
+Store them in your module file, import it, call them. There are no right answers here, only correct syntax.
 
+Stuck for inspiration? One suggestion that uses everything and that you will meet again next week in disguise: write `word_lengths(text)`. Take a text as input, `split()` it into words, loop through them, and return a list with the number of letters in each word. Then feed it a sentence of your choice. *(No solution for this but good practice for next week where a function with this exact shape shows a stimulus and collects a response, once per trial.)*
 
-
-
-
-
-
-
+**Everything runs? That's Session 1 complete.** You now know variables, lists, loops, conditionals, and functions: genuinely all the Python an experiment needs. Next week we explore PsychoPy!
 

@@ -1,5 +1,5 @@
 ---
-title: "Exercise 1a: Variables & variable types"
+title: "Exercise 1: Variables & variable types"
 ---
 
 ::: {.milestone}
@@ -8,7 +8,7 @@ title: "Exercise 1a: Variables & variable types"
 
 ::: {.exercise-banner}
 <div class="ex-kicker">Hands-on · on your own · folded hints and code if you need it</div>
-<div class="ex-title">Exercise 1a — Variables & variable types</div>
+<div class="ex-title">Exercise 1 — Variables & variable types</div>
 <div class="ex-sub">Create variables, take strings apart and put them back together, and build the printout every experiment needs.</div>
 :::
 
@@ -25,6 +25,8 @@ Create a new Python code file in the Coder on UCloud, and save it in `/work/cogs
 2. Print its value to the console.
 3. Print its *type* to the console.
 
+:::: {.content-visible when-meta="show-solutions"}
+
 ::: {.callout-tip collapse="true" title="Show the code"}
 ```python
 # My favourite number of coffees per day.
@@ -33,6 +35,15 @@ print(coffees)
 print(type(coffees))
 ```
 :::
+
+::::
+
+:::: {.content-visible unless-meta="show-solutions"}
+
+::: {.callout-tip icon="false" title="🔒 Example code will be available here after the workshop"}
+:::
+
+::::
 
 
 ## Part 2: Strings
@@ -46,6 +57,8 @@ print(type(coffees))
 Square brackets with a range: `[start:stop]`. And remember, `stop` is where it stops *before*. For the last few characters, count backwards with a minus.
 :::
 
+:::: {.content-visible when-meta="show-solutions"}
+
 ::: {.callout-tip collapse="true" title="Show the code"}
 ```python
 print("Null hypothesis: Eating ice cream does not improve mood")
@@ -54,6 +67,17 @@ print(null_hypothesis[0:4])   # Null
 print(null_hypothesis[-4:])   # mood
 ```
 :::
+
+::::
+
+:::: {.content-visible unless-meta="show-solutions"}
+
+::: {.callout-tip icon="false" title="🔒 Example code will be available here after the workshop"}
+:::
+
+::::
+
+
 
 
 ## Part 3: String methods
@@ -72,6 +96,8 @@ print(null_hypothesis[-4:])   # mood
 Tasks 2–3: one pair of brackets picks an item from the *list*; a second pair picks a character from that *string*. Task 5: `split()` cut on spaces, so what happened to the colon that had no space before it? Task 7: `.replace()` wants two things: what to find, and what to put there.
 :::
 
+:::: {.content-visible when-meta="show-solutions"}
+
 ::: {.callout-tip collapse="true" title="Show the code"}
 ```python
 split_var = null_hypothesis.split()
@@ -86,6 +112,16 @@ print(len(null_hypothesis))                       # 55
 ```
 :::
 
+::::
+
+:::: {.content-visible unless-meta="show-solutions"}
+
+::: {.callout-tip icon="false" title="🔒 Example code will be available here after the workshop"}
+:::
+
+::::
+
+
 ## Part 4: Numbers
 
 1. Make an integer variable and a floating-point variable.
@@ -94,6 +130,8 @@ print(len(null_hypothesis))                       # 55
 4. Subtract them. What happens?
 5. Divide them.
 6. Multiply them and store the output in a new variable.
+
+:::: {.content-visible when-meta="show-solutions"}
 
 ::: {.callout-tip collapse="true" title="Show the code"}
 ```python
@@ -108,6 +146,16 @@ print(product)
 ```
 :::
 
+::::
+
+:::: {.content-visible unless-meta="show-solutions"}
+
+::: {.callout-tip icon="false" title="🔒 Example code will be available here after the workshop"}
+:::
+
+::::
+
+
 ## Part 5: f-strings
 
 Imagine printing information about the current subject on an experiment screen. The subject differs in each experiment, and so does their reaction time.
@@ -120,6 +168,8 @@ Imagine printing information about the current subject on an experiment screen. 
 An f-string starts with `f` *before* the opening quote, and variables go inside curly brackets. For the bonus: the decimals recipe was `{variable:.2f}`. Where do the colon and `.2f` sit?
 :::
 
+:::: {.content-visible when-meta="show-solutions"}
+
 ::: {.callout-tip collapse="true" title="Show the code"}
 ```python
 subject_id = "S_01"
@@ -128,6 +178,15 @@ print(f"The current subject is {subject_id}")
 print(f"The current subject is {subject_id} and their reaction time is {reaction_time:.2f}")
 ```
 :::
+
+::::
+
+:::: {.content-visible unless-meta="show-solutions"}
+
+::: {.callout-tip icon="false" title="🔒 Example code will be available here after the workshop"}
+:::
+
+::::
 
 Everything runs? Take a breather, or try the stretch task below.
 

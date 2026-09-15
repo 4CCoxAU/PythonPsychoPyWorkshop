@@ -336,5 +336,5 @@ What exactly does `print(message)` show?
 :::
 :::
 
-All predictions checked? Next: [Exercise 1a — Variables & data types](03_exercise1_variables.qmd).
+All predictions checked? Next: [Exercise 1 — Variables & data types](03_exercise1_variables.qmd).
 

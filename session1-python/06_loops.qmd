@@ -169,4 +169,4 @@ One warning while we're here: the comment in the body is not decoration. If you 
 Loops repeat code. Use a `for` loop to work through each item in a collection, and an index-based `for` loop when you also need each item's position. A counter variable records progress by changing on every iteration. Use a `while` loop when repetition should continue only while a condition is `True`, and make sure something in the body eventually makes it `False`.
 :::
 
-**Predictions checked?** Next: [Exercise 3: Loops](07_exercise03_loops.qmd).
+**Predictions checked?** Next: [Exercise 3: Loops](07_exercise3_loops.qmd).

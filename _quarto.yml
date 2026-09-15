@@ -6,6 +6,8 @@ project:
     - "session1-python/"
     - "!session2-psychopy/"
 
+show-solutions: false
+
 website:
   title: "Python & PsychoPy Workshop - Aarhus University, Fall 2026"
   description: "How to get started with Python and PsychoPy for Cognitive Science research."
@@ -21,7 +23,7 @@ website:
     #    text: "Session 2 · PsychoPy"
   sidebar:
     style: "docked"
-    collapse-level: 1
+    collapse-level: 2
     contents:
       - href: index.qmd
         text: "Workshop overview"
@@ -38,7 +40,7 @@ website:
               - href: session1-python/02_variables.qmd
                 text: "Variables and regular data types"
               - href: session1-python/03_exercise1_variables.qmd
-                text: "Exercise 1a: Variables & data types"
+                text: "Exercise 1: Variables & data types"
           - section: "Block 3 · Lists & Loops"
             contents:
               - href: session1-python/04_lists.qmd

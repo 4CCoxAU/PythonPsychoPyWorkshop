@@ -32,6 +32,8 @@ Use a formatted string expression to print:
 Keep it simple, this is the most basic type of *for* loop. For formatted strings, remember the module on printing variable expressions.
 :::
 
+:::: {.content-visible when-meta="show-solutions"}
+
 ::: {.callout-tip collapse="true" title="Show the code"}
 
 ```python
@@ -43,6 +45,16 @@ for sense in basic_senses:
 ```
 :::
 
+::::
+
+:::: {.content-visible unless-meta="show-solutions"}
+
+::: {.callout-tip icon="false" title="🔒 Example code will be available here after the workshop"}
+:::
+
+::::
+
+
 ## Part 2: Using counter variables in *for* loops
 
 1. Define a counter variable `sense_number`
@@ -53,17 +65,27 @@ for sense in basic_senses:
 Be mindful of where you place the counter variable: Should it come before or after the `print()` statement?
 :::
 
+:::: {.content-visible when-meta="show-solutions"}
+
 ::: {.callout-tip collapse="true" title="Show the code"}
 ```python
-
 sense_number = 0
 
 for sense in basic_senses:
      sense_number += 1
-     print(f("Sense #{sense_number} is {sense}"))
-
+     print(f"Sense #{sense_number} is {sense}")
 ```
 :::
+
+::::
+
+:::: {.content-visible unless-meta="show-solutions"}
+
+::: {.callout-tip icon="false" title="🔒 Example code will be available here after the workshop"}
+:::
+
+::::
+
 
 ## Part 3: For loops by list indexing
 
@@ -78,10 +100,11 @@ We can also iterate loops using indexing.
 Remember to use the index to the current loop iteration to get the current value of `numeric_order`.
 :::
 
+:::: {.content-visible when-meta="show-solutions"}
+
 ::: {.callout-tip collapse="true" title="Show the code"}
 
 ```python
-
 numeric_order = [
     "first", "second", "third", "fourth", "fifth",
     "sixth", "seventh", "eighth", "ninth", "tenth"
@@ -92,9 +115,17 @@ order_range = range(len_order)
 
 for range_i in order_range:
     print(numeric_order[range_i])
-
 ```
 :::
+
+::::
+
+:::: {.content-visible unless-meta="show-solutions"}
+
+::: {.callout-tip icon="false" title="🔒 Example code will be available here after the workshop"}
+:::
+
+::::
 
 ## Part 4: While loops
 
@@ -109,18 +140,27 @@ Okay, now an exercise for our last type of loop, the *while* loop.
 The operator for less than is `<`, we will learn more about comparison operators in the next section. 
 :::
 
+:::: {.content-visible when-meta="show-solutions"}
+
 ::: {.callout-tip collapse="true" title="Show the code"}
 
 ```python
-
 current_age = 0
 
 while current_age < 30:
     print(f"I am {current_age}, not yet 30")
     current_age += 2
-
 ```
 :::
+
+::::
+
+:::: {.content-visible unless-meta="show-solutions"}
+
+::: {.callout-tip icon="false" title="🔒 Example code will be available here after the workshop"}
+:::
+
+::::
 
 
 Everything runs and makes sense? Then onwards to [Logical operations](08_logical_operations.qmd).
@@ -137,6 +177,8 @@ Challenge: Make a *nested for* loop! This is a *for* loop inside of a *for* loop
 The outer loop gives you one fruit at a time. Put an inner loop inside it to iterate over the characters in that fruit.
 :::
 
+:::: {.content-visible when-meta="show-solutions"}
+
 ::: {.callout-tip collapse="true" title="Show the code"}
 ```python
 fruits = ["apple", "banana", "cherry"]
@@ -146,3 +188,12 @@ for fruit in fruits:
         print(character)
 ```
 :::
+
+::::
+
+:::: {.content-visible unless-meta="show-solutions"}
+
+::: {.callout-tip icon="false" title="🔒 Example code will be available here after the workshop"}
+:::
+
+::::
