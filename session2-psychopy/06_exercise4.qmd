@@ -1,138 +1,163 @@
 ---
-title: "6 · Exercise 4: Display the CogWheel Stimuli"
+title: "6 · Exercise 4: The PsychoPy Playground"
 ---
 
 ::: {.milestone}
-**Block 2 milestone** · this is the "running by lunch" target
+**Block 2** · Exercise: Get comfortable putting things on the screen: text, images, and both kinds of waiting.
 :::
 
 ::: {.exercise-banner}
-<div class="ex-kicker">Hands-on · work in pairs · swap driver/navigator halfway</div>
-<div class="ex-title">Exercise 4 — Display the CogWheel stimuli</div>
-<div class="ex-sub">Your first real experiment script: show every stimulus image, one by one, participant-paced.</div>
+<div class="ex-kicker">Hands-on · on your own · folded code under every step</div>
+<div class="ex-title">Exercise 4: The PsychoPy playground</div>
+<div class="ex-sub">No experiment yet: just you, a window, and things appearing in it. Play around!</div>
 :::
 
-::: {.success-clip}
-🎬 **What success looks like:** *(embed a 10-second screen recording here: welcome text → a few cogwheel images advancing on key presses → goodbye text)* — your goal is to make your screen do exactly this.
-:::
+Time to get hands-on! The goal of these exercises is that prepare-draw-flip-wait stops feeling like a recipe you follow and starts feeling like something you *do*. This afternoon these skills will turn into a real experiment.
 
-Build it in five steps, **running your script after every step**. Try each step yourself first; the folded code is there when you need it.
+Work in a new script, `playground.py`, and **run after every step**.
 
-### Step 1 — Collect the stimuli
+### Step 1: A window with your favourite colour
 
-Start a new script `cogwheel.py` in the workshop folder. Import what you need and collect the image files into a list. Print it to check.
+Open a window: any background colour you like (`'black'`, `'grey'`, `'pink'`, `'darkblue'`...). Hold it for two seconds, close cleanly.
+
+:::: {.content-visible when-meta="show-solutions-s2"}
 
 ::: {.callout-tip collapse="true" title="Show the code"}
 ```python
 from psychopy import visual, event, core
-import glob
 
-images = glob.glob('stimuli/stimulus*.jpg')
-print(images)   # sanity check: a list of file paths
+win = visual.Window(size=(1280, 720), fullscr=False,
+                    color='darkblue', checkTiming=False)
+win.flip()      # paint the background — no flip, no colour!
+core.wait(2)
+win.close()
+core.quit()
 ```
 :::
 
-### Step 2 — Open the window
+::::
 
-A window with a black background. Keep `fullscr=False` until everything works, then switch it on.
+:::: {.content-visible unless-meta="show-solutions-s2"}
+
+::: {.callout-tip icon="false" title="🔒 Example code will be available here after the workshop"}
+:::
+
+::::
+
+### Step 2: Your name in lights
+
+Before the wait: show your own name, big, in a colour that pops against your background. Play with `height` (try 0.05 vs 0.2) and `color` until you like it.
+
+:::: {.content-visible when-meta="show-solutions-s2"}
 
 ::: {.callout-tip collapse="true" title="Show the code"}
 ```python
-win = visual.Window(fullscr=True, color='black')
+name = visual.TextStim(win, text='Chris was here!',
+                       color='orange', height=0.15)
+name.draw()
+win.flip()
+core.wait(2)
 ```
 :::
 
-### Step 3 — Welcome the participant
+::::
 
-A welcome message in white text; wait for a key press before starting. Remember: prepare, draw, flip, wait.
+:::: {.content-visible unless-meta="show-solutions-s2"}
+
+::: {.callout-tip icon="false" title="🔒 Example code will be available here after the workshop"}
+:::
+
+::::
+
+### Step 3: One picture, on your command
+
+Replace the name with one of the rabbit images (pick any file from `stimuli/`), and make it stay until *you* press a key: participant-paced, not timed.
+
+:::: {.content-visible when-meta="show-solutions-s2"}
 
 ::: {.callout-tip collapse="true" title="Show the code"}
 ```python
-welcome = visual.TextStim(win,
-    text='Welcome to the CogWheel experiment!\n\nPress any key to begin.',
-    color='white')
-welcome.draw()
+pic = visual.ImageStim(win, image='stimuli/stimulus1_R.jpg')
+pic.draw()
 win.flip()
 event.waitKeys()
 ```
 :::
 
-### Step 4 — The trial loop
+::::
 
-Loop over the images: for each one, create an `ImageStim`, draw, flip, wait for a key press.
+:::: {.content-visible unless-meta="show-solutions-s2"}
 
-::: {.callout-tip collapse="true" title="Show the code"}
-```python
-for image in images:
-    stim = visual.ImageStim(win, image=image)
-    stim.draw()
-    win.flip()
-    event.waitKeys()
-```
+::: {.callout-tip icon="false" title="🔒 Example code will be available here after the workshop"}
 :::
 
-### Step 5 — Goodbye and shutdown
+::::
 
-After the loop: a goodbye message for two seconds, then close and quit.
+### Step 4: A two-screen sequence
+Now chain them: your name for two seconds (computer-paced), *then* the picture until a keypress (you-paced), then close. One prepare-draw-flip-wait per screen.
+
+:::: {.content-visible when-meta="show-solutions-s2"}
 
 ::: {.callout-tip collapse="true" title="Show the code"}
+
 ```python
-goodbye = visual.TextStim(win,
-    text='That was it — thank you!', color='white')
-goodbye.draw()
+from psychopy import visual, event, core
+
+win = visual.Window(size=(1280, 720), fullscr=False,
+                    color='darkblue', checkTiming=False)
+
+name = visual.TextStim(win, text='Anna was here!',
+                       color='orange', height=0.15)
+name.draw()
 win.flip()
 core.wait(2)
+
+pic = visual.ImageStim(win, image='stimuli/stimulus1_R.jpg')
+pic.draw()
+win.flip()
+event.waitKeys()
 
 win.close()
 core.quit()
 ```
 :::
 
-::: {.callout-warning title="Stuck? The usual suspects"}
-- **Empty list from glob** → path problem; your script is not next to `stimuli/`.
-- **Blank screen in the loop** → missing `win.flip()`, or a `draw()` outside the loop.
-- **Only one image ever shows** → indentation: is everything that belongs to a trial *inside* the loop?
+::::
 
-Ten minutes stuck? → partner → checkpoint below → red sticky.
+:::: {.content-visible unless-meta="show-solutions-s2"}
+
+::: {.callout-tip icon="false" title="🔒 Example code will be available here after the workshop"}
 :::
 
-**Finished early?** Add a fixation cross (`visual.TextStim(win, text='+')`) shown for half a second between images, or count trials with a variable and show the count in the goodbye message.
+::::
 
-::: {.callout-tip collapse="true" title="Checkpoint · complete Exercise 4 script"}
+### Step 4: Slideshow
+
+**Finished early?** Turn Step 4 into a *slideshow*: `glob` all the stimulus images and loop over them, each until a keypress: Chapter 5's list meeting Session 1's for-loop.
+
+:::: {.content-visible when-meta="show-solutions-s2"}
+
+::: {.callout-tip collapse="true" title="Show the code"}
 ```python
-from psychopy import visual, event, core
 import glob
 
-# --- setup ---
 images = glob.glob('stimuli/stimulus*.jpg')
 
-win = visual.Window(fullscr=True, color='black')
-
-# --- welcome screen ---
-welcome = visual.TextStim(win,
-    text='Welcome to the CogWheel experiment!\n\nPress any key to begin.',
-    color='white')
-welcome.draw()
-win.flip()
-event.waitKeys()
-
-# --- trial loop ---
 for image in images:
-    stim = visual.ImageStim(win, image=image)
-    stim.draw()
+    pic = visual.ImageStim(win, image=image)
+    pic.draw()
     win.flip()
     event.waitKeys()
-
-# --- goodbye and shutdown ---
-goodbye = visual.TextStim(win,
-    text='That was it — thank you!', color='white')
-goodbye.draw()
-win.flip()
-core.wait(2)
-
-win.close()
-core.quit()
 ```
-
-**Keep this script safe**. Block 4 upgrades it, and Session 3 extends it into your Portfolio 2 prototype.
 :::
+
+::::
+
+:::: {.content-visible unless-meta="show-solutions-s2"}
+
+::: {.callout-tip icon="false" title="🔒 Example code will be available here after the workshop"}
+:::
+
+::::
+
+**Your name, a picture, a sequence: all under your control?** Perfect! Now we go on to [randomisation](07_random.qmd), responses, feedback and the real experiment.

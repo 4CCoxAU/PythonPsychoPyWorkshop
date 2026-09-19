@@ -3,13 +3,77 @@ title: "1 · Warming Up: A Python Refresher"
 ---
 
 ::: {.milestone}
-**Block 1** · aim to finish chapters 1–3 by the first break (~10:30)
+**Block 1** · Learning goals: Reactivate Session 1 — variables, strings, lists, loops, conditionals — and meet `.endswith()`.
 :::
 
-Let's warm up the Python muscles from Session 1. Everything you learned there — variables, lists, loops, conditionals, functions — gets used today.
+Let's warm up the Python muscles. Six quick predictions, one per Session 1 concept, each a little more experiment-shaped than the last. If one stumps you, that's a signal to skim the matching Session 1 chapter. They're all still in the sidebar.
 
-::: {.callout-note .predict icon="false" title="🔮 Predict first"}
-Read this snippet and write down (yes, actually write down) exactly what it will print, line by line — **before** running it.
+## 1: Variables & f-strings
+
+```python
+subject_id = "S_07"
+rt = 0.5391
+print(f"{subject_id}: {rt:.2f} seconds")
+```
+
+::: {.predict-check data-answer="S_07: 0.54 seconds" data-accept="S_07: 0.54 seconds."}
+What exactly prints?
+
+::: {.pc-hint data-if-contains="0.53"}
+`:.2f` *rounds* to two decimals. Which way does 0.5391 go?
+:::
+
+::: {.pc-explanation}
+`S_07: 0.54 seconds`: the f-string substitutes both variables, and `:.2f` rounds 0.5391 up to 0.54. Today this exact pattern puts text on the experiment screen instead of the console.
+:::
+:::
+
+## 2 : Strings & split
+
+```python
+filename = "gear_R.jpg"
+parts = filename.split("_")
+print(parts[1])
+```
+
+::: {.predict-check data-answer="R.jpg" data-accept="'R.jpg'||\"R.jpg\""}
+What prints?
+
+::: {.pc-hint data-if-contains="R\""}
+Nearly! There's only one underscore, so only one cut. What stays attached to the R?
+:::
+
+::: {.pc-hint data-if-contains="gear"}
+`parts[1]`: which piece is at index 1? Count from zero.
+:::
+
+::: {.pc-explanation}
+`R.jpg`: one underscore means one cut: `['gear', 'R.jpg']`, and index 1 is the second piece, `.jpg` still attached. Filenames carrying information that `.split()` extracts: keep this trick warm, it returns in Chapter 9.
+:::
+:::
+
+## 3: Lists
+
+```python
+keys = ["left", "right"]
+keys.append("escape")
+print(len(keys))
+print(keys[-1])
+```
+
+::: {.predict-check data-answer="3 escape" data-accept="3, escape"}
+Two things print: answer on one line, separated by a space.
+
+::: {.pc-hint data-if-contains="2"}
+`len()` counts *after* the append. How many items are in the list by the time it runs?
+:::
+
+::: {.pc-explanation}
+`3`, then `escape`: the append happened first, so `len(keys)` is 3, and `[-1]` is the last item. (A list of key names, incidentally, is literally an argument you'll pass to PsychoPy today: `keyList=['left', 'right']`.)
+:::
+:::
+
+## 4: Loops & conditionals
 
 ```python
 words = ['tea', 'coffee', 'water', 'juice']
@@ -21,46 +85,130 @@ for w in words:
     else:
         print(w)
 ```
+
+::: {.predict-check data-answer="tea COFFEE water juice cocoa" data-accept="tea, COFFEE, water, juice, cocoa"}
+What does this print? One line, in order, separated by spaces.
+
+::: {.pc-hint data-if-contains="COCOA"}
+Careful — how many letters does `cocoa` have, exactly? And is `5 > 5` true?
 :::
 
-Now type it into the Coder and run it.
-
-::: {.callout-tip collapse="true" title="Check your prediction"}
-It prints:
-
-```
-tea
-COFFEE
-water
-juice
-cocoa
-```
-
-Only `'coffee'` has *more than* 5 letters, so only it is uppercased. Two classic traps: forgetting that `.append()` added `'cocoa'` before the loop started, and thinking `'cocoa'` (exactly 5 letters) passes `len(w) > 5` — it does not, because `5 > 5` is `False`.
+::: {.pc-hint data-if-contains="TEA"}
+Which words have *more than* 5 letters? Count before you uppercase.
 :::
 
-If your prediction was exactly right: great, move on. If not: even better — figure out *why* before continuing, because this loop-plus-conditional shape is the skeleton of the trial loop you will build today.
+::: {.pc-explanation}
+Five lines: `tea`, `COFFEE`, `water`, `juice`, `cocoa`. Only `'coffee'` exceeds 5 letters; `'cocoa'` is exactly 5, and `5 > 5` is `False` — and `.append()` ran before the loop, so cocoa is included. This loop-plus-conditional shape is the skeleton of today's trial loop.
+:::
+:::
 
-**One more, faster.** Predict, then run:
+## 5: Strings answering questions: `.endswith()`
+
+One string method from Session 1 deserves a spotlight before the screen arrives. `.endswith()` asks a yes/no question: does this string end with that? This returns `True` or `False`, which means it slots straight into `if` statements:
+
+```python
+print("wheel_L.jpg".endswith("_L.jpg"))
+print("wheel_R.jpg".endswith("_L.jpg"))
+```
+
+```{.repl}
+True
+False
+```
+
+Why this matters today: our stimulus filenames *carry information*: `_L` or `_R` says which answer is correct, and `.endswith()` is how the experiment reads it. Combine it with a loop:
 
 ```python
 stimuli = ['wheel_L.jpg', 'wheel_R.jpg', 'gear_L.jpg']
 
 for s in stimuli:
-    if '_L' in s:
+    if s.endswith("_L.jpg"):
         print(s, '-> left')
     else:
         print(s, '-> right')
 ```
 
-::: {.callout-tip collapse="true" title="Check your prediction"}
-```
-wheel_L.jpg -> left
-wheel_R.jpg -> right
-gear_L.jpg -> left
-```
+::: {.predict-check data-answer="left right left" data-accept="left, right, left||L R L||l r l"}
+Which direction does each filename get: in order, on one line?
 
-`'_L' in s` asks whether the substring `'_L'` appears anywhere in the string `s`. Remember this one — it becomes the heart of the feedback logic in Chapter 9.
+::: {.pc-hint data-if-contains="right left right"}
+Check each filename's *ending* against `"_L.jpg"`: which ones match?
 :::
 
-That is all the warm-up you need. Next: the screen.
+::: {.pc-explanation}
+`left`, `right`, `left`: the two filenames ending in `_L.jpg` pass the test; `wheel_R.jpg` fails it and falls to the `else`. Remember this move: in Chapter 9 it becomes the heart of the feedback logic, where the filename tells your experiment which key the participant *should* have pressed.
+:::
+:::
+
+## 5: Nested loops: looping inside the items
+
+From Exercise 3, the loop-inside-a-loop — where the inner loop walks through *each item itself*. Remember: a string is loopable too, and its items are its characters:
+
+```python
+keys = ['left', 'up']
+
+for key in keys:
+    print(key)
+    for character in key:
+        print(character)
+```
+
+::: {.predict-check data-answer="8" data-accept="eight||8 lines"}
+How many lines does this print in total?
+
+::: {.pc-hint data-if-contains="6"}
+Count both layers: each key prints once *whole*, and then once *per character*. How many characters in `left`? In `up`?
+:::
+
+::: {.pc-hint data-if-contains="2"}
+The inner loop walks through the string itself: one line per character, plus the line printing the whole key.
+:::
+
+::: {.pc-explanation}
+`8` lines: for each key: the whole word once, then its characters one by one:
+
+```
+left
+l
+e
+f
+t
+up
+u
+p
+```
+
+`left` contributes 1 + 4 lines, `up` contributes 1 + 2. The outer loop deals out strings; each string then becomes the inner loop's collection, dealing out characters. The collection decides what comes out — the names `key` and `character` just catch it.
+:::
+:::
+
+
+## 6: The finale: everything at once
+
+```python
+stimuli = ['wheel_L.jpg', 'wheel_R.jpg', 'gear_L.jpg']
+trial = 0
+
+for s in stimuli:
+    trial += 1
+    if s.endswith("_L.jpg"):
+        answer = "left"
+    else:
+        answer = "right"
+    print(f"Trial {trial}: {s}, {answer} is correct answer")
+```
+
+::: {.predict-check data-answer="left right left" data-accept="left, right, left"}
+Three trials print. What are the three correct directional answers ("left, right, etc."), in order, on one line?
+
+::: {.pc-hint data-if-contains="1"}
+Just the *answers*: not the trial numbers. Which way does each filename point?
+:::
+
+::: {.pc-explanation}
+`left`, `right`, `left`: and look at what you just read fluently: a stimulus list, a trial counter, a filename check deciding the correct answer, an f-string reporting each trial. That is the entire skeleton of today's experiment. The only thing missing is a screen. This is the very next chapter.
+:::
+:::
+
+
+Six for six? Good job! Anything a little shaky or needs refreshing? The sidebar has the chapter and next: [the screen](02_psychopy.qmd).

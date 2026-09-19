@@ -7,6 +7,7 @@ project:
     - "!session2-psychopy/"
 
 show-solutions: false
+show-solutions-s2: true
 
 website:
   title: "Python & PsychoPy Workshop - Aarhus University, Fall 2026"
@@ -19,8 +20,8 @@ website:
         text: "Home"
       - href: session1-python/index.qmd
         text: "Session 1 · Python"
-    #  - href: session2-psychopy/index.qmd
-    #    text: "Session 2 · PsychoPy"
+      #- href: session2-psychopy/index.qmd
+      #  text: "Session 2 · PsychoPy"
   sidebar:
     style: "docked"
     collapse-level: 2
@@ -63,32 +64,29 @@ website:
                 text: "Exercise 4"
           - href: session1-python/11_github.qmd
             text: "Syncing with GitHub"
-          # Add new chapters here as you create them, e.g.:
-          # - href: session1-python/02_variables.qmd
-          #   text: "Variables and data types"
-      #- section: "Session 2 · PsychoPy"
-      #  contents:
-      #    - href: session2-psychopy/index.qmd
-      #      text: "How the day works"
-      #    - section: "Block 1 · From Python to a window"
-      #      contents:
-      #        - session2-psychopy/01_warmup.qmd
-      #        - session2-psychopy/02_psychopy.qmd
-      #        - session2-psychopy/03_drawflip.qmd
-      #    - section: "Block 2 · Stimuli on the screen"
-      #      contents:
-      #        - session2-psychopy/04_stimuli.qmd
-      #        - session2-psychopy/05_glob.qmd
-      #        - session2-psychopy/06_exercise4.qmd
-      #    - section: "Block 3 · Making it an experiment"
-      #      contents:
-      #        - session2-psychopy/07_random.qmd
-      #        - session2-psychopy/08_responses.qmd
-      #        - session2-psychopy/09_feedback.qmd
-      #    - section: "Block 4 · Completing the loop"
-      #      contents:
-      #        - session2-psychopy/10_exercise5.qmd
-      #        - session2-psychopy/11_cogcomm.qmd
+      # - section: "Session 2 · PsychoPy"
+      #   contents:
+      #     - href: session2-psychopy/index.qmd
+      #       text: "How the day works"
+      #     - section: "Block 1 · From Python to a window"
+      #       contents:
+      #         - session2-psychopy/01_warmup.qmd
+      #         - session2-psychopy/02_psychopy.qmd
+      #         - session2-psychopy/03_drawflip.qmd
+      #     - section: "Block 2 · Stimuli on the screen"
+      #       contents:
+      #         - session2-psychopy/04_stimuli.qmd
+      #         - session2-psychopy/05_glob.qmd
+      #         - session2-psychopy/06_exercise4.qmd
+      #     - section: "Block 3 · Making it an experiment"
+      #       contents:
+      #         - session2-psychopy/07_random.qmd
+      #         - session2-psychopy/08_responses.qmd
+      #         - session2-psychopy/09_feedback.qmd
+      #     - section: "Block 4 · Completing the loop"
+      #       contents:
+      #         - session2-psychopy/10_exercise5.qmd
+      #         - session2-psychopy/11_cogcomm.qmd
   page-navigation: true
 
 format:

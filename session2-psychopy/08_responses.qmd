@@ -3,8 +3,41 @@ title: "8 · Collecting Keyboard Responses"
 ---
 
 ::: {.milestone}
-**Block 3** · aim to finish chapters 7-9 by the afternoon break (~14:15)
+**Block 3** · Learning goals: Collect keyboard responses, restrict which keys count, and use the pressed key in your code.
 :::
+
+So far, any key advances the experiment, and we never find out *which*. `event.waitKeys()` gets pressed, the script moves on. For a real task, we need two upgrades: only *specific* keys should count (left and right arrow), and we need to know which one was pressed. Before the recipe, let's discover what `waitKeys()` actually gives us.
+
+::: {.predict-check data-answer="['space']" data-accept="[space]||'space'||space"}
+In a small script, run `print(event.waitKeys())` and press the **spacebar** after you run the experiment. What exactly gets printed? (Predict, then really run it.)
+
+::: {.pc-hint data-if-contains="spacebar"}
+Close, but PsychoPy has its own, shorter name for that key. And look at the *shape* of what comes back: it arrives wrapped in something...
+:::
+
+::: {.pc-explanation}
+`['space']`: a **list**, containing one lowercase string. A list, even for a single keypress (it can catch several keys at once). Two useful things fall out: to get *the* key you index with `[0]`, Session 1 style; and this print-and-press trick is how you discover what any key is called. Run it and press the key you're curious about.
+:::
+:::
+
+Now the full pattern, both upgrades at once, restricting *which* keys count is the `keyList` argument:
+
+```python
+keys = event.waitKeys(keyList=['left', 'right'])  # <1>
+key = keys[0]                                     # <2>
+
+if key == 'left':                                 # <3>
+    print('You chose left!')
+else:
+    print('You chose right!')
+```
+1. Only these keys count. Pressing anything else is ignored. Nobody can skip a trial by accidentally pressing the spacebar.
+2. `waitKeys()` returns a **list**, as you just discovered, so grab element `[0]`.
+3. The response is just a string: compare it, store it, branch on it.
+
+
+
+
 
 So far, any key advances the experiment. For a real task we want a *specific* response (i.e., left or right arrow), and we want to know which one was pressed. Both jobs are done by the `keyList` argument:
 
@@ -31,7 +64,7 @@ In a small test script, run `print(event.waitKeys())` (no `keyList`) and press t
 
 ## Try it
 
-In a scratch script (or your experiment), show one image and collect a left/right response for it, printing the key to the console.
+In your scratch script, show one image and collect a left/right response for it, printing the key to the console.
 
 ::: {.callout-tip collapse="true" title="Show the code"}
 ```python
@@ -45,6 +78,12 @@ print('Response was:', key)
 ```
 :::
 
-::: {.callout-note title="Tip: a polite emergency exit"}
-Add `'escape'` to your `keyList` and handle it: `if key == 'escape': win.close(); core.quit()`. Very handy in fullscreen experiments.
+::: {.callout-note title="Summary"}
+`event.waitKeys()` returns a **list** of key names: `keys[0]` extracts the pressed key as a plain string, ready for `if`/`else`. `keyList=[...]` restricts which keys count at all. And the print-and-press trick names any key you're curious about.
 :::
+
+**Key names printing in the console?** Next: [deciding correct from wrong](09_feedback.qmd).
+
+
+
+

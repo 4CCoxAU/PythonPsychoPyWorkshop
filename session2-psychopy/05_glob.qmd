@@ -3,10 +3,23 @@ title: "5 · Let Python Find Your Stimuli"
 ---
 
 ::: {.milestone}
-**Block 2** · aim to have Exercise 4 running by lunch (~12:00)
+**Block 2** · Learning goals: Load stimulus files automatically with `glob.glob()` instead of typing filenames by hand.
 :::
 
-Our experiment has many stimulus images. We could type every filename into a list by hand. This is fragile: one typo crashes the script, and adding stimuli means editing code. Instead, let Python find the files:
+Our experiment has eight stimulus images. We *could* type every filename into a list by hand:
+
+```python
+images = ['stimuli/stimulus1_L.jpg', 'stimuli/stimulus2_R.jpg',
+          'stimuli/stimulus3_L.jpg', ...]   # and five more...
+```
+
+This works, and it is fragile in three distinct ways.
+
+- One typo anywhere crashes the script (or worse, silently drops a stimulus). 
+- Adding a new set of stimuli at a later points means editing code rather than simply specifying a new folder.
+- A real experiment might have 200 images, so nobody should type 200 filenames by hand. 
+
+The professional habit is to let Python *find* the files. For this, we need the package called glob:
 
 ```python
 import glob
@@ -15,18 +28,67 @@ images = glob.glob('stimuli/stimulus*.jpg')
 print(images)
 ```
 
-The `*` is a wildcard that matches anything, so the pattern collects every file in `stimuli/` whose name starts with `stimulus` and ends with `.jpg`.
+Read the pattern from left to right: look in the folder `stimuli/`, for names that start with `stimulus`, then **anything** (`*` is a *wildcard*: it matches any characters, of any length, including none), ending in `.jpg`. What comes back:
 
-::: {.callout-note .predict icon="false" title="🔮 Predict first"}
-Before running: what *type* of thing will `print(images)` show? And what would `glob.glob('stimuli/*_L.jpg')` give you instead?
+```{.repl}
+['stimuli/stimulus2_R.jpg', 'stimuli/stimulus5_L.jpg', 'stimuli/stimulus1_L.jpg', ...]
+```
 
-::: {.callout-tip collapse="true" title="Check your prediction"}
-A plain Python **list of strings** (file paths) — which means everything from Session 1 works on it: `len(images)`, `images[0]`, `for image in images:`. The second pattern collects only the left-response stimuli — wildcards can sit anywhere in the pattern.
+(Your order will differ — more on that below.)
+
+::: {.predict-check data-answer="list" data-accept="a list||list of strings||a list of strings"}
+Before we use it: what *data type* does `images` have? What did `glob.glob()` hand back to us?
+
+::: {.pc-explanation}
+A plain Python **list** of strings (the file paths). No new data structure to learn, which means that all of the loops and functions from Session 1 work on this object immediately: `len(images)`, `images[0]`, `images[-1]`, and above all `for image in images:`. The loop we need for the trial is only one line away.
 :::
 :::
 
-Run it and *look at the output*. If the list is empty, stop and fix that now (it is a path problem, see Chapter 4). Every later chapter depends on this line working.
+## The pattern is a filter: choose it carefully
 
-::: {.callout-note title="Good to know"}
-`glob` does not guarantee any particular file order. For us that is fine. We shuffle in Chapter 7 anyway. If you ever need a fixed order, wrap it: `sorted(glob.glob(...))`.
+The wildcard can sit anywhere, and where you put it decides what you collect. Three patterns against our actual folder. Remember, `stimuli/` holds the eight scenes **plus** `success.jpg` and `failure.jpg`:
+
+```python
+glob.glob('stimuli/stimulus*.jpg')   # names starting with "stimulus"
+glob.glob('stimuli/*_L.jpg')         # names ending "_L.jpg"
+glob.glob('stimuli/*.jpg')           # any .jpg at all
+```
+
+::: {.predict-check data-answer="8 4 10" data-accept="8, 4, 10"}
+How many files does each pattern find, in order, on one line?
+
+::: {.pc-hint data-if-contains="8 4 8"}
+Two of three right, but the last pattern says *any* name. What else is sitting in that folder besides the scenes?
 :::
+
+::: {.pc-explanation}
+`8`, `4`, `10`: the third pattern also scoops up `success.jpg` and `failure.jpg`! This is exactly why our experiment globs `stimulus*` rather than `*`: a lazy pattern would put the feedback images *into the trial list*, and your participant would suddenly be asked to respond to a giant checkmark. The pattern is a filter; make it say precisely what you mean.
+:::
+:::
+
+## Look before you loop
+
+Run the glob and *look at the output*: this is a habit that would be good to develop. Two checks, ten seconds:
+
+```python
+images = glob.glob('stimuli/stimulus*.jpg')
+print(len(images))
+print(images)
+```
+
+```{.repl}
+8
+['stimuli/stimulus2_R.jpg', 'stimuli/stimulus5_L.jpg', ...]
+```
+
+Is the count what you expect? Do the paths look right? If the list is **empty**, stop and fix it now. Every later chapter depends on this line working. Empty list means path problem, and the diagnosis is short: (1) is your script *saved*, in the workshop folder, next to `stimuli/`? An unsaved script runs from a temporary location and finds nothing. (2) Is the folder really called `stimuli`, and are the files really `.jpg`?
+
+::: {.callout-note title="Good to know: glob order"}
+`glob` returns the files in no particular order. That's fine for now. We sort out randomisation properly in [Chapter 7](07_random.qmd).
+:::
+
+::: {.callout-note title="Summary"}
+`glob.glob('stimuli/stimulus*.jpg')` returns an ordinary **list** of file paths matching a pattern, where `*` matches anything. The pattern is a filter. Ours says `stimulus*` on purpose, so the feedback images stay out of the trial list. Always print the glob before using it: right count, right paths, never empty. Order is arbitrary until Chapter 7 makes it random on purpose.
+:::
+
+**Glob prints eight paths?** Next: [Exercise 4 — put it all on screen](06_exercise4.qmd).

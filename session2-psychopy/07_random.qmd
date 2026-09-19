@@ -3,13 +3,14 @@ title: "7 · Randomising Trial Order"
 ---
 
 ::: {.milestone}
-**Block 3** · aim to finish chapters 7-9 by the afternoon break (~14:15)
+**Block 3** · Learning goals: Shuffle trial order with `random.shuffle()` and understand why experiments randomise.
 :::
 
-Right now every participant sees the stimuli in the same order. That is a problem: people get better with practice, tired with time, bored towards the end. With a fixed order these *order effects* are confounded with the stimuli themselves. Stimulus 1 always meets a fresh participant, stimulus 20 a weary one. The simplest fix: give every participant a different random order, so order effects average out.
+Now we turn our playground skills into a real experiment. The first ingredient is order. If we loop over the glob list as-is, every participant sees the stimuli in the same sequence. That is a problem: people get better with practice, tired with time, bored towards the end. With a fixed order these *order effects* are confounded with the stimuli themselves. Trial 1 always meets a fresh participant, trial 12 a weary one.
 
-::: {.callout-note .predict icon="false" title="🔮 Predict first"}
-A fellow student writes this. What happens when it runs?
+And note the trap is sneaky: glob's order is *arbitrary*: an unspecified order that is typically the **same every run on the same machine**. An order nobody designed, shown identically to everyone: the worst of both worlds. The fix is to replace the accident with deliberate randomness: a fresh order per participant, so order effects average out:
+
+Python's `random` module has a function for exactly this: `random.shuffle()`. Based on everything you know (`glob.glob()` returns a list, `.upper()` returns a new string, `len()` returns a number), you would naturally write:
 
 ```python
 import random
@@ -21,22 +22,27 @@ for image in images:
     print(image)
 ```
 
-::: {.callout-tip collapse="true" title="Check your prediction"}
-It **crashes**: `TypeError: 'NoneType' object is not iterable`. `random.shuffle()` reorders the list *in place* and returns `None`, so the assignment replaced the list with `None`, and the loop had nothing to iterate over. This is today's most classic gotcha. The fix:
+::: {.callout-note .predict icon="false" title="🤔 Think first"}
+Perfectly reasonable code; however, try to run it. What happens?
 
-```python
-random.shuffle(images)   # its own line: no assignment!
-```
+::: {.callout-tip collapse="true" title="Check your thinking"}
+It **crashes**: `TypeError: 'NoneType' object is not iterable`. Surprise! `random.shuffle()` is not like the functions you know. It reorders the list **in place** and returns `None` (remember Session 1's `.append()`, which also changed the list itself rather than handing back a copy?). So the assignment threw away your shuffled list and replaced it with `None`, and the loop had nothing to iterate over. This is a classic error. Now you've made it once, on purpose, so you can hopefully recognise it forever.
 :::
 :::
 
-The correct pattern, which you should now add to your Exercise 4 script (right after the `glob` line):
+So the correct pattern drops the assignment: `shuffle` on its own line:
 
 ```python
 import random
 
 images = glob.glob('stimuli/stimulus*.jpg')
-random.shuffle(images)   # shuffles IN PLACE
+random.shuffle(images)   # shuffles IN PLACE! No assignment!
 ```
 
-Run your experiment twice. You should get two different orders. That's randomisation working.
+Try it: glob, shuffle, `print(images)`, then run it **twice**. Two different orders? That's randomisation working, and this exact pair of lines becomes Step 1 of [Exercise 5](10_exercise5.qmd), where every participant will get their own trial sequence.
+
+::: {.callout-note title="Summary"}
+Glob's order is arbitrary, and fixed orders confound order effects with stimuli. `random.shuffle(images)` replaces the accident with fresh randomness, but it works **in place** and returns `None`.
+:::
+
+**Shuffled, twice, differently? Next: [collecting real responses](08_responses.qmd).

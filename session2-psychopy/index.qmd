@@ -3,13 +3,26 @@ title: "Session 2: Introduction to PsychoPy"
 subtitle: "From Python in the console to stimuli on the screen"
 ---
 
-Welcome back! In Session 1 you learned to think in Python: variables, lists, loops, conditionals, and functions. That is all we need to program sophisticated experiments. For this session, we are going to work in the **PsychoPy Coder on your own laptop**. By the end of today, you will have built a working experiment that shows images in random order, collects keyboard responses, and gives feedback on every trial. Today, we change environment.
+Welcome to the second session of our Python and PsychoPy workshop! Let's take stock of what you can already do. In Session 1, you went from `print("Hello world!")` to writing your own loops. Along the way, you learned how to:
+
+- store and inspect values in **variables**, and tell your **data types** apart (strings, integers, floats);
+- take strings apart with **indexing**, **slicing**, and methods like `.split()` and `.upper()`;
+- build and mutate **lists**: index them, append to them, even nest them;
+- repeat code with **for and while loops**, counters included;
+- make code decide with **relational and logical operators** and **if/elif/else**;
+- (we ran out of time for **functions**: the [chapter](../session1-python/09_functions.qmd) and [exercise](../session1-python/10_exercise4.qmd) are online; we'll pick the concept up when the experiment gives us a reason to).
+
+This is genuinely all the Python you need to run a sophisticated experiment. Today you'll see why: a real experiment is *a list of stimuli, a loop over trials, an if/else for feedback, and an f-string on the screen*.
+
+By the end of today, you will have built a working experiment that shows images in random order, collects keyboard responses, and gives feedback on every trial.
+
+Today, we change environment: from UCloud to the **PsychoPy Coder on your own laptop**. This "Coder" is a simpler editor bundled with PsychoPy, and the Python inside it is the same Python you already know.
 
 ## Learning outcomes
 
 After this session, you can:
 
-- **Open and close a PsychoPy window** and explain the draw–flip cycle (prepare, draw, flip) that gives experiments their precise timing.
+- **Open and close a PsychoPy window** and explain the draw-flip cycle (prepare, draw, flip) that gives experiments their precise timing.
 - **Present text and image stimuli** (`TextStim`, `ImageStim`), for a fixed duration (`core.wait()`) or until a keypress (`event.waitKeys()`).
 - **Load stimulus files dynamically** with `glob.glob()` instead of hardcoding filenames.
 - **Randomise trial order** with `random.shuffle()` and explain why randomisation matters.
@@ -27,14 +40,14 @@ Times are approximate; the exercises are where you should linger.
 | ~Duration | What | Chapters |
 |------|------|----------|
 | 10 min | Python refresher: quick-fire "what does this print?" | [1](01_warmup.qmd) |
-| 15 min | PsychoPy concepts: the window and the draw–flip cycle | [2](02_psychopy.qmd)–[3](03_drawflip.qmd) |
+| 15 min | PsychoPy concepts: the window and the draw-flip cycle | [2](02_psychopy.qmd)–[3](03_drawflip.qmd) |
 | 25 min | Showing stimuli: text and images | [4](04_stimuli.qmd) |
 | 10 min | Loading stimulus files with `glob` | [5](05_glob.qmd) |
-| **25 min** | **Exercise 4 — Display the CogWheel stimuli** | [6](06_exercise4.qmd) |
+| **25 min** | **Exercise 4: Display the CogWheel stimuli** | [6](06_exercise4.qmd) |
 | 10 min | Randomisation | [7](07_random.qmd) |
 | 15 min | Collecting keyboard responses | [8](08_responses.qmd) |
 | 15 min | Feedback: conditional display | [9](09_feedback.qmd) |
-| **30 min** | **Exercise 5 — Responses and feedback** | [10](10_exercise5.qmd) |
+| **30 min** | **Exercise 5: Responses and feedback** | [10](10_exercise5.qmd) |
 | 20 min | Connecting to CogComm: from cogwheels to words | [11](11_cogcomm.qmd) |
 
 **Milestones:** Exercise 4 running before we move on to randomisation; Exercise 5 running by the end — that script is the one Session 3 extends.

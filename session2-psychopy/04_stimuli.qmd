@@ -3,10 +3,12 @@ title: "4 · Text, Images, and Two Ways to Wait"
 ---
 
 ::: {.milestone}
-**Block 2** · aim to have Exercise 4 running by lunch (~12:00)
+**Block 2** · Learning goals: Put text and images on the screen, for a fixed time or until a keypress.
 :::
 
-The wonderful thing about the draw-flip cycle is that *every* stimulus type follows it. Images work exactly like text: swap `TextStim` for `ImageStim`:
+The wonderful thing about the draw-flip cycle is that *every* stimulus type follows it. Images work exactly like text: swap `TextStim` for `ImageStim`. Before you run the below script, you need some images. Download them here, unzip, and put the `stimuli/` folder **next to your script**:
+
+<a class="btn btn-primary" href="../materials/cogwheel_stimuli.zip" download>⬇️ Download the CogWheel stimuli (zip)</a>
 
 ```python
 img = visual.ImageStim(win, image='stimuli/stimulus1_L.jpg')
@@ -14,8 +16,8 @@ img.draw()
 win.flip()
 ```
 
-::: {.callout-warning title="Paths are relative to your script"}
-`'stimuli/stimulus1_L.jpg'` means: *a folder called `stimuli`, next to this script, containing that file*. If your script lives somewhere else, this line fails. Keep your scripts in the workshop folder, next to `stimuli/`. (Roughly half of all "my code doesn't work" moments today will be path problems).
+::: {.callout-note title="Where Python looks for images"}
+`'stimuli/stimulus1_L.jpg'` is a *relative path*: it means "a folder called `stimuli`, sitting next to this script, containing that file." So the one thing to get right is geography: script and `stimuli/` folder side by side in the same place. If an image ever refuses to load, check this first; it's the most common little stumble of the day, and the fix is just moving a file.
 :::
 
 ## Two ways to wait
@@ -27,25 +29,28 @@ core.wait(2)        # the COMPUTER decides: exactly 2 seconds
 event.waitKeys()    # the PARTICIPANT decides: waits for a key press
 ```
 
-::: {.callout-note .predict icon="false" title="🔮 Predict first — which wait for which screen?"}
-For each screen, decide: `core.wait()` or `event.waitKeys()`?
+::: {.predict-check data-answer="participant computer computer participant" data-accept="participant, computer, computer, participant"}
+Who should decide the duration of each of these four screens? Answer `computer` or `participant` for each, in order, on one line: (a) an instructions screen · (b) a feedback screen after a response · (c) a brief fixation cross between trials · (d) a word in a self-paced reading experiment.
 
-(a) an instructions screen · (b) a feedback screen after a response · (c) a brief fixation cross between trials · (d) a word in a self-paced reading experiment
+::: {.pc-hint data-if-contains="computer participant"}
+Start with (a): people read instructions at very different speeds. Who should control when to move on?
+:::
 
-::: {.callout-tip collapse="true" title="Check your prediction"}
-(a) `waitKeys()`: people read at different speeds. (b) `wait()`: fixed, comparable duration for everyone. (c) `wait()`: fixed and short. (d) `waitKeys()`: the whole point of *self-paced* reading is that the participant controls the pace; the time they take **is** the measurement. More on that in Session 3.
+::: {.pc-explanation}
+`participant`, `computer`, `computer`, `participant`: (a) `waitKeys()`, because people read at different speeds; (b) `wait()`, a fixed, comparable duration for everyone; (c) `wait()`, fixed and short; (d) `waitKeys()`, because the whole point of *self-paced* reading is that the participant controls the pace — the time they take **is** the measurement. More on that in Session 3.
 :::
 :::
 
 ## Try it
 
-Modify your Chapter 3 script: after the *Hello, world!* screen, show **one CogWheel image** (pick any file from `stimuli/`), participant-paced. Run it.
+Modify your Chapter 3 script: after the *Hello, world!* screen, show **one image** (pick any file from `stimuli/`), participant-paced. Run it.
 
 ::: {.callout-tip collapse="true" title="Show the code"}
 ```python
 from psychopy import visual, event, core
 
-win = visual.Window(size=(1280, 720), color='black')
+win = visual.Window(size=(1280, 720), color='black',
+                    fullscr=False, checkTiming=False)
 
 text = visual.TextStim(win, text='Hello, world!',
                        color='white', height=0.1)
@@ -62,5 +67,11 @@ win.close()
 core.quit()
 ```
 
-Note the pattern repeating: prepare, draw, flip, wait — once per screen.
+Note the pattern repeating: prepare, draw, flip, wait. Once per stimulus on screen.
 :::
+
+::: {.callout-note title="Summary"}
+Every stimulus type follows the same cycle: `ImageStim` is `TextStim` with a picture, and image paths are relative to your script (keep them next to `stimuli/`!). After each flip, one design decision: `core.wait()` when the *computer* should control the duration, `event.waitKeys()` when the *participant* should. One prepare-draw-flip-wait per screen.
+:::
+
+**Image on screen, dismissed by your keypress?** Wonderful! Next: [loading all the stimuli at once](05_glob.qmd).

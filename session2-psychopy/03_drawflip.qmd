@@ -1,9 +1,9 @@
 ---
-title: "3 · The Draw–Flip Cycle (and How to Break It)"
+title: "3 · The Draw-Flip Cycle (and How to Break It)"
 ---
 
 ::: {.milestone}
-**Block 1** · aim to finish chapters 1–3 by the first break (~10:30)
+**Block 1** · Learning goals: Master the draw-flip cycle (i.e., prepare, draw, flip) and learn to recognise its three classic failure modes.
 :::
 
 Here is the single most important mechanic of the day. PsychoPy uses *double buffering*: there are two screen buffers, and you never draw directly onto the visible one. Showing a stimulus always takes three steps:
@@ -12,18 +12,18 @@ Here is the single most important mechanic of the day. PsychoPy uses *double buf
 2. **Draw**: paint it onto the hidden *back buffer*: `stim.draw()`. Still nothing on screen!
 3. **Flip**: swap the buffers: `win.flip()`. The prepared image appears, all at once.
 
-Think of a theatre: the back buffer is backstage, the front buffer is the stage. You can arrange the whole scene backstage. Draw as many stimuli as you like, and `flip()` raises the curtain in a single instant.
+Think of a theatre: the back buffer is backstage, the front buffer is the stage. You can arrange the whole scene backstage: draw as many stimuli as you like, and `flip()` raises the curtain in a single instant.
 
 Why this design? A typical monitor redraws 60 times per second, so one frame lasts ~16.7 ms. Because the swap happens between two refreshes, **stimulus onset is a single, well-defined moment: the moment of the flip**. In Session 3 we will reset a clock at exactly that moment to measure reaction times.
 
-## Hello, world, the full cycle
+## Hello, world: the full cycle
 
 Type and run:
 
 ```python
 from psychopy import visual, event, core
 
-win = visual.Window(size=(1280, 720), color='black')
+win = visual.Window(size=(1280, 720), color='black', fullscr=False)
 
 text = visual.TextStim(win, text='Hello, world!',
                        color='white', height=0.1)
@@ -40,48 +40,54 @@ You should see *Hello, world!* in white on black, staying until you press a key.
 
 ## The sabotage lab
 
-Now **break it on purpose** — three times. This is not busywork: each sabotage teaches you to recognise one of today's three most common bugs *before* it happens to you by accident.
+Now let's **break it on purpose** to figure out what's going in the code: three times. Each sabotage teaches you to recognise one of today's three most common bugs *before* it happens to you by accident. Think first, then actually run the broken script and watch.
 
-::: {.callout-note .predict icon="false" title="🔮 Sabotage 1, predict first"}
+::: {.callout-note .predict icon="false" title="🤔 Sabotage 1 — think first"}
 Delete the line `win.flip()`. What will you see when you run it?
 
-::: {.callout-tip collapse="true" title="Check your prediction"}
-A blank black window. The text **was** drawn — but only to the back buffer, which was never swapped to the screen. *Blank screen almost always means a missing flip.*
+::: {.callout-tip collapse="true" title="Check your thinking"}
+A blank black window. The text **was** drawn, but only to the back buffer, which was never swapped to the screen. Everything happened backstage; the curtain never rose. *Blank screen almost always means a missing flip.*
 :::
 :::
 
-::: {.callout-note .predict icon="false" title="🔮 Sabotage 2, predict first"}
+::: {.callout-note .predict icon="false" title="🤔 Sabotage 2 — think first"}
 Put `win.flip()` back. Now delete `event.waitKeys()`. What happens?
 
-::: {.callout-tip collapse="true" title="Check your prediction"}
-The text flashes for a split second and vanishes. The script runs straight to the end, and closing the window takes the text with it. *Every flip needs a waiting step after it, or the participant sees almost nothing.*
+::: {.callout-tip collapse="true" title="Check your thinking"}
+The text flashes for a split second and vanishes. The script runs straight on to `win.close()`, and closing the window takes the text with it. *Every flip needs a waiting step after it*: a keypress wait like here, or a timed `core.wait()` as in the next chapter. If this is missing, the participant sees almost nothing.
 :::
 :::
 
-::: {.callout-note .predict icon="false" title="🔮 Sabotage 3, predict first"}
+::: {.callout-note .predict icon="false" title="🤔 Sabotage 3 — think first"}
 Restore everything. Now delete the last two lines (`win.close()` and `core.quit()`). What happens after you press a key?
 
-::: {.callout-tip collapse="true" title="Check your prediction"}
-The script ends, but the window lingers as a frozen grey zombie. Always shut down cleanly — and now you know what a zombie window means when you see one.
+::: {.callout-tip collapse="true" title="Check your thinking"}
+Quite possibly... nothing different! On modern PsychoPy the window usually closes anyway when the script ends. So why do we insist on those two lines? Because *usually* is not a word you want in an experiment: on some machines and older versions, the window lingers as a frozen zombie, and in longer scripts an un-closed window can hold resources or hide error messages. `win.close()` and `core.quit()` make the shutdown *explicit and guaranteed* instead of a lucky side effect.
 :::
 :::
 
-Repair your script so all three sabotages are undone. Say the mantra once, *prepare, draw, flip, wait*, and take a break if the clock says so.
+Repair your script so all three sabotages are undone, and run it once more to prove it.
 
-::: {.callout-tip collapse="true" title="Checkpoint · end of Block 1"}
-```python
-from psychopy import visual, event, core
+## The doctor's exam
 
-win = visual.Window(size=(1280, 720), color='black')
+You've now *caused* all three diseases, so you can diagnose them. This is the skill that saves you time all afternoon:
 
-text = visual.TextStim(win, text='Hello, world!',
-                       color='white', height=0.1)
-text.draw()
-win.flip()
+::: {.predict-check data-answer="win.flip()" data-accept="flip()||flip||win.flip"}
+Your neighbour's script runs without errors, but their window is plain black: no text, nothing. Which line have they most likely forgotten?
 
-event.waitKeys()
-
-win.close()
-core.quit()
-```
+::: {.pc-hint data-if-contains="draw"}
+If `draw()` were missing you'd *also* see nothing, but the far more common culprit is the step after drawing. What raises the curtain?
 :::
+
+::: {.pc-explanation}
+`win.flip()`: the stimulus was prepared and probably drawn, but never swapped to the visible screen. Blank-but-running is the flip's signature symptom. (A missing `draw()` produces the same blankness and is the second guess, but forgetting the flip will be today's most common bug by a wide margin.)
+:::
+:::
+
+Say the mantra once: *prepare, draw, flip, wait*. You now have the day's core mechanic memorised.
+
+::: {.callout-note title="Summary"}
+Showing a stimulus is always three steps: **prepare** the object, **draw** it to the hidden back buffer, **flip** the buffers to reveal it, then **wait**, or the participant sees nothing. The flip is a single, precisely-timed moment, which is what makes reaction-time measurement possible. And the three sabotages gave you the diagnostic table: blank screen → likely a missing flip; content flashing past → missing wait; lingering window → missing cleanup. *Prepare, draw, flip, wait.*
+:::
+
+Next: [text and images, properly](04_stimuli.qmd).
