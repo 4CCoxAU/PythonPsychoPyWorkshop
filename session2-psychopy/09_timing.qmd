@@ -1,0 +1,186 @@
+---
+title: "9 · Timing: Measuring How Long Thinking Takes"
+---
+
+
+::: {.milestone}
+**Block 3** · Learning goals: Measure reaction times with `core.Clock()`: reset at stimulus onset, read at the response.
+:::
+
+## Thinking takes time
+
+Your experiment runs, and it already produces one measurement: whether each answer was correct. Block 3 adds the second, and for cognitive science the more interesting one: how *long* the answer took. The idea is old and beautiful: mental work takes time, and the time can be measured. Your own experiment contains a built-in comparison. On a burrow trial, you press the arrow on the burrow's side: your response goes toward the thing you saw, which is what your attention wants anyway. On a lion trial, you press the opposite arrow: your response goes away from the thing you saw, and to produce it you must override the pull toward the lion first. That overriding is extra mental work, so lion trials should take longer, by tens of milliseconds. Reaction time is how we watch that work happen without opening the head. The same measurement carries your Portfolio 2 experiment: how long a reader lingers on a word tells us how hard that word is to process.
+
+## A stopwatch object
+
+The tool is `core.Clock()`: a stopwatch. Create it once, in the setup; reset it to zero at the moment you want to measure from; read it when the thing you are timing has happened.
+
+```python
+stopwatch = core.Clock()     # create, once, in the setup
+stopwatch.reset()            # zero it: timing starts NOW
+rt = stopwatch.getTime()     # read it: seconds since the reset
+```
+
+A small demonstration you can run in a script, no window needed:
+
+```python
+from psychopy import core
+
+stopwatch = core.Clock()
+stopwatch.reset()
+core.wait(1.5)
+print(stopwatch.getTime())
+```
+
+::: {.predict-check data-answer="1.5" data-accept="1.5 seconds||about 1.5||~1.5"}
+Approximately what number is printed?
+
+::: {.pc-hint data-if-contains="0"}
+The clock was zeroed, then the script waited. How much time passed between the reset and the read?
+:::
+
+::: {.pc-explanation}
+Approximately `1.5`, in practice something like `1.5001923`: one and a half seconds passed between the reset and the read, plus a sliver of processing time. The clock does not stop at `getTime()`; it keeps running, and you can read it as often as you like. Reset defines the zero; every read reports the seconds since.
+:::
+:::
+
+## Where the reset goes
+
+In a trial, what we want to measure is the gap between **stimulus onset** and **response**. Both endpoints matter.
+
+The response end is easy: `event.waitKeys()` returns at the keypress, so reading the clock on the next line captures it. The onset end is the subtle one, and Chapter 3 prepared you for it: a stimulus appears at one precise moment, the flip. Preparing and drawing take time, so the reset must come *after* the flip, not before the drawing. In our script, `show_stim()` ends with the flip, so the reset follows the call directly:
+
+```python
+show_stim(image)                                  # ends with win.flip(): onset
+stopwatch.reset()                                 # zero AT onset
+
+keys = event.waitKeys(keyList=['left', 'right'])  # returns at the keypress
+rt = stopwatch.getTime()                          # seconds from onset to response
+```
+
+::: {.callout-note .predict icon="false" title="🤔 Think first"}
+A student puts `stopwatch.reset()` *before* the `show_stim(image)` call instead of after it. The script runs fine and produces reaction times. What is wrong with them?
+
+::: {.callout-tip collapse="true" title="Check your thinking"}
+Every reaction time is slightly too long. The clock starts before the stimulus exists: preparing the image and flipping it to the screen take time, and that preparation time is silently added to every trial's measurement. The participant has not even seen the stimulus while the clock is already running. Reset after the flip, so that zero means "the moment the scene appeared".
+:::
+:::
+
+::: {.callout-note collapse="true" title="Good to know: how precise is this?"}
+Honest measurement means knowing your instrument. Two small imprecisions are built in: the stimulus appears at a screen refresh, so onset is quantised to the frame (about 17 ms at 60 Hz), and ordinary keyboards add a few milliseconds of their own. Neither can be removed with ordinary hardware, and neither matters for us: both affect all trials equally, and the comparisons we care about, such as lion trials against burrow trials, are differences of tens of milliseconds averaged over trials. Know the noise, design comparisons larger than it.
+:::
+
+::: {.callout-note title="Summary"}
+`core.Clock()` is a stopwatch: create once, `reset()` to define zero, `getTime()` to read seconds since. For a reaction time, zero must mean stimulus onset, so the reset goes immediately after the flip, and the read goes immediately after `waitKeys()` returns. The measurement carries about a frame of onset noise and a few milliseconds of keyboard noise, which comparisons across many trials absorb.
+:::
+
+## Three clock puzzles, together
+
+Before the clock enters the experiment, three small puzzles about how it behaves. Predict each one before anything is run.
+
+### Puzzle 1: the clock keeps running
+
+```python
+from psychopy import core
+
+stopwatch = core.Clock()
+stopwatch.reset()
+
+core.wait(1)
+print(stopwatch.getTime())
+
+core.wait(1)
+print(stopwatch.getTime())
+```
+
+::: {.predict-check data-answer="1 2" data-accept="1, 2||1.0 2.0||1.0, 2.0||about 1 and 2"}
+Two numbers are printed. Approximately which two? Answer on one line, separated by a space.
+
+::: {.pc-hint data-if-contains="1 1"}
+Does `getTime()` stop the clock, or only look at it?
+:::
+
+::: {.pc-explanation}
+Approximately `1`, then `2`. Reading the clock does not stop it or reset it; it only looks. The clock runs continuously from the reset, and every read reports the total seconds since that one zero. One reset can serve many reads.
+:::
+:::
+
+### Puzzle 2: reset moves the zero
+
+```python
+from psychopy import core
+
+stopwatch = core.Clock()
+stopwatch.reset()
+
+core.wait(1)
+stopwatch.reset()
+
+core.wait(1)
+print(stopwatch.getTime())
+```
+
+::: {.predict-check data-answer="1" data-accept="1.0||about 1||~1"}
+One number is printed. Approximately what?
+
+::: {.pc-hint data-if-contains="2"}
+There are two resets. Which one defines the zero that the read is measured from?
+:::
+
+::: {.pc-explanation}
+Approximately `1`, not 2. A reset throws away everything before it and starts the count again: the second reset moved the zero, so the read reports only the second second. This is precisely why one reset per trial works in an experiment: each trial's reset wipes the previous trial's time and starts fresh.
+:::
+:::
+
+### Puzzle 3: the misplaced reset, with numbers
+
+Suppose preparing and flipping a large image takes half a second, and the participant responds one second after the stimulus appears. A student writes the reset in the wrong place:
+
+```python
+stopwatch.reset()          # reset HERE...
+stim.draw()                # takes ~0.5 s in this thought experiment
+win.flip()                 # ...stimulus appears now
+keys = event.waitKeys()    # participant responds 1 s after onset
+rt = stopwatch.getTime()
+```
+
+::: {.predict-check data-answer="1.5" data-accept="1.5 seconds||1,5||about 1.5"}
+What reaction time does the script report, in seconds?
+
+::: {.pc-hint data-if-contains="1 "}
+The clock started before the drawing. How much time passed between the reset and the keypress, in total?
+:::
+
+::: {.pc-explanation}
+`1.5` seconds, for a response that actually took `1.0`. The half second of preparation is silently added, because the zero was set before the stimulus existed. The participant looks half a second slower than they are, on every trial. Zero must mean onset, so the reset goes after the flip.
+:::
+:::
+
+### Puzzle 4: one clock, many trials
+
+The experiment measures twelve trials, but it needs only **one** clock. Create it once in the setup; inside the loop, reset at each trial's onset and read at each trial's response. The reset wipes the previous trial's time (Puzzle 2), so the same stopwatch serves every trial in turn. A miniature version, with waits standing in for participants:
+
+```python
+from psychopy import core
+
+stopwatch = core.Clock()            # once, in the setup
+
+for trial in [1, 2, 3]:
+    stopwatch.reset()               # zero at this trial's onset
+    core.wait(trial)                # this "participant" takes 1, then 2, then 3 s
+    print(stopwatch.getTime())
+```
+
+::: {.predict-check data-answer="1 2 3" data-accept="1, 2, 3||1.0 2.0 3.0||1 2 and 3"}
+Three numbers are printed. Approximately which three, in order? One line, separated by spaces.
+
+::: {.pc-hint data-if-contains="1 3 6"}
+Does time pile up across trials, or does something wipe it between them?
+:::
+
+::: {.pc-explanation}
+Approximately `1`, `2`, `3`: each trial's reset wipes the clock, so each read reports only its own trial's time. Without the reset inside the loop, the times would pile up, `1`, `3`, `6`, each trial inheriting all the seconds before it. One clock in the setup, one reset per trial at onset, one read per trial at the response: that is the whole pattern, and it is exactly what you will add to the rabbit in Exercise 6.
+:::
+:::
+
+**Stopwatch demo printing sensible numbers?** Next: [Exercise 6, timing the rabbit](10_timingexercises.qmd).

@@ -1,0 +1,222 @@
+---
+title: "10 · Exercise 6: Weigh Your Own Decisions"
+---
+
+::: milestone
+**Block 3** · Exercise: Run a simple and a choice reaction-time task on yourself, perform Donders' subtraction, then add timing to the rabbit.
+:::
+
+:::::: exercise-banner
+::: ex-kicker
+Hands-on · on your own · try first, code revealed after the workshop
+:::
+
+::: ex-title
+Exercise: Weigh your own decisions
+:::
+
+::: ex-sub
+Two small experiments on yourself, one subtraction, and then the rabbit learns to measure.
+:::
+::::::
+
+Work in a fresh scratch script for Parts 1 and 2; the rabbit returns in Part 3.
+
+### Part 1: Simple reaction time
+
+The fastest thing you can do: press a key the moment something appears. Build it: window, then the rabbit shown at the centre with `show_stim`-style lines, reset the clock at the flip, wait for **any** key, read the clock, print the time. Run it five times and watch the numbers. Most people land somewhere near a quarter of a second.
+
+:::: {.content-visible when-meta="show-solutions-s2"}
+::: {.callout-tip collapse="true" title="Show the code"}
+``` python
+from psychopy import visual, event, core
+
+win = visual.Window(size=(1280, 720), fullscr=False,
+                    color='black', checkTiming=False)
+
+core.wait(2)
+
+stopwatch = core.Clock()
+
+pic = visual.ImageStim(win, image='rabbit.jpg', size=0.5)
+pic.draw()
+win.flip()
+stopwatch.reset()
+
+event.waitKeys()
+rt = stopwatch.getTime()
+print(f'Simple reaction: {rt:.3f} seconds')
+
+win.close()
+core.quit()
+```
+:::
+::::
+
+:::: {.content-visible unless-meta="show-solutions-s2"}
+::: {.callout-tip icon="false" title="🔒 Example code will be available here after the workshop"}
+:::
+::::
+
+### Part 2: Choice reaction time
+
+Now add a decision, and here the design matters: a decision only exists if you do not know the answer in advance. Since you wrote the script, the script must surprise you: put both positions in a list, shuffle it, and use the first element. The same `random.shuffle()` as the trial order, now flipping a coin. Show the rabbit on the winning side, and respond with the arrow key on the rabbit's side. Everything else stays as in Part 1: black screen first, reset at the flip, read at the response, print.
+
+Run it several times. Each run, you genuinely do not know which side is coming until the rabbit appears, so each run contains a real see-which-side decision. Then compare your numbers with Part 1. The choice version should be slower, typically by something like a tenth of a second, and that difference *is* Donders' subtraction: the approximate duration of see-which-side-and-pick-the-matching-key, measured on yourself, in your own console.
+
+:::: {.content-visible when-meta="show-solutions-s2"}
+
+::: {.callout-tip collapse="true" title="Show the code"}
+```python
+from psychopy import visual, event, core
+import random
+
+win = visual.Window(size=(1280, 720), fullscr=False,
+                    color='black', checkTiming=False)
+
+stopwatch = core.Clock()
+
+win.flip()       # black screen: get ready...
+core.wait(2)
+
+# let the script surprise you: shuffle the two positions, take the first
+positions = [(-0.5, 0), (0.5, 0)]
+random.shuffle(positions)
+
+pic = visual.ImageStim(win, image='rabbit.jpg', size=0.5)
+pic.pos = positions[0]
+pic.draw()
+win.flip()       # the rabbit appears: onset
+stopwatch.reset()
+
+keys = event.waitKeys(keyList=['left', 'right'])
+rt = stopwatch.getTime()
+print(f'Choice reaction: {rt:.3f} seconds, pressed {keys[0]}')
+
+win.close()
+core.quit()
+```
+
+The shuffle here is a coin flip: two positions, reordered at random, and the first one wins. (Python has a neater one-liner for this, `random.choice()`, which you may meet in other scripts.)
+:::
+
+::::
+
+:::: {.content-visible unless-meta="show-solutions-s2"}
+
+::: {.callout-tip icon="false" title="🔒 Example code will be available here after the workshop"}
+:::
+
+::::
+
+### Part 3: The rabbit learns to measure
+
+Now open `rabbit.py` from Exercise 5 and give the real experiment the same treatment, three edits. Create the stopwatch once in the setup. In the trial loop, reset right after `show_stim(image)` and read right after the response arrives. Then report every trial with one printed f-string: the stimulus, the pressed and correct keys, and the reaction time to two decimals.
+
+:::: {.content-visible when-meta="show-solutions-s2"}
+
+::: {.callout-tip collapse="true" title="Show the code"}
+```python
+from psychopy import visual, event, core
+import glob
+import random
+
+# --- setup ---
+images = glob.glob('stimuli/stimulus*.jpg')
+random.shuffle(images)
+
+win = visual.Window(size=(1280, 720), fullscr=False,
+                    color='black', checkTiming=False)
+
+stopwatch = core.Clock()
+
+# --- functions ---
+def msg(text):
+    message = visual.TextStim(win, text=text, height=0.06)
+    message.draw()
+    win.flip()
+    event.waitKeys()
+
+def show_stim(image):
+    stim = visual.ImageStim(win, image=image)
+    stim.draw()
+    win.flip()
+
+# --- experiment ---
+msg('The Fleeing Rabbit\n\n'
+    'You are the rabbit, and the lion is on the hunt!\n\n'
+    'See a LION? Run the other way: press the OPPOSITE arrow.\n'
+    'See a BURROW? Dive in: press the arrow on ITS side.\n\n'
+    'Be quick, and be right. Press any key to start.')
+
+for image in images:
+    # show the stimulus and start the clock at its onset
+    show_stim(image)
+    stopwatch.reset()
+
+    # collect the response and read the clock
+    keys = event.waitKeys(keyList=['left', 'right'])
+    rt = stopwatch.getTime()
+    key = keys[0]
+
+    # derive the correct answer from the filename
+    if image.endswith('_L.jpg'):
+        correct_key = 'left'
+    else:
+        correct_key = 'right'
+
+    # feedback for 2 seconds
+    if key == correct_key:
+        show_stim('stimuli/success.jpg')
+    else:
+        show_stim('stimuli/failure.jpg')
+    core.wait(2)
+
+    # report the trial
+    print(f'{image}: {key} pressed, correct was {correct_key}, rt {rt:.2f} s')
+
+msg('That was it. Thank you! Press any key to close.')
+
+win.close()
+core.quit()
+```
+:::
+
+::::
+
+:::: {.content-visible unless-meta="show-solutions-s2"}
+
+::: {.callout-tip icon="false" title="🔒 Example code will be available here after the workshop"}
+:::
+
+::::
+
+Run the whole experiment and watch the console fill, trial by trial, with your own reaction times. Answer one trial as fast as you can and one slowly, and see the numbers agree with you.
+
+**Finished early?** Collect the reaction times in a list (`rts = []` in the setup, `rts.append(rt)` in the loop) and report the average in the goodbye: `sum(rts) / len(rts)`, formatted to two decimals.
+
+:::: {.content-visible when-meta="show-solutions-s2"}
+::: {.callout-tip collapse="true" title="Show the code"}
+``` python
+# setup:
+rts = []
+
+# in the loop, after reading the clock:
+rts.append(rt)
+
+# goodbye:
+msg(f'Average reaction time: {sum(rts) / len(rts):.2f} seconds. Thank you!')
+```
+:::
+::::
+
+:::: {.content-visible unless-meta="show-solutions-s2"}
+::: {.callout-tip icon="false" title="🔒 Example code will be available here after the workshop"}
+:::
+::::
+
+::: {.callout-note title="One thing your data cannot yet answer"}
+You noticed in Exercise 5 that lion trials feel harder than burrow trials, and Chapter 10 predicted they should be slower. Look at your console output and try to check it. You cannot, quite: the filename records the correct *response*, not whether the cue was a lion or a burrow, and nothing else was written down. A measurement is only as good as what you record alongside it. Deciding what to log, and saving it to a file, is exactly where Session 3 begins.
+:::
+
+**Two experiments run on yourself, with rabbit timing every trial?** Next: [from the rabbit to words](12_cogcomm.qmd).

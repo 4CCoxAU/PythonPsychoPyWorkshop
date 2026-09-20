@@ -20,8 +20,8 @@ website:
         text: "Home"
       - href: session1-python/index.qmd
         text: "Session 1 · Python"
-      #- href: session2-psychopy/index.qmd
-      #  text: "Session 2 · PsychoPy"
+      # - href: session2-psychopy/index.qmd
+      #   text: "Session 2 · PsychoPy"
   sidebar:
     style: "docked"
     collapse-level: 2
@@ -73,20 +73,17 @@ website:
       #         - session2-psychopy/01_warmup.qmd
       #         - session2-psychopy/02_psychopy.qmd
       #         - session2-psychopy/03_drawflip.qmd
+      #         - session2-psychopy/04_exercise4.qmd
       #     - section: "Block 2 · Stimuli on the screen"
       #       contents:
-      #         - session2-psychopy/04_stimuli.qmd
-      #         - session2-psychopy/05_glob.qmd
-      #         - session2-psychopy/06_exercise4.qmd
+      #         - session2-psychopy/05_functions.qmd
+      #         - session2-psychopy/06_glob.qmd
+      #         - session2-psychopy/07_responses.qmd
+      #         - session2-psychopy/08_exercise5.qmd
       #     - section: "Block 3 · Making it an experiment"
       #       contents:
-      #         - session2-psychopy/07_random.qmd
-      #         - session2-psychopy/08_responses.qmd
-      #         - session2-psychopy/09_feedback.qmd
-      #     - section: "Block 4 · Completing the loop"
-      #       contents:
-      #         - session2-psychopy/10_exercise5.qmd
-      #         - session2-psychopy/11_cogcomm.qmd
+      #         - session2-psychopy/09_timing.qmd
+      #         - session2-psychopy/10_timingexercises.qmd
   page-navigation: true
 
 format:

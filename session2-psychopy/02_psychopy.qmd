@@ -6,59 +6,84 @@ title: "2 · Meet PsychoPy: Import, Modules, and a Window"
 **Block 1** · Learning goals: Understand what `import` does, meet PsychoPy's three modules, and open your first window.
 :::
 
+## The PsychoPy application
 Experiments need a screen: stimuli to look at, keys to press, precise timing. This is what PsychoPy adds. PsychoPy is free, open-source, and made by psychologists for psychologists (Peirce, 2007). PsychoPy uses ordinary Python, the Python you already know, plus a collection of ready-made tools for experiments.
 
 ## The `import` line
 
-The Standalone PsychoPy app you installed contains everything: Python itself, plus all of PsychoPy's tools. Nothing more to download. But *installed* only means the tools are on your computer, like books in a library building. Each script must still say which tools it wants on its desk. That is what an **import** does, and it is the first line of every experiment you will ever write:
+The Standalone PsychoPy app you installed contains everything: Python itself, plus all of PsychoPy's tools. But *installed* only means the tools are on your computer, like books in a library building. Each script must still say which tools it wants on its desk. That is what an **import** does, and it is the first line of every experiment you will ever write:
 
 ```python
 from psychopy import visual, event, core
 ```
 
-Read it aloud: *from the PsychoPy collection, fetch three modules: `visual`, `event`, and `core`.* A **module** is a bundle of related functions someone else wrote; importing it makes its functions available in *your* script, called with a dot: `visual.Window(...)`, `core.wait(...)` — module name, dot, function. (The dot should feel familiar: it's the same dot as `name.upper()`.)
+Read it aloud: *from the PsychoPy collection, fetch three modules: `visual`, `event`, and `core`.* A **module** is a bundle of related functions someone else wrote. Importing it makes its functions available in *your* script, called with a dot: `visual.Window(...)`, `core.wait(...)` — module name, dot, function. (The dot should feel familiar: it's the same dot as `name.upper()`.)
 
-The three modules, and the neat division of labour between them:
+If you forget the import line, Python greets you with `NameError: name 'visual' is not defined`. The tools exist on the computer, but your script never fetched them. You might see this error today; now you know what it means.
+
+## Three modules, three different jobs
 
 - **`visual`**: everything the participant *sees*: the window, text, images.
 - **`event`**: everything the participant *does*: key presses.
-- **`core`**: *time* and control: waiting, clocks (Session 3!), quitting cleanly.
+- **`core`**: *time* and control: waiting, clocks, quitting cleanly.
 
 ::: {.predict-check data-answer="visual event core" data-accept="visual, event, core"}
-A quick mental map. Which module would you look in for in the following sequence of events: show an image, wait for the participant's keypress, then hold a blank screen for a moment before the next trial. Three names, in order, on one line.
+A quick mental map. Which module provides each step of the following sequence: show an image, wait for the participant's keypress, then hold a blank screen for a moment before the next trial? Three names, in order, on one line.
 
 ::: {.pc-hint data-if-contains="visual core event"}
-Read the order asked: image → keypress → pause. Who owns the keypress?
+Read the order asked: image, then keypress, then pause. Which module owns the keypress?
 :::
 
 ::: {.pc-explanation}
-`visual`, `event`, `core`: sees, does, time. And notice what you just described: *show a stimulus, collect a response, pause between trials* is literally the trial structure you will build this afternoon. Every PsychoPy function you meet today lives in one of these three modules.
+`visual`, `event`, `core`: sees, does, time. Notice what you just described: show a stimulus, collect a response, pause between trials. That is the trial structure you will build this afternoon. Every PsychoPy function you meet today lives in one of these three modules.
 :::
 :::
 
-Forget the import line and Python greets you with `NameError: name 'visual' is not defined`. The tools exist on the computer, but your script never fetched them. You might see this error today; now you know what it means.
+Opening PsychoPy for the first time can be confusing, because the app is really three programs in one:
 
-## Your first window
+- **Builder**: a graphical interface for assembling experiments by dragging components. We do not use it. Everything we build, we write ourselves.
+- **Coder**: a text editor with a Run button. This is where we work all day. It is the counterpart of UCloud's editor, but is a different program.
+- **Runner**: a small window that lists the scripts you have run and shows their output. It usually opens by itself alongside the others; you can mostly ignore it.
 
-Type this into a new script. Call it `my_first_window.py`, and press the green **Run** button. (Note the environment change from UCloud: the Coder runs your *whole script*, top to bottom. No selecting lines, no Shift+Enter.)
+If PsychoPy opens in the Builder, switch to the Coder through the menu: **View → Open Coder view**. You can close the Builder window afterwards.
+
+## Inside the Coder
+
+The Coder window has two areas that matter today:
+
+- The large **editor** pane at the top. This is where you type your script.
+- The **output** pane at the bottom. This is where `print()` output, warnings, and error messages appear. When something goes wrong, this pane tells you why: read it from the top.
+
+The green **Run** button in the toolbar runs the file currently open in the editor.
+
+## Creating and saving a script
+
+1. In the Coder: **File → New** (or Ctrl+N, Cmd+N on a Mac). An empty editor tab appears, named `untitled.py`.
+2. Before writing anything, save it: **File → Save As**, into a folder called `PsychoPyWorkshop`. Use a short name without spaces or special characters, ending in `.py`. The same naming rules as in Session 1.
+3. From then on, save with Ctrl+S (Cmd+S) before every run. An unsaved script will ask you to save before it can run.
+
+## Create your first window
+
+Create a new script as just described and call it `my_first_window.py`. Type the following into it. Save it as `my_first_window.py`, and press the green **Run** button. (Note the environment change from UCloud: the Coder runs your *whole script*, top to bottom. No selecting lines, no Shift+Enter.)
 
 ```python
 from psychopy import visual, event, core
 
 win = visual.Window(
-    size=(1280, 720),   # Width and height in pixels.
-    color='black',      # Background colour: try `'grey'` or `'white'` later.
-    fullscr=False)      # Keep `False` while developing; switch to `True` for the real experiment.
+    size=(1280, 720),     # Width and height in pixels.
+    color='black',        # Background colour.
+    fullscr=False,        # Keep False while developing.
+    checkTiming=False)    # Skips a startup screen that measures your monitor. We do not need it.
 
 core.wait(2)
 win.close()
 core.quit()
 ```
 
-A black window should appear for two seconds, then close. Not too exciting yet, but notice that `win` is a **variable**, like any from Session 1. It holds a window object, and that object has functions attached, called with a dot: `win.close()` now.
+A grey window should appear for two seconds, then close. Not too exciting yet, but notice that `win` is a **variable**, like any from Session 1. It holds a window object, and that object has functions attached, called with a dot: `win.close()` now.
 
-::: {.callout-warning title="The escape hatch (you will need it today)"}
+::: {.callout-tip title="The escape hatch (you will need it today)"}
 Sooner or later a window will freeze on you. It happens to everyone. Click on the Coder's console and press **Ctrl-C** (or close the window via the taskbar). This is exactly why we develop with `fullscr=False`: a small window is much easier to escape.
 :::
 
-Did the window open and close by itself? Then you have imported modules and commanded a screen. Next: [making something appear on it](03_drawflip.qmd).
+Did the window open for two seconds and close by itself? Then you have imported modules and commanded a screen. Next: [the Draw-Flip Cycle](03_drawflip.qmd).

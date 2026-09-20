@@ -6,7 +6,7 @@ title: "1 · Warming Up: A Python Refresher"
 **Block 1** · Learning goals: Reactivate Session 1 — variables, strings, lists, loops, conditionals — and meet `.endswith()`.
 :::
 
-Let's warm up the Python muscles. Six quick predictions, one per Session 1 concept, each a little more experiment-shaped than the last. If one stumps you, that's a signal to skim the matching Session 1 chapter. They're all still in the sidebar.
+Let's warm up the Python muscles. Six quick predictions, one per Session 1 concept, each a little more experiment-shaped than the last. If one stumps you, that's a signal to skim the matching Session 1 chapter. All of the materials are still in the sidebar.
 
 ## 1: Variables & f-strings
 
@@ -24,7 +24,7 @@ What exactly prints?
 :::
 
 ::: {.pc-explanation}
-`S_07: 0.54 seconds`: the f-string substitutes both variables, and `:.2f` rounds 0.5391 up to 0.54. Today this exact pattern puts text on the experiment screen instead of the console.
+`S_07: 0.54 seconds`: the f-string substitutes both variables, and `:.2f` rounds 0.5391 up to 0.54. Today, this exact pattern can be used to put text on the experiment screen.
 :::
 :::
 
@@ -48,7 +48,7 @@ Nearly! There's only one underscore, so only one cut. What stays attached to the
 :::
 
 ::: {.pc-explanation}
-`R.jpg`: one underscore means one cut: `['gear', 'R.jpg']`, and index 1 is the second piece, `.jpg` still attached. Filenames carrying information that `.split()` extracts: keep this trick warm, it returns in Chapter 9.
+`R.jpg`: one underscore produces one cut, giving the list `['gear', 'R.jpg']`; index 1 is the second element, with the file extension still attached. Filenames that carry information, read out by string methods, are a central device in today's experiment.
 :::
 :::
 
@@ -90,7 +90,7 @@ for w in words:
 What does this print? One line, in order, separated by spaces.
 
 ::: {.pc-hint data-if-contains="COCOA"}
-Careful — how many letters does `cocoa` have, exactly? And is `5 > 5` true?
+Careful: how many letters does `cocoa` have, exactly? And is `5 > 5` true?
 :::
 
 ::: {.pc-hint data-if-contains="TEA"}
@@ -98,51 +98,13 @@ Which words have *more than* 5 letters? Count before you uppercase.
 :::
 
 ::: {.pc-explanation}
-Five lines: `tea`, `COFFEE`, `water`, `juice`, `cocoa`. Only `'coffee'` exceeds 5 letters; `'cocoa'` is exactly 5, and `5 > 5` is `False` — and `.append()` ran before the loop, so cocoa is included. This loop-plus-conditional shape is the skeleton of today's trial loop.
-:::
-:::
-
-## 5: Strings answering questions: `.endswith()`
-
-One string method from Session 1 deserves a spotlight before the screen arrives. `.endswith()` asks a yes/no question: does this string end with that? This returns `True` or `False`, which means it slots straight into `if` statements:
-
-```python
-print("wheel_L.jpg".endswith("_L.jpg"))
-print("wheel_R.jpg".endswith("_L.jpg"))
-```
-
-```{.repl}
-True
-False
-```
-
-Why this matters today: our stimulus filenames *carry information*: `_L` or `_R` says which answer is correct, and `.endswith()` is how the experiment reads it. Combine it with a loop:
-
-```python
-stimuli = ['wheel_L.jpg', 'wheel_R.jpg', 'gear_L.jpg']
-
-for s in stimuli:
-    if s.endswith("_L.jpg"):
-        print(s, '-> left')
-    else:
-        print(s, '-> right')
-```
-
-::: {.predict-check data-answer="left right left" data-accept="left, right, left||L R L||l r l"}
-Which direction does each filename get: in order, on one line?
-
-::: {.pc-hint data-if-contains="right left right"}
-Check each filename's *ending* against `"_L.jpg"`: which ones match?
-:::
-
-::: {.pc-explanation}
-`left`, `right`, `left`: the two filenames ending in `_L.jpg` pass the test; `wheel_R.jpg` fails it and falls to the `else`. Remember this move: in Chapter 9 it becomes the heart of the feedback logic, where the filename tells your experiment which key the participant *should* have pressed.
+Five lines: `tea`, `COFFEE`, `water`, `juice`, `cocoa`. Only `coffee` exceeds five letters. The word `cocoa` has exactly five, and `5 > 5` is `False`; the appended element is included because the append precedes the loop. This combination of a loop and a conditional is the skeleton of the trial loop you will build today.
 :::
 :::
 
 ## 5: Nested loops: looping inside the items
 
-From Exercise 3, the loop-inside-a-loop — where the inner loop walks through *each item itself*. Remember: a string is loopable too, and its items are its characters:
+Here we have a loop inside a loop, as in Session 1's Exercise 3. Recall that a string is itself iterable: its elements are its characters:
 
 ```python
 keys = ['left', 'up']
@@ -157,11 +119,11 @@ for key in keys:
 How many lines does this print in total?
 
 ::: {.pc-hint data-if-contains="6"}
-Count both layers: each key prints once *whole*, and then once *per character*. How many characters in `left`? In `up`?
+Count both levels: each key is printed once in full, and then once per character. How many characters in `left`? In `up`?
 :::
 
 ::: {.pc-hint data-if-contains="2"}
-The inner loop walks through the string itself: one line per character, plus the line printing the whole key.
+The outer loop prints each key once in full. The inner loop then iterates over that key's characters, printing one line per character.
 :::
 
 ::: {.pc-explanation}
@@ -178,12 +140,37 @@ u
 p
 ```
 
-`left` contributes 1 + 4 lines, `up` contributes 1 + 2. The outer loop deals out strings; each string then becomes the inner loop's collection, dealing out characters. The collection decides what comes out — the names `key` and `character` just catch it.
+Each time, it first prints the whole word. Then the inner loop goes through that word one character at a time, printing each one. So `left` gives 1 line for the word plus 4 lines for its letters, and `up` gives 1 plus 2. Notice that Python decides what the loop variable holds by looking at what comes after in: a list gives you its items, a string gives you its characters. The names `key` and `character` are just labels we chose; they do not tell Python anything.
 :::
 :::
 
+## 6 · Testing how a string ends
 
-## 6: The finale: everything at once
+`.endswith()` returns `True` or `False`, so it can serve directly as the condition of an `if` statement. Our stimulus filenames use this: the suffix `_L` or `_R` records which response is correct.
+
+```python
+stimuli = ['wheel_L.jpg', 'wheel_R.jpg', 'gear_L.jpg']
+
+for s in stimuli:
+    if s.endswith("_L.jpg"):
+        print(s, '-> left')
+    else:
+        print(s, '-> right')
+```
+
+::: {.predict-check data-answer="left right left" data-accept="left, right, left||L R L||l r l"}
+Which direction is assigned to each filename? Answer in order, on one line.
+
+::: {.pc-hint data-if-contains="right left right"}
+Test each filename's ending against `"_L.jpg"`. Which of the three match?
+:::
+
+::: {.pc-explanation}
+`left`, `right`, `left`. The two filenames ending in `_L.jpg` pass the test; `wheel_R.jpg` fails it and falls to the `else` branch. Remember this construction: in the feedback chapter it determines which key the participant should have pressed.
+:::
+:::
+
+## 7: The finale: everything at once
 
 ```python
 stimuli = ['wheel_L.jpg', 'wheel_R.jpg', 'gear_L.jpg']
@@ -195,20 +182,30 @@ for s in stimuli:
         answer = "left"
     else:
         answer = "right"
-    print(f"Trial {trial}: {s}, {answer} is correct answer")
+    print(f"Trial {trial}: {s}, {answer} is the correct answer")
 ```
 
-::: {.predict-check data-answer="left right left" data-accept="left, right, left"}
-Three trials print. What are the three correct directional answers ("left, right, etc."), in order, on one line?
 
-::: {.pc-hint data-if-contains="1"}
-Just the *answers*: not the trial numbers. Which way does each filename point?
+::: {.predict-check data-answer="Trial 1: wheel_L.jpg, left is the correct answer Trial 2: wheel_R.jpg, right is the correct answer Trial 3: gear_L.jpg, left is the correct answer" data-multiline="true" data-placeholder="Three lines, one per trial…"}
+Write out the full output, one line per trial, exactly as it will appear in the console.
+
+::: {.pc-hint data-if-contains="Trial 0"}
+The counter starts at 0, but `trial += 1` runs before the print. What is its value on the first trial?
+:::
+
+::: {.pc-hint data-if-contains="correct answer."}
+Very close. Compare your punctuation with the f-string: is there a full stop at the end?
 :::
 
 ::: {.pc-explanation}
-`left`, `right`, `left`: and look at what you just read fluently: a stimulus list, a trial counter, a filename check deciding the correct answer, an f-string reporting each trial. That is the entire skeleton of today's experiment. The only thing missing is a screen. This is the very next chapter.
+```
+Trial 1: wheel_L.jpg, left is the correct answer
+Trial 2: wheel_R.jpg, right is the correct answer
+Trial 3: gear_L.jpg, left is the correct answer
+```
+
+Consider what you have just written from memory: a stimulus list, a trial counter, a filename check that determines the correct answer, and an f-string that reports each trial. This is the complete logical skeleton of today's experiment. The only missing element is a screen, which the next chapter provides.
 :::
 :::
 
-
-Six for six? Good job! Anything a little shaky or needs refreshing? The sidebar has the chapter and next: [the screen](02_psychopy.qmd).
+**Do all seven checks make sense?** Anything a little shaky or needs refreshing? The sidebar has the relevant materials. Next: [Meet PsychoPy](02_psychopy.qmd).

@@ -646,7 +646,7 @@ body.quarto-dark .predict-check.pc-done textarea.pc-input { background: #1b2437;
   "use strict";
 
   // --- matching logic -------------------------------------------------
-  function norm(s) { return String(s).replace(/[ \t]+/g, " ").replace(/\s+$/gm, "").trim(); }
+  function norm(s) { return String(s).replace(/\s+/g, " ").trim(); }
   function stripQuotes(s) { return String(s).trim().replace(/^["'\u2018\u2019\u201C\u201D]+|["'\u2018\u2019\u201C\u201D]+$/g, ""); }
   function isCorrect(input, candidates) {
     var n = norm(input);

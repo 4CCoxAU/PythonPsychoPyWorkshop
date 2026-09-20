@@ -24,31 +24,28 @@ After this session, you can:
 
 - **Open and close a PsychoPy window** and explain the draw-flip cycle (prepare, draw, flip) that gives experiments their precise timing.
 - **Present text and image stimuli** (`TextStim`, `ImageStim`), for a fixed duration (`core.wait()`) or until a keypress (`event.waitKeys()`).
-- **Load stimulus files dynamically** with `glob.glob()` instead of hardcoding filenames.
+- **Write your own functions** with `def` and parameters, and use them to remove repetition from an experiment script.
+- **Load stimulus files automatically** with `glob.glob()` instead of typing filenames by hand.
 - **Randomise trial order** with `random.shuffle()` and explain why randomisation matters.
-- **Collect and restrict keyboard responses** (`keyList=['left','right']`) and use the response in your code.
-- **Give conditional feedback**: evaluate a response against a rule and show a success or failure image.
+- **Collect and restrict keyboard responses** (`keyList=['left', 'right']`), evaluate them against a rule read from the filename, and give conditional feedback.
+- **Measure reaction times** with `core.Clock()`: reset at stimulus onset, read at the response.
 
-### How today works
+## How today works
 
-Today alternates between two modes. In short **lecture segments** we introduce each concept and demonstrate it live on the projector; in the **exercises** you put the concepts to work on your own, at your own pace, with the teaching team circulating. The chapters on this site follow the same order as the lectures, so everything shown at the front is here to re-read.
+Today alternates between two modes. In short **lecture segments**, we introduce each concept and demonstrate it live on the projector; in the **exercises** you put the concepts to work on your own, at your own pace, with the teachers circulating. The chapters on this site follow the same order as the lectures, so everything shown at the front is here to re-read.
 
 ## Today's programme
 
-Times are approximate; the exercises are where you should linger.
+Three blocks, each ending in an exercise. The exercises are where you should linger.
 
-| ~Duration | What | Chapters |
+| Block | What | Chapters |
 |------|------|----------|
-| 10 min | Python refresher: quick-fire "what does this print?" | [1](01_warmup.qmd) |
-| 15 min | PsychoPy concepts: the window and the draw-flip cycle | [2](02_psychopy.qmd)–[3](03_drawflip.qmd) |
-| 25 min | Showing stimuli: text and images | [4](04_stimuli.qmd) |
-| 10 min | Loading stimulus files with `glob` | [5](05_glob.qmd) |
-| **25 min** | **Exercise 4: Display the CogWheel stimuli** | [6](06_exercise4.qmd) |
-| 10 min | Randomisation | [7](07_random.qmd) |
-| 15 min | Collecting keyboard responses | [8](08_responses.qmd) |
-| 15 min | Feedback: conditional display | [9](09_feedback.qmd) |
-| **30 min** | **Exercise 5: Responses and feedback** | [10](10_exercise5.qmd) |
-| 20 min | Connecting to CogComm: from cogwheels to words | [11](11_cogcomm.qmd) |
+| **1 · Basics on screen** | Python refresher; meeting PsychoPy; the draw-flip cycle and how to break it | [1](01_warmup.qmd) · [2](02_psychopy.qmd) · [3](03_drawflip.qmd) |
+| | **Exercise 4: The PsychoPy playground** | [4](04_exercise4.qmd) |
+| **2 · The experiment** | Functions; letting Python find your stimuli; randomisation; responses and feedback | [5](05_functions.qmd) · [6](06_glob.qmd) · [7](07_responses.qmd) |
+| | **Exercise 5: The Fleeing Rabbit** | [8](08_exercise5.qmd) |
+| **3 · Measurement** | Timing: measuring how long thinking takes | [9](09_timing.qmd) |
+| | **Exercise 6: Weigh your own decisions** | [10](10_timingexercises.qmd) |
 
 **Milestones:** Exercise 4 running before we move on to randomisation; Exercise 5 running by the end — that script is the one Session 3 extends.
 
@@ -58,4 +55,4 @@ Times are approximate; the exercises are where you should linger.
 1. **Get the materials.** Download the workshop folder, unzip it, and keep everything together: your scripts must live **next to** the `stimuli/` folder.
 2. **Check your setup.** Open the PsychoPy **Coder**, open `materials/setup_check.py` from the workshop folder, and press Run. You should see a window saying *Your setup works!* If you do not, ask for help (do not start the chapters with a broken install).
 
-Ready? Head to [Chapter 1 — Warming up](01_warmup.qmd).
+Ready? Head to [Chapter 1: Warming up](01_warmup.qmd).

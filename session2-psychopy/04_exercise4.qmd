@@ -1,0 +1,141 @@
+---
+title: "4 · Exercises: The PsychoPy Playground"
+---
+
+::: {.milestone}
+**Block 1** · Exercise: Practise the prepare, draw, flip, wait cycle until it is automatic: text, images, and both kinds of waiting.
+:::
+
+::: {.exercise-banner}
+<div class="ex-kicker">Hands-on · on your own · try first, code revealed after the workshop</div>
+<div class="ex-title">Exercises: The PsychoPy playground</div>
+<div class="ex-sub">No experiment yet. Just you, a window, and the cycle: prepare, draw, flip, wait.</div>
+:::
+
+Time to get hands-on! The goal of these exercises is that prepare-draw-flip-wait stops feeling like a recipe you follow and starts feeling like something you *do*.
+
+Work in a new script, `playground.py`, and **run after every part**.
+
+### Part 1 · Flip a coloured window
+
+Open a window with any background colour you like (`'black'`, `'grey'`, `'pink'`, `'darkblue'`...), make the colour actually appear, hold it for two seconds, and close cleanly. 
+
+:::: {.content-visible when-meta="show-solutions-s2"}
+
+::: {.callout-tip collapse="true" title="Show the code"}
+```python
+from psychopy import visual, event, core
+
+win = visual.Window(size=(1280, 720), fullscr=False,
+                    color='darkblue', checkTiming=False)
+win.flip()      # paint the background — no flip, no colour!
+core.wait(2)
+win.close()
+core.quit()
+```
+:::
+
+::::
+
+:::: {.content-visible unless-meta="show-solutions-s2"}
+
+::: {.callout-tip icon="false" title="🔒 Example code will be available here after the workshop"}
+:::
+
+::::
+
+### Part 2 · Prepare and draw text
+
+Before the wait: prepare a `TextStim` with your own name, draw it, flip. Experiment with `height` (try 0.05 against 0.2) and `color` until it stands out against your background.
+
+:::: {.content-visible when-meta="show-solutions-s2"}
+
+::: {.callout-tip collapse="true" title="Show the code"}
+```python
+name = visual.TextStim(win, text='Anna was here!',
+                       color='orange', height=0.15)
+name.draw()
+win.flip()
+core.wait(2)
+```
+:::
+
+::::
+
+:::: {.content-visible unless-meta="show-solutions-s2"}
+
+::: {.callout-tip icon="false" title="🔒 Example code will be available here after the workshop"}
+:::
+
+::::
+
+
+### Part 3 · Two draws, one flip
+
+The back buffer is a stage you can keep arranging before the curtain rises. Draw the rabbit **and** your name, then flip once: both appear together, in a single instant. Try it: rabbit in the centre, your name above it (give the `TextStim` a position, for example `pos=(0, 0.7)`).
+
+:::: {.content-visible when-meta="show-solutions-s2"}
+
+::: {.callout-tip collapse="true" title="Show the code"}
+```python
+pic = visual.ImageStim(win, image='rabbit.jpg')
+label = visual.TextStim(win, text='My rabbit', color='white',
+                        height=0.08, pos=(0, 0.7))
+pic.draw()
+label.draw()
+win.flip()      # one flip reveals both
+event.waitKeys()
+```
+:::
+
+::::
+
+:::: {.content-visible unless-meta="show-solutions-s2"}
+
+::: {.callout-tip icon="false" title="🔒 Example code will be available here after the workshop"}
+:::
+
+::::
+
+### Part 4 · A full sequence
+
+Now chain the parts into one script: your name for two seconds, then the labelled rabbit until a keypress, then close. One prepare, draw, flip, wait per screen.
+
+:::: {.content-visible when-meta="show-solutions-s2"}
+
+::: {.callout-tip collapse="true" title="Show the code"}
+```python
+from psychopy import visual, event, core
+
+win = visual.Window(size=(1280, 720), fullscr=False,
+                    color='darkblue', checkTiming=False)
+
+name = visual.TextStim(win, text='Anna was here!',
+                       color='orange', height=0.15)
+name.draw()
+win.flip()
+core.wait(2)
+
+pic = visual.ImageStim(win, image='rabbit.jpg')
+label = visual.TextStim(win, text='My rabbit', color='white',
+                        height=0.08, pos=(0, 0.7))
+pic.draw()
+label.draw()
+win.flip()
+event.waitKeys()
+
+win.close()
+core.quit()
+```
+:::
+
+::::
+
+:::: {.content-visible unless-meta="show-solutions-s2"}
+
+::: {.callout-tip icon="false" title="🔒 Example code will be available here after the workshop"}
+:::
+
+::::
+
+**Your name, a picture, a sequence: all under your control?** Perfect! Now we go on to have a look at [functions](05_functions.qmd), responses, feedback and the real experiment.
