@@ -70,17 +70,17 @@ Create a new script as just described and call it `my_first_window.py`. Type the
 from psychopy import visual, event, core
 
 win = visual.Window(
-    size=(1280, 720),     # Width and height in pixels.
-    color='black',        # Background colour.
+    size=(500, 720),     # Width and height in pixels.
+    color='grey',        # Background colour.
     fullscr=False,        # Keep False while developing.
     checkTiming=False)    # Skips a startup screen that measures your monitor. We do not need it.
 
-core.wait(2)
+core.wait(5)
 win.close()
 core.quit()
 ```
 
-A grey window should appear for two seconds, then close. Not too exciting yet, but notice that `win` is a **variable**, like any from Session 1. It holds a window object, and that object has functions attached, called with a dot: `win.close()` now.
+A grey window should appear for five seconds, then close. Not too exciting yet, but notice that `win` is a **variable**, like any from Session 1. It holds a window object, and that object has functions attached, called with a dot: `win.close()` now.
 
 ::: {.callout-tip title="The escape hatch (you will need it today)"}
 Sooner or later a window will freeze on you. It happens to everyone. Click on the Coder's console and press **Ctrl-C** (or close the window via the taskbar). This is exactly why we develop with `fullscr=False`: a small window is much easier to escape.

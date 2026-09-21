@@ -3,10 +3,10 @@ title: "1 · Warming Up: A Python Refresher"
 ---
 
 ::: {.milestone}
-**Block 1** · Learning goals: Reactivate Session 1 — variables, strings, lists, loops, conditionals — and meet `.endswith()`.
+**Block 1** · Learning goals: Reactivate Session 1 (variables, strings, lists, loops, conditionals) and `.endswith()`.
 :::
 
-Let's warm up the Python muscles. Six quick predictions, one per Session 1 concept, each a little more experiment-shaped than the last. If one stumps you, that's a signal to skim the matching Session 1 chapter. All of the materials are still in the sidebar.
+Let's warm up the Python muscles. Seven quick predictions, one per Session 1 concept, each a little more experiment-shaped than the last. If one stumps you, that's a signal to skim the matching Session 1 chapter. All of the materials are still in the sidebar.
 
 ## 1: Variables & f-strings
 
@@ -98,7 +98,7 @@ Which words have *more than* 5 letters? Count before you uppercase.
 :::
 
 ::: {.pc-explanation}
-Five lines: `tea`, `COFFEE`, `water`, `juice`, `cocoa`. Only `coffee` exceeds five letters. The word `cocoa` has exactly five, and `5 > 5` is `False`; the appended element is included because the append precedes the loop. This combination of a loop and a conditional is the skeleton of the trial loop you will build today.
+Five lines: `tea`, `COFFEE`, `water`, `juice`, `cocoa`. Only `coffee` exceeds five letters. The word `cocoa` has exactly five, and `5 > 5` is `False`. This combination of a loop and a conditional is the skeleton of the trial loop you will build today.
 :::
 :::
 

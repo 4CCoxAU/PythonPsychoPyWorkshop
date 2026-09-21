@@ -20,8 +20,8 @@ website:
         text: "Home"
       - href: session1-python/index.qmd
         text: "Session 1 · Python"
-      #- href: session2-psychopy/index.qmd
-      #  text: "Session 2 · PsychoPy"
+      # - href: session2-psychopy/index.qmd
+      #   text: "Session 2 · PsychoPy"
   sidebar:
     style: "docked"
     collapse-level: 2

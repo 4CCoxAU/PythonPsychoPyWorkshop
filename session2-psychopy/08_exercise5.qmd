@@ -200,6 +200,64 @@ core.quit()
 
 When everything runs: switch `fullscr=True` and run it once *as a participant*. Notice whether the lion trials feel harder than the burrow trials.
 
+::: {.callout-note collapse="true" title="Lost? The scaffold:"}
+If your script has gone off the rails, do not start from nothing: here is the complete shape of the experiment with some of the lines blanked. Every `____` is something a chapter taught today. Rebuild from this, filling the blanks, and use the chapter links in each step when one stumps you.
+
+```python
+from psychopy import visual, event, core
+import glob
+import random
+
+# --- setup ---
+images = glob.glob('____')          # the pattern that finds the 12 scenes
+____(images)                        # a fresh order each run, no assignment!
+
+win = visual.Window(size=(1280, 720), fullscr=False,
+                    color='black', checkTiming=False)
+
+# --- functions ---
+def msg(text):
+    message = visual.TextStim(win, text=text, height=0.06)
+    ____                            # paint it backstage
+    ____                            # curtain up
+    event.waitKeys()
+
+def show_stim(image):
+    stim = ____                     # prepare an image stimulus
+    ____                            # paint it backstage
+    ____                            # curtain up
+
+# --- experiment ---
+msg('____')                         # welcome text: it must teach the rule!
+
+for image in images:
+    # show the stimulus
+    ____(image)                     # one call does prepare-draw-flip
+
+    # collect the response: arrows only, key as a string
+    keys = event.waitKeys(keyList=____)
+    key = ____                                   # the list is not the key!
+
+    # derive the correct answer from the filename
+    if image.____('____'):                       # the suffix carries it.
+        correct_key = 'left'
+    else:
+        correct_key = 'right'
+
+    # feedback for 2 seconds
+    if ____ == ____:                             # what did happen vs what should.
+        show_stim('stimuli/success.jpg')
+    else:
+        show_stim('____')
+    core.wait(2)
+
+msg('That was it. Thank you! Press any key to close.')
+
+win.close()
+core.quit()
+```
+:::
+
 :::: {.content-visible when-meta="show-solutions-s2"}
 
 ::: {.callout-tip collapse="true" title="Checkpoint · complete Fleeing Rabbit script"}
@@ -326,7 +384,7 @@ goodbye = visual.TextStim(win,
 
 ::::
 
-**C. A fixation cross between trials.** Real experiments separate trials with a brief `+` in the centre, so the participant's eyes reset before the next scene. Add one after the feedback, for half a second. Everything you need is taught: `TextStim`, draw, flip, `core.wait()`, and think about where in the loop it belongs.
+**C. A fixation cross between trials.** Real experiments separate trials with a brief `+` in the centre, so the participant's eyes reset before the next scene. Add one after the feedback, for half a second, using fixation = visual.TextStim(win, text='+', height=0.1). Everything you need is taught: `TextStim`, draw, flip, `core.wait()`, and think about where in the loop it belongs.
 
 :::: {.content-visible when-meta="show-solutions-s2"}
 

@@ -18,7 +18,7 @@ Think of a theatre: the back buffer is backstage, the front buffer is the stage.
 
 ## Why this design?
 
-A typical monitor redraws 60 times per second, so one frame lasts ~16.7 ms. Because the swap happens between two refreshes, **stimulus onset is a single, well-defined moment: the moment of the flip**. In Session 3, we will reset a clock at exactly that moment to measure reaction times.
+A typical monitor redraws 60 times per second, so one frame lasts ~16.7 ms. Because the swap happens between two refreshes, **stimulus onset is a single, well-defined moment: the moment of the flip**. In Block 3, we will reset a clock at exactly that moment to measure reaction times.
 
 ## Hello, world: the full cycle
 
@@ -27,7 +27,7 @@ Type and run:
 ```python
 from psychopy import visual, event, core
 
-win = visual.Window(size=(1280, 720), color='black',
+win = visual.Window(size=(1080, 720), color='black',
                     fullscr=False, checkTiming=False)
 
 text = visual.TextStim(win, text='Hello, world!',
@@ -93,7 +93,15 @@ Say the mantra once: *prepare, draw, flip, wait*. You now have the day's core me
 
 ## Load up a visual stimulus
 
-Time for your first image. Download the rabbit and save it **in the same folder as your script**:
+Time for your first image, and the good news is that you already know how this works. An image follows the same cycle as text; the only change is the type of stimulus you prepare. Where text uses `TextStim` with a `text` argument, images use `ImageStim` with an `image` argument naming a file:
+
+```python
+img = visual.ImageStim(win, image='rabbit.jpg')
+img.draw()
+win.flip()
+```
+
+Prepare, draw, flip: nothing else is new. What you need is the file itself. Download the rabbit and save it **in the same folder as your script**:
 
 <a class="btn btn-primary" href="../materials/rabbit.jpg" download>⬇️ Download rabbit.jpg</a>
 
@@ -105,12 +113,6 @@ from psychopy import visual, event, core
 
 win = visual.Window(size=(1280, 720), color='black',
                     fullscr=False, checkTiming=False)
-
-text = visual.TextStim(win, text='Hello, world!',
-                       color='white', height=0.1)
-text.draw()
-win.flip()
-event.waitKeys()
 
 img = visual.ImageStim(win, image='rabbit.jpg')
 img.draw()

@@ -115,7 +115,7 @@ Welcome, Anna!
 Welcome, Chris!
 ```
 
-Same function, different input, different behaviour. Inside the body, `name` is an ordinary variable, and the f-strin inserts its value into the greeting. Notice the division of labour: the definition describes what happens *in general*, with the parameter standing in for whatever will vary; each call fills in the specifics.
+Same function, different input, different behaviour. Inside the body, `name` is an ordinary variable, and the f-string inserts its value into the greeting. Notice the division of labour: the definition describes what happens *in general*, with the parameter standing in for whatever will vary; each call fills in the specifics.
 
 This is exactly the structure of our rabbit hopping problem. The four blocks were identical in every respect except one value: the position. General behaviour, one varying value. That is a function with one parameter.
 

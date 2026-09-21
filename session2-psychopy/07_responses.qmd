@@ -6,17 +6,26 @@ title: "7 · Responses and Feedback"
 **Block 2** · Learning goals: Collect arrow-key responses, decide from the filename whether they were correct, and show feedback.
 :::
 
-So far, our experiment can show stimuli, but it cannot yet listen. Any key advances the script, and the script never learns which key it was. This chapter changes that in three steps. First we find out what a keypress looks like to Python. Then we restrict which keys count and read out the one that was pressed. Finally we judge the response and answer it with feedback. At the end of the page, these steps click together into one complete trial of the Fleeing Rabbit.
+So far, our experiment can show stimuli, but it cannot yet interact with our participant. Any key advances the script, and the script never learns which key it was. This chapter changes that in three steps. First we find out what a keypress looks like to Python. Then we restrict which keys count and read out the one that was pressed. Finally we judge the response and answer it with feedback. At the end of the page, these steps click together into one complete trial of the Fleeing Rabbit.
 
 ## Step one: see what a keypress looks like
 
-Start with a small discovery. Open a script with a window and add one line:
+Start with a small discovery. Type this complete script into a file and run it:
 
 ```python
+from psychopy import visual, event, core
+
+win = visual.Window(size=(1280, 720), fullscr=False,
+                    color='black', checkTiming=False)
+win.flip()
+
 print(event.waitKeys())
+
+win.close()
+core.quit()
 ```
 
-Run it and press the **spacebar**.
+A black window opens and the script waits. **Click on the PsychoPy window first**, so your keypress goes to it rather than to the Coder, and then press the **spacebar**. The window closes, and one thing has been printed to the console.
 
 ::: {.predict-check data-answer="['space']" data-accept="[space]||'space'||space"}
 What exactly is printed to the console?
