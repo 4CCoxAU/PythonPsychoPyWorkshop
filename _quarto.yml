@@ -6,8 +6,8 @@ project:
     - "session1-python/"
     - "!session2-psychopy/"
 
-show-solutions: false
-show-solutions-s2: true
+show-solutions: true
+show-solutions-s2: false
 
 website:
   title: "Python & PsychoPy Workshop - Aarhus University, Fall 2026"
@@ -20,8 +20,8 @@ website:
         text: "Home"
       - href: session1-python/index.qmd
         text: "Session 1 · Python"
-      # - href: session2-psychopy/index.qmd
-      #   text: "Session 2 · PsychoPy"
+      #- href: session2-psychopy/index.qmd
+      #  text: "Session 2 · PsychoPy"
   sidebar:
     style: "docked"
     collapse-level: 2

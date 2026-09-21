@@ -53,7 +53,7 @@
     "href": "session1-python/10_exercise4.html#part-1-write-your-own-simple-function",
     "title": "Exercise 4 · Functions & modules",
     "section": "Part 1: Write your own simple function",
-    "text": "Part 1: Write your own simple function\nWrite a function that prints the expression this is my first function!, then call the function.\n\n\n\n\n\n\nHint\n\n\n\n\n\nDefine the function first (def, a name, parentheses, a colon, an indented body) — then call it by name, with parentheses.\n\n\n\n\n\n\n\n\n\n🔒 Example code will be available here after the workshop",
+    "text": "Part 1: Write your own simple function\nWrite a function that prints the expression this is my first function!, then call the function.\n\n\n\n\n\n\nHint\n\n\n\n\n\nDefine the function first (def, a name, parentheses, a colon, an indented body) — then call it by name, with parentheses.\n\n\n\n\n\n\n\n\n\nShow the code\n\n\n\n\n\ndef first_function():\n    print(\"This is my first function!\")\n\nfirst_function()",
     "crumbs": [
       "Home",
       "Session 1 · Python basics",
@@ -66,7 +66,7 @@
     "href": "session1-python/10_exercise4.html#part-2-inputs-relational-operators",
     "title": "Exercise 4 · Functions & modules",
     "section": "Part 2: Inputs & relational operators",
-    "text": "Part 2: Inputs & relational operators\nWhew, we’ve gotten past that really basic exercise — let’s add layers:\n\nRedefine the function with an input argument name.\nInside the function, evaluate whether the name is \"anna\".\nIf it is, print may be your teacher else print is not your teacher.\nCall the function from the console, first passing your own name.\nThen pass the name \"anna\".\nWhat does your function print on each call?\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nDefine the function with a parameter named name, then compare it with the string \"anna\". Remember which operator compares and which assigns.\n\n\n\n\n\n\n\n\n\n🔒 Example code will be available here after the workshop",
+    "text": "Part 2: Inputs & relational operators\nWhew, we’ve gotten past that really basic exercise — let’s add layers:\n\nRedefine the function with an input argument name.\nInside the function, evaluate whether the name is \"anna\".\nIf it is, print may be your teacher else print is not your teacher.\nCall the function from the console, first passing your own name.\nThen pass the name \"anna\".\nWhat does your function print on each call?\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nDefine the function with a parameter named name, then compare it with the string \"anna\". Remember which operator compares and which assigns.\n\n\n\n\n\n\n\n\n\nShow the code\n\n\n\n\n\ndef first_function(name):\n    if name == \"anna\":\n        print(\"May be your teacher.\")\n    else:\n        print(\"Is not your teacher.\")\n\nfirst_function(\"bob\")   # Replace \"bob\" with your own name.\nfirst_function(\"anna\")",
     "crumbs": [
       "Home",
       "Session 1 · Python basics",
@@ -79,7 +79,7 @@
     "href": "session1-python/10_exercise4.html#part-3-outputs-relationallogical-operators",
     "title": "Exercise 4 · Functions & modules",
     "section": "Part 3: Outputs & relational/logical operators",
-    "text": "Part 3: Outputs & relational/logical operators\nNow redefine the function, this time with an output:\n\nInside the function, define a variable called teacher with the value True if the input name is \"anna\", otherwise False.\nReturn this variable from the function.\nCall the function with \"anna\" as input and store the returned value in a variable in the console.\nPrint that variable. What is it? And could you have gotten teacher from the console without the return?\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nSet teacher inside both branches of your if/else, and put return teacher at the end of the function — outside the if/else, but still inside the function. Indentation is doing the work here.\n\n\n\n\n\n\n\n\n\n🔒 Example code will be available here after the workshop",
+    "text": "Part 3: Outputs & relational/logical operators\nNow redefine the function, this time with an output:\n\nInside the function, define a variable called teacher with the value True if the input name is \"anna\", otherwise False.\nReturn this variable from the function.\nCall the function with \"anna\" as input and store the returned value in a variable in the console.\nPrint that variable. What is it? And could you have gotten teacher from the console without the return?\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nSet teacher inside both branches of your if/else, and put return teacher at the end of the function — outside the if/else, but still inside the function. Indentation is doing the work here.\n\n\n\n\n\n\n\n\n\nShow the code\n\n\n\n\n\ndef first_function(name):\n    if name == \"anna\":\n        print(\"May be your teacher.\")\n        teacher = True\n    else:\n        print(\"Is not your teacher.\")\n        teacher = False\n\n    return teacher\n\nfunc_output = first_function(\"anna\")\nprint(func_output)   # True — and no: without return, teacher is local and unreachable.",
     "crumbs": [
       "Home",
       "Session 1 · Python basics",
@@ -92,7 +92,7 @@
     "href": "session1-python/10_exercise4.html#part-4-store-your-function-in-a-module",
     "title": "Exercise 4 · Functions & modules",
     "section": "Part 4: Store your function in a module",
-    "text": "Part 4: Store your function in a module\n\nMake a new .py file in the same folder as your exercise file. Name it my_module.py.\nCopy your function from Part 3 into it and save.\nIn your exercise file, import the module with import my_module.\nCall the function with my_module.first_function(\"anna\") and store the returned value.\nPrint the returned value. Does it work?\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nModule name, dot, function name: my_module.first_function(\"anna\"). If Python says ModuleNotFoundError, check the two files really are in the same folder and that the module is saved.\n\n\n\n\n\n\n\n\n\n🔒 Example code will be available here after the workshop",
+    "text": "Part 4: Store your function in a module\n\nMake a new .py file in the same folder as your exercise file. Name it my_module.py.\nCopy your function from Part 3 into it and save.\nIn your exercise file, import the module with import my_module.\nCall the function with my_module.first_function(\"anna\") and store the returned value.\nPrint the returned value. Does it work?\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nModule name, dot, function name: my_module.first_function(\"anna\"). If Python says ModuleNotFoundError, check the two files really are in the same folder and that the module is saved.\n\n\n\n\n\n\n\n\n\nShow the code\n\n\n\n\n\nimport my_module\n\nteacher = my_module.first_function(\"anna\")\nprint(teacher)",
     "crumbs": [
       "Home",
       "Session 1 · Python basics",
@@ -587,7 +587,7 @@
     "href": "session1-python/03_exercise1_variables.html#part-1-your-first-variable",
     "title": "Exercise 1: Variables & variable types",
     "section": "Part 1: Your first variable",
-    "text": "Part 1: Your first variable\n\nMake a variable of any type, with a comment above it describing it.\nPrint its value to the console.\nPrint its type to the console.\n\n\n\n\n\n\n\n🔒 Example code will be available here after the workshop",
+    "text": "Part 1: Your first variable\n\nMake a variable of any type, with a comment above it describing it.\nPrint its value to the console.\nPrint its type to the console.\n\n\n\n\n\n\n\nShow the code\n\n\n\n\n\n# My favourite number of coffees per day.\ncoffees = 3\nprint(coffees)\nprint(type(coffees))",
     "crumbs": [
       "Home",
       "Session 1 · Python basics",
@@ -600,7 +600,7 @@
     "href": "session1-python/03_exercise1_variables.html#part-2-strings",
     "title": "Exercise 1: Variables & variable types",
     "section": "Part 2: Strings",
-    "text": "Part 2: Strings\n\nPrint the string \"Null hypothesis: Eating ice cream does not improve mood\".\nStore it in a variable called null_hypothesis.\nPrint the first four characters of null_hypothesis.\nPrint the last four characters.\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nSquare brackets with a range: [start:stop]. And remember, stop is where it stops before. For the last few characters, count backwards with a minus.\n\n\n\n\n\n\n\n\n\n🔒 Example code will be available here after the workshop",
+    "text": "Part 2: Strings\n\nPrint the string \"Null hypothesis: Eating ice cream does not improve mood\".\nStore it in a variable called null_hypothesis.\nPrint the first four characters of null_hypothesis.\nPrint the last four characters.\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nSquare brackets with a range: [start:stop]. And remember, stop is where it stops before. For the last few characters, count backwards with a minus.\n\n\n\n\n\n\n\n\n\nShow the code\n\n\n\n\n\nprint(\"Null hypothesis: Eating ice cream does not improve mood\")\nnull_hypothesis = \"Null hypothesis: Eating ice cream does not improve mood\"\nprint(null_hypothesis[0:4])   # Null\nprint(null_hypothesis[-4:])   # mood",
     "crumbs": [
       "Home",
       "Session 1 · Python basics",
@@ -613,7 +613,7 @@
     "href": "session1-python/03_exercise1_variables.html#part-3-string-methods",
     "title": "Exercise 1: Variables & variable types",
     "section": "Part 3: String methods",
-    "text": "Part 3: String methods\n\nSplit null_hypothesis by spaces and store the output in a variable called split_var.\nPrint split_var[1]. What is the output? What is the function of the square brackets, and of the index inside them?\nPrint the second character of split_var[1].\nSplit null_hypothesis by the colon (:) character and store the output in a new variable.\nIndex the word 'hypothesis' out of split_var and store it in a variable called hypothesis_word. Look closely at what you get.\nConvert hypothesis_word to upper case and store it in hypothesis_word_upper.\nUse .replace() to replace the word hypothesis in null_hypothesis with hypothesis_word_upper.\nTest whether hypothesis_word_upper starts with \"H\".\nGet the length of null_hypothesis.\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nTasks 2–3: one pair of brackets picks an item from the list; a second pair picks a character from that string. Task 5: split() cut on spaces, so what happened to the colon that had no space before it? Task 7: .replace() wants two things: what to find, and what to put there.\n\n\n\n\n\n\n\n\n\n🔒 Example code will be available here after the workshop",
+    "text": "Part 3: String methods\n\nSplit null_hypothesis by spaces and store the output in a variable called split_var.\nPrint split_var[1]. What is the output? What is the function of the square brackets, and of the index inside them?\nPrint the second character of split_var[1].\nSplit null_hypothesis by the colon (:) character and store the output in a new variable.\nIndex the word 'hypothesis' out of split_var and store it in a variable called hypothesis_word. Look closely at what you get.\nConvert hypothesis_word to upper case and store it in hypothesis_word_upper.\nUse .replace() to replace the word hypothesis in null_hypothesis with hypothesis_word_upper.\nTest whether hypothesis_word_upper starts with \"H\".\nGet the length of null_hypothesis.\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nTasks 2–3: one pair of brackets picks an item from the list; a second pair picks a character from that string. Task 5: split() cut on spaces, so what happened to the colon that had no space before it? Task 7: .replace() wants two things: what to find, and what to put there.\n\n\n\n\n\n\n\n\n\nShow the code\n\n\n\n\n\nsplit_var = null_hypothesis.split()\nprint(split_var[1])            # hypothesis: — note the colon came along!\nprint(split_var[1][1])         # y\nsplit_by_colon = null_hypothesis.split(\":\")\nhypothesis_word = split_var[1]                    # 'hypothesis:' (colon included)\nhypothesis_word_upper = hypothesis_word.upper()   # 'HYPOTHESIS:'\nprint(null_hypothesis.replace(\"hypothesis\", hypothesis_word_upper))\nprint(hypothesis_word_upper.startswith(\"H\"))      # True\nprint(len(null_hypothesis))                       # 55",
     "crumbs": [
       "Home",
       "Session 1 · Python basics",
@@ -626,7 +626,7 @@
     "href": "session1-python/03_exercise1_variables.html#part-4-numbers",
     "title": "Exercise 1: Variables & variable types",
     "section": "Part 4: Numbers",
-    "text": "Part 4: Numbers\n\nMake an integer variable and a floating-point variable.\nPrint the types of both.\nAdd them. What type is the result?\nSubtract them. What happens?\nDivide them.\nMultiply them and store the output in a new variable.\n\n\n\n\n\n\n\n🔒 Example code will be available here after the workshop",
+    "text": "Part 4: Numbers\n\nMake an integer variable and a floating-point variable.\nPrint the types of both.\nAdd them. What type is the result?\nSubtract them. What happens?\nDivide them.\nMultiply them and store the output in a new variable.\n\n\n\n\n\n\n\nShow the code\n\n\n\n\n\nn_trials = 20\nmean_rt = 0.45\nprint(type(n_trials), type(mean_rt))\nprint(n_trials + mean_rt)    # 20.45 — int + float gives float\nprint(n_trials - mean_rt)\nprint(n_trials / mean_rt)\nproduct = n_trials * mean_rt\nprint(product)",
     "crumbs": [
       "Home",
       "Session 1 · Python basics",
@@ -639,7 +639,7 @@
     "href": "session1-python/03_exercise1_variables.html#part-5-f-strings",
     "title": "Exercise 1: Variables & variable types",
     "section": "Part 5: f-strings",
-    "text": "Part 5: f-strings\nImagine printing information about the current subject on an experiment screen. The subject differs in each experiment, and so does their reaction time.\n\nMake a variable with a subject ID and one with a reaction time.\nPrint an expression that says The current subject is followed by the subject’s ID, using an f-string.\nPrint an expression that says The current subject is [ID] and their reaction time is [RT], both values inserted from your variables. Bonus: show the reaction time with exactly 2 decimals.\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nAn f-string starts with f before the opening quote, and variables go inside curly brackets. For the bonus: the decimals recipe was {variable:.2f}. Where do the colon and .2f sit?\n\n\n\n\n\n\n\n\n\n🔒 Example code will be available here after the workshop\n\n\n\n\n\n\nEverything runs? Take a breather, or try the stretch task below.",
+    "text": "Part 5: f-strings\nImagine printing information about the current subject on an experiment screen. The subject differs in each experiment, and so does their reaction time.\n\nMake a variable with a subject ID and one with a reaction time.\nPrint an expression that says The current subject is followed by the subject’s ID, using an f-string.\nPrint an expression that says The current subject is [ID] and their reaction time is [RT], both values inserted from your variables. Bonus: show the reaction time with exactly 2 decimals.\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nAn f-string starts with f before the opening quote, and variables go inside curly brackets. For the bonus: the decimals recipe was {variable:.2f}. Where do the colon and .2f sit?\n\n\n\n\n\n\n\n\n\nShow the code\n\n\n\n\n\nsubject_id = \"S_01\"\nreaction_time = 0.4567\nprint(f\"The current subject is {subject_id}\")\nprint(f\"The current subject is {subject_id} and their reaction time is {reaction_time:.2f}\")\n\n\n\nEverything runs? Take a breather, or try the stretch task below.",
     "crumbs": [
       "Home",
       "Session 1 · Python basics",
@@ -678,7 +678,7 @@
     "href": "session1-python/05_exercise2_lists.html#part-1-defining-lists",
     "title": "Exercise 2 · Lists",
     "section": "Part 1: Defining lists",
-    "text": "Part 1: Defining lists\nMake variables containing 10-item lists, one of each:\n\nAll string items.\nAll integer items.\nAll floating-point items.\nMixed strings, integers and floats.\n\nThen combine lists 1–3 into a single variable called combined.\n\n\n\n\n\n\nHint\n\n\n\n\n\nTen items is a typing exercise, not a thinking one. Short words and simple numbers are fine. For combined: square brackets around the three list names.\n\n\n\n\n\n\n\n\n\n🔒 Example code will be available here after the workshop",
+    "text": "Part 1: Defining lists\nMake variables containing 10-item lists, one of each:\n\nAll string items.\nAll integer items.\nAll floating-point items.\nMixed strings, integers and floats.\n\nThen combine lists 1–3 into a single variable called combined.\n\n\n\n\n\n\nHint\n\n\n\n\n\nTen items is a typing exercise, not a thinking one. Short words and simple numbers are fine. For combined: square brackets around the three list names.\n\n\n\n\n\n\n\n\n\nShow the code\n\n\n\n\n\nwords = [\"cat\", \"dog\", \"owl\", \"fox\", \"bat\", \"elk\", \"hen\", \"ant\", \"bee\", \"cow\"]\nintegers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\nfloats = [1.5, 2.5, 3.5, 4.5, 5.5, 6.5, 7.5, 8.5, 9.5, 10.5]\nmixed = [\"cat\", 1, 1.5, \"dog\", 2, 2.5, \"owl\", 3, 3.5, \"fox\"]\n\ncombined = [words, integers, floats]",
     "crumbs": [
       "Home",
       "Session 1 · Python basics",
@@ -691,7 +691,7 @@
     "href": "session1-python/05_exercise2_lists.html#part-2-indexing-lists",
     "title": "Exercise 2 · Lists",
     "section": "Part 2: Indexing lists",
-    "text": "Part 2: Indexing lists\n\nReturn the 4th item of each of lists 1-3.\nReturn the first item of combined. Do you notice anything unexpected about the output?\nNow figure out how to index the first word only from combined.\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nTask 1: the 4th item. Which index is that? Task 2: how big is the thing that came back? Compare it with what task 1 gave you. Task 3: combined[0] got you a whole list… so you’re one bracket-pair away.\n\n\n\n\n\n\n\n\n\n🔒 Example code will be available here after the workshop",
+    "text": "Part 2: Indexing lists\n\nReturn the 4th item of each of lists 1-3.\nReturn the first item of combined. Do you notice anything unexpected about the output?\nNow figure out how to index the first word only from combined.\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nTask 1: the 4th item. Which index is that? Task 2: how big is the thing that came back? Compare it with what task 1 gave you. Task 3: combined[0] got you a whole list… so you’re one bracket-pair away.\n\n\n\n\n\n\n\n\n\nShow the code\n\n\n\n\n\nprint(words[3])       # fox, the 4th item is at index 3!\nprint(integers[3])    # 4\nprint(floats[3])      # 4.5\n\nprint(combined[0])    # ['cat', 'dog', ..., 'cow']: an ENTIRE list comes back,\n                      # because combined's items are themselves lists.\n\nprint(combined[0][0]) # cat: first list, then first item of that list.",
     "crumbs": [
       "Home",
       "Session 1 · Python basics",
@@ -704,7 +704,7 @@
     "href": "session1-python/05_exercise2_lists.html#part-3-changing-list-items",
     "title": "Exercise 2 · Lists",
     "section": "Part 3: Changing list items",
-    "text": "Part 3: Changing list items\nNow let’s take advantage of list mutability:\n\nReplace an item in one of your lists with another, using indexing.\nAppend an item to the end of one of your lists.\nInsert a new item between two existing items.\nReplace the first item of combined with a new item, then print combined. How much changed?\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nReplacement is assignment: list[index] = new_thing. For task 4: combined[0] is a whole list, so what you assign to it replaces… how much? Any value works, even a string.\n\n\n\n\n\n\n\n\n\n🔒 Example code will be available here after the workshop\n\n\n\n\n\n\nEverything runs and makes sense? Then onwards to Loops.",
+    "text": "Part 3: Changing list items\nNow let’s take advantage of list mutability:\n\nReplace an item in one of your lists with another, using indexing.\nAppend an item to the end of one of your lists.\nInsert a new item between two existing items.\nReplace the first item of combined with a new item, then print combined. How much changed?\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nReplacement is assignment: list[index] = new_thing. For task 4: combined[0] is a whole list, so what you assign to it replaces… how much? Any value works, even a string.\n\n\n\n\n\n\n\n\n\nShow the code\n\n\n\n\n\nwords[0] = \"pig\"                  # 1. replace by index\nwords.append(\"emu\")               # 2. append to the end\nwords.insert(2, \"yak\")            # 3. insert between existing items\nprint(words)\n\ncombined[0] = \"gone\"              # 4. replaces the ENTIRE first list with one string!\nprint(combined)                   # ['gone', [1, 2, ...], [1.5, 2.5, ...]]\n\n\n\nEverything runs and makes sense? Then onwards to Loops.",
     "crumbs": [
       "Home",
       "Session 1 · Python basics",
@@ -743,7 +743,7 @@
     "href": "session1-python/07_exercise3_loops.html#part-1-basic-for-loops",
     "title": "Exercise 3 · Loops",
     "section": "Part 1: Basic for loops",
-    "text": "Part 1: Basic for loops\nMake a list where each item is one of the five basic senses (hearing, seeing, etc.) as a character string.\nThen use a for loop to iterate over all 5 senses and print their names.\nBonus:\nUse a formatted string expression to print:\n“One of the five human senses is {sense}” on each iteration of the loop (where sense is updated on each iteration of the loop).\n\n\n\n\n\n\nHint\n\n\n\n\n\nKeep it simple, this is the most basic type of for loop. For formatted strings, remember the module on printing variable expressions.\n\n\n\n\n\n\n\n\n\n🔒 Example code will be available here after the workshop",
+    "text": "Part 1: Basic for loops\nMake a list where each item is one of the five basic senses (hearing, seeing, etc.) as a character string.\nThen use a for loop to iterate over all 5 senses and print their names.\nBonus:\nUse a formatted string expression to print:\n“One of the five human senses is {sense}” on each iteration of the loop (where sense is updated on each iteration of the loop).\n\n\n\n\n\n\nHint\n\n\n\n\n\nKeep it simple, this is the most basic type of for loop. For formatted strings, remember the module on printing variable expressions.\n\n\n\n\n\n\n\n\n\nShow the code\n\n\n\n\n\nbasic_senses = ['hearing', 'seeing', 'tasting', 'touching', 'smelling']\n\nfor sense in basic_senses:\n     print(sense)\n     print(f\"One of the five human senses is {sense}\")",
     "crumbs": [
       "Home",
       "Session 1 · Python basics",
@@ -756,7 +756,7 @@
     "href": "session1-python/07_exercise3_loops.html#part-2-using-counter-variables-in-for-loops",
     "title": "Exercise 3 · Loops",
     "section": "Part 2: Using counter variables in for loops",
-    "text": "Part 2: Using counter variables in for loops\n\nDefine a counter variable sense_number\nRewrite the for loop from Part 1, but add 1 to sense_number on each iteration of the loop.\nAdd a print expression to the loop that prints a sentence containing the value of sense_number and sense on each iteration.\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nBe mindful of where you place the counter variable: Should it come before or after the print() statement?\n\n\n\n\n\n\n\n\n\n🔒 Example code will be available here after the workshop",
+    "text": "Part 2: Using counter variables in for loops\n\nDefine a counter variable sense_number\nRewrite the for loop from Part 1, but add 1 to sense_number on each iteration of the loop.\nAdd a print expression to the loop that prints a sentence containing the value of sense_number and sense on each iteration.\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nBe mindful of where you place the counter variable: Should it come before or after the print() statement?\n\n\n\n\n\n\n\n\n\nShow the code\n\n\n\n\n\nsense_number = 0\n\nfor sense in basic_senses:\n     sense_number += 1\n     print(f\"Sense #{sense_number} is {sense}\")",
     "crumbs": [
       "Home",
       "Session 1 · Python basics",
@@ -769,7 +769,7 @@
     "href": "session1-python/07_exercise3_loops.html#part-3-for-loops-by-list-indexing",
     "title": "Exercise 3 · Loops",
     "section": "Part 3: For loops by list indexing",
-    "text": "Part 3: For loops by list indexing\nWe can also iterate loops using indexing.\n\nMake a new list variable numeric_order, this time containing the words “first”, “second”, “third”, “fourth”, etc. through “tenth”. So, there should be 10 items in this list.\nWrite code to return the total number of items in numeric_order and store this value in a variable called len_order.\nUse range() to generate a range of values from 0 up to but not including len_order. Store this range of values in a variable called order_range\nWrite a for loop that iterates over order_range, indexes each item of numeric_order using the current iteration number and prints it.\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nRemember to use the index to the current loop iteration to get the current value of numeric_order.\n\n\n\n\n\n\n\n\n\n🔒 Example code will be available here after the workshop",
+    "text": "Part 3: For loops by list indexing\nWe can also iterate loops using indexing.\n\nMake a new list variable numeric_order, this time containing the words “first”, “second”, “third”, “fourth”, etc. through “tenth”. So, there should be 10 items in this list.\nWrite code to return the total number of items in numeric_order and store this value in a variable called len_order.\nUse range() to generate a range of values from 0 up to but not including len_order. Store this range of values in a variable called order_range\nWrite a for loop that iterates over order_range, indexes each item of numeric_order using the current iteration number and prints it.\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nRemember to use the index to the current loop iteration to get the current value of numeric_order.\n\n\n\n\n\n\n\n\n\nShow the code\n\n\n\n\n\nnumeric_order = [\n    \"first\", \"second\", \"third\", \"fourth\", \"fifth\",\n    \"sixth\", \"seventh\", \"eighth\", \"ninth\", \"tenth\"\n]\n\nlen_order = len(numeric_order)\norder_range = range(len_order)\n\nfor range_i in order_range:\n    print(numeric_order[range_i])",
     "crumbs": [
       "Home",
       "Session 1 · Python basics",
@@ -782,7 +782,7 @@
     "href": "session1-python/07_exercise3_loops.html#part-4-while-loops",
     "title": "Exercise 3 · Loops",
     "section": "Part 4: While loops",
-    "text": "Part 4: While loops\nOkay, now an exercise for our last type of loop, the while loop.\n\nCreate a counter variable that is initialized with a value of 0.\nWrite a loop that iteratively increases the counter by 2 while the counter is less than 30.\nOn each iteration of the loop print “I am current age, not yet 30”, where current_age is the value of the counter.\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nThe operator for less than is &lt;, we will learn more about comparison operators in the next section.\n\n\n\n\n\n\n\n\n\n🔒 Example code will be available here after the workshop\n\n\n\n\n\n\nEverything runs and makes sense? Then onwards to Logical operations.",
+    "text": "Part 4: While loops\nOkay, now an exercise for our last type of loop, the while loop.\n\nCreate a counter variable that is initialized with a value of 0.\nWrite a loop that iteratively increases the counter by 2 while the counter is less than 30.\nOn each iteration of the loop print “I am current age, not yet 30”, where current_age is the value of the counter.\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nThe operator for less than is &lt;, we will learn more about comparison operators in the next section.\n\n\n\n\n\n\n\n\n\nShow the code\n\n\n\n\n\ncurrent_age = 0\n\nwhile current_age &lt; 30:\n    print(f\"I am {current_age}, not yet 30\")\n    current_age += 2\n\n\n\nEverything runs and makes sense? Then onwards to Logical operations.",
     "crumbs": [
       "Home",
       "Session 1 · Python basics",
@@ -795,7 +795,7 @@
     "href": "session1-python/07_exercise3_loops.html#done-early",
     "title": "Exercise 3 · Loops",
     "section": "Done early?",
-    "text": "Done early?\nChallenge: Make a nested for loop! This is a for loop inside of a for loop:\n\nMake a list of fruits.\nIterate over this list in a for loop.\nMake a for loop inside of this outer loop that iterates over each character in the current item and prints it separately!\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nThe outer loop gives you one fruit at a time. Put an inner loop inside it to iterate over the characters in that fruit.\n\n\n\n\n\n\n\n\n\n🔒 Example code will be available here after the workshop",
+    "text": "Done early?\nChallenge: Make a nested for loop! This is a for loop inside of a for loop:\n\nMake a list of fruits.\nIterate over this list in a for loop.\nMake a for loop inside of this outer loop that iterates over each character in the current item and prints it separately!\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nThe outer loop gives you one fruit at a time. Put an inner loop inside it to iterate over the characters in that fruit.\n\n\n\n\n\n\n\n\n\nShow the code\n\n\n\n\n\nfruits = [\"apple\", \"banana\", \"cherry\"]\n\nfor fruit in fruits:\n    for character in fruit:\n        print(character)",
     "crumbs": [
       "Home",
       "Session 1 · Python basics",
