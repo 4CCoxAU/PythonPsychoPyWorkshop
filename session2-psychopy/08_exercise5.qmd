@@ -144,7 +144,7 @@ Inside the loop, replace the plain wait with a keyList, so only the arrow keys c
 
 ### Step 6: Was it correct?
 
-Derive the correct key from the filename with `.endswith()` *([Chapter 9](09_feedback.qmd) — remember: the suffix encodes the correct response, lion-avoidance already baked in)*, then compare.
+Derive the correct key from the filename with `.endswith()` *(remember: the suffix encodes the correct response, lion-avoidance already baked in)*, then compare.
 
 :::: {.content-visible when-meta="show-solutions-s2"}
 

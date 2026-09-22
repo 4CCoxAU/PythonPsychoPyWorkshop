@@ -47,7 +47,7 @@ You should see *Hello, world!* in white on black, staying until you press a key.
 
 Now let's **break it on purpose** to figure out what's going on in the code: three times. Each sabotage teaches you to recognise one of today's three most common bugs *before* it happens to you by accident. Think first, then actually run the broken script and watch.
 
-::: {.callout-note .predict icon="false" title="🤔 Sabotage 1 — think first"}
+::: {.callout-note .predict icon="false" title="🤔 Sabotage 1: think first"}
 Delete the line `win.flip()`. What will you see when you run it?
 
 ::: {.callout-tip collapse="true" title="Check your thinking"}
@@ -55,7 +55,7 @@ A blank black window. The text **was** drawn, but only to the back buffer, which
 :::
 :::
 
-::: {.callout-note .predict icon="false" title="🤔 Sabotage 2 — think first"}
+::: {.callout-note .predict icon="false" title="🤔 Sabotage 2: think first"}
 Put `win.flip()` back. Now delete `event.waitKeys()`. What happens?
 
 ::: {.callout-tip collapse="true" title="Check your thinking"}
@@ -63,7 +63,7 @@ The text flashes for a split second and vanishes. The script runs straight on to
 :::
 :::
 
-::: {.callout-note .predict icon="false" title="🤔 Sabotage 3 — think first"}
+::: {.callout-note .predict icon="false" title="🤔 Sabotage 3: think first"}
 Restore everything. Now delete the last two lines (`win.close()` and `core.quit()`). What happens after you press a key?
 
 ::: {.callout-tip collapse="true" title="Check your thinking"}

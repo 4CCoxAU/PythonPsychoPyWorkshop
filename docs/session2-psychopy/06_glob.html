@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>3 · Lists – Python &amp; PsychoPy Workshop - Aarhus University, Fall 2026</title>
+<title>6 · Let Python Find Your Stimuli – Python &amp; PsychoPy Workshop - Aarhus University, Fall 2026</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,8 +65,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../session1-python/05_exercise2_lists.html" rel="next">
-<link href="../session1-python/03_exercise1_variables.html" rel="prev">
+<link href="../session2-psychopy/07_responses.html" rel="next">
+<link href="../session2-psychopy/05_functions.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -316,7 +316,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../session1-python/index.html">Session 1 · Python basics</a></li><li class="breadcrumb-item"><a href="../session1-python/04_lists.html">Block 3 · Lists &amp; Loops</a></li><li class="breadcrumb-item"><a href="../session1-python/04_lists.html">Lists</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../session2-psychopy/index.html">Session 2 · PsychoPy</a></li><li class="breadcrumb-item"><a href="../session2-psychopy/05_functions.html">Block 2 · Stimuli on the screen</a></li><li class="breadcrumb-item"><a href="../session2-psychopy/06_glob.html">6 · Let Python Find Your Stimuli</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -391,16 +391,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
  <span class="menu-text">Block 3 · Lists &amp; Loops</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../session1-python/04_lists.html" class="sidebar-item-text sidebar-link active">
+  <a href="../session1-python/04_lists.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lists</span></a>
   </div>
 </li>
@@ -524,13 +524,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
  <span class="menu-text">Block 2 · Stimuli on the screen</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../session2-psychopy/05_functions.html" class="sidebar-item-text sidebar-link">
@@ -539,7 +539,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../session2-psychopy/06_glob.html" class="sidebar-item-text sidebar-link">
+  <a href="../session2-psychopy/06_glob.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">6 · Let Python Find Your Stimuli</span></a>
   </div>
 </li>
@@ -592,10 +592,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#what-are-lists" id="toc-what-are-lists" class="nav-link active" data-scroll-target="#what-are-lists">What are lists?</a></li>
-  <li><a href="#making-lists" id="toc-making-lists" class="nav-link" data-scroll-target="#making-lists">Making lists</a></li>
-  <li><a href="#indexing-lists" id="toc-indexing-lists" class="nav-link" data-scroll-target="#indexing-lists">Indexing lists</a></li>
-  <li><a href="#changing-list-items" id="toc-changing-list-items" class="nav-link" data-scroll-target="#changing-list-items">Changing list items</a></li>
+  <li><a href="#the-experiment-the-fleeing-rabbit" id="toc-the-experiment-the-fleeing-rabbit" class="nav-link active" data-scroll-target="#the-experiment-the-fleeing-rabbit">The experiment: The Fleeing Rabbit</a></li>
+  <li><a href="#from-one-rabbit-to-twelve-scenes" id="toc-from-one-rabbit-to-twelve-scenes" class="nav-link" data-scroll-target="#from-one-rabbit-to-twelve-scenes">From one rabbit to twelve scenes</a></li>
+  <li><a href="#the-glob-pattern" id="toc-the-glob-pattern" class="nav-link" data-scroll-target="#the-glob-pattern">The glob pattern</a></li>
+  <li><a href="#the-pattern-is-a-filter" id="toc-the-pattern-is-a-filter" class="nav-link" data-scroll-target="#the-pattern-is-a-filter">The pattern is a filter</a></li>
+  <li><a href="#look-before-you-loop" id="toc-look-before-you-loop" class="nav-link" data-scroll-target="#look-before-you-loop">Look before you loop</a></li>
+  <li><a href="#randomising-trial-order" id="toc-randomising-trial-order" class="nav-link" data-scroll-target="#randomising-trial-order">Randomising trial order</a></li>
   </ul>
 </nav>
     </div>
@@ -603,9 +605,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../session1-python/index.html">Session 1 · Python basics</a></li><li class="breadcrumb-item"><a href="../session1-python/04_lists.html">Block 3 · Lists &amp; Loops</a></li><li class="breadcrumb-item"><a href="../session1-python/04_lists.html">Lists</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../session2-psychopy/index.html">Session 2 · PsychoPy</a></li><li class="breadcrumb-item"><a href="../session2-psychopy/05_functions.html">Block 2 · Stimuli on the screen</a></li><li class="breadcrumb-item"><a href="../session2-psychopy/06_glob.html">6 · Let Python Find Your Stimuli</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">3 · Lists</h1>
+<h1 class="title">6 · Let Python Find Your Stimuli</h1>
 </div>
 
 
@@ -623,95 +625,158 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <div class="milestone">
-<p><strong>Block 3</strong> · Chapter 4 of the day. Understand what a list is and how to use lists effectively.</p>
+<p><strong>Block 2</strong> · Learning goals: Load stimulus files automatically with <code>glob.glob()</code> instead of typing filenames by hand.</p>
 </div>
-<section id="what-are-lists" class="level2">
-<h2 class="anchored" data-anchor-id="what-are-lists">What are lists?</h2>
-<p>A list is, literally, a list of items, stored in order, that can be changed (lists are <em>mutable</em>, a word that will matter shortly). You define one with square brackets, items separated by commas:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>variable_name <span class="op">=</span> [item1, item2, item3]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Lists can contain items of the same type or of different types, and this is the data structure experiments run on: a list of stimuli, a list of responses, a list of reaction times.</p>
+<section id="the-experiment-the-fleeing-rabbit" class="level2">
+<h2 class="anchored" data-anchor-id="the-experiment-the-fleeing-rabbit">The experiment: The Fleeing Rabbit</h2>
+<p>It is time to say what we are building. This afternoon’s experiment is a small reaction-time task called <strong>The Fleeing Rabbit</strong>. The participant plays the rabbit. On every trial the rabbit sits at the bottom of the screen, and something appears to its left or right. If it is a <strong>lion</strong>, the rabbit must flee: press the arrow key pointing <em>away</em> from it. If it is a <strong>burrow</strong>, the rabbit is safe: press the arrow key on <em>its</em> side to dive in. A correct answer shows the rabbit escaping; a wrong one shows the lion catching it.</p>
+<p>Behind the small story sits a real experimental design. Responding <em>toward</em> something you see is easy; responding <em>away</em> from it requires overriding where your attention was pulled, and that overriding takes measurable time. Tasks with exactly this structure are used in attention research, and in Block 3 we will measure the difference in your own reaction times.</p>
 </section>
-<section id="making-lists" class="level2">
-<h2 class="anchored" data-anchor-id="making-lists">Making lists</h2>
-<p>You can create lists with all strings, all numeric data, or a combination:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># First, simple lists of same-type items.</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>shopping <span class="op">=</span> [<span class="st">"apples"</span>, <span class="st">"pears"</span>, <span class="st">"bananas"</span>]</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>test_scores <span class="op">=</span> [<span class="dv">90</span>, <span class="dv">60</span>, <span class="dv">100</span>, <span class="dv">82</span>]</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Now mixed items.</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>mixed_list <span class="op">=</span> [<span class="st">"cats"</span>, <span class="dv">7</span>, <span class="fl">309.45</span>]</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(test_scores)</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(mixed_list)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<pre class="repl"><code>&gt;&gt;&gt; [90, 60, 100, 82]
-&gt;&gt;&gt; ['cats', 7, 309.45]</code></pre>
-<p>You can also put lists <em>inside</em> lists:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>combined <span class="op">=</span> [shopping, test_scores, mixed_list]</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(combined)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<pre class="repl"><code>&gt;&gt;&gt; [['apples', 'pears', 'bananas'], [90, 60, 100, 82], ['cats', 7, 309.45]]</code></pre>
-<p>Three items: each of which is itself a list. Keep that picture in mind for the prediction below.</p>
+<section id="from-one-rabbit-to-twelve-scenes" class="level2">
+<h2 class="anchored" data-anchor-id="from-one-rabbit-to-twelve-scenes">From one rabbit to twelve scenes</h2>
+<p>All morning, one image was enough. The experiment needs twelve: scenes in which the rabbit spots a lion or a burrow, on the left or on the right. Download them now, unzip, and put the <code>stimuli/</code> folder <strong>next to your script</strong>:</p>
+<p><a class="btn btn-primary" href="../materials/stimuli.zip" download="">⬇️ Download the stimuli (zip)</a></p>
+<p>The folder contains the twelve scenes, named <code>stimulus1_R.jpg</code> through <code>stimulus12_L.jpg</code>, and two feedback images, <code>success.jpg</code> and <code>failure.jpg</code>. As in the warm-up, the suffix <code>_L</code> or <code>_R</code> records the correct response for each scene.</p>
+<p>We <em>could</em> type all twelve paths into a list by hand:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>images <span class="op">=</span> [<span class="st">'stimuli/stimulus1_L.jpg'</span>, <span class="st">'stimuli/stimulus2_R.jpg'</span>,</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>          <span class="st">'stimuli/stimulus3_L.jpg'</span>, ...]   <span class="co"># and nine more...</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This approach is fragile in three ways:</p>
+<ul>
+<li>One typo anywhere crashes the script (or silently drops a stimulus).</li>
+<li>Adding a new set of stimuli at a later points means editing code rather than simply specifying a new folder.</li>
+<li>A real experiment might have 200 images, so nobody should type 200 filenames by hand.</li>
+</ul>
+<p>The professional habit is to let Python find the files. For this, we need <code>glob</code>:</p>
 </section>
-<section id="indexing-lists" class="level2">
-<h2 class="anchored" data-anchor-id="indexing-lists">Indexing lists</h2>
-<p>We index lists just like we indexed character strings: square brackets after the name, index inside.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(shopping[<span class="dv">0</span>])</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(shopping[<span class="dv">1</span>])</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(shopping[<span class="dv">2</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<pre class="repl"><code>apples
-pears
-bananas</code></pre>
-<p>You may recognise this syntax from the previous block. That’s because we were already working with lists when we used <code>.split()</code>: splitting a string returns a list, and everything you learned there (zero-indexing, negative indexing, two brackets for two levels) applies to <em>all</em> lists.</p>
-<div class="predict-check" data-answer="'ap'" data-accept="ap||&quot;ap&quot;">
-<p>Sub-indexing, then: what does <code>shopping[0][0:2]</code> return?</p>
-<div class="pc-hint" data-if-contains="apples">
-<p>That’s <code>shopping[0]</code>: the whole first item. The second bracket slices <em>into</em> that string: which characters does <code>[0:2]</code> take?</p>
-</div>
+<section id="the-glob-pattern" class="level2">
+<h2 class="anchored" data-anchor-id="the-glob-pattern">The glob pattern</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> glob</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>images <span class="op">=</span> glob.glob(<span class="st">'stimuli/stimulus*.jpg'</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(images)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Read the pattern from left to right: look in the folder <code>stimuli/</code>, for names that start with <code>stimulus</code>, then <strong>anything</strong> (<code>*</code> is a <em>wildcard</em>: it matches any characters, of any length), ending in <code>.jpg</code>. The result is an ordinary Python list of file paths:</p>
+<pre class="repl"><code>['stimuli/stimulus2_R.jpg', 'stimuli/stimulus5_L.jpg', 'stimuli/stimulus1_R.jpg', ...]</code></pre>
+<p>(Your order may differ. More on that below.)</p>
+<div class="predict-check" data-answer="list" data-accept="a list||list of strings||a list of strings">
+<p>Before we use it: what <em>data type</em> does <code>images</code> have? What did <code>glob.glob()</code> hand back to us?</p>
 <div class="pc-explanation">
-<p><code>'ap'</code>: <code>shopping[0]</code> picks the string <code>'apples'</code> out of the list, and <code>[0:2]</code> slices characters 0 and 1 out of that string. Stops before 2, as always.</p>
-</div>
-</div>
-<div class="predict-check" data-answer="[90, 60, 100, 82]" data-accept="[90,60,100,82]||90, 60, 100, 82||test_scores">
-<p>And the list of lists: what does <code>combined[1]</code> give you?</p>
-<div class="pc-hint" data-if-contains="60">
-<p>Close if you answered <code>60</code>, but count the brackets. One pair of brackets goes one level deep. What lives at position 1 of <code>combined</code>?</p>
-</div>
-<div class="pc-explanation">
-<p><code>[90, 60, 100, 82]</code> — the entire second list. <code>combined</code>’s items are whole lists, so one index retrieves a whole list. To reach <code>60</code> you’d go two levels: <code>combined[1][1]</code>.</p>
+<p>A plain Python <strong>list</strong> of strings (the file paths). No new data structure to learn, which means that all of the loops and functions from Session 1 work on this object immediately: <code>len(images)</code>, <code>images[0]</code>, <code>images[-1]</code>, and above all <code>for image in images:</code>. The loop we need for the trial is only one line away.</p>
 </div>
 </div>
 </section>
-<section id="changing-list-items" class="level2">
-<h2 class="anchored" data-anchor-id="changing-list-items">Changing list items</h2>
-<p>Lists are <em>mutable</em>: we can change their contents after creating them. Remember <code>upper()</code>, which returned a new string and left the original untouched? Lists are the opposite. These operations change the list itself, in place. Three ways to do it:</p>
-<ol type="1">
-<li><strong>Replace</strong> an item, using indexing.</li>
-<li><strong>Append</strong> an item to the end.</li>
-<li><strong>Insert</strong> an item at a chosen position.</li>
-</ol>
-<p>Predict each <code>print()</code> before you run it. This is where the bracket-counting pays off. Our starting point:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(shopping)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<pre class="repl"><code>['apples', 'pears', 'bananas']</code></pre>
-<p>Replace the second item:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>shopping[<span class="dv">1</span>] <span class="op">=</span> <span class="st">"kiwi"</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(shopping)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<pre class="repl"><code>['apples', 'kiwi', 'bananas']</code></pre>
-<p>Goodbye pears: index 1 is the <em>second</em> item. Now append:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>shopping.append(<span class="st">"raspberry"</span>)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(shopping)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<pre class="repl"><code>['apples', 'kiwi', 'bananas', 'raspberry']</code></pre>
-<p><code>append()</code> always adds at the end. Finally, insert at a particular position:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>shopping.insert(<span class="dv">1</span>, <span class="st">"blueberry"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="predict-check" data-answer="['apples', 'blueberry', 'kiwi', 'bananas', 'raspberry']" data-accept="['apples','blueberry','kiwi','bananas','raspberry']||apples, blueberry, kiwi, bananas, raspberry">
-<p>The finale: what does <code>print(shopping)</code> show now? Type the full list.</p>
-<div class="pc-hint" data-if-contains="kiwi', 'blueberry">
-<p>Almost — <code>insert(1, ...)</code> puts the new item <em>at</em> index 1, and everything from there shifts right. Who ends up second?</p>
+<section id="the-pattern-is-a-filter" class="level2">
+<h2 class="anchored" data-anchor-id="the-pattern-is-a-filter">The pattern is a filter</h2>
+<p>The wildcard can sit anywhere in the pattern, and where you put it determines what you collect. Consider three patterns against our actual folder, which holds the twelve scenes plus <code>success.jpg</code> and <code>failure.jpg</code>:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>glob.glob(<span class="st">'stimuli/stimulus*.jpg'</span>)   <span class="co"># names starting with "stimulus"</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>glob.glob(<span class="st">'stimuli/*_L.jpg'</span>)         <span class="co"># names ending "_L.jpg"</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>glob.glob(<span class="st">'stimuli/*.jpg'</span>)           <span class="co"># any .jpg at all</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="predict-check" data-answer="12 6 14" data-accept="12, 6, 14">
+<p>How many files does each pattern find? Three numbers, in order, on one line.</p>
+<div class="pc-hint" data-if-contains="12 6 12">
+<p>Two of three correct. The last pattern accepts <em>any</em> name. What else is sitting in that folder besides the scenes?</p>
 </div>
 <div class="pc-explanation">
-<p><code>['apples', 'blueberry', 'kiwi', 'bananas', 'raspberry']</code>. <code>insert(1, ...)</code> places blueberry at index 1 and shifts kiwi, bananas and raspberry one step right. Nothing is overwritten. That’s the difference from <code>shopping[1] = ...</code>, which <em>replaces</em>.</p>
+<p><code>12</code>, <code>6</code>, <code>14</code>. The third pattern also collects <code>success.jpg</code> and <code>failure.jpg</code>. This is why the experiment globs <code>stimulus*</code> rather than <code>*</code>: a careless pattern would put the feedback images into the trial list, and the participant would be asked to respond to a success screen. The pattern is a filter; make it say precisely what you mean.</p>
 </div>
 </div>
-<p>In the PsychoPy sessions, these operations will become very familiar: <code>stimuli</code> is a list of image filenames, <code>responses.append(key)</code> collects what the participant pressed, and shuffling a list gives every participant their own trial order.</p>
-<p><strong>All predictions checked?</strong> Next: <a href="../session1-python/05_exercise2_lists.html">Exercise 2 — Lists</a>.</p>
+</section>
+<section id="look-before-you-loop" class="level2">
+<h2 class="anchored" data-anchor-id="look-before-you-loop">Look before you loop</h2>
+<p>Run the glob and inspect the output. This is a good habit to develop:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>images <span class="op">=</span> glob.glob(<span class="st">'stimuli/stimulus*.jpg'</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(images))</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(images)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre class="repl"><code>12
+['stimuli/stimulus2_R.jpg', 'stimuli/stimulus5_L.jpg', ...]</code></pre>
+<p>Is the count what you expect? Do the paths look right? If the list is <strong>empty</strong>, stop and fix it now. Every later chapter depends on this line working. Empty list means path problem, and the diagnosis is usually quite short: (1) is your script <em>saved</em>, in the workshop folder, next to <code>stimuli/</code>? An unsaved script runs from a temporary location and finds nothing. (2) Is the folder really called <code>stimuli</code>, and are the files really <code>.jpg</code>?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Good to know: glob order">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Good to know: glob order
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>glob</code> returns the files in no particular order. That is fine for now; we sort out randomisation properly in a second.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Summary">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Summary
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>glob.glob('stimuli/stimulus*.jpg')</code> returns an ordinary list of file paths matching a pattern, where <code>*</code> matches anything. The pattern is a filter: ours says <code>stimulus*</code> deliberately, so the feedback images stay out of the trial list. Always print the glob before using it: right count, right paths, never empty.</p>
+</div>
+</div>
+</section>
+<section id="randomising-trial-order" class="level2">
+<h2 class="anchored" data-anchor-id="randomising-trial-order">Randomising trial order</h2>
+<p>The experiment now begins to assemble. The first ingredient is order. If we loop over the glob list as it comes, every participant sees the stimuli in the same sequence. That is a problem: people get better with practice, tired with time, bored towards the end. With a fixed order these <em>order effects</em> are confounded with the stimuli themselves. Trial 1 always meets a fresh participant, trial 12 a weary one.</p>
+<p>And note that the trap is sneaky: glob’s order is <em>arbitrary</em>: an unspecified order that is typically the <strong>same every run on the same machine</strong>. An order nobody designed, shown identically to everyone: the worst of both worlds. The fix is to replace the accident with deliberate randomness: a fresh order per participant, so order effects average out:</p>
+<p>Python’s <code>random</code> module has a function for exactly this: <code>random.shuffle()</code>. Based on everything you know (<code>glob.glob()</code> returns a list, <code>.upper()</code> returns a new string, <code>len()</code> returns a number), you would naturally write the following:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>images <span class="op">=</span> [<span class="st">'stim1_L.jpg'</span>, <span class="st">'stim2_R.jpg'</span>, <span class="st">'stim3_L.jpg'</span>]</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>images <span class="op">=</span> random.shuffle(images)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> image <span class="kw">in</span> images:</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(image)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="predict callout callout-style-default callout-note no-icon callout-titled" title="🤔 Think first">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+🤔 Think first
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Perfectly reasonable code; however, try to run it. What happens?</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Check your thinking">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Check your thinking
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>It <strong>crashes</strong>: <code>TypeError: 'NoneType' object is not iterable</code>. Surprise! <code>random.shuffle()</code> is not like the functions you know. It reorders the list <strong>in place</strong> and returns <code>None</code> (remember Session 1’s <code>.append()</code>, which also changed the list itself rather than handing back a copy?). So the assignment threw away your shuffled list and replaced it with <code>None</code>, and the loop had nothing to iterate over. This is a classic error. Now you’ve made it once, on purpose, so you can hopefully recognise it forever.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>So the correct pattern drops the assignment: <code>shuffle</code> on its own line:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>images <span class="op">=</span> glob.glob(<span class="st">'stimuli/stimulus*.jpg'</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>random.shuffle(images)   <span class="co"># shuffles IN PLACE! No assignment!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Try it: glob, shuffle, <code>print(images)</code>, then run it <strong>twice</strong>. Two different orders? That’s randomisation working, and this exact pair of lines becomes Part 1 in <a href="../session2-psychopy/10_timingexercises.html">Exercise 5</a> later on, where every participant will get their own trial sequence.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Summary">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Summary
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Glob’s order is arbitrary, and fixed orders confound order effects with stimuli. <code>random.shuffle(images)</code> replaces the accident with fresh randomness, but it works <strong>in place</strong> and returns <code>None</code>.</p>
+</div>
+</div>
+<p><strong>Shuffled</strong>, twice, differently? Next: <a href="../session2-psychopy/07_responses.html">collecting real responses</a>.</p>
 
 
 </section>
@@ -1353,13 +1418,13 @@ body.quarto-dark .predict-check.pc-done textarea.pc-input { background: #1b2437;
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../session1-python/03_exercise1_variables.html" class="pagination-link" aria-label="Exercise 1: Variables &amp; data types">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Exercise 1: Variables &amp; data types</span>
+      <a href="../session2-psychopy/05_functions.html" class="pagination-link" aria-label="5 · Functions: Write Once, Use Many Times">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">5 · Functions: Write Once, Use Many Times</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../session1-python/05_exercise2_lists.html" class="pagination-link" aria-label="Exercise 2: Lists">
-        <span class="nav-page-text">Exercise 2: Lists</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../session2-psychopy/07_responses.html" class="pagination-link" aria-label="7 · Responses and Feedback">
+        <span class="nav-page-text">7 · Responses and Feedback</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

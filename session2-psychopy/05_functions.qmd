@@ -15,7 +15,7 @@ Consider what showing anything on screen has required so far: prepare, draw, fli
 from psychopy import visual, event, core
 
 win = visual.Window(size=(1280, 720), fullscr=False,
-                    color='darkblue', checkTiming=False)
+                    color='black', checkTiming=False)
 
 pic = visual.ImageStim(win, image='rabbit.jpg', size=0.5)
 

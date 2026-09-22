@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>3 · Lists – Python &amp; PsychoPy Workshop - Aarhus University, Fall 2026</title>
+<title>4 · Exercises: The PsychoPy Playground – Python &amp; PsychoPy Workshop - Aarhus University, Fall 2026</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,41 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -65,8 +30,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../session1-python/05_exercise2_lists.html" rel="next">
-<link href="../session1-python/03_exercise1_variables.html" rel="prev">
+<link href="../session2-psychopy/05_functions.html" rel="next">
+<link href="../session2-psychopy/03_drawflip.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -316,7 +281,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../session1-python/index.html">Session 1 · Python basics</a></li><li class="breadcrumb-item"><a href="../session1-python/04_lists.html">Block 3 · Lists &amp; Loops</a></li><li class="breadcrumb-item"><a href="../session1-python/04_lists.html">Lists</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../session2-psychopy/index.html">Session 2 · PsychoPy</a></li><li class="breadcrumb-item"><a href="../session2-psychopy/01_warmup.html">Block 1 · From Python to a window</a></li><li class="breadcrumb-item"><a href="../session2-psychopy/04_exercise4.html">4 · Exercises: The PsychoPy Playground</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -391,16 +356,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
  <span class="menu-text">Block 3 · Lists &amp; Loops</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../session1-python/04_lists.html" class="sidebar-item-text sidebar-link active">
+  <a href="../session1-python/04_lists.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lists</span></a>
   </div>
 </li>
@@ -489,13 +454,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
  <span class="menu-text">Block 1 · From Python to a window</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../session2-psychopy/01_warmup.html" class="sidebar-item-text sidebar-link">
@@ -516,7 +481,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../session2-psychopy/04_exercise4.html" class="sidebar-item-text sidebar-link">
+  <a href="../session2-psychopy/04_exercise4.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">4 · Exercises: The PsychoPy Playground</span></a>
   </div>
 </li>
@@ -592,10 +557,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#what-are-lists" id="toc-what-are-lists" class="nav-link active" data-scroll-target="#what-are-lists">What are lists?</a></li>
-  <li><a href="#making-lists" id="toc-making-lists" class="nav-link" data-scroll-target="#making-lists">Making lists</a></li>
-  <li><a href="#indexing-lists" id="toc-indexing-lists" class="nav-link" data-scroll-target="#indexing-lists">Indexing lists</a></li>
-  <li><a href="#changing-list-items" id="toc-changing-list-items" class="nav-link" data-scroll-target="#changing-list-items">Changing list items</a></li>
+  <li><a href="#part-1-flip-a-coloured-window" id="toc-part-1-flip-a-coloured-window" class="nav-link active" data-scroll-target="#part-1-flip-a-coloured-window">Part 1 · Flip a coloured window</a></li>
+  <li><a href="#part-2-prepare-and-draw-text" id="toc-part-2-prepare-and-draw-text" class="nav-link" data-scroll-target="#part-2-prepare-and-draw-text">Part 2 · Prepare and draw text</a></li>
+  <li><a href="#part-3-two-draws-one-flip" id="toc-part-3-two-draws-one-flip" class="nav-link" data-scroll-target="#part-3-two-draws-one-flip">Part 3 · Two draws, one flip</a></li>
+  <li><a href="#part-4-a-full-sequence" id="toc-part-4-a-full-sequence" class="nav-link" data-scroll-target="#part-4-a-full-sequence">Part 4 · A full sequence</a></li>
   </ul>
 </nav>
     </div>
@@ -603,9 +568,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../session1-python/index.html">Session 1 · Python basics</a></li><li class="breadcrumb-item"><a href="../session1-python/04_lists.html">Block 3 · Lists &amp; Loops</a></li><li class="breadcrumb-item"><a href="../session1-python/04_lists.html">Lists</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../session2-psychopy/index.html">Session 2 · PsychoPy</a></li><li class="breadcrumb-item"><a href="../session2-psychopy/01_warmup.html">Block 1 · From Python to a window</a></li><li class="breadcrumb-item"><a href="../session2-psychopy/04_exercise4.html">4 · Exercises: The PsychoPy Playground</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">3 · Lists</h1>
+<h1 class="title">4 · Exercises: The PsychoPy Playground</h1>
 </div>
 
 
@@ -623,95 +588,89 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <div class="milestone">
-<p><strong>Block 3</strong> · Chapter 4 of the day. Understand what a list is and how to use lists effectively.</p>
+<p><strong>Block 1</strong> · Exercise: Practise the prepare, draw, flip, wait cycle until it is automatic: text, images, and both kinds of waiting.</p>
 </div>
-<section id="what-are-lists" class="level2">
-<h2 class="anchored" data-anchor-id="what-are-lists">What are lists?</h2>
-<p>A list is, literally, a list of items, stored in order, that can be changed (lists are <em>mutable</em>, a word that will matter shortly). You define one with square brackets, items separated by commas:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>variable_name <span class="op">=</span> [item1, item2, item3]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Lists can contain items of the same type or of different types, and this is the data structure experiments run on: a list of stimuli, a list of responses, a list of reaction times.</p>
-</section>
-<section id="making-lists" class="level2">
-<h2 class="anchored" data-anchor-id="making-lists">Making lists</h2>
-<p>You can create lists with all strings, all numeric data, or a combination:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># First, simple lists of same-type items.</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>shopping <span class="op">=</span> [<span class="st">"apples"</span>, <span class="st">"pears"</span>, <span class="st">"bananas"</span>]</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>test_scores <span class="op">=</span> [<span class="dv">90</span>, <span class="dv">60</span>, <span class="dv">100</span>, <span class="dv">82</span>]</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Now mixed items.</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>mixed_list <span class="op">=</span> [<span class="st">"cats"</span>, <span class="dv">7</span>, <span class="fl">309.45</span>]</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(test_scores)</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(mixed_list)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<pre class="repl"><code>&gt;&gt;&gt; [90, 60, 100, 82]
-&gt;&gt;&gt; ['cats', 7, 309.45]</code></pre>
-<p>You can also put lists <em>inside</em> lists:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>combined <span class="op">=</span> [shopping, test_scores, mixed_list]</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(combined)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<pre class="repl"><code>&gt;&gt;&gt; [['apples', 'pears', 'bananas'], [90, 60, 100, 82], ['cats', 7, 309.45]]</code></pre>
-<p>Three items: each of which is itself a list. Keep that picture in mind for the prediction below.</p>
-</section>
-<section id="indexing-lists" class="level2">
-<h2 class="anchored" data-anchor-id="indexing-lists">Indexing lists</h2>
-<p>We index lists just like we indexed character strings: square brackets after the name, index inside.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(shopping[<span class="dv">0</span>])</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(shopping[<span class="dv">1</span>])</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(shopping[<span class="dv">2</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<pre class="repl"><code>apples
-pears
-bananas</code></pre>
-<p>You may recognise this syntax from the previous block. That’s because we were already working with lists when we used <code>.split()</code>: splitting a string returns a list, and everything you learned there (zero-indexing, negative indexing, two brackets for two levels) applies to <em>all</em> lists.</p>
-<div class="predict-check" data-answer="'ap'" data-accept="ap||&quot;ap&quot;">
-<p>Sub-indexing, then: what does <code>shopping[0][0:2]</code> return?</p>
-<div class="pc-hint" data-if-contains="apples">
-<p>That’s <code>shopping[0]</code>: the whole first item. The second bracket slices <em>into</em> that string: which characters does <code>[0:2]</code> take?</p>
+<div class="exercise-banner">
+<div class="ex-kicker">
+Hands-on · on your own · try first, code revealed after the workshop
 </div>
-<div class="pc-explanation">
-<p><code>'ap'</code>: <code>shopping[0]</code> picks the string <code>'apples'</code> out of the list, and <code>[0:2]</code> slices characters 0 and 1 out of that string. Stops before 2, as always.</p>
+<div class="ex-title">
+Exercises: The PsychoPy playground
+</div>
+<div class="ex-sub">
+No experiment yet. Just you, a window, and the cycle: prepare, draw, flip, wait.
 </div>
 </div>
-<div class="predict-check" data-answer="[90, 60, 100, 82]" data-accept="[90,60,100,82]||90, 60, 100, 82||test_scores">
-<p>And the list of lists: what does <code>combined[1]</code> give you?</p>
-<div class="pc-hint" data-if-contains="60">
-<p>Close if you answered <code>60</code>, but count the brackets. One pair of brackets goes one level deep. What lives at position 1 of <code>combined</code>?</p>
+<p>Time to get hands-on! The goal of these exercises is that prepare-draw-flip-wait stops feeling like a recipe you follow and starts feeling like something you <em>do</em>.</p>
+<p>Work in a new script, <code>playground.py</code>, and <strong>run after every part</strong>.</p>
+<section id="part-1-flip-a-coloured-window" class="level3">
+<h3 class="anchored" data-anchor-id="part-1-flip-a-coloured-window">Part 1 · Flip a coloured window</h3>
+<p>Open a window with any background colour you like (<code>'black'</code>, <code>'grey'</code>, <code>'pink'</code>, <code>'darkblue'</code>…), make the colour actually appear, hold it for two seconds, and close cleanly.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="🔒 Example code will be available here after the workshop">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
 </div>
-<div class="pc-explanation">
-<p><code>[90, 60, 100, 82]</code> — the entire second list. <code>combined</code>’s items are whole lists, so one index retrieves a whole list. To reach <code>60</code> you’d go two levels: <code>combined[1][1]</code>.</p>
+<div class="callout-title-container flex-fill">
+🔒 Example code will be available here after the workshop
+</div>
+</div>
+<div class="callout-body-container callout-body">
+
 </div>
 </div>
 </section>
-<section id="changing-list-items" class="level2">
-<h2 class="anchored" data-anchor-id="changing-list-items">Changing list items</h2>
-<p>Lists are <em>mutable</em>: we can change their contents after creating them. Remember <code>upper()</code>, which returned a new string and left the original untouched? Lists are the opposite. These operations change the list itself, in place. Three ways to do it:</p>
-<ol type="1">
-<li><strong>Replace</strong> an item, using indexing.</li>
-<li><strong>Append</strong> an item to the end.</li>
-<li><strong>Insert</strong> an item at a chosen position.</li>
-</ol>
-<p>Predict each <code>print()</code> before you run it. This is where the bracket-counting pays off. Our starting point:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(shopping)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<pre class="repl"><code>['apples', 'pears', 'bananas']</code></pre>
-<p>Replace the second item:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>shopping[<span class="dv">1</span>] <span class="op">=</span> <span class="st">"kiwi"</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(shopping)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<pre class="repl"><code>['apples', 'kiwi', 'bananas']</code></pre>
-<p>Goodbye pears: index 1 is the <em>second</em> item. Now append:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>shopping.append(<span class="st">"raspberry"</span>)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(shopping)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<pre class="repl"><code>['apples', 'kiwi', 'bananas', 'raspberry']</code></pre>
-<p><code>append()</code> always adds at the end. Finally, insert at a particular position:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>shopping.insert(<span class="dv">1</span>, <span class="st">"blueberry"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="predict-check" data-answer="['apples', 'blueberry', 'kiwi', 'bananas', 'raspberry']" data-accept="['apples','blueberry','kiwi','bananas','raspberry']||apples, blueberry, kiwi, bananas, raspberry">
-<p>The finale: what does <code>print(shopping)</code> show now? Type the full list.</p>
-<div class="pc-hint" data-if-contains="kiwi', 'blueberry">
-<p>Almost — <code>insert(1, ...)</code> puts the new item <em>at</em> index 1, and everything from there shifts right. Who ends up second?</p>
+<section id="part-2-prepare-and-draw-text" class="level3">
+<h3 class="anchored" data-anchor-id="part-2-prepare-and-draw-text">Part 2 · Prepare and draw text</h3>
+<p>Before the wait: prepare a <code>TextStim</code> with your own name, draw it, flip. Experiment with <code>height</code> (try 0.05 against 0.2) and <code>color</code> until it stands out against your background.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="🔒 Example code will be available here after the workshop">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
 </div>
-<div class="pc-explanation">
-<p><code>['apples', 'blueberry', 'kiwi', 'bananas', 'raspberry']</code>. <code>insert(1, ...)</code> places blueberry at index 1 and shifts kiwi, bananas and raspberry one step right. Nothing is overwritten. That’s the difference from <code>shopping[1] = ...</code>, which <em>replaces</em>.</p>
+<div class="callout-title-container flex-fill">
+🔒 Example code will be available here after the workshop
 </div>
 </div>
-<p>In the PsychoPy sessions, these operations will become very familiar: <code>stimuli</code> is a list of image filenames, <code>responses.append(key)</code> collects what the participant pressed, and shuffling a list gives every participant their own trial order.</p>
-<p><strong>All predictions checked?</strong> Next: <a href="../session1-python/05_exercise2_lists.html">Exercise 2 — Lists</a>.</p>
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</section>
+<section id="part-3-two-draws-one-flip" class="level3">
+<h3 class="anchored" data-anchor-id="part-3-two-draws-one-flip">Part 3 · Two draws, one flip</h3>
+<p>The back buffer is a stage you can keep arranging before the curtain rises. Draw the rabbit <strong>and</strong> your name, then flip once: both appear together, in a single instant. Try it: rabbit in the centre, your name above it (give the <code>TextStim</code> a position, for example <code>pos=(0, 0.7)</code>).</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="🔒 Example code will be available here after the workshop">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+🔒 Example code will be available here after the workshop
+</div>
+</div>
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</section>
+<section id="part-4-a-full-sequence" class="level3">
+<h3 class="anchored" data-anchor-id="part-4-a-full-sequence">Part 4 · A full sequence</h3>
+<p>Now chain the parts into one script: your name for two seconds, then the labelled rabbit until a keypress, then close. One prepare, draw, flip, wait per screen.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="🔒 Example code will be available here after the workshop">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+🔒 Example code will be available here after the workshop
+</div>
+</div>
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+<p><strong>Your name, a picture, a sequence: all under your control?</strong> Perfect! Now we go on to have a look at <a href="../session2-psychopy/05_functions.html">functions</a>, responses, feedback and the real experiment.</p>
 
 
 </section>
@@ -1353,13 +1312,13 @@ body.quarto-dark .predict-check.pc-done textarea.pc-input { background: #1b2437;
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../session1-python/03_exercise1_variables.html" class="pagination-link" aria-label="Exercise 1: Variables &amp; data types">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Exercise 1: Variables &amp; data types</span>
+      <a href="../session2-psychopy/03_drawflip.html" class="pagination-link" aria-label="3 · The Draw-Flip Cycle (and How to Break It)">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">3 · The Draw-Flip Cycle (and How to Break It)</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../session1-python/05_exercise2_lists.html" class="pagination-link" aria-label="Exercise 2: Lists">
-        <span class="nav-page-text">Exercise 2: Lists</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../session2-psychopy/05_functions.html" class="pagination-link" aria-label="5 · Functions: Write Once, Use Many Times">
+        <span class="nav-page-text">5 · Functions: Write Once, Use Many Times</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

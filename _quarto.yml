@@ -4,7 +4,7 @@ project:
   render:
     - "*.qmd"
     - "session1-python/"
-    - "!session2-psychopy/"
+    - "session2-psychopy/"
 
 show-solutions: true
 show-solutions-s2: false
@@ -20,8 +20,8 @@ website:
         text: "Home"
       - href: session1-python/index.qmd
         text: "Session 1 · Python"
-      # - href: session2-psychopy/index.qmd
-      #   text: "Session 2 · PsychoPy"
+      - href: session2-psychopy/index.qmd
+        text: "Session 2 · PsychoPy"
   sidebar:
     style: "docked"
     collapse-level: 2
@@ -64,26 +64,26 @@ website:
                 text: "Exercise 4"
           - href: session1-python/11_github.qmd
             text: "Syncing with GitHub"
-      # - section: "Session 2 · PsychoPy"
-      #   contents:
-      #     - href: session2-psychopy/index.qmd
-      #       text: "How the day works"
-      #     - section: "Block 1 · From Python to a window"
-      #       contents:
-      #         - session2-psychopy/01_warmup.qmd
-      #         - session2-psychopy/02_psychopy.qmd
-      #         - session2-psychopy/03_drawflip.qmd
-      #         - session2-psychopy/04_exercise4.qmd
-      #     - section: "Block 2 · Stimuli on the screen"
-      #       contents:
-      #         - session2-psychopy/05_functions.qmd
-      #         - session2-psychopy/06_glob.qmd
-      #         - session2-psychopy/07_responses.qmd
-      #         - session2-psychopy/08_exercise5.qmd
-      #     - section: "Block 3 · Making it an experiment"
-      #       contents:
-      #         - session2-psychopy/09_timing.qmd
-      #         - session2-psychopy/10_timingexercises.qmd
+      - section: "Session 2 · PsychoPy"
+        contents:
+          - href: session2-psychopy/index.qmd
+            text: "How the day works"
+          - section: "Block 1 · From Python to a window"
+            contents:
+              - session2-psychopy/01_warmup.qmd
+              - session2-psychopy/02_psychopy.qmd
+              - session2-psychopy/03_drawflip.qmd
+              - session2-psychopy/04_exercise4.qmd
+          - section: "Block 2 · Stimuli on the screen"
+            contents:
+              - session2-psychopy/05_functions.qmd
+              - session2-psychopy/06_glob.qmd
+              - session2-psychopy/07_responses.qmd
+              - session2-psychopy/08_exercise5.qmd
+          - section: "Block 3 · Making it an experiment"
+            contents:
+              - session2-psychopy/09_timing.qmd
+              - session2-psychopy/10_timingexercises.qmd
   page-navigation: true
 
 format:

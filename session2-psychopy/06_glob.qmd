@@ -24,12 +24,12 @@ We *could* type all twelve paths into a list by hand:
 
 ```python
 images = ['stimuli/stimulus1_L.jpg', 'stimuli/stimulus2_R.jpg',
-          'stimuli/stimulus3_L.jpg', ...]   # and five more...
+          'stimuli/stimulus3_L.jpg', ...]   # and nine more...
 ```
 
 This approach is fragile in three ways:
 
-- One typo anywhere crashes the script (or worse, silently drops a stimulus). 
+- One typo anywhere crashes the script (or silently drops a stimulus). 
 - Adding a new set of stimuli at a later points means editing code rather than simply specifying a new folder.
 - A real experiment might have 200 images, so nobody should type 200 filenames by hand. 
 
@@ -94,7 +94,7 @@ print(images)
 ```
 
 ```{.repl}
-8
+12
 ['stimuli/stimulus2_R.jpg', 'stimuli/stimulus5_L.jpg', ...]
 ```
 
@@ -143,7 +143,7 @@ images = glob.glob('stimuli/stimulus*.jpg')
 random.shuffle(images)   # shuffles IN PLACE! No assignment!
 ```
 
-Try it: glob, shuffle, `print(images)`, then run it **twice**. Two different orders? That's randomisation working, and this exact pair of lines becomes Step 1 of [Exercise 5](10_exercise5.qmd), where every participant will get their own trial sequence.
+Try it: glob, shuffle, `print(images)`, then run it **twice**. Two different orders? That's randomisation working, and this exact pair of lines becomes Part 1 in [Exercise 5](10_timingexercises.qmd) later on, where every participant will get their own trial sequence.
 
 ::: {.callout-note title="Summary"}
 Glob's order is arbitrary, and fixed orders confound order effects with stimuli. `random.shuffle(images)` replaces the accident with fresh randomness, but it works **in place** and returns `None`.

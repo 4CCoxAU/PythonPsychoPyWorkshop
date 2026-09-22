@@ -86,4 +86,4 @@ A grey window should appear for five seconds, then close. Not too exciting yet, 
 Sooner or later a window will freeze on you. It happens to everyone. Click on the Coder's console and press **Ctrl-C** (or close the window via the taskbar). This is exactly why we develop with `fullscr=False`: a small window is much easier to escape.
 :::
 
-Did the window open for two seconds and close by itself? Then you have imported modules and commanded a screen. Next: [the Draw-Flip Cycle](03_drawflip.qmd).
+Did the window open for five seconds and close by itself? Then you have imported modules and commanded a screen. Next: [the Draw-Flip Cycle](03_drawflip.qmd).

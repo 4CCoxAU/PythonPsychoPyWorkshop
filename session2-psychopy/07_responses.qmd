@@ -106,8 +106,11 @@ Note that the logic arrived as two small decisions rather than one big one: firs
 
 ## One complete trial
 
-Click the four steps together and you have a full trial: show a scene, collect the response, judge it, answer it. This script runs as it stands:
+Click the four steps together and you have a full trial: show a scene, collect the response, judge it, answer it. The full experiment is nothing more than this trial, shuffled and looped, and building that is the next page.
 
+:::: {.content-visible when-meta="show-solutions-s2"}
+
+::: {.callout-tip collapse="true" title="Show the code"}
 ```python
 from psychopy import visual, event, core
 import glob
@@ -147,8 +150,16 @@ core.wait(2)
 win.close()
 core.quit()
 ```
+:::
 
-Run it twice: once answering correctly, once deliberately wrong, to meet the lion on your own terms. The full experiment is nothing more than this trial, shuffled and looped. Building that is the next page.
+::::
+
+:::: {.content-visible unless-meta="show-solutions-s2"}
+
+::: {.callout-tip icon="false" title="🔒 Example code will be available here after the workshop"}
+:::
+
+::::
 
 ::: {.callout-note title="Tip: a polite emergency exit"}
 Add `'escape'` to your `keyList` and handle it: `if key == 'escape': win.close(); core.quit()`. Essential once you go fullscreen. It returns as an Advanced task in Exercise 5.

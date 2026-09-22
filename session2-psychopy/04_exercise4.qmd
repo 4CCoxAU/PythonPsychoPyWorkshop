@@ -52,7 +52,7 @@ Before the wait: prepare a `TextStim` with your own name, draw it, flip. Experim
 
 ::: {.callout-tip collapse="true" title="Show the code"}
 ```python
-name = visual.TextStim(win, text='Anna was here!',
+name = visual.TextStim(win, text='Chris was here!',
                        color='orange', height=0.15)
 name.draw()
 win.flip()
@@ -78,13 +78,22 @@ The back buffer is a stage you can keep arranging before the curtain rises. Draw
 
 ::: {.callout-tip collapse="true" title="Show the code"}
 ```python
+from psychopy import visual, event, core
+
+win = visual.Window(size=(1280, 720), fullscr=False,
+                    color='black', checkTiming=False)
+
 pic = visual.ImageStim(win, image='rabbit.jpg')
 label = visual.TextStim(win, text='My rabbit', color='white',
                         height=0.08, pos=(0, 0.7))
-pic.draw()
-label.draw()
-win.flip()      # one flip reveals both
+
+pic.draw()       # backstage: rabbit first...
+label.draw()     # ...label after, so it sits on top
+win.flip()       # one flip reveals both
 event.waitKeys()
+
+win.close()
+core.quit()
 ```
 :::
 
