@@ -44,8 +44,6 @@ Three blocks, each ending in an exercise. The exercises are where you should lin
 | | **Exercise 4: The PsychoPy playground** | [4](04_exercise4.qmd) |
 | **2 · The experiment** | Functions; letting Python find your stimuli; randomisation; responses and feedback | [5](05_functions.qmd) · [6](06_glob.qmd) · [7](07_responses.qmd) |
 | | **Exercise 5: The Fleeing Rabbit** | [8](08_exercise5.qmd) |
-| **3 · Measurement** | Timing: measuring how long thinking takes | [9](09_timing.qmd) |
-| | **Exercise 6: Weigh your own decisions** | [10](10_timingexercises.qmd) |
 
 **Milestones:** Exercise 4 running before we move on to randomisation; Exercise 5 running by the end. This script is the one Session 3 extends.
 

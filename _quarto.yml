@@ -5,9 +5,11 @@ project:
     - "*.qmd"
     - "session1-python/"
     - "session2-psychopy/"
+    - "!session3-reading/"
 
 show-solutions: true
-show-solutions-s2: false
+show-solutions-s2: true
+show-solutions-s3: false
 
 website:
   title: "Python & PsychoPy Workshop - Aarhus University, Fall 2026"
@@ -22,6 +24,8 @@ website:
         text: "Session 1 · Python"
       - href: session2-psychopy/index.qmd
         text: "Session 2 · PsychoPy"
+      - href: session3-reading/09_timing.qmd
+        text: "Session 3 · Reading"
   sidebar:
     style: "docked"
     collapse-level: 2
@@ -54,8 +58,8 @@ website:
                 text: "Exercise 3: Loops"
           - section: "Block 4 · Logical operations"
             contents:
-                - href: session1-python/08_logical_operations.qmd
-                  text: "Logical operations"
+              - href: session1-python/08_logical_operations.qmd
+                text: "Logical operations"
           - section: "Block 5 · Functions & modules"
             contents:
               - href: session1-python/09_functions.qmd
@@ -80,10 +84,11 @@ website:
               - session2-psychopy/06_glob.qmd
               - session2-psychopy/07_responses.qmd
               - session2-psychopy/08_exercise5.qmd
-          - section: "Block 3 · Making it an experiment"
-            contents:
-              - session2-psychopy/09_timing.qmd
-              - session2-psychopy/10_timingexercises.qmd
+      #- section: "Session 3 · Timing, Data and Reading"
+      #  contents:
+          #- session3-reading/09_timing.qmd
+          #- session3-reading/10_timingexercises.qmd
+
   page-navigation: true
 
 format:

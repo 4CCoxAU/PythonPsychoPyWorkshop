@@ -143,7 +143,7 @@ images = glob.glob('stimuli/stimulus*.jpg')
 random.shuffle(images)   # shuffles IN PLACE! No assignment!
 ```
 
-Try it: glob, shuffle, `print(images)`, then run it **twice**. Two different orders? That's randomisation working, and this exact pair of lines becomes Part 1 in [Exercise 5](10_timingexercises.qmd) later on, where every participant will get their own trial sequence.
+Try it: glob, shuffle, `print(images)`, then run it **twice**. Two different orders? That's randomisation working, and this exact pair of lines becomes Part 1 in Exercise 5 later on, where every participant will get their own trial sequence.
 
 ::: {.callout-note title="Summary"}
 Glob's order is arbitrary, and fixed orders confound order effects with stimuli. `random.shuffle(images)` replaces the accident with fresh randomness, but it works **in place** and returns `None`.
