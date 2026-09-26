@@ -31,11 +31,11 @@ However, as you will learn over the course of the semester, many of the programm
 **[Session 1 · Python basics](session1-python/index.qmd)**
 Variables, lists, loops, conditionals, functions. These are the handful of building blocks that all programs are made of. Everything you learn here gets used directly in Session 2.
 
-**[Session 2 · Introduction to PsychoPy]** *(materials coming)*
+**[Session 2 · Introduction to PsychoPy](session2-psychopy/index.qmd)** 
 PsychoPy is the Python library psychologists use to run experiments: it opens windows, draws stimuli, and records keypresses with precise timing. You build an experiment step by step and leave with a script that runs: images in random order, keyboard responses, feedback on every trial, and more..
 
-**Session 3 · From cogwheels to words** *(materials coming)*
-Swap the images for words, add a clock and a logfile, and your CogWheel script becomes a self-paced reading experiment, the direct starting point for your Portfolio 2 prototype.
+**Session 3 · From fleeing rabbits to words(session3-reading/index.qmd)**
+Swap the images for words, add a clock and a logfile, and your fleeing rabbit script becomes a self-paced reading experiment, the direct starting point for your Portfolio 2 prototype.
 
 
 ## How the sessions work

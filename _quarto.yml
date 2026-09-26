@@ -5,10 +5,11 @@ project:
     - "*.qmd"
     - "session1-python/"
     - "session2-psychopy/"
-    # - "session3-experiments/"
+    - "!session3-reading/"
 
 show-solutions: true
-show-solutions-s2: false
+show-solutions-s2: true
+show-solutions-s3: false
 
 website:
   title: "Python & PsychoPy Workshop - Aarhus University, Fall 2026"
@@ -23,6 +24,8 @@ website:
         text: "Session 1 · Python"
       - href: session2-psychopy/index.qmd
         text: "Session 2 · PsychoPy"
+      - href: session3-reading/09_timing.qmd
+        text: "Session 3 · Reading"
   sidebar:
     style: "docked"
     collapse-level: 2
@@ -55,8 +58,8 @@ website:
                 text: "Exercise 3: Loops"
           - section: "Block 4 · Logical operations"
             contents:
-                - href: session1-python/08_logical_operations.qmd
-                  text: "Logical operations"
+              - href: session1-python/08_logical_operations.qmd
+                text: "Logical operations"
           - section: "Block 5 · Functions & modules"
             contents:
               - href: session1-python/09_functions.qmd
@@ -81,36 +84,11 @@ website:
               - session2-psychopy/06_glob.qmd
               - session2-psychopy/07_responses.qmd
               - session2-psychopy/08_exercise5.qmd
-          - section: "Block 3 · Making it an experiment"
-            contents:
-              - session2-psychopy/09_timing.qmd
-              - session2-psychopy/10_timingexercises.qmd
-      # - section: "Session 3 · From Reaction Times to Experiments"
-      #   contents:
-      #     - href: session3-experiments/index.qmd
-      #       text: "How the day works"
-      #     - section: "Block 1 · Measuring reaction times"
-      #       contents:
-      #         - session3-experiments/01_warmup.qmd
-      #         - session3-experiments/02_why_rt.qmd
-      #         - session3-experiments/03_measure_rt.qmd
-      #         - session3-experiments/04_exercise6.qmd
-      #     - section: "Block 2 · Logging data"
-      #       contents:
-      #         - session3-experiments/05_participant_info.qmd
-      #         - session3-experiments/06_informed_consent_dlg.qmd
-      #         - session3-experiments/07_data_logging.qmd
-      #         - session3-experiments/08_exercise7.qmd
-      #     - section: "Block 3 · From prototype to experiment"
-      #       contents:
-      #         - session3-experiments/09_reading_functions.qmd
-      #         - session3-experiments/10_reading_exp_prototype.qmd
-      #         - session3-experiments/11_exercise8.qmd
-      #         - session3-experiments/12_wrapup.qmd
-      #     - section: "Block 4 · Workshop wrap-up"
-      #       contents:
-      #         - session3-experiments/13_whathavelearned.qmd
-      #         - session3-experiments/14_final_thoughts.qmd
+      #- section: "Session 3 · Timing, Data and Reading"
+      #  contents:
+          #- session3-reading/09_timing.qmd
+          #- session3-reading/10_timingexercises.qmd
+
   page-navigation: true
 
 format:
