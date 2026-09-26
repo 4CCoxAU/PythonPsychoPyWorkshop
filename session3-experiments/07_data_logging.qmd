@@ -1,0 +1,172 @@
+---
+title: "7 · Responses and Feedback"
+---
+
+::: {.milestone}
+**Block 2** · Learning goals: Collect arrow-key responses, decide from the filename whether they were correct, and show feedback.
+:::
+
+So far, our experiment can show stimuli, but it cannot yet interact with our participant. Any key advances the script, and the script never learns which key it was. This chapter changes that in three steps. First we find out what a keypress looks like to Python. Then we restrict which keys count and read out the one that was pressed. Finally we judge the response and answer it with feedback. At the end of the page, these steps click together into one complete trial of the Fleeing Rabbit.
+
+## Step one: see what a keypress looks like
+
+Start with a small discovery. Type this complete script into a file and run it:
+
+```python
+from psychopy import visual, event, core
+
+win = visual.Window(size=(1280, 720), fullscr=False,
+                    color='black', checkTiming=False)
+win.flip()
+
+print(event.waitKeys())
+
+win.close()
+core.quit()
+```
+
+A black window opens and the script waits. **Click on the PsychoPy window first**, so your keypress goes to it rather than to the Coder, and then press the **spacebar**. The window closes, and one thing has been printed to the console.
+
+::: {.predict-check data-answer="['space']" data-accept="[space]||'space'||space"}
+What exactly is printed to the console?
+
+::: {.pc-hint data-if-contains="spacebar"}
+Close, but PsychoPy has its own, shorter name for that key. And look at the *shape* of what comes back: it arrives wrapped in something.
+:::
+
+::: {.pc-explanation}
+`['space']`. A **list**, holding one lowercase string. It is a list even for a single keypress, because the function can catch several keys at once. Two useful things follow. To get *the* key, you index with `[0]`, exactly as in Session 1. And the print-and-press trick works for any key: run the line and press whatever you are curious about, and PsychoPy tells you its name.
+:::
+:::
+
+## Step two: restrict and read
+
+For a real trial, we want two things at once. Only the arrow keys should count, so a stray elbow on the spacebar cannot skip a trial. And we want the pressed key stored in a variable, ready to use. Both come from the same two lines:
+
+```python
+keys = event.waitKeys(keyList=['left', 'right'])  # <1>
+key = keys[0]                                     # <2>
+```
+1. `keyList` names the keys that count. Every other key is simply ignored.
+2. The result is a list, as you just discovered. Element `[0]` is the pressed key: a plain string such as `'left'`.
+
+One warning before moving on. If you skip the `[0]` and compare the list itself, nothing crashes, but every comparison fails: `['left'] == 'left'` is `False`, because a list is never equal to a string. An experiment with this bug marks every answer wrong and never raises an error.
+
+## Step three: was it correct?
+
+The script now knows what the participant pressed. To judge the press, it also needs to know what the participant *should* have pressed. Where does that knowledge live?
+
+In the filenames. Recall the design from the glob chapter: every scene's name ends in `_L` or `_R`, and the suffix records the correct response. A lion on the left means flee right, so that scene is `stimulus1_R.jpg`. A burrow on the left means dive in left: `stimulus3_L.jpg`. The tricky lion rule was settled once, when the stimuli were made. The script never reasons about lions; it just reads the suffix, with `.endswith()` from the warm-up:
+
+```python
+if image.endswith('_L.jpg'):
+    correct_key = 'left'
+else:
+    correct_key = 'right'
+```
+
+Every trial now has two facts, held in two variables: `correct_key`, what should happen, taken from the stimulus; and `key`, what did happen, taken from the keyboard.
+
+::: {.predict-check data-answer="right" data-accept="'right'||\"right\""}
+A trial shows `stimuli/stimulus8_R.jpg`, a burrow on the right. The participant, startled, presses **left**. What is `correct_key` on this trial?
+
+::: {.pc-hint data-if-contains="left"}
+`correct_key` comes from the *filename*, not from what the participant did. What does the suffix say?
+:::
+
+::: {.pc-explanation}
+`right`. The filename ends `_R.jpg`, so `correct_key` is `'right'`, regardless of any keypress. The participant's `left` sits in the other variable, `key`, and the two will disagree. Keeping *should* and *did* in separate variables is what makes the next step a one-line comparison.
+:::
+:::
+
+## Step four: feedback
+
+The judgement is now a single comparison, and its outcome picks an image: the escaping rabbit or the triumphant lion, shown for exactly two seconds.
+
+```python
+if key == correct_key:
+    feedback = visual.ImageStim(win, image='stimuli/success.jpg')
+else:
+    feedback = visual.ImageStim(win, image='stimuli/failure.jpg')
+
+feedback.draw()
+win.flip()
+core.wait(2)
+```
+
+Note that the logic arrived as two small decisions rather than one big one: first derive `correct_key` from the stimulus, then compare it with `key`. Each piece can be checked on its own, which is what makes small decisions easier to debug than large ones.
+
+::: {.callout-note .predict icon="false" title="🤔 Think first"}
+(a) Why `core.wait(2)` for the feedback screen rather than `event.waitKeys()`? (b) The stimulus was already flipped onto the screen. Why does the feedback need its *own* `draw()` and `flip()`?
+
+::: {.callout-tip collapse="true" title="Check your thinking"}
+(a) Feedback should be brief and identical for everyone, not something to sit on or skip. The computer decides. (b) A flip reveals one prepared scene. Showing something new means preparing again: draw backstage, raise the curtain again. Every screen gets its own draw and flip.
+:::
+:::
+
+## One complete trial
+
+Click the four steps together and you have a full trial: show a scene, collect the response, judge it, answer it. The full experiment is nothing more than this trial, shuffled and looped, and building that is the next page.
+
+:::: {.content-visible when-meta="show-solutions-s2"}
+
+::: {.callout-tip collapse="true" title="Show the code"}
+```python
+from psychopy import visual, event, core
+import glob
+
+# collect the stimuli and open a window
+images = glob.glob('stimuli/stimulus*.jpg')
+
+win = visual.Window(size=(1280, 720), fullscr=False,
+                    color='black', checkTiming=False)
+
+# show one stimulus
+image = images[0]
+stim = visual.ImageStim(win, image=image)
+stim.draw()
+win.flip()
+
+# collect the response
+keys = event.waitKeys(keyList=['left', 'right'])
+key = keys[0]
+
+# derive the correct answer from the filename
+if image.endswith('_L.jpg'):
+    correct_key = 'left'
+else:
+    correct_key = 'right'
+
+# compare and give feedback
+if key == correct_key:
+    feedback = visual.ImageStim(win, image='stimuli/success.jpg')
+else:
+    feedback = visual.ImageStim(win, image='stimuli/failure.jpg')
+
+feedback.draw()
+win.flip()
+core.wait(2)
+
+win.close()
+core.quit()
+```
+:::
+
+::::
+
+:::: {.content-visible unless-meta="show-solutions-s2"}
+
+::: {.callout-tip icon="false" title="🔒 Example code will be available here after the workshop"}
+:::
+
+::::
+
+::: {.callout-note title="Tip: a polite emergency exit"}
+Add `'escape'` to your `keyList` and handle it: `if key == 'escape': win.close(); core.quit()`. Essential once you go fullscreen. It returns as an Advanced task in Exercise 5.
+:::
+
+::: {.callout-note title="Summary"}
+`event.waitKeys(keyList=[...])` restricts which keys count and returns a list; `keys[0]` is the pressed key as a plain string. Correctness lives in the filenames: the suffix encodes the correct response, lion rule included, and `.endswith()` reads it into `correct_key`. One trial holds two facts, what should happen and what did, and feedback is the comparison between them, drawn and flipped like any other screen, for a fixed two seconds.
+:::
+
+**One trial working?** Next: [the main exercise of the day](08_exercise5.qmd).

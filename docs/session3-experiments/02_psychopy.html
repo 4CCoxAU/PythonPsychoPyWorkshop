@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>5 · Functions: Write Once, Use Many Times – Python &amp; PsychoPy Workshop - Aarhus University, Fall 2026</title>
+<title>2 · Meet PsychoPy: Import, Modules, and a Window – Python &amp; PsychoPy Workshop - Aarhus University, Fall 2026</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -71,8 +71,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../session2-psychopy/06_glob.html" rel="next">
-<link href="../session2-psychopy/04_exercise4.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -322,7 +320,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../session2-psychopy/index.html">Session 2 · PsychoPy</a></li><li class="breadcrumb-item"><a href="../session2-psychopy/05_functions.html">Block 2 · Stimuli on the screen</a></li><li class="breadcrumb-item"><a href="../session2-psychopy/05_functions.html">5 · Functions: Write Once, Use Many Times</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">2 · Meet PsychoPy: Import, Modules, and a Window</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -530,16 +528,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false">
  <span class="menu-text">Block 2 · Stimuli on the screen</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../session2-psychopy/05_functions.html" class="sidebar-item-text sidebar-link active">
+  <a href="../session2-psychopy/05_functions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">5 · Functions: Write Once, Use Many Times</span></a>
   </div>
 </li>
@@ -588,6 +586,112 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true">
+ <span class="menu-text">Session 3 · From Reaction Times to Experiments</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../session3-experiments/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">How the day works</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false">
+ <span class="menu-text">Block 1 · Measuring reaction times</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../session3-experiments/01_warmup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1 · Warming Up: A Python Refresher</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+ <span class="menu-text">session3-experiments/02_why_rt.qmd</span>
+  </li>
+          <li class="sidebar-item">
+ <span class="menu-text">session3-experiments/03_measure_rt.qmd</span>
+  </li>
+          <li class="sidebar-item">
+ <span class="menu-text">session3-experiments/04_exercise6.qmd</span>
+  </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false">
+ <span class="menu-text">Block 2 · Logging data</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+ <span class="menu-text">session3-experiments/05_participant_info.qmd</span>
+  </li>
+          <li class="sidebar-item">
+ <span class="menu-text">session3-experiments/06_informed_consent_dlg.qmd</span>
+  </li>
+          <li class="sidebar-item">
+ <span class="menu-text">session3-experiments/07_data_logging.qmd</span>
+  </li>
+          <li class="sidebar-item">
+ <span class="menu-text">session3-experiments/08_exercise7.qmd</span>
+  </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="false">
+ <span class="menu-text">Block 3 · From prototype to experiment</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+ <span class="menu-text">session3-experiments/05_reading_functions.qmd</span>
+  </li>
+          <li class="sidebar-item">
+ <span class="menu-text">session3-experiments/06_reading_exp_prototype.qmd</span>
+  </li>
+          <li class="sidebar-item">
+ <span class="menu-text">session3-experiments/07_exercises.qmd</span>
+  </li>
+          <li class="sidebar-item">
+ <span class="menu-text">session3-experiments/08_wrapup.qmd</span>
+  </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="false">
+ <span class="menu-text">Block 4 · Workshop wrap-up</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+ <span class="menu-text">session3-experiments/09_whathavelearned.qmd</span>
+  </li>
+          <li class="sidebar-item">
+ <span class="menu-text">session3-experiments/10_final_thoughts.qmd</span>
+  </li>
+      </ul>
+  </li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -598,11 +702,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#the-repetition-problem" id="toc-the-repetition-problem" class="nav-link active" data-scroll-target="#the-repetition-problem">The repetition problem</a></li>
-  <li><a href="#defining-and-calling" id="toc-defining-and-calling" class="nav-link" data-scroll-target="#defining-and-calling">Defining and calling</a></li>
-  <li><a href="#parameters-functions-with-input" id="toc-parameters-functions-with-input" class="nav-link" data-scroll-target="#parameters-functions-with-input">Parameters: functions with input</a></li>
-  <li><a href="#rebuilding-the-hop" id="toc-rebuilding-the-hop" class="nav-link" data-scroll-target="#rebuilding-the-hop">Rebuilding the hop</a></li>
-  <li><a href="#a-second-function-showing-text" id="toc-a-second-function-showing-text" class="nav-link" data-scroll-target="#a-second-function-showing-text">A second function: showing text</a></li>
+  <li><a href="#the-psychopy-application" id="toc-the-psychopy-application" class="nav-link active" data-scroll-target="#the-psychopy-application">The PsychoPy application</a></li>
+  <li><a href="#the-import-line" id="toc-the-import-line" class="nav-link" data-scroll-target="#the-import-line">The <code>import</code> line</a></li>
+  <li><a href="#three-modules-three-different-jobs" id="toc-three-modules-three-different-jobs" class="nav-link" data-scroll-target="#three-modules-three-different-jobs">Three modules, three different jobs</a></li>
+  <li><a href="#inside-the-coder" id="toc-inside-the-coder" class="nav-link" data-scroll-target="#inside-the-coder">Inside the Coder</a></li>
+  <li><a href="#creating-and-saving-a-script" id="toc-creating-and-saving-a-script" class="nav-link" data-scroll-target="#creating-and-saving-a-script">Creating and saving a script</a></li>
+  <li><a href="#create-your-first-window" id="toc-create-your-first-window" class="nav-link" data-scroll-target="#create-your-first-window">Create your first window</a></li>
   </ul>
 </nav>
     </div>
@@ -610,9 +715,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../session2-psychopy/index.html">Session 2 · PsychoPy</a></li><li class="breadcrumb-item"><a href="../session2-psychopy/05_functions.html">Block 2 · Stimuli on the screen</a></li><li class="breadcrumb-item"><a href="../session2-psychopy/05_functions.html">5 · Functions: Write Once, Use Many Times</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">5 · Functions: Write Once, Use Many Times</h1>
+<h1 class="title">2 · Meet PsychoPy: Import, Modules, and a Window</h1>
 </div>
 
 
@@ -630,207 +735,89 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <div class="milestone">
-<p><strong>Block 2</strong> · Learning goals: Define your own functions, give them parameters, and rebuild the hopping rabbit in half the lines.</p>
+<p><strong>Block 1</strong> · Learning goals: Understand what <code>import</code> does, meet PsychoPy’s three modules, and open your first window.</p>
 </div>
-<section id="the-repetition-problem" class="level2">
-<h2 class="anchored" data-anchor-id="the-repetition-problem">The repetition problem</h2>
-<p>Consider what showing anything on screen has required so far: prepare, draw, flip, wait, four lines, every single time. Two text screens and an image is twelve lines. And suppose we want something slightly more ambitious: a rabbit that visits all four corners of the window, half a second in each. A stimulus object’s position can be changed after it is created (<code>pic.pos = (0.5, 0.5)</code>), so we prepare the <code>ImageStim</code> once and then move, draw, flip, and wait for every corner. Written out in full, that looks like this:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> psychopy <span class="im">import</span> visual, event, core</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>win <span class="op">=</span> visual.Window(size<span class="op">=</span>(<span class="dv">1280</span>, <span class="dv">720</span>), fullscr<span class="op">=</span><span class="va">False</span>,</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>                    color<span class="op">=</span><span class="st">'black'</span>, checkTiming<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>pic <span class="op">=</span> visual.ImageStim(win, image<span class="op">=</span><span class="st">'rabbit.jpg'</span>, size<span class="op">=</span><span class="fl">0.5</span>)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>pic.pos <span class="op">=</span> (<span class="op">-</span><span class="fl">0.5</span>, <span class="fl">0.5</span>)    <span class="co"># top left</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>pic.draw()</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>win.flip()</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>core.wait(<span class="fl">0.5</span>)</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>pic.pos <span class="op">=</span> (<span class="fl">0.5</span>, <span class="fl">0.5</span>)     <span class="co"># top right</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>pic.draw()</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>win.flip()</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>core.wait(<span class="fl">0.5</span>)</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>pic.pos <span class="op">=</span> (<span class="fl">0.5</span>, <span class="op">-</span><span class="fl">0.5</span>)    <span class="co"># bottom right</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>pic.draw()</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>win.flip()</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>core.wait(<span class="fl">0.5</span>)</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>pic.pos <span class="op">=</span> (<span class="op">-</span><span class="fl">0.5</span>, <span class="op">-</span><span class="fl">0.5</span>)   <span class="co"># bottom left</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>pic.draw()</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>win.flip()</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>core.wait(<span class="fl">0.5</span>)</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>win.close()</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>core.quit()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>It works, but it is painful. Sixteen lines of hopping, of which twelve are copies with only the position changed. Reading it, the eye must check each block carefully to confirm that it really is the same as the others. Copied code is where bugs breed: change the wait from 0.5 to 1.0 and you must remember to change it in four places, and the one place you forget becomes an inconsistency you may never notice. The experiment we build this afternoon repeats its trial routine twelve times, once per stimulus. We are not going to write it twelve times.</p>
-<p>Python’s answer to repetition of this kind is the <strong>function</strong>: a named block of code that you define once and run as often as you like. You have been using functions all day. <code>print()</code>, <code>len()</code>, and <code>win.flip()</code> are all functions that someone else wrote. This chapter is where you write your own.</p>
+<section id="the-psychopy-application" class="level2">
+<h2 class="anchored" data-anchor-id="the-psychopy-application">The PsychoPy application</h2>
+<p>Experiments need a screen: stimuli to look at, keys to press, precise timing. This is what PsychoPy adds. PsychoPy is free, open-source, and made by psychologists for psychologists (Peirce, 2007). PsychoPy uses ordinary Python, the Python you already know, plus a collection of ready-made tools for experiments.</p>
 </section>
-<section id="defining-and-calling" class="level2">
-<h2 class="anchored" data-anchor-id="defining-and-calling">Defining and calling</h2>
-<p>A function definition has four parts: the keyword <code>def</code>, a name you choose, parentheses, and a colon, followed by an indented body. The same colon-and-indentation shape as loops and <code>if</code> statements.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> greet():</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Welcome to the experiment!"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>The name follows the same rules as variable names: no spaces, no special characters, and ideally a word that says what the function does. Running a definition has a perhaps surprising property: it produces no output at all. Python reads the body, stores it under the name <code>greet</code>, and moves on. The body runs only when the function is <strong>called</strong>, which means written by name with parentheses: <code>greet()</code>.</p>
-<p>The distinction between defining and calling is the heart of this chapter, so let us test it immediately.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>greet()</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>greet()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<pre class="repl"><code>Welcome to the experiment!
-Welcome to the experiment!</code></pre>
-<div class="predict-check" data-answer="Experiment starting Welcome! Welcome!" data-accept="Experiment starting, Welcome!, Welcome!||Experiment starting Welcome Welcome" data-multiline="true" data-placeholder="Three lines, in order…">
-<p>Three lines appear in the console after the following code. Give them in order, each on a new line.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> greet():</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Welcome!"</span>)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Experiment starting"</span>)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>greet()</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>greet()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="pc-hint" data-if-contains="Welcome! Experiment">
-<p>Python reads top to bottom. The definition stores the recipe without running it; the body runs only at each call. What executes first?</p>
+<section id="the-import-line" class="level2">
+<h2 class="anchored" data-anchor-id="the-import-line">The <code>import</code> line</h2>
+<p>The Standalone PsychoPy app you installed contains everything: Python itself, plus all of PsychoPy’s tools. But <em>installed</em> only means the tools are on your computer, like books in a library building. Each script must still say which tools it wants on its desk. That is what an <strong>import</strong> does, and it is the first line of every experiment you will ever write:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> psychopy <span class="im">import</span> visual, event, core</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Read it aloud: <em>from the PsychoPy collection, fetch three modules: <code>visual</code>, <code>event</code>, and <code>core</code>.</em> A <strong>module</strong> is a bundle of related functions someone else wrote. Importing it makes its functions available in <em>your</em> script, called with a dot: <code>visual.Window(...)</code>, <code>core.wait(...)</code> — module name, dot, function. (The dot should feel familiar: it’s the same dot as <code>name.upper()</code>.)</p>
+<p>If you forget the import line, Python greets you with <code>NameError: name 'visual' is not defined</code>. The tools exist on the computer, but your script never fetched them. You might see this error today; now you know what it means.</p>
+</section>
+<section id="three-modules-three-different-jobs" class="level2">
+<h2 class="anchored" data-anchor-id="three-modules-three-different-jobs">Three modules, three different jobs</h2>
+<ul>
+<li><strong><code>visual</code></strong>: everything the participant <em>sees</em>: the window, text, images.</li>
+<li><strong><code>event</code></strong>: everything the participant <em>does</em>: key presses.</li>
+<li><strong><code>core</code></strong>: <em>time</em> and control: waiting, clocks, quitting cleanly.</li>
+</ul>
+<div class="predict-check" data-answer="visual event core" data-accept="visual, event, core">
+<p>A quick mental map. Which module provides each step of the following sequence: show an image, wait for the participant’s keypress, then hold a blank screen for a moment before the next trial? Three names, in order, on one line.</p>
+<div class="pc-hint" data-if-contains="visual core event">
+<p>Read the order asked: image, then keypress, then pause. Which module owns the keypress?</p>
 </div>
 <div class="pc-explanation">
-<pre><code>Experiment starting
-Welcome!
-Welcome!</code></pre>
-<p>The definition at the top produces no output; it only stores the body under the name <code>greet</code>. Execution begins with the first ordinary line, and the stored body runs once per call. One definition, two calls, two greetings.</p>
+<p><code>visual</code>, <code>event</code>, <code>core</code>: sees, does, time. Notice what you just described: show a stimulus, collect a response, pause between trials. That is the trial structure you will build this afternoon. Every PsychoPy function you meet today lives in one of these three modules.</p>
 </div>
 </div>
-</section>
-<section id="parameters-functions-with-input" class="level2">
-<h2 class="anchored" data-anchor-id="parameters-functions-with-input">Parameters: functions with input</h2>
-<p>A function that always does exactly the same thing has limited use. Functions become powerful when they accept <strong>parameters</strong>: variables that receive a value at each call. A parameter is named inside the parentheses of the definition. Each call then supplies a value, and inside the body the parameter behaves like an ordinary variable holding that value.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> greet(name):</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Welcome, </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">!"</span>)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>greet(<span class="st">"Anna"</span>)</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>greet(<span class="st">"Chris"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<pre class="repl"><code>Welcome, Anna!
-Welcome, Chris!</code></pre>
-<p>Same function, different input, different behaviour. Inside the body, <code>name</code> is an ordinary variable, and the f-string inserts its value into the greeting. Notice the division of labour: the definition describes what happens <em>in general</em>, with the parameter standing in for whatever will vary; each call fills in the specifics.</p>
-<p>This is exactly the structure of our rabbit hopping problem. The four blocks were identical in every respect except one value: the position. General behaviour, one varying value. That is a function with one parameter.</p>
-</section>
-<section id="rebuilding-the-hop" class="level2">
-<h2 class="anchored" data-anchor-id="rebuilding-the-hop">Rebuilding the hop</h2>
-<p>The repeated four lines become the body; the position becomes the parameter:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> show_rabbit(position):</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    pic.pos <span class="op">=</span> position</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    pic.draw()</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    win.flip()</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    core.wait(<span class="fl">0.5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>And the full script becomes:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> psychopy <span class="im">import</span> visual, event, core</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>win <span class="op">=</span> visual.Window(size<span class="op">=</span>(<span class="dv">1280</span>, <span class="dv">720</span>), fullscr<span class="op">=</span><span class="va">False</span>,</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>                    color<span class="op">=</span><span class="st">'black'</span>, checkTiming<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>pic <span class="op">=</span> visual.ImageStim(win, image<span class="op">=</span><span class="st">'rabbit.jpg'</span>, size<span class="op">=</span><span class="fl">0.5</span>)</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> show_rabbit(position):</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    pic.pos <span class="op">=</span> position</span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    pic.draw()</span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    win.flip()</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    core.wait(<span class="fl">0.5</span>)</span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>show_rabbit((<span class="op">-</span><span class="fl">0.5</span>, <span class="fl">0.5</span>))    <span class="co"># top left</span></span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>show_rabbit((<span class="fl">0.5</span>, <span class="fl">0.5</span>))     <span class="co"># top right</span></span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>show_rabbit((<span class="fl">0.5</span>, <span class="op">-</span><span class="fl">0.5</span>))    <span class="co"># bottom right</span></span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>show_rabbit((<span class="op">-</span><span class="fl">0.5</span>, <span class="op">-</span><span class="fl">0.5</span>))   <span class="co"># bottom left</span></span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>win.close()</span>
-<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>core.quit()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Compare the two versions. The hopping section has shrunk from sixteen lines to four, and those four now read like a description of what happens rather than instructions for how. The cycle itself, move, draw, flip, wait, is written exactly once, inside the definition. To change the hop duration, you now edit one line, and every hop obeys. To add a fifth hop, you add one call.</p>
-<p>Type this version into a new script, run it, and confirm the rabbit still visits all four corners.</p>
-</section>
-<section id="a-second-function-showing-text" class="level2">
-<h2 class="anchored" data-anchor-id="a-second-function-showing-text">A second function: showing text</h2>
-<p>Every experiment shows text screens: a welcome, instructions, a goodbye. The pattern is always the same four beats, so it deserves a function of its own. This one takes the text as its parameter and waits for a key press, so the participant reads at their own pace:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> msg(text):</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    message <span class="op">=</span> visual.TextStim(win, text<span class="op">=</span>text, height<span class="op">=</span><span class="fl">0.08</span>)</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    message.draw()</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    win.flip()</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    event.waitKeys()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>One call now produces a complete, participant-paced text screen:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>msg(<span class="st">"Welcome to the experiment! Press any key to begin."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="callout callout-style-default callout-note callout-titled" title="Good to know: where functions go in a script">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Good to know: where functions go in a script
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Definitions must run before the first call, because Python reads top to bottom: a call above its definition fails with a <code>NameError</code>. The convention for structure is:</p>
+<p>Opening PsychoPy for the first time can be confusing, because the app is really three programs in one:</p>
 <ul>
-<li>imports at the top,</li>
-<li>the window and stimuli</li>
-<li>all function definitions together</li>
-<li>the experiment itself at the bottom.</li>
+<li><strong>Builder</strong>: a graphical interface for assembling experiments by dragging components. We do not use it. Everything we build, we write ourselves.</li>
+<li><strong>Coder</strong>: a text editor with a Run button. This is where we work all day. It is the counterpart of UCloud’s editor, but is a different program.</li>
+<li><strong>Runner</strong>: a small window that lists the scripts you have run and shows their output. It usually opens by itself alongside the others; you can mostly ignore it.</li>
 </ul>
-<p>By following conventions, a reader can then find everything where they expect it.</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled" title="Summary">
+<p>If PsychoPy opens in the Builder, switch to the Coder through the menu: <strong>View → Open Coder view</strong>. You can close the Builder window afterwards.</p>
+</section>
+<section id="inside-the-coder" class="level2">
+<h2 class="anchored" data-anchor-id="inside-the-coder">Inside the Coder</h2>
+<p>The Coder window has two areas that matter today:</p>
+<ul>
+<li>The large <strong>editor</strong> pane at the top. This is where you type your script.</li>
+<li>The <strong>output</strong> pane at the bottom. This is where <code>print()</code> output, warnings, and error messages appear. When something goes wrong, this pane tells you why: read it from the top.</li>
+</ul>
+<p>The green <strong>Run</strong> button in the toolbar runs the file currently open in the editor.</p>
+</section>
+<section id="creating-and-saving-a-script" class="level2">
+<h2 class="anchored" data-anchor-id="creating-and-saving-a-script">Creating and saving a script</h2>
+<ol type="1">
+<li>In the Coder: <strong>File → New</strong> (or Ctrl+N, Cmd+N on a Mac). An empty editor tab appears, named <code>untitled.py</code>.</li>
+<li>Before writing anything, save it: <strong>File → Save As</strong>, into a folder called <code>PsychoPyWorkshop</code>. Use a short name without spaces or special characters, ending in <code>.py</code>. The same naming rules as in Session 1.</li>
+<li>From then on, save with Ctrl+S (Cmd+S) before every run. An unsaved script will ask you to save before it can run.</li>
+</ol>
+</section>
+<section id="create-your-first-window" class="level2">
+<h2 class="anchored" data-anchor-id="create-your-first-window">Create your first window</h2>
+<p>Create a new script as just described and call it <code>my_first_window.py</code>. Type the following into it. Save it as <code>my_first_window.py</code>, and press the green <strong>Run</strong> button. (Note the environment change from UCloud: the Coder runs your <em>whole script</em>, top to bottom. No selecting lines, no Shift+Enter.)</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> psychopy <span class="im">import</span> visual, event, core</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>win <span class="op">=</span> visual.Window(</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    size<span class="op">=</span>(<span class="dv">500</span>, <span class="dv">720</span>),     <span class="co"># Width and height in pixels.</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span><span class="st">'grey'</span>,        <span class="co"># Background colour.</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    fullscr<span class="op">=</span><span class="va">False</span>,        <span class="co"># Keep False while developing.</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    checkTiming<span class="op">=</span><span class="va">False</span>)    <span class="co"># Skips a startup screen that measures your monitor. We do not need it.</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>core.wait(<span class="dv">5</span>)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>win.close()</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>core.quit()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>A grey window should appear for five seconds, then close. Not too exciting yet, but notice that <code>win</code> is a <strong>variable</strong>, like any from Session 1. It holds a window object, and that object has functions attached, called with a dot: <code>win.close()</code> now.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="The escape hatch (you will need it today)">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Summary
+<span class="screen-reader-only">Tip</span>The escape hatch (you will need it today)
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Repetition invites bugs, and functions remove repetition. A function is defined once, with <code>def</code>, a name, parentheses, and an indented body, and it runs each time it is called by name with parentheses. A definition alone produces nothing; only the call executes. Parameters let one definition serve many cases: the part that varies becomes the input. The hop shrank from sixteen lines to one definition and four calls, and <code>msg()</code> does the same for text screens. Definitions go before calls, and a function that seems ignored is usually missing its parentheses.</p>
+<p>Sooner or later a window will freeze on you. It happens to everyone. Click on the Coder’s console and press <strong>Ctrl-C</strong> (or close the window via the taskbar). This is exactly why we develop with <code>fullscr=False</code>: a small window is much easier to escape.</p>
 </div>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled" title="Checkpoint · the refactored hop">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Checkpoint · the refactored hop
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> psychopy <span class="im">import</span> visual, event, core</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>win <span class="op">=</span> visual.Window(size<span class="op">=</span>(<span class="dv">1280</span>, <span class="dv">720</span>), fullscr<span class="op">=</span><span class="va">False</span>,</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>                    color<span class="op">=</span><span class="st">'black'</span>, checkTiming<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>pic <span class="op">=</span> visual.ImageStim(win, image<span class="op">=</span><span class="st">'rabbit.jpg'</span>, size<span class="op">=</span><span class="fl">0.5</span>)</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> show_rabbit(position):</span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    pic.pos <span class="op">=</span> position</span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    pic.draw()</span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    win.flip()</span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    core.wait(<span class="fl">0.5</span>)</span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> msg(text):</span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>    message <span class="op">=</span> visual.TextStim(win, text<span class="op">=</span>text, height<span class="op">=</span><span class="fl">0.08</span>)</span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>    message.draw()</span>
-<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>    win.flip()</span>
-<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>    event.waitKeys()</span>
-<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>msg(<span class="st">"Watch the rabbit! Press any key to start."</span>)</span>
-<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>show_rabbit((<span class="op">-</span><span class="fl">0.5</span>, <span class="fl">0.5</span>))</span>
-<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>show_rabbit((<span class="fl">0.5</span>, <span class="fl">0.5</span>))</span>
-<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>show_rabbit((<span class="fl">0.5</span>, <span class="op">-</span><span class="fl">0.5</span>))</span>
-<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>show_rabbit((<span class="op">-</span><span class="fl">0.5</span>, <span class="op">-</span><span class="fl">0.5</span>))</span>
-<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a>msg(<span class="st">"Done! Press any key to close."</span>)</span>
-<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a>win.close()</span>
-<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a>core.quit()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
-</div>
-<p><strong>Rabbit hopping on function calls?</strong> Next: <a href="../session2-psychopy/06_glob.html">Reading in multiple files</a>.</p>
+<p>Did the window open for five seconds and close by itself? Then you have imported modules and commanded a screen. Next: <a href="../session3-experiments/03_drawflip.html">the Draw-Flip Cycle</a>.</p>
 
 
 </section>
@@ -1653,18 +1640,6 @@ body.quarto-dark .predict-check.pc-done textarea.pc-input { background: #1b2437;
     }
   });
   </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../session2-psychopy/04_exercise4.html" class="pagination-link" aria-label="4 · Exercises: The PsychoPy Playground">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">4 · Exercises: The PsychoPy Playground</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="../session2-psychopy/06_glob.html" class="pagination-link" aria-label="6 · Let Python Find Your Stimuli">
-        <span class="nav-page-text">6 · Let Python Find Your Stimuli</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 
 

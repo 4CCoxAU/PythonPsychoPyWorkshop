@@ -1,0 +1,233 @@
+---
+title: "5 · Functions: Write Once, Use Many Times"
+---
+
+
+::: {.milestone}
+**Block 2** · Learning goals: Define your own functions, give them parameters, and rebuild the hopping rabbit in half the lines.
+:::
+
+## The repetition problem
+
+Consider what showing anything on screen has required so far: prepare, draw, flip, wait, four lines, every single time. Two text screens and an image is twelve lines. And suppose we want something slightly more ambitious: a rabbit that visits all four corners of the window, half a second in each. A stimulus object's position can be changed after it is created (`pic.pos = (0.5, 0.5)`), so we prepare the `ImageStim` once and then move, draw, flip, and wait for every corner. Written out in full, that looks like this:
+
+```python
+from psychopy import visual, event, core
+
+win = visual.Window(size=(1280, 720), fullscr=False,
+                    color='black', checkTiming=False)
+
+pic = visual.ImageStim(win, image='rabbit.jpg', size=0.5)
+
+pic.pos = (-0.5, 0.5)    # top left
+pic.draw()
+win.flip()
+core.wait(0.5)
+
+pic.pos = (0.5, 0.5)     # top right
+pic.draw()
+win.flip()
+core.wait(0.5)
+
+pic.pos = (0.5, -0.5)    # bottom right
+pic.draw()
+win.flip()
+core.wait(0.5)
+
+pic.pos = (-0.5, -0.5)   # bottom left
+pic.draw()
+win.flip()
+core.wait(0.5)
+
+win.close()
+core.quit()
+```
+
+It works, but it is painful. Sixteen lines of hopping, of which twelve are copies with only the position changed. Reading it, the eye must check each block carefully to confirm that it really is the same as the others. Copied code is where bugs breed: change the wait from 0.5 to 1.0 and you must remember to change it in four places, and the one place you forget becomes an inconsistency you may never notice. The experiment we build this afternoon repeats its trial routine twelve times, once per stimulus. We are not going to write it twelve times.
+
+Python's answer to repetition of this kind is the **function**: a named block of code that you define once and run as often as you like. You have been using functions all day. `print()`, `len()`, and `win.flip()` are all functions that someone else wrote. This chapter is where you write your own.
+
+## Defining and calling
+
+A function definition has four parts: the keyword `def`, a name you choose, parentheses, and a colon, followed by an indented body. The same colon-and-indentation shape as loops and `if` statements.
+
+```python
+def greet():
+    print("Welcome to the experiment!")
+```
+
+The name follows the same rules as variable names: no spaces, no special characters, and ideally a word that says what the function does. Running a definition has a perhaps surprising property: it produces no output at all. Python reads the body, stores it under the name `greet`, and moves on. The body runs only when the function is **called**, which means written by name with parentheses: `greet()`.
+
+The distinction between defining and calling is the heart of this chapter, so let us test it immediately.
+
+```python
+greet()
+greet()
+```
+
+```{.repl}
+Welcome to the experiment!
+Welcome to the experiment!
+```
+
+::: {.predict-check data-answer="Experiment starting Welcome! Welcome!" data-accept="Experiment starting, Welcome!, Welcome!||Experiment starting Welcome Welcome" data-multiline="true" data-placeholder="Three lines, in order…"}
+Three lines appear in the console after the following code. Give them in order, each on a new line.
+
+```python
+def greet():
+    print("Welcome!")
+
+print("Experiment starting")
+greet()
+greet()
+```
+
+::: {.pc-hint data-if-contains="Welcome! Experiment"}
+Python reads top to bottom. The definition stores the recipe without running it; the body runs only at each call. What executes first?
+:::
+
+::: {.pc-explanation}
+```
+Experiment starting
+Welcome!
+Welcome!
+```
+
+The definition at the top produces no output; it only stores the body under the name `greet`. Execution begins with the first ordinary line, and the stored body runs once per call. One definition, two calls, two greetings.
+:::
+:::
+
+
+## Parameters: functions with input
+
+A function that always does exactly the same thing has limited use. Functions become powerful when they accept **parameters**: variables that receive a value at each call. A parameter is named inside the parentheses of the definition. Each call then supplies a value, and inside the body the parameter behaves like an ordinary variable holding that value.
+
+```python
+def greet(name):
+    print(f"Welcome, {name}!")
+
+greet("Anna")
+greet("Chris")
+```
+
+```{.repl}
+Welcome, Anna!
+Welcome, Chris!
+```
+
+Same function, different input, different behaviour. Inside the body, `name` is an ordinary variable, and the f-string inserts its value into the greeting. Notice the division of labour: the definition describes what happens *in general*, with the parameter standing in for whatever will vary; each call fills in the specifics.
+
+This is exactly the structure of our rabbit hopping problem. The four blocks were identical in every respect except one value: the position. General behaviour, one varying value. That is a function with one parameter.
+
+## Rebuilding the hop
+
+The repeated four lines become the body; the position becomes the parameter:
+
+```python
+def show_rabbit(position):
+    pic.pos = position
+    pic.draw()
+    win.flip()
+    core.wait(0.5)
+```
+And the full script becomes:
+
+```python
+from psychopy import visual, event, core
+
+win = visual.Window(size=(1280, 720), fullscr=False,
+                    color='black', checkTiming=False)
+
+pic = visual.ImageStim(win, image='rabbit.jpg', size=0.5)
+
+def show_rabbit(position):
+    pic.pos = position
+    pic.draw()
+    win.flip()
+    core.wait(0.5)
+
+show_rabbit((-0.5, 0.5))    # top left
+show_rabbit((0.5, 0.5))     # top right
+show_rabbit((0.5, -0.5))    # bottom right
+show_rabbit((-0.5, -0.5))   # bottom left
+
+win.close()
+core.quit()
+```
+
+Compare the two versions. The hopping section has shrunk from sixteen lines to four, and those four now read like a description of what happens rather than instructions for how. The cycle itself, move, draw, flip, wait, is written exactly once, inside the definition. To change the hop duration, you now edit one line, and every hop obeys. To add a fifth hop, you add one call.
+
+Type this version into a new script, run it, and confirm the rabbit still visits all four corners.
+
+## A second function: showing text
+
+Every experiment shows text screens: a welcome, instructions, a goodbye. The pattern is always the same four beats, so it deserves a function of its own. This one takes the text as its parameter and waits for a key press, so the participant reads at their own pace:
+
+```python
+def msg(text):
+    message = visual.TextStim(win, text=text, height=0.08)
+    message.draw()
+    win.flip()
+    event.waitKeys()
+```
+
+One call now produces a complete, participant-paced text screen:
+
+```python
+msg("Welcome to the experiment! Press any key to begin.")
+```
+
+::: {.callout-note title="Good to know: where functions go in a script"}
+Definitions must run before the first call, because Python reads top to bottom: a call above its definition fails with a `NameError`. The convention for structure is:
+
+- imports at the top,
+- the window and stimuli
+- all function definitions together 
+- the experiment itself at the bottom.
+
+By following conventions, a reader can then find everything where they expect it.
+:::
+
+
+::: {.callout-note title="Summary"}
+Repetition invites bugs, and functions remove repetition. A function is defined once, with `def`, a name, parentheses, and an indented body, and it runs each time it is called by name with parentheses. A definition alone produces nothing; only the call executes. Parameters let one definition serve many cases: the part that varies becomes the input. The hop shrank from sixteen lines to one definition and four calls, and `msg()` does the same for text screens. Definitions go before calls, and a function that seems ignored is usually missing its parentheses.
+:::
+
+
+
+::: {.callout-tip collapse="true" title="Checkpoint · the refactored hop"}
+```python
+from psychopy import visual, event, core
+
+win = visual.Window(size=(1280, 720), fullscr=False,
+                    color='black', checkTiming=False)
+
+pic = visual.ImageStim(win, image='rabbit.jpg', size=0.5)
+
+def show_rabbit(position):
+    pic.pos = position
+    pic.draw()
+    win.flip()
+    core.wait(0.5)
+
+def msg(text):
+    message = visual.TextStim(win, text=text, height=0.08)
+    message.draw()
+    win.flip()
+    event.waitKeys()
+
+msg("Watch the rabbit! Press any key to start.")
+
+show_rabbit((-0.5, 0.5))
+show_rabbit((0.5, 0.5))
+show_rabbit((0.5, -0.5))
+show_rabbit((-0.5, -0.5))
+
+msg("Done! Press any key to close.")
+
+win.close()
+core.quit()
+```
+:::
+
+**Rabbit hopping on function calls?** Next: [Reading in multiple files](06_glob.qmd).

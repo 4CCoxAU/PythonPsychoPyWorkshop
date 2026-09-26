@@ -1,0 +1,152 @@
+---
+title: "6 · Let Python Find Your Stimuli"
+---
+
+::: {.milestone}
+**Block 2** · Learning goals: Load stimulus files automatically with `glob.glob()` instead of typing filenames by hand.
+:::
+
+## The experiment: The Fleeing Rabbit
+
+It is time to say what we are building. This afternoon's experiment is a small reaction-time task called **The Fleeing Rabbit**. The participant plays the rabbit. On every trial the rabbit sits at the bottom of the screen, and something appears to its left or right. If it is a **lion**, the rabbit must flee: press the arrow key pointing *away* from it. If it is a **burrow**, the rabbit is safe: press the arrow key on *its* side to dive in. A correct answer shows the rabbit escaping; a wrong one shows the lion catching it.
+
+Behind the small story sits a real experimental design. Responding *toward* something you see is easy; responding *away* from it requires overriding where your attention was pulled, and that overriding takes measurable time. Tasks with exactly this structure are used in attention research, and in Block 3 we will measure the difference in your own reaction times.
+
+## From one rabbit to twelve scenes
+
+All morning, one image was enough. The experiment needs twelve: scenes in which the rabbit spots a lion or a burrow, on the left or on the right. Download them now, unzip, and put the `stimuli/` folder **next to your script**:
+
+<a class="btn btn-primary" href="../materials/stimuli.zip" download>⬇️ Download the stimuli (zip)</a>
+
+The folder contains the twelve scenes, named `stimulus1_R.jpg` through `stimulus12_L.jpg`, and two feedback images, `success.jpg` and `failure.jpg`. As in the warm-up, the suffix `_L` or `_R` records the correct response for each scene.
+
+We *could* type all twelve paths into a list by hand:
+
+```python
+images = ['stimuli/stimulus1_L.jpg', 'stimuli/stimulus2_R.jpg',
+          'stimuli/stimulus3_L.jpg', ...]   # and nine more...
+```
+
+This approach is fragile in three ways:
+
+- One typo anywhere crashes the script (or silently drops a stimulus). 
+- Adding a new set of stimuli at a later points means editing code rather than simply specifying a new folder.
+- A real experiment might have 200 images, so nobody should type 200 filenames by hand. 
+
+The professional habit is to let Python find the files. For this, we need `glob`:
+
+## The glob pattern
+
+```python
+import glob
+
+images = glob.glob('stimuli/stimulus*.jpg')
+print(images)
+```
+
+Read the pattern from left to right: look in the folder `stimuli/`, for names that start with `stimulus`, then **anything** (`*` is a *wildcard*: it matches any characters, of any length), ending in `.jpg`. The result is an ordinary Python list of file paths:
+
+```{.repl}
+['stimuli/stimulus2_R.jpg', 'stimuli/stimulus5_L.jpg', 'stimuli/stimulus1_R.jpg', ...]
+```
+
+(Your order may differ. More on that below.)
+
+::: {.predict-check data-answer="list" data-accept="a list||list of strings||a list of strings"}
+Before we use it: what *data type* does `images` have? What did `glob.glob()` hand back to us?
+
+::: {.pc-explanation}
+A plain Python **list** of strings (the file paths). No new data structure to learn, which means that all of the loops and functions from Session 1 work on this object immediately: `len(images)`, `images[0]`, `images[-1]`, and above all `for image in images:`. The loop we need for the trial is only one line away.
+:::
+:::
+
+
+## The pattern is a filter
+
+The wildcard can sit anywhere in the pattern, and where you put it determines what you collect. Consider three patterns against our actual folder, which holds the twelve scenes plus `success.jpg` and `failure.jpg`:
+
+```python
+glob.glob('stimuli/stimulus*.jpg')   # names starting with "stimulus"
+glob.glob('stimuli/*_L.jpg')         # names ending "_L.jpg"
+glob.glob('stimuli/*.jpg')           # any .jpg at all
+```
+
+::: {.predict-check data-answer="12 6 14" data-accept="12, 6, 14"}
+How many files does each pattern find? Three numbers, in order, on one line.
+
+::: {.pc-hint data-if-contains="12 6 12"}
+Two of three correct. The last pattern accepts *any* name. What else is sitting in that folder besides the scenes?
+:::
+
+::: {.pc-explanation}
+`12`, `6`, `14`. The third pattern also collects `success.jpg` and `failure.jpg`. This is why the experiment globs `stimulus*` rather than `*`: a careless pattern would put the feedback images into the trial list, and the participant would be asked to respond to a success screen. The pattern is a filter; make it say precisely what you mean.
+:::
+:::
+
+## Look before you loop
+
+Run the glob and inspect the output. This is a good habit to develop:
+
+```python
+images = glob.glob('stimuli/stimulus*.jpg')
+print(len(images))
+print(images)
+```
+
+```{.repl}
+12
+['stimuli/stimulus2_R.jpg', 'stimuli/stimulus5_L.jpg', ...]
+```
+
+Is the count what you expect? Do the paths look right? If the list is **empty**, stop and fix it now. Every later chapter depends on this line working. Empty list means path problem, and the diagnosis is usually quite short: (1) is your script *saved*, in the workshop folder, next to `stimuli/`? An unsaved script runs from a temporary location and finds nothing. (2) Is the folder really called `stimuli`, and are the files really `.jpg`?
+
+::: {.callout-note title="Good to know: glob order"}
+`glob` returns the files in no particular order. That is fine for now; we sort out randomisation properly in a second. 
+:::
+
+::: {.callout-note title="Summary"}
+`glob.glob('stimuli/stimulus*.jpg')` returns an ordinary list of file paths matching a pattern, where `*` matches anything. The pattern is a filter: ours says `stimulus*` deliberately, so the feedback images stay out of the trial list. Always print the glob before using it: right count, right paths, never empty.
+:::
+
+## Randomising trial order
+
+The experiment now begins to assemble. The first ingredient is order. If we loop over the glob list as it comes, every participant sees the stimuli in the same sequence. That is a problem: people get better with practice, tired with time, bored towards the end. With a fixed order these *order effects* are confounded with the stimuli themselves. Trial 1 always meets a fresh participant, trial 12 a weary one.
+
+And note that the trap is sneaky: glob's order is *arbitrary*: an unspecified order that is typically the **same every run on the same machine**. An order nobody designed, shown identically to everyone: the worst of both worlds. The fix is to replace the accident with deliberate randomness: a fresh order per participant, so order effects average out:
+
+Python's `random` module has a function for exactly this: `random.shuffle()`. Based on everything you know (`glob.glob()` returns a list, `.upper()` returns a new string, `len()` returns a number), you would naturally write the following:
+
+```python
+import random
+
+images = ['stim1_L.jpg', 'stim2_R.jpg', 'stim3_L.jpg']
+images = random.shuffle(images)
+
+for image in images:
+    print(image)
+```
+
+::: {.callout-note .predict icon="false" title="🤔 Think first"}
+Perfectly reasonable code; however, try to run it. What happens?
+
+::: {.callout-tip collapse="true" title="Check your thinking"}
+It **crashes**: `TypeError: 'NoneType' object is not iterable`. Surprise! `random.shuffle()` is not like the functions you know. It reorders the list **in place** and returns `None` (remember Session 1's `.append()`, which also changed the list itself rather than handing back a copy?). So the assignment threw away your shuffled list and replaced it with `None`, and the loop had nothing to iterate over. This is a classic error. Now you've made it once, on purpose, so you can hopefully recognise it forever.
+:::
+:::
+
+So the correct pattern drops the assignment: `shuffle` on its own line:
+
+```python
+import random
+
+images = glob.glob('stimuli/stimulus*.jpg')
+random.shuffle(images)   # shuffles IN PLACE! No assignment!
+```
+
+Try it: glob, shuffle, `print(images)`, then run it **twice**. Two different orders? That's randomisation working, and this exact pair of lines becomes Part 1 in [Exercise 5](10_timingexercises.qmd) later on, where every participant will get their own trial sequence.
+
+::: {.callout-note title="Summary"}
+Glob's order is arbitrary, and fixed orders confound order effects with stimuli. `random.shuffle(images)` replaces the accident with fresh randomness, but it works **in place** and returns `None`.
+:::
+
+**Shuffled**, twice, differently? Next: [collecting real responses](07_responses.qmd).

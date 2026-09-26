@@ -1,0 +1,52 @@
+---
+title: "Session 2: Introduction to PsychoPy"
+subtitle: "From Python in the console to stimuli on the screen"
+---
+
+Welcome to the second session of our Python and PsychoPy workshop! Let's take stock of what you can already do. In Session 1, you went from `print("Hello world!")` to writing your own loops. Along the way, you learned how to:
+
+- store and inspect values in **variables**, and tell your **data types** apart (strings, integers, floats);
+- take strings apart with **indexing**, **slicing**, and methods like `.split()` and `.upper()`;
+- build and mutate **lists**: index them, append to them, even nest them;
+- repeat code with **for and while loops**, counters included;
+- make code decide with **relational and logical operators** and **if/elif/else**;
+- (we ran out of time for **functions**: the [chapter](../session1-python/09_functions.qmd) and [exercise](../session1-python/10_exercise4.qmd) are online; we'll pick the concept up when the experiment gives us a reason to).
+
+This is genuinely all the Python you need to run a sophisticated experiment. Today you'll see why: a real experiment is *a list of stimuli, a loop over trials, an if/else for feedback, and an f-string on the screen*.
+
+By the end of today, you will have built a working experiment that shows images in random order, collects keyboard responses, and gives feedback on every trial.
+
+Today, we change environment: from UCloud to the **PsychoPy Coder on your own laptop**. This "Coder" is a simpler editor bundled with PsychoPy, and the Python inside it is the same Python you already know.
+
+## Learning outcomes
+
+After this session, you can:
+
+- **Open and close a PsychoPy window** and explain the draw-flip cycle (prepare, draw, flip) that gives experiments their precise timing.
+- **Present text and image stimuli** (`TextStim`, `ImageStim`), for a fixed duration (`core.wait()`) or until a keypress (`event.waitKeys()`).
+- **Write your own functions** with `def` and parameters, and use them to remove repetition from an experiment script.
+- **Load stimulus files automatically** with `glob.glob()` instead of typing filenames by hand.
+- **Randomise trial order** with `random.shuffle()` and explain why randomisation matters.
+- **Collect and restrict keyboard responses** (`keyList=['left', 'right']`), evaluate them against a rule read from the filename, and give conditional feedback.
+- **Measure reaction times** with `core.Clock()`: reset at stimulus onset, read at the response.
+
+## How today works
+
+Today alternates between two modes. In short **lecture segments**, we introduce each concept and demonstrate it live on the projector; in the **exercises** you put the concepts to work on your own, at your own pace, with the teachers circulating. The chapters on this site follow the same order as the lectures, so everything shown at the front is here to re-read.
+
+## Today's programme
+
+Three blocks, each ending in an exercise. The exercises are where you should linger.
+
+| Block | What | Chapters |
+|------|------|----------|
+| **1 · Basics on screen** | Python refresher; meeting PsychoPy; the draw-flip cycle and how to break it | [1](01_warmup.qmd) · [2](02_psychopy.qmd) · [3](03_drawflip.qmd) |
+| | **Exercise 4: The PsychoPy playground** | [4](04_exercise4.qmd) |
+| **2 · The experiment** | Functions; letting Python find your stimuli; randomisation; responses and feedback | [5](05_functions.qmd) · [6](06_glob.qmd) · [7](07_responses.qmd) |
+| | **Exercise 5: The Fleeing Rabbit** | [8](08_exercise5.qmd) |
+| **3 · Measurement** | Timing: measuring how long thinking takes | [9](09_timing.qmd) |
+| | **Exercise 6: Weigh your own decisions** | [10](10_timingexercises.qmd) |
+
+**Milestones:** Exercise 4 running before we move on to randomisation; Exercise 5 running by the end. This script is the one Session 3 extends.
+
+Ready? Head to [Chapter 1: Warming up](01_warmup.qmd).

@@ -2,17 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>8 · Exercise 5: The Fleeing Rabbit – Python &amp; PsychoPy Workshop - Aarhus University, Fall 2026</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -73,14 +79,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-234273d1456647dabc34a594ac50e507.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-0348920b7671f696dc9078d39bff215e.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-234273d1456647dabc34a594ac50e507.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bb62276ab45c84d9efd712f51ff97b5a.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-5a1953863e1f72ef3b996ef827f01ca7.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bb62276ab45c84d9efd712f51ff97b5a.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-0f0bb2b35f0c3ae46b2773d2b92c9e2d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-6353a5bacca7b1f5ff6dee18f156d94f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-0f0bb2b35f0c3ae46b2773d2b92c9e2d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-8111375b329e67f367d25c6ca2fac386.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-f47233b3dada9760e9eff975721b4787.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-8111375b329e67f367d25c6ca2fac386.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -644,13 +650,13 @@ The day’s destination: a complete, running behavioural experiment, written by 
 <section id="step-1-setup-collect-and-shuffle" class="level3">
 <h3 class="anchored" data-anchor-id="step-1-setup-collect-and-shuffle">Step 1: Setup: collect and shuffle</h3>
 <p>Every experiment script begins with the same housekeeping: fetch the tools, fetch the materials. The tools are three PsychoPy modules plus <code>glob</code> and <code>random</code>. The materials are the twelve scenes, collected with the glob pattern and shuffled with the one-line pattern, so that this run’s order belongs to this run alone. Finish the step with a <code>print(images)</code> and check three things before moving on: twelve paths, sensible names, and a different order when you run it again.</p>
-<div class="callout callout-style-default callout-tip no-icon callout-titled" title="🔒 Example code will be available here after the workshop">
+<div class="callout callout-style-default callout-tip no-icon callout-empty-content callout-titled" title="🔒 Example code will be available here after the workshop">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-🔒 Example code will be available here after the workshop
+<span class="screen-reader-only">Tip</span>🔒 Example code will be available here after the workshop
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -661,13 +667,13 @@ The day’s destination: a complete, running behavioural experiment, written by 
 <section id="step-2-the-window" class="level3">
 <h3 class="anchored" data-anchor-id="step-2-the-window">Step 2: The window</h3>
 <p>The same window call as all day. Build a window that is black to match the scenes. Run it and you should see a black window that opens and, for now, immediately closes with the script.</p>
-<div class="callout callout-style-default callout-tip no-icon callout-titled" title="🔒 Example code will be available here after the workshop">
+<div class="callout callout-style-default callout-tip no-icon callout-empty-content callout-titled" title="🔒 Example code will be available here after the workshop">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-🔒 Example code will be available here after the workshop
+<span class="screen-reader-only">Tip</span>🔒 Example code will be available here after the workshop
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -678,13 +684,13 @@ The day’s destination: a complete, running behavioural experiment, written by 
 <section id="step-3-a-function-for-text-and-a-welcome-screen" class="level3">
 <h3 class="anchored" data-anchor-id="step-3-a-function-for-text-and-a-welcome-screen">Step 3: A function for text, and a welcome screen</h3>
 <p>Define msg(text) and call it once with the welcome text. This screen is the participant’s entire training, so it must teach the rule: lion means press the opposite arrow, burrow means press its side. Run it: the welcome should appear and dismiss on any key.</p>
-<div class="callout callout-style-default callout-tip no-icon callout-titled" title="🔒 Example code will be available here after the workshop">
+<div class="callout callout-style-default callout-tip no-icon callout-empty-content callout-titled" title="🔒 Example code will be available here after the workshop">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-🔒 Example code will be available here after the workshop
+<span class="screen-reader-only">Tip</span>🔒 Example code will be available here after the workshop
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -695,13 +701,13 @@ The day’s destination: a complete, running behavioural experiment, written by 
 <section id="step-4-a-function-for-images-and-the-trial-loop" class="level3">
 <h3 class="anchored" data-anchor-id="step-4-a-function-for-images-and-the-trial-loop">Step 4: A function for images, and the trial loop</h3>
 <p>Define show_stim(image): prepare an ImageStim, draw, flip, and deliberately no waiting inside, because scenes and feedback wait differently. Then the trial loop: for each image in the shuffled list, show_stim(image), advancing on any key for now. Run it and page through all twelve scenes.</p>
-<div class="callout callout-style-default callout-tip no-icon callout-titled" title="🔒 Example code will be available here after the workshop">
+<div class="callout callout-style-default callout-tip no-icon callout-empty-content callout-titled" title="🔒 Example code will be available here after the workshop">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-🔒 Example code will be available here after the workshop
+<span class="screen-reader-only">Tip</span>🔒 Example code will be available here after the workshop
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -712,13 +718,13 @@ The day’s destination: a complete, running behavioural experiment, written by 
 <section id="step-5-real-responses" class="level3">
 <h3 class="anchored" data-anchor-id="step-5-real-responses">Step 5: Real responses</h3>
 <p>Inside the loop, replace the plain wait with a keyList, so only the arrow keys count, and keys[0] stored as key. Nothing visible changes when you run it, which is the point: the script now knows what was pressed.</p>
-<div class="callout callout-style-default callout-tip no-icon callout-titled" title="🔒 Example code will be available here after the workshop">
+<div class="callout callout-style-default callout-tip no-icon callout-empty-content callout-titled" title="🔒 Example code will be available here after the workshop">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-🔒 Example code will be available here after the workshop
+<span class="screen-reader-only">Tip</span>🔒 Example code will be available here after the workshop
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -729,13 +735,13 @@ The day’s destination: a complete, running behavioural experiment, written by 
 <section id="step-6-was-it-correct" class="level3">
 <h3 class="anchored" data-anchor-id="step-6-was-it-correct">Step 6: Was it correct?</h3>
 <p>Derive the correct key from the filename with <code>.endswith()</code> <em>(remember: the suffix encodes the correct response, lion-avoidance already baked in)</em>, then compare.</p>
-<div class="callout callout-style-default callout-tip no-icon callout-titled" title="🔒 Example code will be available here after the workshop">
+<div class="callout callout-style-default callout-tip no-icon callout-empty-content callout-titled" title="🔒 Example code will be available here after the workshop">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-🔒 Example code will be available here after the workshop
+<span class="screen-reader-only">Tip</span>🔒 Example code will be available here after the workshop
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -746,13 +752,13 @@ The day’s destination: a complete, running behavioural experiment, written by 
 <section id="step-7-feedback-then-goodbye" class="level3">
 <h3 class="anchored" data-anchor-id="step-7-feedback-then-goodbye">Step 7: Feedback, then goodbye</h3>
 <p>Success or failure image for exactly 2 seconds each trial; after the loop, a goodbye message and a clean shutdown.</p>
-<div class="callout callout-style-default callout-tip no-icon callout-titled" title="🔒 Example code will be available here after the workshop">
+<div class="callout callout-style-default callout-tip no-icon callout-empty-content callout-titled" title="🔒 Example code will be available here after the workshop">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-🔒 Example code will be available here after the workshop
+<span class="screen-reader-only">Tip</span>🔒 Example code will be available here after the workshop
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -761,19 +767,19 @@ The day’s destination: a complete, running behavioural experiment, written by 
 </div>
 <p>When everything runs: switch <code>fullscr=True</code> and run it once <em>as a participant</em>. Notice whether the lion trials feel harder than the burrow trials.</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Lost? The scaffold:">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Lost? The scaffold:
+<span class="screen-reader-only">Note</span>Lost? The scaffold:
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>If your script has gone off the rails, do not start from nothing: here is the complete shape of the experiment with some of the lines blanked. Every <code>____</code> is something a chapter taught today. Rebuild from this, filling the blanks, and use the chapter links in each step when one stumps you.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> psychopy <span class="im">import</span> visual, event, core</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> psychopy <span class="im">import</span> visual, event, core</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> glob</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -823,17 +829,17 @@ Lost? The scaffold:
 <span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>msg(<span class="st">'That was it. Thank you! Press any key to close.'</span>)</span>
 <span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>win.close()</span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>core.quit()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>core.quit()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-tip no-icon callout-titled" title="🔒 The complete script will be available here after the workshop">
+<div class="callout callout-style-default callout-tip no-icon callout-empty-content callout-titled" title="🔒 The complete script will be available here after the workshop">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-🔒 The complete script will be available here after the workshop
+<span class="screen-reader-only">Tip</span>🔒 The complete script will be available here after the workshop
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -844,13 +850,13 @@ Lost? The scaffold:
 <section id="advanced-exercises" class="level2">
 <h2 class="anchored" data-anchor-id="advanced-exercises">Advanced Exercises</h2>
 <p><strong>A. Keep score.</strong> Count correct answers; report the score in the goodbye message with an f-string.</p>
-<div class="callout callout-style-default callout-tip no-icon callout-titled" title="🔒 Example code will be available here after the workshop">
+<div class="callout callout-style-default callout-tip no-icon callout-empty-content callout-titled" title="🔒 Example code will be available here after the workshop">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-🔒 Example code will be available here after the workshop
+<span class="screen-reader-only">Tip</span>🔒 Example code will be available here after the workshop
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -858,13 +864,13 @@ Lost? The scaffold:
 </div>
 </div>
 <p><strong>B. A polite emergency exit.</strong> Add <code>'escape'</code> to the keyList and quit cleanly when it’s pressed: essential once you’re fullscreen.</p>
-<div class="callout callout-style-default callout-tip no-icon callout-titled" title="🔒 Example code will be available here after the workshop">
+<div class="callout callout-style-default callout-tip no-icon callout-empty-content callout-titled" title="🔒 Example code will be available here after the workshop">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-🔒 Example code will be available here after the workshop
+<span class="screen-reader-only">Tip</span>🔒 Example code will be available here after the workshop
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -872,13 +878,13 @@ Lost? The scaffold:
 </div>
 </div>
 <p><strong>C. A fixation cross between trials.</strong> Real experiments separate trials with a brief <code>+</code> in the centre, so the participant’s eyes reset before the next scene. Add one after the feedback, for half a second, using fixation = visual.TextStim(win, text=‘+’, height=0.1). Everything you need is taught: <code>TextStim</code>, draw, flip, <code>core.wait()</code>, and think about where in the loop it belongs.</p>
-<div class="callout callout-style-default callout-tip no-icon callout-titled" title="🔒 Example code will be available here after the workshop">
+<div class="callout callout-style-default callout-tip no-icon callout-empty-content callout-titled" title="🔒 Example code will be available here after the workshop">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-🔒 Example code will be available here after the workshop
+<span class="screen-reader-only">Tip</span>🔒 Example code will be available here after the workshop
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -892,187 +898,369 @@ Lost? The scaffold:
 
 </main> <!-- /main -->
 <!-- ============================================================
+
      PREDICT-CHECK WIDGET  (injected on every page via _quarto.yml)
+
      Turns  ::: {.predict-check data-answer="..."}  divs into an
+
      interactive "type your prediction → check" box.
+
      Just runs with html code, to make it simple and works with 
+
      GitHub Pages and offline.
+
      ============================================================ -->
+
 <style>
+
 .predict-check {
+
   border: 1.5px solid var(--ink, #14213d);
+
   border-left: 5px solid var(--accent, #fca311);
+
   border-radius: 8px;
+
   padding: 1rem 1.2rem;
+
   margin: 1.2rem 0;
+
   background: #fdf8ee;
+
 }
+
 .predict-check .pc-label {
+
   color: var(--accent-dark, #b87700);
+
   font-weight: 700;
+
   font-size: 0.85rem;
+
   letter-spacing: 0.06em;
+
   text-transform: uppercase;
+
   margin-bottom: 0.4rem;
+
 }
+
 .predict-check .pc-ui { margin-top: 0.7rem; display: flex; gap: 0.5rem; flex-wrap: wrap; }
+
 .predict-check input.pc-input, .predict-check textarea.pc-input {
+
   flex: 1 1 220px;
+
   font-family: var(--bs-font-monospace, monospace);
+
   font-size: 0.95rem;
+
   padding: 0.45rem 0.6rem;
+
   border: 1px solid #d5d0c3;
+
   border-radius: 6px;
+
 }
+
 .predict-check textarea.pc-input { min-height: 4.5rem; }
+
 .predict-check button.pc-btn {
+
   background: var(--ink, #14213d); color: #fff; border: none; border-radius: 6px;
+
   padding: 0.45rem 1rem; font-weight: 600; cursor: pointer;
+
 }
+
 .predict-check button.pc-btn:disabled { background: #9aa5b8; cursor: not-allowed; }
+
 .predict-check button.pc-reveal {
+
   background: #fff; color: var(--ink, #14213d); border: 1.5px solid var(--ink, #14213d);
+
   border-radius: 6px; padding: 0.45rem 1rem; font-weight: 600; cursor: pointer;
+
 }
+
 .predict-check .pc-feedback { margin-top: 0.6rem; font-size: 0.95rem; display: none; border-radius: 6px; padding: 0.55rem 0.8rem; }
+
 .predict-check .pc-feedback.pc-wrong { display: block; background: #fdf0ef; color: #8a2d23; border: 1px solid #f3c9c4; }
+
 .predict-check .pc-feedback.pc-right { display: block; background: #eef7ee; color: #1d5c2f; border: 1px solid #c4e3c8; }
+
 .predict-check .pc-explanation {
+
   display: none; margin-top: 0.8rem; padding-top: 0.8rem; border-top: 1px dashed #d5d0c3;
+
 }
+
 .predict-check .pc-hint { display: none; }
+
 .predict-check.pc-done input.pc-input, .predict-check.pc-done textarea.pc-input { background: #f3efe4; }
 
+
+
 /* ---- dark-mode (Quarto toggles body.quarto-dark) ---- */
+
 body.quarto-dark .predict-check { background: #1b2437; border-color: #2b3a52; border-left-color: var(--accent, #fca311); }
+
 body.quarto-dark .predict-check .pc-label { color: var(--accent, #fca311); }
+
 body.quarto-dark .predict-check input.pc-input,
+
 body.quarto-dark .predict-check textarea.pc-input {
+
   background: #111827; color: #e7ebf5; border-color: #2b3a52;
+
 }
+
 body.quarto-dark .predict-check button.pc-btn { background: var(--accent, #fca311); color: #14213d; }
+
 body.quarto-dark .predict-check button.pc-btn:disabled { background: #2b3a52; color: #6b7690; }
+
 body.quarto-dark .predict-check button.pc-reveal { background: transparent; color: var(--accent, #fca311); border-color: var(--accent, #fca311); }
+
 body.quarto-dark .predict-check .pc-feedback.pc-wrong { background: #3a1f1c; color: #f0b3aa; border-color: #6e3a33; }
+
 body.quarto-dark .predict-check .pc-feedback.pc-right { background: #1c3320; color: #a8dcb0; border-color: #33663c; }
+
 body.quarto-dark .predict-check .pc-explanation { border-top-color: #2b3a52; }
+
 body.quarto-dark .predict-check.pc-done input.pc-input,
+
 body.quarto-dark .predict-check.pc-done textarea.pc-input { background: #1b2437; }
+
 </style>
+
 <script>
+
 (function () {
+
   "use strict";
 
+
+
   // --- matching logic -------------------------------------------------
+
   function norm(s) { return String(s).replace(/\s+/g, " ").trim(); }
+
   function stripQuotes(s) { return String(s).trim().replace(/^["'\u2018\u2019\u201C\u201D]+|["'\u2018\u2019\u201C\u201D]+$/g, ""); }
+
   function isCorrect(input, candidates) {
+
     var n = norm(input);
+
     return candidates.some(function (c) { return n === c; });
+
   }
+
   // Built-in near-miss detectors: return a hint string or null.
+
   function builtinHint(input, candidates) {
+
     var n = norm(input);
+
     if (candidates.some(function (c) { return norm(stripQuotes(n)) === c && n !== c; }))
+
       return "Close, but look again: are the quotation marks part of what gets printed?";
+
     if (candidates.some(function (c) { return n.toLowerCase() === c.toLowerCase() && n !== c; }))
+
       return "Almost, check upper- versus lowercase. Python prints text exactly as it is.";
+
     if (candidates.some(function (c) { return n.replace(/\s+/g, "") === c.replace(/\s+/g, "") && n !== c; }))
+
       return "Very close, count the spaces carefully.";
+
     return null;
+
   }
+
+
 
   function init() {
+
     var boxes = document.querySelectorAll(".predict-check");
+
     Array.prototype.forEach.call(boxes, function (box) {
+
       if (box.dataset.pcInit) return;
+
       box.dataset.pcInit = "1";
 
+
+
       var answer = box.getAttribute("data-answer") || "";
+
       var accept = (box.getAttribute("data-accept") || "").split("||").filter(function (x) { return x.length; });
+
       var candidates = [answer].concat(accept).map(norm);
+
       var multiline = box.getAttribute("data-multiline") === "true";
+
       var maxAttempts = parseInt(box.getAttribute("data-attempts") || "3", 10);
 
+
+
       var explanation = box.querySelector(".pc-explanation");
+
       var hints = Array.prototype.slice.call(box.querySelectorAll(".pc-hint"));
 
+
+
       // header label
+
       var label = document.createElement("div");
+
       label.className = "pc-label";
+
       label.textContent = "\uD83D\uDD2E Predict first";
+
       box.insertBefore(label, box.firstChild);
 
+
+
       // input + buttons
+
       var ui = document.createElement("div");
+
       ui.className = "pc-ui";
+
       var input = document.createElement(multiline ? "textarea" : "input");
+
       input.className = "pc-input";
+
       input.setAttribute("placeholder", box.getAttribute("data-placeholder") || "Type your prediction, then check\u2026");
+
       input.setAttribute("aria-label", "Your prediction");
+
       if (!multiline) input.setAttribute("type", "text");
+
       var btn = document.createElement("button");
+
       btn.className = "pc-btn";
+
       btn.type = "button";
+
       btn.textContent = "Check";
+
       btn.disabled = true;
+
       var reveal = document.createElement("button");
+
       reveal.className = "pc-reveal";
+
       reveal.type = "button";
+
       reveal.textContent = "Show the answer";
+
       reveal.style.display = "none";
+
       ui.appendChild(input); ui.appendChild(btn); ui.appendChild(reveal);
 
+
+
       var feedback = document.createElement("div");
+
       feedback.className = "pc-feedback";
 
+
+
       // keep explanation last
+
       if (explanation) { box.appendChild(explanation); }
+
       box.appendChild(ui);
+
       box.insertBefore(feedback, explanation || null);
 
+
+
       var attempts = 0;
+
       function finish(correct) {
+
         box.classList.add("pc-done");
+
         input.disabled = true; btn.disabled = true; reveal.style.display = "none";
+
         if (explanation) explanation.style.display = "block";
+
         feedback.className = "pc-feedback " + (correct ? "pc-right" : "pc-wrong");
+
         feedback.textContent = correct
+
           ? "\u2713 Correct! Well predicted. Now run it and watch it happen."
+
           : "Compare the answer below with what you predicted. The difference is the interesting part.";
+
       }
 
+
+
       input.addEventListener("input", function () { btn.disabled = norm(input.value).length === 0; });
+
       input.addEventListener("keydown", function (e) {
+
         if (e.key === "Enter" && !multiline && !btn.disabled) { e.preventDefault(); btn.click(); }
+
       });
+
       reveal.addEventListener("click", function () { finish(false); });
 
+
+
       btn.addEventListener("click", function () {
+
         var val = input.value;
+
         if (isCorrect(val, candidates)) { finish(true); return; }
+
         attempts += 1;
 
+
+
         // author-provided hints first (first match wins)
+
         var msg = null;
+
         for (var i = 0; i < hints.length; i++) {
+
           var needle = hints[i].getAttribute("data-if-contains");
+
           if (needle && val.indexOf(needle) !== -1) { msg = hints[i].textContent.trim(); break; }
+
         }
+
         if (!msg) msg = builtinHint(val, candidates);
+
         if (!msg) msg = "Not quite. Read the code once more. What exactly will it give you?";
 
+
+
         var left = maxAttempts - attempts;
+
         feedback.className = "pc-feedback pc-wrong";
+
         feedback.textContent = msg;
+
         if (left <= 0) reveal.style.display = "inline-block";
+
       });
+
     });
+
   }
 
+
+
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+
   else init();
+
 })();
+
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -1138,13 +1326,14 @@ body.quarto-dark .predict-check.pc-done textarea.pc-input { background: #1b2437;
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

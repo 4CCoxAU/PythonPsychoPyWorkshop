@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>5 · Functions: Write Once, Use Many Times – Python &amp; PsychoPy Workshop - Aarhus University, Fall 2026</title>
+<title>9 · Timing: Measuring How Long Thinking Takes – Python &amp; PsychoPy Workshop - Aarhus University, Fall 2026</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -71,8 +71,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../session2-psychopy/06_glob.html" rel="next">
-<link href="../session2-psychopy/04_exercise4.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -322,7 +320,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../session2-psychopy/index.html">Session 2 · PsychoPy</a></li><li class="breadcrumb-item"><a href="../session2-psychopy/05_functions.html">Block 2 · Stimuli on the screen</a></li><li class="breadcrumb-item"><a href="../session2-psychopy/05_functions.html">5 · Functions: Write Once, Use Many Times</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">9 · Timing: Measuring How Long Thinking Takes</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -530,16 +528,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false">
  <span class="menu-text">Block 2 · Stimuli on the screen</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../session2-psychopy/05_functions.html" class="sidebar-item-text sidebar-link active">
+  <a href="../session2-psychopy/05_functions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">5 · Functions: Write Once, Use Many Times</span></a>
   </div>
 </li>
@@ -588,6 +586,112 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true">
+ <span class="menu-text">Session 3 · From Reaction Times to Experiments</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../session3-experiments/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">How the day works</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false">
+ <span class="menu-text">Block 1 · Measuring reaction times</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../session3-experiments/01_warmup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1 · Warming Up: A Python Refresher</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+ <span class="menu-text">session3-experiments/02_why_rt.qmd</span>
+  </li>
+          <li class="sidebar-item">
+ <span class="menu-text">session3-experiments/03_measure_rt.qmd</span>
+  </li>
+          <li class="sidebar-item">
+ <span class="menu-text">session3-experiments/04_exercise6.qmd</span>
+  </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false">
+ <span class="menu-text">Block 2 · Logging data</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+ <span class="menu-text">session3-experiments/05_participant_info.qmd</span>
+  </li>
+          <li class="sidebar-item">
+ <span class="menu-text">session3-experiments/06_informed_consent_dlg.qmd</span>
+  </li>
+          <li class="sidebar-item">
+ <span class="menu-text">session3-experiments/07_data_logging.qmd</span>
+  </li>
+          <li class="sidebar-item">
+ <span class="menu-text">session3-experiments/08_exercise7.qmd</span>
+  </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="false">
+ <span class="menu-text">Block 3 · From prototype to experiment</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+ <span class="menu-text">session3-experiments/05_reading_functions.qmd</span>
+  </li>
+          <li class="sidebar-item">
+ <span class="menu-text">session3-experiments/06_reading_exp_prototype.qmd</span>
+  </li>
+          <li class="sidebar-item">
+ <span class="menu-text">session3-experiments/07_exercises.qmd</span>
+  </li>
+          <li class="sidebar-item">
+ <span class="menu-text">session3-experiments/08_wrapup.qmd</span>
+  </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="false">
+ <span class="menu-text">Block 4 · Workshop wrap-up</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+ <span class="menu-text">session3-experiments/09_whathavelearned.qmd</span>
+  </li>
+          <li class="sidebar-item">
+ <span class="menu-text">session3-experiments/10_final_thoughts.qmd</span>
+  </li>
+      </ul>
+  </li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -598,11 +702,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#the-repetition-problem" id="toc-the-repetition-problem" class="nav-link active" data-scroll-target="#the-repetition-problem">The repetition problem</a></li>
-  <li><a href="#defining-and-calling" id="toc-defining-and-calling" class="nav-link" data-scroll-target="#defining-and-calling">Defining and calling</a></li>
-  <li><a href="#parameters-functions-with-input" id="toc-parameters-functions-with-input" class="nav-link" data-scroll-target="#parameters-functions-with-input">Parameters: functions with input</a></li>
-  <li><a href="#rebuilding-the-hop" id="toc-rebuilding-the-hop" class="nav-link" data-scroll-target="#rebuilding-the-hop">Rebuilding the hop</a></li>
-  <li><a href="#a-second-function-showing-text" id="toc-a-second-function-showing-text" class="nav-link" data-scroll-target="#a-second-function-showing-text">A second function: showing text</a></li>
+  <li><a href="#thinking-takes-time" id="toc-thinking-takes-time" class="nav-link active" data-scroll-target="#thinking-takes-time">Thinking takes time</a></li>
+  <li><a href="#a-stopwatch-object" id="toc-a-stopwatch-object" class="nav-link" data-scroll-target="#a-stopwatch-object">A stopwatch object</a></li>
+  <li><a href="#where-the-reset-goes" id="toc-where-the-reset-goes" class="nav-link" data-scroll-target="#where-the-reset-goes">Where the reset goes</a></li>
+  <li><a href="#three-clock-puzzles-together" id="toc-three-clock-puzzles-together" class="nav-link" data-scroll-target="#three-clock-puzzles-together">Three clock puzzles, together</a>
+  <ul class="collapse">
+  <li><a href="#puzzle-1-the-clock-keeps-running" id="toc-puzzle-1-the-clock-keeps-running" class="nav-link" data-scroll-target="#puzzle-1-the-clock-keeps-running">Puzzle 1: the clock keeps running</a></li>
+  <li><a href="#puzzle-2-reset-moves-the-zero" id="toc-puzzle-2-reset-moves-the-zero" class="nav-link" data-scroll-target="#puzzle-2-reset-moves-the-zero">Puzzle 2: reset moves the zero</a></li>
+  <li><a href="#puzzle-3-the-misplaced-reset-with-numbers" id="toc-puzzle-3-the-misplaced-reset-with-numbers" class="nav-link" data-scroll-target="#puzzle-3-the-misplaced-reset-with-numbers">Puzzle 3: the misplaced reset, with numbers</a></li>
+  <li><a href="#puzzle-4-one-clock-many-trials" id="toc-puzzle-4-one-clock-many-trials" class="nav-link" data-scroll-target="#puzzle-4-one-clock-many-trials">Puzzle 4: one clock, many trials</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -610,9 +719,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../session2-psychopy/index.html">Session 2 · PsychoPy</a></li><li class="breadcrumb-item"><a href="../session2-psychopy/05_functions.html">Block 2 · Stimuli on the screen</a></li><li class="breadcrumb-item"><a href="../session2-psychopy/05_functions.html">5 · Functions: Write Once, Use Many Times</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">5 · Functions: Write Once, Use Many Times</h1>
+<h1 class="title">9 · Timing: Measuring How Long Thinking Takes</h1>
 </div>
 
 
@@ -630,146 +739,87 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <div class="milestone">
-<p><strong>Block 2</strong> · Learning goals: Define your own functions, give them parameters, and rebuild the hopping rabbit in half the lines.</p>
+<p><strong>Block 3</strong> · Learning goals: Measure reaction times with <code>core.Clock()</code>: reset at stimulus onset, read at the response.</p>
 </div>
-<section id="the-repetition-problem" class="level2">
-<h2 class="anchored" data-anchor-id="the-repetition-problem">The repetition problem</h2>
-<p>Consider what showing anything on screen has required so far: prepare, draw, flip, wait, four lines, every single time. Two text screens and an image is twelve lines. And suppose we want something slightly more ambitious: a rabbit that visits all four corners of the window, half a second in each. A stimulus object’s position can be changed after it is created (<code>pic.pos = (0.5, 0.5)</code>), so we prepare the <code>ImageStim</code> once and then move, draw, flip, and wait for every corner. Written out in full, that looks like this:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> psychopy <span class="im">import</span> visual, event, core</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>win <span class="op">=</span> visual.Window(size<span class="op">=</span>(<span class="dv">1280</span>, <span class="dv">720</span>), fullscr<span class="op">=</span><span class="va">False</span>,</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>                    color<span class="op">=</span><span class="st">'black'</span>, checkTiming<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>pic <span class="op">=</span> visual.ImageStim(win, image<span class="op">=</span><span class="st">'rabbit.jpg'</span>, size<span class="op">=</span><span class="fl">0.5</span>)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>pic.pos <span class="op">=</span> (<span class="op">-</span><span class="fl">0.5</span>, <span class="fl">0.5</span>)    <span class="co"># top left</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>pic.draw()</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>win.flip()</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>core.wait(<span class="fl">0.5</span>)</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>pic.pos <span class="op">=</span> (<span class="fl">0.5</span>, <span class="fl">0.5</span>)     <span class="co"># top right</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>pic.draw()</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>win.flip()</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>core.wait(<span class="fl">0.5</span>)</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>pic.pos <span class="op">=</span> (<span class="fl">0.5</span>, <span class="op">-</span><span class="fl">0.5</span>)    <span class="co"># bottom right</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>pic.draw()</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>win.flip()</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>core.wait(<span class="fl">0.5</span>)</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>pic.pos <span class="op">=</span> (<span class="op">-</span><span class="fl">0.5</span>, <span class="op">-</span><span class="fl">0.5</span>)   <span class="co"># bottom left</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>pic.draw()</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>win.flip()</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>core.wait(<span class="fl">0.5</span>)</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>win.close()</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>core.quit()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>It works, but it is painful. Sixteen lines of hopping, of which twelve are copies with only the position changed. Reading it, the eye must check each block carefully to confirm that it really is the same as the others. Copied code is where bugs breed: change the wait from 0.5 to 1.0 and you must remember to change it in four places, and the one place you forget becomes an inconsistency you may never notice. The experiment we build this afternoon repeats its trial routine twelve times, once per stimulus. We are not going to write it twelve times.</p>
-<p>Python’s answer to repetition of this kind is the <strong>function</strong>: a named block of code that you define once and run as often as you like. You have been using functions all day. <code>print()</code>, <code>len()</code>, and <code>win.flip()</code> are all functions that someone else wrote. This chapter is where you write your own.</p>
+<section id="thinking-takes-time" class="level2">
+<h2 class="anchored" data-anchor-id="thinking-takes-time">Thinking takes time</h2>
+<p>Your experiment runs, and it already produces one measurement: whether each answer was correct. Block 3 adds the second, and for cognitive science the more interesting one: how <em>long</em> the answer took. The idea is old and beautiful: mental work takes time, and the time can be measured. Your own experiment contains a built-in comparison. On a burrow trial, you press the arrow on the burrow’s side: your response goes toward the thing you saw, which is what your attention wants anyway. On a lion trial, you press the opposite arrow: your response goes away from the thing you saw, and to produce it you must override the pull toward the lion first. That overriding is extra mental work, so lion trials should take longer, by tens of milliseconds. Reaction time is how we watch that work happen without opening the head. The same measurement carries your Portfolio 2 experiment: how long a reader lingers on a word tells us how hard that word is to process.</p>
 </section>
-<section id="defining-and-calling" class="level2">
-<h2 class="anchored" data-anchor-id="defining-and-calling">Defining and calling</h2>
-<p>A function definition has four parts: the keyword <code>def</code>, a name you choose, parentheses, and a colon, followed by an indented body. The same colon-and-indentation shape as loops and <code>if</code> statements.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> greet():</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Welcome to the experiment!"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>The name follows the same rules as variable names: no spaces, no special characters, and ideally a word that says what the function does. Running a definition has a perhaps surprising property: it produces no output at all. Python reads the body, stores it under the name <code>greet</code>, and moves on. The body runs only when the function is <strong>called</strong>, which means written by name with parentheses: <code>greet()</code>.</p>
-<p>The distinction between defining and calling is the heart of this chapter, so let us test it immediately.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>greet()</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>greet()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<pre class="repl"><code>Welcome to the experiment!
-Welcome to the experiment!</code></pre>
-<div class="predict-check" data-answer="Experiment starting Welcome! Welcome!" data-accept="Experiment starting, Welcome!, Welcome!||Experiment starting Welcome Welcome" data-multiline="true" data-placeholder="Three lines, in order…">
-<p>Three lines appear in the console after the following code. Give them in order, each on a new line.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> greet():</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Welcome!"</span>)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Experiment starting"</span>)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>greet()</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>greet()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="pc-hint" data-if-contains="Welcome! Experiment">
-<p>Python reads top to bottom. The definition stores the recipe without running it; the body runs only at each call. What executes first?</p>
+<section id="a-stopwatch-object" class="level2">
+<h2 class="anchored" data-anchor-id="a-stopwatch-object">A stopwatch object</h2>
+<p>The tool is <code>core.Clock()</code>: a stopwatch. Create it once, in the setup; reset it to zero at the moment you want to measure from; read it when the thing you are timing has happened.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>stopwatch <span class="op">=</span> core.Clock()     <span class="co"># create, once, in the setup</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>stopwatch.reset()            <span class="co"># zero it: timing starts NOW</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>rt <span class="op">=</span> stopwatch.getTime()     <span class="co"># read it: seconds since the reset</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>A small demonstration you can run in a script, no window needed:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> psychopy <span class="im">import</span> core</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>stopwatch <span class="op">=</span> core.Clock()</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>stopwatch.reset()</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>core.wait(<span class="fl">1.5</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(stopwatch.getTime())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="predict-check" data-answer="1.5" data-accept="1.5 seconds||about 1.5||~1.5">
+<p>Approximately what number is printed?</p>
+<div class="pc-hint" data-if-contains="0">
+<p>The clock was zeroed, then the script waited. How much time passed between the reset and the read?</p>
 </div>
 <div class="pc-explanation">
-<pre><code>Experiment starting
-Welcome!
-Welcome!</code></pre>
-<p>The definition at the top produces no output; it only stores the body under the name <code>greet</code>. Execution begins with the first ordinary line, and the stored body runs once per call. One definition, two calls, two greetings.</p>
+<p>Approximately <code>1.5</code>, in practice something like <code>1.5001923</code>: one and a half seconds passed between the reset and the read, plus a sliver of processing time. The clock does not stop at <code>getTime()</code>; it keeps running, and you can read it as often as you like. Reset defines the zero; every read reports the seconds since.</p>
 </div>
 </div>
 </section>
-<section id="parameters-functions-with-input" class="level2">
-<h2 class="anchored" data-anchor-id="parameters-functions-with-input">Parameters: functions with input</h2>
-<p>A function that always does exactly the same thing has limited use. Functions become powerful when they accept <strong>parameters</strong>: variables that receive a value at each call. A parameter is named inside the parentheses of the definition. Each call then supplies a value, and inside the body the parameter behaves like an ordinary variable holding that value.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> greet(name):</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Welcome, </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">!"</span>)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>greet(<span class="st">"Anna"</span>)</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>greet(<span class="st">"Chris"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<pre class="repl"><code>Welcome, Anna!
-Welcome, Chris!</code></pre>
-<p>Same function, different input, different behaviour. Inside the body, <code>name</code> is an ordinary variable, and the f-string inserts its value into the greeting. Notice the division of labour: the definition describes what happens <em>in general</em>, with the parameter standing in for whatever will vary; each call fills in the specifics.</p>
-<p>This is exactly the structure of our rabbit hopping problem. The four blocks were identical in every respect except one value: the position. General behaviour, one varying value. That is a function with one parameter.</p>
-</section>
-<section id="rebuilding-the-hop" class="level2">
-<h2 class="anchored" data-anchor-id="rebuilding-the-hop">Rebuilding the hop</h2>
-<p>The repeated four lines become the body; the position becomes the parameter:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> show_rabbit(position):</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    pic.pos <span class="op">=</span> position</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    pic.draw()</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    win.flip()</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    core.wait(<span class="fl">0.5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>And the full script becomes:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> psychopy <span class="im">import</span> visual, event, core</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>win <span class="op">=</span> visual.Window(size<span class="op">=</span>(<span class="dv">1280</span>, <span class="dv">720</span>), fullscr<span class="op">=</span><span class="va">False</span>,</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>                    color<span class="op">=</span><span class="st">'black'</span>, checkTiming<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>pic <span class="op">=</span> visual.ImageStim(win, image<span class="op">=</span><span class="st">'rabbit.jpg'</span>, size<span class="op">=</span><span class="fl">0.5</span>)</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> show_rabbit(position):</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    pic.pos <span class="op">=</span> position</span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    pic.draw()</span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    win.flip()</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    core.wait(<span class="fl">0.5</span>)</span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>show_rabbit((<span class="op">-</span><span class="fl">0.5</span>, <span class="fl">0.5</span>))    <span class="co"># top left</span></span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>show_rabbit((<span class="fl">0.5</span>, <span class="fl">0.5</span>))     <span class="co"># top right</span></span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>show_rabbit((<span class="fl">0.5</span>, <span class="op">-</span><span class="fl">0.5</span>))    <span class="co"># bottom right</span></span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>show_rabbit((<span class="op">-</span><span class="fl">0.5</span>, <span class="op">-</span><span class="fl">0.5</span>))   <span class="co"># bottom left</span></span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>win.close()</span>
-<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>core.quit()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Compare the two versions. The hopping section has shrunk from sixteen lines to four, and those four now read like a description of what happens rather than instructions for how. The cycle itself, move, draw, flip, wait, is written exactly once, inside the definition. To change the hop duration, you now edit one line, and every hop obeys. To add a fifth hop, you add one call.</p>
-<p>Type this version into a new script, run it, and confirm the rabbit still visits all four corners.</p>
-</section>
-<section id="a-second-function-showing-text" class="level2">
-<h2 class="anchored" data-anchor-id="a-second-function-showing-text">A second function: showing text</h2>
-<p>Every experiment shows text screens: a welcome, instructions, a goodbye. The pattern is always the same four beats, so it deserves a function of its own. This one takes the text as its parameter and waits for a key press, so the participant reads at their own pace:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> msg(text):</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    message <span class="op">=</span> visual.TextStim(win, text<span class="op">=</span>text, height<span class="op">=</span><span class="fl">0.08</span>)</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    message.draw()</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    win.flip()</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    event.waitKeys()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>One call now produces a complete, participant-paced text screen:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>msg(<span class="st">"Welcome to the experiment! Press any key to begin."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="callout callout-style-default callout-note callout-titled" title="Good to know: where functions go in a script">
+<section id="where-the-reset-goes" class="level2">
+<h2 class="anchored" data-anchor-id="where-the-reset-goes">Where the reset goes</h2>
+<p>In a trial, what we want to measure is the gap between <strong>stimulus onset</strong> and <strong>response</strong>. Both endpoints matter.</p>
+<p>The response end is easy: <code>event.waitKeys()</code> returns at the keypress, so reading the clock on the next line captures it. The onset end is the subtle one, and Chapter 3 prepared you for it: a stimulus appears at one precise moment, the flip. Preparing and drawing take time, so the reset must come <em>after</em> the flip, not before the drawing. In our script, <code>show_stim()</code> ends with the flip, so the reset follows the call directly:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>show_stim(image)                                  <span class="co"># ends with win.flip(): onset</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>stopwatch.reset()                                 <span class="co"># zero AT onset</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>keys <span class="op">=</span> event.waitKeys(keyList<span class="op">=</span>[<span class="st">'left'</span>, <span class="st">'right'</span>])  <span class="co"># returns at the keypress</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>rt <span class="op">=</span> stopwatch.getTime()                          <span class="co"># seconds from onset to response</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="predict callout callout-style-default callout-note no-icon callout-titled" title="🤔 Think first">
 <div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>🤔 Think first
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A student puts <code>stopwatch.reset()</code> <em>before</em> the <code>show_stim(image)</code> call instead of after it. The script runs fine and produces reaction times. What is wrong with them?</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Check your thinking">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Good to know: where functions go in a script
+<span class="screen-reader-only">Tip</span>Check your thinking
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Definitions must run before the first call, because Python reads top to bottom: a call above its definition fails with a <code>NameError</code>. The convention for structure is:</p>
-<ul>
-<li>imports at the top,</li>
-<li>the window and stimuli</li>
-<li>all function definitions together</li>
-<li>the experiment itself at the bottom.</li>
-</ul>
-<p>By following conventions, a reader can then find everything where they expect it.</p>
+<p>Every reaction time is slightly too long. The clock starts before the stimulus exists: preparing the image and flipping it to the screen take time, and that preparation time is silently added to every trial’s measurement. The participant has not even seen the stimulus while the clock is already running. Reset after the flip, so that zero means “the moment the scene appeared”.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Good to know: how precise is this?">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Good to know: how precise is this?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Honest measurement means knowing your instrument. Two small imprecisions are built in: the stimulus appears at a screen refresh, so onset is quantised to the frame (about 17 ms at 60 Hz), and ordinary keyboards add a few milliseconds of their own. Neither can be removed with ordinary hardware, and neither matters for us: both affect all trials equally, and the comparisons we care about, such as lion trials against burrow trials, are differences of tens of milliseconds averaged over trials. Know the noise, design comparisons larger than it.</p>
+</div>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled" title="Summary">
@@ -782,57 +832,99 @@ Welcome, Chris!</code></pre>
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Repetition invites bugs, and functions remove repetition. A function is defined once, with <code>def</code>, a name, parentheses, and an indented body, and it runs each time it is called by name with parentheses. A definition alone produces nothing; only the call executes. Parameters let one definition serve many cases: the part that varies becomes the input. The hop shrank from sixteen lines to one definition and four calls, and <code>msg()</code> does the same for text screens. Definitions go before calls, and a function that seems ignored is usually missing its parentheses.</p>
+<p><code>core.Clock()</code> is a stopwatch: create once, <code>reset()</code> to define zero, <code>getTime()</code> to read seconds since. For a reaction time, zero must mean stimulus onset, so the reset goes immediately after the flip, and the read goes immediately after <code>waitKeys()</code> returns. The measurement carries about a frame of onset noise and a few milliseconds of keyboard noise, which comparisons across many trials absorb.</p>
 </div>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled" title="Checkpoint · the refactored hop">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+</section>
+<section id="three-clock-puzzles-together" class="level2">
+<h2 class="anchored" data-anchor-id="three-clock-puzzles-together">Three clock puzzles, together</h2>
+<p>Before the clock enters the experiment, three small puzzles about how it behaves. Predict each one before anything is run.</p>
+<section id="puzzle-1-the-clock-keeps-running" class="level3">
+<h3 class="anchored" data-anchor-id="puzzle-1-the-clock-keeps-running">Puzzle 1: the clock keeps running</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> psychopy <span class="im">import</span> core</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>stopwatch <span class="op">=</span> core.Clock()</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>stopwatch.reset()</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>core.wait(<span class="dv">1</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(stopwatch.getTime())</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>core.wait(<span class="dv">1</span>)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(stopwatch.getTime())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="predict-check" data-answer="1 2" data-accept="1, 2||1.0 2.0||1.0, 2.0||about 1 and 2">
+<p>Two numbers are printed. Approximately which two? Answer on one line, separated by a space.</p>
+<div class="pc-hint" data-if-contains="1 1">
+<p>Does <code>getTime()</code> stop the clock, or only look at it?</p>
 </div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Checkpoint · the refactored hop
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> psychopy <span class="im">import</span> visual, event, core</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>win <span class="op">=</span> visual.Window(size<span class="op">=</span>(<span class="dv">1280</span>, <span class="dv">720</span>), fullscr<span class="op">=</span><span class="va">False</span>,</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>                    color<span class="op">=</span><span class="st">'black'</span>, checkTiming<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>pic <span class="op">=</span> visual.ImageStim(win, image<span class="op">=</span><span class="st">'rabbit.jpg'</span>, size<span class="op">=</span><span class="fl">0.5</span>)</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> show_rabbit(position):</span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    pic.pos <span class="op">=</span> position</span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    pic.draw()</span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    win.flip()</span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    core.wait(<span class="fl">0.5</span>)</span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> msg(text):</span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>    message <span class="op">=</span> visual.TextStim(win, text<span class="op">=</span>text, height<span class="op">=</span><span class="fl">0.08</span>)</span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>    message.draw()</span>
-<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>    win.flip()</span>
-<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>    event.waitKeys()</span>
-<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>msg(<span class="st">"Watch the rabbit! Press any key to start."</span>)</span>
-<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>show_rabbit((<span class="op">-</span><span class="fl">0.5</span>, <span class="fl">0.5</span>))</span>
-<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>show_rabbit((<span class="fl">0.5</span>, <span class="fl">0.5</span>))</span>
-<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>show_rabbit((<span class="fl">0.5</span>, <span class="op">-</span><span class="fl">0.5</span>))</span>
-<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>show_rabbit((<span class="op">-</span><span class="fl">0.5</span>, <span class="op">-</span><span class="fl">0.5</span>))</span>
-<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a>msg(<span class="st">"Done! Press any key to close."</span>)</span>
-<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a>win.close()</span>
-<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a>core.quit()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="pc-explanation">
+<p>Approximately <code>1</code>, then <code>2</code>. Reading the clock does not stop it or reset it; it only looks. The clock runs continuously from the reset, and every read reports the total seconds since that one zero. One reset can serve many reads.</p>
 </div>
 </div>
+</section>
+<section id="puzzle-2-reset-moves-the-zero" class="level3">
+<h3 class="anchored" data-anchor-id="puzzle-2-reset-moves-the-zero">Puzzle 2: reset moves the zero</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> psychopy <span class="im">import</span> core</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>stopwatch <span class="op">=</span> core.Clock()</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>stopwatch.reset()</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>core.wait(<span class="dv">1</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>stopwatch.reset()</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>core.wait(<span class="dv">1</span>)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(stopwatch.getTime())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="predict-check" data-answer="1" data-accept="1.0||about 1||~1">
+<p>One number is printed. Approximately what?</p>
+<div class="pc-hint" data-if-contains="2">
+<p>There are two resets. Which one defines the zero that the read is measured from?</p>
 </div>
-<p><strong>Rabbit hopping on function calls?</strong> Next: <a href="../session2-psychopy/06_glob.html">Reading in multiple files</a>.</p>
+<div class="pc-explanation">
+<p>Approximately <code>1</code>, not 2. A reset throws away everything before it and starts the count again: the second reset moved the zero, so the read reports only the second second. This is precisely why one reset per trial works in an experiment: each trial’s reset wipes the previous trial’s time and starts fresh.</p>
+</div>
+</div>
+</section>
+<section id="puzzle-3-the-misplaced-reset-with-numbers" class="level3">
+<h3 class="anchored" data-anchor-id="puzzle-3-the-misplaced-reset-with-numbers">Puzzle 3: the misplaced reset, with numbers</h3>
+<p>Suppose preparing and flipping a large image takes half a second, and the participant responds one second after the stimulus appears. A student writes the reset in the wrong place:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>stopwatch.reset()          <span class="co"># reset HERE...</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>stim.draw()                <span class="co"># takes ~0.5 s in this thought experiment</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>win.flip()                 <span class="co"># ...stimulus appears now</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>keys <span class="op">=</span> event.waitKeys()    <span class="co"># participant responds 1 s after onset</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>rt <span class="op">=</span> stopwatch.getTime()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="predict-check" data-answer="1.5" data-accept="1.5 seconds||1,5||about 1.5">
+<p>What reaction time does the script report, in seconds?</p>
+<div class="pc-hint" data-if-contains="1 ">
+<p>The clock started before the drawing. How much time passed between the reset and the keypress, in total?</p>
+</div>
+<div class="pc-explanation">
+<p><code>1.5</code> seconds, for a response that actually took <code>1.0</code>. The half second of preparation is silently added, because the zero was set before the stimulus existed. The participant looks half a second slower than they are, on every trial. Zero must mean onset, so the reset goes after the flip.</p>
+</div>
+</div>
+</section>
+<section id="puzzle-4-one-clock-many-trials" class="level3">
+<h3 class="anchored" data-anchor-id="puzzle-4-one-clock-many-trials">Puzzle 4: one clock, many trials</h3>
+<p>The experiment measures twelve trials, but it needs only <strong>one</strong> clock. Create it once in the setup; inside the loop, reset at each trial’s onset and read at each trial’s response. The reset wipes the previous trial’s time (Puzzle 2), so the same stopwatch serves every trial in turn. A miniature version, with waits standing in for participants:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> psychopy <span class="im">import</span> core</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>stopwatch <span class="op">=</span> core.Clock()            <span class="co"># once, in the setup</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> trial <span class="kw">in</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]:</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    stopwatch.reset()               <span class="co"># zero at this trial's onset</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    core.wait(trial)                <span class="co"># this "participant" takes 1, then 2, then 3 s</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(stopwatch.getTime())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="predict-check" data-answer="1 2 3" data-accept="1, 2, 3||1.0 2.0 3.0||1 2 and 3">
+<p>Three numbers are printed. Approximately which three, in order? One line, separated by spaces.</p>
+<div class="pc-hint" data-if-contains="1 3 6">
+<p>Does time pile up across trials, or does something wipe it between them?</p>
+</div>
+<div class="pc-explanation">
+<p>Approximately <code>1</code>, <code>2</code>, <code>3</code>: each trial’s reset wipes the clock, so each read reports only its own trial’s time. Without the reset inside the loop, the times would pile up, <code>1</code>, <code>3</code>, <code>6</code>, each trial inheriting all the seconds before it. One clock in the setup, one reset per trial at onset, one read per trial at the response: that is the whole pattern, and it is exactly what you will add to the rabbit in Exercise 6.</p>
+</div>
+</div>
+<p><strong>Stopwatch demo printing sensible numbers?</strong> Next: <a href="../session3-experiments/10_timingexercises.html">Exercise 6, timing the rabbit</a>.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -1653,18 +1745,6 @@ body.quarto-dark .predict-check.pc-done textarea.pc-input { background: #1b2437;
     }
   });
   </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../session2-psychopy/04_exercise4.html" class="pagination-link" aria-label="4 · Exercises: The PsychoPy Playground">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">4 · Exercises: The PsychoPy Playground</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="../session2-psychopy/06_glob.html" class="pagination-link" aria-label="6 · Let Python Find Your Stimuli">
-        <span class="nav-page-text">6 · Let Python Find Your Stimuli</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 
 
