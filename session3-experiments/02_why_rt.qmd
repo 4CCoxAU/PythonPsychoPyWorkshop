@@ -1,89 +1,163 @@
 ---
-title: "2 · Meet PsychoPy: Import, Modules, and a Window"
+title: "2 · Why Measure Reaction Time?"
 ---
 
 ::: {.milestone}
-**Block 1** · Learning goals: Understand what `import` does, meet PsychoPy's three modules, and open your first window.
+**Block 1** · Learning goals: Measure reaction times with `core.Clock()`: reset at stimulus onset, read at the response.
 :::
 
-## The PsychoPy application
-Experiments need a screen: stimuli to look at, keys to press, precise timing. This is what PsychoPy adds. PsychoPy is free, open-source, and made by psychologists for psychologists (Peirce, 2007). PsychoPy uses ordinary Python, the Python you already know, plus a collection of ready-made tools for experiments.
+## Thinking takes time
 
-## The `import` line
+Your Fleeing Rabbit runs, and it already produces one measurement: whether each answer was correct. Today we add the second: how long the answer took. The idea is old and beautiful. Mental work takes time, and the time can be measured.
 
-The Standalone PsychoPy app you installed contains everything: Python itself, plus all of PsychoPy's tools. But *installed* only means the tools are on your computer, like books in a library building. Each script must still say which tools it wants on its desk. That is what an **import** does, and it is the first line of every experiment you will ever write:
+Your experiment contains a built-in comparison. On a burrow trial, you press the key on the same side as what you saw. On a lion trial you press the opposite key, and to do that you must first override the pull toward the thing you saw. That override is extra mental work, so lion trials should take longer, by tens of milliseconds. Reaction time makes such invisible work visible, and the same logic carries all the way to language: a reader who lingers on a word is telling you that the word costs more to process. This afternoon your experiment becomes exactly that instrument, a self-paced reading task. First, we need to learn how to use the stopwatch.
+
+## A stopwatch object
+
+The tool is `core.Clock()`: a stopwatch. Create it once, in the setup; reset it to zero at the moment you want to measure from; read it when the thing you are timing has happened.
 
 ```python
-from psychopy import visual, event, core
+stopwatch = core.Clock()     # create, once, in the setup
+stopwatch.reset()            # zero it: timing starts NOW
+rt = stopwatch.getTime()     # read it: seconds since the reset
 ```
 
-Read it aloud: *from the PsychoPy collection, fetch three modules: `visual`, `event`, and `core`.* A **module** is a bundle of related functions someone else wrote. Importing it makes its functions available in *your* script, called with a dot: `visual.Window(...)`, `core.wait(...)` — module name, dot, function. (The dot should feel familiar: it's the same dot as `name.upper()`.)
+A small demonstration you can run in a script, no window needed:
 
-If you forget the import line, Python greets you with `NameError: name 'visual' is not defined`. The tools exist on the computer, but your script never fetched them. You might see this error today; now you know what it means.
+```python
+from psychopy import core
 
-## Three modules, three different jobs
+stopwatch = core.Clock()
+stopwatch.reset()
+core.wait(1.5)
+print(stopwatch.getTime())
+```
 
-- **`visual`**: everything the participant *sees*: the window, text, images.
-- **`event`**: everything the participant *does*: key presses.
-- **`core`**: *time* and control: waiting, clocks, quitting cleanly.
+::: {.predict-check data-answer="1.5" data-accept="1.5 seconds||about 1.5||~1.5"}
+Approximately what number is printed?
 
-::: {.predict-check data-answer="visual event core" data-accept="visual, event, core"}
-A quick mental map. Which module provides each step of the following sequence: show an image, wait for the participant's keypress, then hold a blank screen for a moment before the next trial? Three names, in order, on one line.
-
-::: {.pc-hint data-if-contains="visual core event"}
-Read the order asked: image, then keypress, then pause. Which module owns the keypress?
+::: {.pc-hint data-if-contains="0"}
+The clock was zeroed, then the script waited. How much time passed between the reset and the read?
 :::
 
 ::: {.pc-explanation}
-`visual`, `event`, `core`: sees, does, time. Notice what you just described: show a stimulus, collect a response, pause between trials. That is the trial structure you will build this afternoon. Every PsychoPy function you meet today lives in one of these three modules.
+Approximately `1.5`, in practice something like `1.5001923`: one and a half seconds passed between the reset and the read, plus a sliver of processing time. The clock does not stop at `getTime()`; it keeps running, and you can read it as often as you like. Reset defines the zero; every read reports the seconds since.
 :::
 :::
 
-Opening PsychoPy for the first time can be confusing, because the app is really three programs in one:
+## Where the reset goes
 
-- **Builder**: a graphical interface for assembling experiments by dragging components. We do not use it. Everything we build, we write ourselves.
-- **Coder**: a text editor with a Run button. This is where we work all day. It is the counterpart of UCloud's editor, but is a different program.
-- **Runner**: a small window that lists the scripts you have run and shows their output. It usually opens by itself alongside the others; you can mostly ignore it.
+In a trial, what we want to measure is the gap between **stimulus onset** and **response**. Both endpoints matter.
 
-If PsychoPy opens in the Builder, switch to the Coder through the menu: **View → Open Coder view**. You can close the Builder window afterwards.
-
-## Inside the Coder
-
-The Coder window has two areas that matter today:
-
-- The large **editor** pane at the top. This is where you type your script.
-- The **output** pane at the bottom. This is where `print()` output, warnings, and error messages appear. When something goes wrong, this pane tells you why: read it from the top.
-
-The green **Run** button in the toolbar runs the file currently open in the editor.
-
-## Creating and saving a script
-
-1. In the Coder: **File → New** (or Ctrl+N, Cmd+N on a Mac). An empty editor tab appears, named `untitled.py`.
-2. Before writing anything, save it: **File → Save As**, into a folder called `PsychoPyWorkshop`. Use a short name without spaces or special characters, ending in `.py`. The same naming rules as in Session 1.
-3. From then on, save with Ctrl+S (Cmd+S) before every run. An unsaved script will ask you to save before it can run.
-
-## Create your first window
-
-Create a new script as just described and call it `my_first_window.py`. Type the following into it. Save it as `my_first_window.py`, and press the green **Run** button. (Note the environment change from UCloud: the Coder runs your *whole script*, top to bottom. No selecting lines, no Shift+Enter.)
+The response end is easy: `event.waitKeys()` returns at the keypress, so reading the clock on the next line captures it. The onset end is the subtle one, and Chapter 3 prepared you for it: a stimulus appears at one precise moment, the flip. Preparing and drawing take time, so the reset must come *after* the flip, not before the drawing. In our script, `show_stim()` ends with the flip, so the reset follows the call directly:
 
 ```python
-from psychopy import visual, event, core
+show_stim(image)                                  # ends with win.flip(): onset
+stopwatch.reset()                                 # zero AT onset
 
-win = visual.Window(
-    size=(500, 720),     # Width and height in pixels.
-    color='grey',        # Background colour.
-    fullscr=False,        # Keep False while developing.
-    checkTiming=False)    # Skips a startup screen that measures your monitor. We do not need it.
-
-core.wait(5)
-win.close()
-core.quit()
+keys = event.waitKeys(keyList=['left', 'right'])  # returns at the keypress
+rt = stopwatch.getTime()                          # seconds from onset to response
 ```
 
-A grey window should appear for five seconds, then close. Not too exciting yet, but notice that `win` is a **variable**, like any from Session 1. It holds a window object, and that object has functions attached, called with a dot: `win.close()` now.
+::: {.callout-note .predict icon="false" title="🤔 Think first"}
+A student puts `stopwatch.reset()` *before* the `show_stim(image)` call instead of after it. The script runs fine and produces reaction times. What is wrong with them?
 
-::: {.callout-tip title="The escape hatch (you will need it today)"}
-Sooner or later a window will freeze on you. It happens to everyone. Click on the Coder's console and press **Ctrl-C** (or close the window via the taskbar). This is exactly why we develop with `fullscr=False`: a small window is much easier to escape.
+::: {.callout-tip collapse="true" title="Check your thinking"}
+Every reaction time is slightly too long. The clock starts before the stimulus exists: preparing the image and flipping it to the screen take time, and that preparation time is silently added to every trial's measurement. The participant has not even seen the stimulus while the clock is already running. Reset after the flip, so that zero means "the moment the scene appeared".
+:::
 :::
 
-Did the window open for five seconds and close by itself? Then you have imported modules and commanded a screen. Next: [the Draw-Flip Cycle](03_drawflip.qmd).
+::: {.callout-note collapse="true" title="Good to know: how precise is this?"}
+Honest measurement means knowing your instrument. Two small imprecisions are built in: the stimulus appears at a screen refresh, so onset is quantised to the frame (about 17 ms at 60 Hz), and ordinary keyboards add a few milliseconds of their own. Neither can be removed with ordinary hardware, and neither matters for us: both affect all trials equally, and the comparisons we care about, such as lion trials against burrow trials, are differences of tens of milliseconds averaged over trials. Know the noise, design comparisons larger than it.
+:::
+
+::: {.callout-note title="Summary"}
+`core.Clock()` is a stopwatch: create once, `reset()` to define zero, `getTime()` to read seconds since. For a reaction time, zero must mean stimulus onset, so the reset goes immediately after the flip, and the read goes immediately after `waitKeys()` returns. The measurement carries about a frame of onset noise and a few milliseconds of keyboard noise, which comparisons across many trials absorb.
+:::
+
+## Three clock puzzles, together
+
+Before the clock enters the experiment, three small puzzles about how it behaves. Predict each one before anything is run.
+
+### Puzzle 1: the clock keeps running
+
+```python
+from psychopy import core
+
+stopwatch = core.Clock()
+stopwatch.reset()
+
+core.wait(1)
+print(stopwatch.getTime())
+
+core.wait(1)
+print(stopwatch.getTime())
+```
+
+::: {.predict-check data-answer="1 2" data-accept="1, 2||1.0 2.0||1.0, 2.0||about 1 and 2"}
+Two numbers are printed. Approximately which two? Answer on one line, separated by a space.
+
+::: {.pc-hint data-if-contains="1 1"}
+Does `getTime()` stop the clock, or only look at it?
+:::
+
+::: {.pc-explanation}
+Approximately `1`, then `2`. Reading the clock does not stop it or reset it; it only looks. The clock runs continuously from the reset, and every read reports the total seconds since that one zero. One reset can serve many reads.
+:::
+:::
+
+### Puzzle 2: reset moves the zero
+
+```python
+from psychopy import core
+
+stopwatch = core.Clock()
+stopwatch.reset()
+
+core.wait(1)
+stopwatch.reset()
+
+core.wait(1)
+print(stopwatch.getTime())
+```
+
+::: {.predict-check data-answer="1" data-accept="1.0||about 1||~1"}
+One number is printed. Approximately what?
+
+::: {.pc-hint data-if-contains="2"}
+There are two resets. Which one defines the zero that the read is measured from?
+:::
+
+::: {.pc-explanation}
+Approximately `1`, not 2. A reset throws away everything before it and starts the count again: the second reset moved the zero, so the read reports only the second second. This is precisely why one reset per trial works in an experiment: each trial's reset wipes the previous trial's time and starts fresh.
+:::
+:::
+
+### Puzzle 3: one clock, many trials
+
+The experiment measures twelve trials, but it needs only **one** clock. Create it once in the setup; inside the loop, reset at each trial's onset and read at each trial's response. The reset wipes the previous trial's time (Puzzle 2), so the same stopwatch serves every trial in turn. A miniature version, with waits standing in for participants:
+
+```python
+from psychopy import core
+
+stopwatch = core.Clock()            # once, in the setup
+
+for trial in [1, 2, 3]:
+    stopwatch.reset()               # zero at this trial's onset
+    core.wait(trial)                # this "participant" takes 1, then 2, then 3 s
+    print(stopwatch.getTime())
+```
+
+::: {.predict-check data-answer="1 2 3" data-accept="1, 2, 3||1.0 2.0 3.0||1 2 and 3"}
+Three numbers are printed. Approximately which three, in order? One line, separated by spaces.
+
+::: {.pc-hint data-if-contains="1 3 6"}
+Does time pile up across trials, or does something wipe it between them?
+:::
+
+::: {.pc-explanation}
+Approximately `1`, `2`, `3`: each trial's reset wipes the clock, so each read reports only its own trial's time. Without the reset inside the loop, the times would pile up, `1`, `3`, `6`, each trial inheriting all the seconds before it. One clock in the setup, one reset per trial at onset, one read per trial at the response: that is the whole pattern, and it is exactly what you will add to the rabbit in Exercise 6.
+:::
+:::
+
+**Stopwatch demo printing sensible numbers?** Next: [Exercise 6, timing the rabbit](04_exercise6.qmd).

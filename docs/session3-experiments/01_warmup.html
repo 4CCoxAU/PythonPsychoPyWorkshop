@@ -2,23 +2,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.7.32">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>1 · Warming Up: A Python Refresher – Python &amp; PsychoPy Workshop - Aarhus University, Fall 2026</title>
+<title>1 · Warming Up: A PsychoPy Refresher – Python &amp; PsychoPy Workshop - Aarhus University, Fall 2026</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
+code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: 1.5em;}
-div.column{flex: auto;}
-@media screen {
-div.columns{gap: min(4vw, 1.5em);}
-div.column{overflow-x: auto;}
-}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -71,6 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../session3-experiments/02_why_rt.html" rel="next">
 <link href="../session3-experiments/index.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -78,14 +73,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bb62276ab45c84d9efd712f51ff97b5a.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-5a1953863e1f72ef3b996ef827f01ca7.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bb62276ab45c84d9efd712f51ff97b5a.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-234273d1456647dabc34a594ac50e507.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-0348920b7671f696dc9078d39bff215e.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-234273d1456647dabc34a594ac50e507.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-8111375b329e67f367d25c6ca2fac386.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-f47233b3dada9760e9eff975721b4787.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-8111375b329e67f367d25c6ca2fac386.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-0f0bb2b35f0c3ae46b2773d2b92c9e2d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-6353a5bacca7b1f5ff6dee18f156d94f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-0f0bb2b35f0c3ae46b2773d2b92c9e2d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -309,6 +304,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link" href="../session2-psychopy/index.html"> 
 <span class="menu-text">Session 2 · PsychoPy</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../session3-experiments/index.html"> 
+<span class="menu-text">Session 3 · Experiments</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -321,7 +320,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../session3-experiments/index.html">Session 3 · From Reaction Times to Experiments</a></li><li class="breadcrumb-item"><a href="../session3-experiments/01_warmup.html">Block 1 · Measuring reaction times</a></li><li class="breadcrumb-item"><a href="../session3-experiments/01_warmup.html">1 · Warming Up: A Python Refresher</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../session3-experiments/index.html">Session 3 · From Reaction Times to Experiments</a></li><li class="breadcrumb-item"><a href="../session3-experiments/01_warmup.html">Block 1 · Measuring reaction times</a></li><li class="breadcrumb-item"><a href="../session3-experiments/01_warmup.html">1 · Warming Up: A PsychoPy Refresher</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -562,40 +561,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
       </ul>
   </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false">
- <span class="menu-text">Block 3 · Making it an experiment</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../session2-psychopy/09_timing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">9 · Timing: Measuring How Long Thinking Takes</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../session2-psychopy/10_timingexercises.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">10 · Exercise 6: Weigh Your Own Decisions</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true">
  <span class="menu-text">Session 3 · From Reaction Times to Experiments</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../session3-experiments/index.html" class="sidebar-item-text sidebar-link">
@@ -604,91 +580,124 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true">
  <span class="menu-text">Block 1 · Measuring reaction times</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../session3-experiments/01_warmup.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">1 · Warming Up: A Python Refresher</span></a>
+ <span class="menu-text">1 · Warming Up: A PsychoPy Refresher</span></a>
   </div>
 </li>
           <li class="sidebar-item">
- <span class="menu-text">session3-experiments/02_why_rt.qmd</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../session3-experiments/02_why_rt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2 · Why Measure Reaction Time?</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
- <span class="menu-text">session3-experiments/03_measure_rt.qmd</span>
+  <div class="sidebar-item-container"> 
+  <a href="../session3-experiments/04_exercise6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3 · Exercise 6: Weigh Your Own Decisions</span></a>
+  </div>
+</li>
+      </ul>
   </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false">
+ <span class="menu-text">Block 2 · Logging data</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
- <span class="menu-text">session3-experiments/04_exercise6.qmd</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../session3-experiments/05_participant_info.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5 · Functions: Write Once, Use Many Times</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../session3-experiments/06_informed_consent_dlg.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6 · Let Python Find Your Stimuli</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../session3-experiments/07_data_logging.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7 · Responses and Feedback</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../session3-experiments/08_exercise7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8 · Exercise 5: The Fleeing Rabbit</span></a>
+  </div>
+</li>
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false">
- <span class="menu-text">Block 2 · Logging data</span></a>
+ <span class="menu-text">Block 3 · From prototype to experiment</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
- <span class="menu-text">session3-experiments/05_participant_info.qmd</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../session3-experiments/09_reading_functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">9 · Timing: Measuring How Long Thinking Takes</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
- <span class="menu-text">session3-experiments/06_informed_consent_dlg.qmd</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../session3-experiments/10_reading_exp_prototype.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">9 · Timing: Measuring How Long Thinking Takes</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
- <span class="menu-text">session3-experiments/07_data_logging.qmd</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../session3-experiments/11_exercise8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">10 · Exercise 6: Weigh Your Own Decisions</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
- <span class="menu-text">session3-experiments/08_exercise7.qmd</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../session3-experiments/12_wrapup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">9 · Timing: Measuring How Long Thinking Takes</span></a>
+  </div>
+</li>
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="false">
- <span class="menu-text">Block 3 · From prototype to experiment</span></a>
+ <span class="menu-text">Block 4 · Workshop wrap-up</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
- <span class="menu-text">session3-experiments/05_reading_functions.qmd</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../session3-experiments/13_whathavelearned.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">9 · Timing: Measuring How Long Thinking Takes</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
- <span class="menu-text">session3-experiments/06_reading_exp_prototype.qmd</span>
-  </li>
-          <li class="sidebar-item">
- <span class="menu-text">session3-experiments/07_exercises.qmd</span>
-  </li>
-          <li class="sidebar-item">
- <span class="menu-text">session3-experiments/08_wrapup.qmd</span>
-  </li>
-      </ul>
-  </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="false">
- <span class="menu-text">Block 4 · Workshop wrap-up</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
- <span class="menu-text">session3-experiments/09_whathavelearned.qmd</span>
-  </li>
-          <li class="sidebar-item">
- <span class="menu-text">session3-experiments/10_final_thoughts.qmd</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../session3-experiments/14_final_thoughts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">9 · Timing: Measuring How Long Thinking Takes</span></a>
+  </div>
+</li>
       </ul>
   </li>
       </ul>
@@ -703,13 +712,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#variables-f-strings" id="toc-variables-f-strings" class="nav-link active" data-scroll-target="#variables-f-strings">1: Variables &amp; f-strings</a></li>
-  <li><a href="#strings-split" id="toc-strings-split" class="nav-link" data-scroll-target="#strings-split">2 : Strings &amp; split</a></li>
-  <li><a href="#lists" id="toc-lists" class="nav-link" data-scroll-target="#lists">3: Lists</a></li>
-  <li><a href="#loops-conditionals" id="toc-loops-conditionals" class="nav-link" data-scroll-target="#loops-conditionals">4: Loops &amp; conditionals</a></li>
-  <li><a href="#nested-loops-looping-inside-the-items" id="toc-nested-loops-looping-inside-the-items" class="nav-link" data-scroll-target="#nested-loops-looping-inside-the-items">5: Nested loops: looping inside the items</a></li>
-  <li><a href="#testing-how-a-string-ends" id="toc-testing-how-a-string-ends" class="nav-link" data-scroll-target="#testing-how-a-string-ends">6 · Testing how a string ends</a></li>
-  <li><a href="#the-finale-everything-at-once" id="toc-the-finale-everything-at-once" class="nav-link" data-scroll-target="#the-finale-everything-at-once">7: The finale: everything at once</a></li>
+  <li><a href="#the-cycle" id="toc-the-cycle" class="nav-link active" data-scroll-target="#the-cycle">1: The cycle</a></li>
+  <li><a href="#definitions-calls-and-a-loop" id="toc-definitions-calls-and-a-loop" class="nav-link" data-scroll-target="#definitions-calls-and-a-loop">2: Definitions, calls, and a loop</a></li>
+  <li><a href="#lists-and-if-statements" id="toc-lists-and-if-statements" class="nav-link" data-scroll-target="#lists-and-if-statements">3: Lists and if statements</a></li>
+  <li><a href="#the-finale-a-trial-in-the-console" id="toc-the-finale-a-trial-in-the-console" class="nav-link" data-scroll-target="#the-finale-a-trial-in-the-console">4: The finale: a trial in the console</a></li>
   </ul>
 </nav>
     </div>
@@ -717,9 +723,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../session3-experiments/index.html">Session 3 · From Reaction Times to Experiments</a></li><li class="breadcrumb-item"><a href="../session3-experiments/01_warmup.html">Block 1 · Measuring reaction times</a></li><li class="breadcrumb-item"><a href="../session3-experiments/01_warmup.html">1 · Warming Up: A Python Refresher</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../session3-experiments/index.html">Session 3 · From Reaction Times to Experiments</a></li><li class="breadcrumb-item"><a href="../session3-experiments/01_warmup.html">Block 1 · Measuring reaction times</a></li><li class="breadcrumb-item"><a href="../session3-experiments/01_warmup.html">1 · Warming Up: A PsychoPy Refresher</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">1 · Warming Up: A Python Refresher</h1>
+<h1 class="title">1 · Warming Up: A PsychoPy Refresher</h1>
 </div>
 
 
@@ -737,529 +743,299 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <div class="milestone">
-<p><strong>Block 1</strong> · Learning goals: Reactivate Session 1 (variables, strings, lists, loops, conditionals) and <code>.endswith()</code>.</p>
+<p><strong>Block 1</strong> · Learning goals: Reactivate Session 2 (the draw-flip cycle, functions, shuffling, responses, and the filename logic) before the experiment learns to measure.</p>
 </div>
-<p>Let’s warm up the Python muscles. Seven quick predictions, one per Session 1 concept, each a little more experiment-shaped than the last. If one stumps you, that’s a signal to skim the matching Session 1 chapter. All of the materials are still in the sidebar.</p>
-<section id="variables-f-strings" class="level2">
-<h2 class="anchored" data-anchor-id="variables-f-strings">1: Variables &amp; f-strings</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>subject_id <span class="op">=</span> <span class="st">"S_07"</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>rt <span class="op">=</span> <span class="fl">0.5391</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>subject_id<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>rt<span class="sc">:.2f}</span><span class="ss"> seconds"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="predict-check" data-answer="S_07: 0.54 seconds" data-accept="S_07: 0.54 seconds.">
-<p>What exactly prints?</p>
-<div class="pc-hint" data-if-contains="0.53">
-<p><code>:.2f</code> <em>rounds</em> to two decimals. Which way does 0.5391 go?</p>
+<p>A week ago you built the Fleeing Rabbit. Today you will learn how to measure time, record data, and set up a self-paced reading task. Before any of that, six quick checks on the machinery it runs on. If a check stumps you, the matching Session 2 chapter is in the sidebar. And find your <code>rabbit.py</code> from Exercise 5 now: today extends it directly.</p>
+<section id="the-cycle" class="level2">
+<h2 class="anchored" data-anchor-id="the-cycle">1: The cycle</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> psychopy <span class="im">import</span> visual, event, core</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>win <span class="op">=</span> visual.Window(size<span class="op">=</span>(<span class="dv">1280</span>, <span class="dv">720</span>), fullscr<span class="op">=</span><span class="va">False</span>,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>                    color<span class="op">=</span><span class="st">'black'</span>, checkTiming<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>text <span class="op">=</span> visual.TextStim(win, text<span class="op">=</span><span class="st">'Welcome back!'</span>, color<span class="op">=</span><span class="st">'white'</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>text.draw()</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>core.wait(<span class="dv">2</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>win.close()</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>core.quit()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="predict-check" data-answer="a grey window" data-accept="grey||grey window||grey screen||a grey screen">
+<p>This script runs without errors. What does the participant see during the two seconds?</p>
+<div class="pc-hint" data-if-contains="Welcome">
+<p>The text was drawn, but drawing paints the back buffer. What raises the curtain?</p>
+</div>
+<div class="pc-hint" data-if-contains="black">
+<p>Careful: without that missing line, not even the background colour reaches the screen.</p>
 </div>
 <div class="pc-explanation">
-<p><code>S_07: 0.54 seconds</code>: the f-string substitutes both variables, and <code>:.2f</code> rounds 0.5391 up to 0.54. Today, this exact pattern can be used to put text on the experiment screen.</p>
+<p>A grey window. The text was prepared and drawn, but only backstage: there is no <code>win.flip()</code>, so nothing was ever swapped to the screen, not even the black background. The unpainted default is grey. Prepare, draw, flip, wait: the flip is the step this script forgot, and a grey window is its signature.</p>
 </div>
 </div>
 </section>
-<section id="strings-split" class="level2">
-<h2 class="anchored" data-anchor-id="strings-split">2 : Strings &amp; split</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>filename <span class="op">=</span> <span class="st">"gear_R.jpg"</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>parts <span class="op">=</span> filename.split(<span class="st">"_"</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(parts[<span class="dv">1</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="predict-check" data-answer="R.jpg" data-accept="'R.jpg'||&quot;R.jpg&quot;">
-<p>What prints?</p>
-<div class="pc-hint" data-if-contains="R&quot;">
-<p>Nearly! There’s only one underscore, so only one cut. What stays attached to the R?</p>
+<section id="definitions-calls-and-a-loop" class="level2">
+<h2 class="anchored" data-anchor-id="definitions-calls-and-a-loop">2: Definitions, calls, and a loop</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> msg(text):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(text)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'---'</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> word <span class="kw">in</span> [<span class="st">'Welcome'</span>, <span class="st">'Goodbye'</span>]:</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    msg(word.upper())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="predict-check" data-answer="WELCOME --- GOODBYE ---" data-accept="WELCOME, ---, GOODBYE, ---" data-multiline="true" data-placeholder="One line per printed line…">
+<p>Write out the full console output, one line per printed line.</p>
+<div class="pc-hint" data-if-contains="Welcome">
+<p>Look at the call: what happens to <code>word</code> before it is handed to the function?</p>
 </div>
-<div class="pc-hint" data-if-contains="gear">
-<p><code>parts[1]</code>: which piece is at index 1? Count from zero.</p>
+<div class="pc-hint" data-if-contains="WELCOME GOODBYE">
+<p>The body has two print lines, and the whole body runs at every call. What comes between the words?</p>
 </div>
 <div class="pc-explanation">
-<p><code>R.jpg</code>: one underscore produces one cut, giving the list <code>['gear', 'R.jpg']</code>; index 1 is the second element, with the file extension still attached. Filenames that carry information, read out by string methods, are a central device in today’s experiment.</p>
+<pre><code>WELCOME
+---
+GOODBYE
+---</code></pre>
+<p>Four lines. The definition itself prints nothing. The loop then calls <code>msg()</code> once per word, and at each call the argument is evaluated first, so <code>word.upper()</code> hands the uppercased string to the parameter, and the whole body runs, both prints. Look at the shape of those last two lines of code: a loop that calls a function once per item is exactly your trial loop, <code>for image in images: show_stim(image)</code>.</p>
 </div>
 </div>
 </section>
-<section id="lists" class="level2">
-<h2 class="anchored" data-anchor-id="lists">3: Lists</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>keys <span class="op">=</span> [<span class="st">"left"</span>, <span class="st">"right"</span>]</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>keys.append(<span class="st">"escape"</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(keys))</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(keys[<span class="op">-</span><span class="dv">1</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="predict-check" data-answer="3 escape" data-accept="3, escape">
-<p>Two things print: answer on one line, separated by a space.</p>
-<div class="pc-hint" data-if-contains="2">
-<p><code>len()</code> counts <em>after</em> the append. How many items are in the list by the time it runs?</p>
-</div>
-<div class="pc-explanation">
-<p><code>3</code>, then <code>escape</code>: the append happened first, so <code>len(keys)</code> is 3, and <code>[-1]</code> is the last item. (A list of key names, incidentally, is literally an argument you’ll pass to PsychoPy today: <code>keyList=['left', 'right']</code>.)</p>
-</div>
-</div>
-</section>
-<section id="loops-conditionals" class="level2">
-<h2 class="anchored" data-anchor-id="loops-conditionals">4: Loops &amp; conditionals</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>words <span class="op">=</span> [<span class="st">'tea'</span>, <span class="st">'coffee'</span>, <span class="st">'water'</span>, <span class="st">'juice'</span>]</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>words.append(<span class="st">'cocoa'</span>)</span>
+<section id="lists-and-if-statements" class="level2">
+<h2 class="anchored" data-anchor-id="lists-and-if-statements">3: Lists and if statements</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>keys <span class="op">=</span> [<span class="st">'left'</span>]</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>correct_key <span class="op">=</span> <span class="st">'left'</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> w <span class="kw">in</span> words:</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">len</span>(w) <span class="op">&gt;</span> <span class="dv">5</span>:</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(w.upper())</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(w)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="predict-check" data-answer="tea COFFEE water juice cocoa" data-accept="tea, COFFEE, water, juice, cocoa">
-<p>What does this print? One line, in order, separated by spaces.</p>
-<div class="pc-hint" data-if-contains="COCOA">
-<p>Careful: how many letters does <code>cocoa</code> have, exactly? And is <code>5 &gt; 5</code> true?</p>
-</div>
-<div class="pc-hint" data-if-contains="TEA">
-<p>Which words have <em>more than</em> 5 letters? Count before you uppercase.</p>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> keys <span class="op">==</span> correct_key:</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'success'</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'failure'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="predict-check" data-answer="failure" data-accept="'failure'||failure!">
+<p>The participant pressed left, and left was correct. What prints?</p>
+<div class="pc-hint" data-if-contains="success">
+<p>Compare the types: <code>keys</code> is a list holding a string. Is a box containing a letter the letter?</p>
 </div>
 <div class="pc-explanation">
-<p>Five lines: <code>tea</code>, <code>COFFEE</code>, <code>water</code>, <code>juice</code>, <code>cocoa</code>. Only <code>coffee</code> exceeds five letters. The word <code>cocoa</code> has exactly five, and <code>5 &gt; 5</code> is <code>False</code>. This combination of a loop and a conditional is the skeleton of the trial loop you will build today.</p>
+<p><code>failure</code>, despite a perfectly correct response. A list never equals a string, so <code>['left'] == 'left'</code> is <code>False</code>, and no error ever says so: an experiment with this bug marks every answer wrong, silently. The missing character is the index: <code>keys[0] == correct_key</code>. Today’s reaction times are read in the same breath as <code>keys[0]</code>, so this reflex matters twice.</p>
 </div>
 </div>
 </section>
-<section id="nested-loops-looping-inside-the-items" class="level2">
-<h2 class="anchored" data-anchor-id="nested-loops-looping-inside-the-items">5: Nested loops: looping inside the items</h2>
-<p>Here we have a loop inside a loop, as in Session 1’s Exercise 3. Recall that a string is itself iterable: its elements are its characters:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>keys <span class="op">=</span> [<span class="st">'left'</span>, <span class="st">'up'</span>]</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> key <span class="kw">in</span> keys:</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(key)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> character <span class="kw">in</span> key:</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(character)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="predict-check" data-answer="8" data-accept="eight||8 lines">
-<p>How many lines does this print in total?</p>
-<div class="pc-hint" data-if-contains="6">
-<p>Count both levels: each key is printed once in full, and then once per character. How many characters in <code>left</code>? In <code>up</code>?</p>
+<section id="the-finale-a-trial-in-the-console" class="level2">
+<h2 class="anchored" data-anchor-id="the-finale-a-trial-in-the-console">4: The finale: a trial in the console</h2>
+<p>Everything at once. Read it slowly before answering.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> report(image, key):</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> image.endswith(<span class="st">'_L.jpg'</span>):</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>        correct_key <span class="op">=</span> <span class="st">'left'</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>        correct_key <span class="op">=</span> <span class="st">'right'</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> key <span class="op">==</span> correct_key:</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>image<span class="sc">}</span><span class="ss">: correct'</span>)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>image<span class="sc">}</span><span class="ss">: wrong'</span>)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>images <span class="op">=</span> [<span class="st">'burrow_L.jpg'</span>, <span class="st">'lion_R.jpg'</span>]</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> image <span class="kw">in</span> images:</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    report(image, <span class="st">'left'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="predict-check" data-answer="burrow_L.jpg: correct lion_R.jpg: wrong" data-accept="burrow_L.jpg: correct, lion_R.jpg: wrong" data-multiline="true" data-placeholder="Two lines, one per trial…">
+<p>Two lines print. Write them out exactly, one per line.</p>
+<div class="pc-hint" data-if-contains="lion_R.jpg: correct">
+<p>On the second call, the suffix is <code>_R</code>, so what is <code>correct_key</code>? And what key was passed in, both times?</p>
 </div>
-<div class="pc-hint" data-if-contains="2">
-<p>The outer loop prints each key once in full. The inner loop then iterates over that key’s characters, printing one line per character.</p>
-</div>
-<div class="pc-explanation">
-<p><code>8</code> lines: for each key: the whole word once, then its characters one by one:</p>
-<pre><code>left
-l
-e
-f
-t
-up
-u
-p</code></pre>
-<p>Each time, it first prints the whole word. Then the inner loop goes through that word one character at a time, printing each one. So <code>left</code> gives 1 line for the word plus 4 lines for its letters, and <code>up</code> gives 1 plus 2. Notice that Python decides what the loop variable holds by looking at what comes after in: a list gives you its items, a string gives you its characters. The names <code>key</code> and <code>character</code> are just labels we chose; they do not tell Python anything.</p>
-</div>
-</div>
-</section>
-<section id="testing-how-a-string-ends" class="level2">
-<h2 class="anchored" data-anchor-id="testing-how-a-string-ends">6 · Testing how a string ends</h2>
-<p><code>.endswith()</code> returns <code>True</code> or <code>False</code>, so it can serve directly as the condition of an <code>if</code> statement. Our stimulus filenames use this: the suffix <code>_L</code> or <code>_R</code> records which response is correct.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>stimuli <span class="op">=</span> [<span class="st">'wheel_L.jpg'</span>, <span class="st">'wheel_R.jpg'</span>, <span class="st">'gear_L.jpg'</span>]</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> s <span class="kw">in</span> stimuli:</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> s.endswith(<span class="st">"_L.jpg"</span>):</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(s, <span class="st">'-&gt; left'</span>)</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(s, <span class="st">'-&gt; right'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="predict-check" data-answer="left right left" data-accept="left, right, left||L R L||l r l">
-<p>Which direction is assigned to each filename? Answer in order, on one line.</p>
-<div class="pc-hint" data-if-contains="right left right">
-<p>Test each filename’s ending against <code>"_L.jpg"</code>. Which of the three match?</p>
+<div class="pc-hint" data-if-contains="wrong burrow">
+<p>Take the first call: <code>burrow_L.jpg</code> ends in <code>_L.jpg</code>, and the pressed key is <code>left</code>. Walk each branch.</p>
 </div>
 <div class="pc-explanation">
-<p><code>left</code>, <code>right</code>, <code>left</code>. The two filenames ending in <code>_L.jpg</code> pass the test; <code>wheel_R.jpg</code> fails it and falls to the <code>else</code> branch. Remember this construction: in the feedback chapter it determines which key the participant should have pressed.</p>
+<pre><code>burrow_L.jpg: correct
+lion_R.jpg: wrong</code></pre>
+<p>Both calls pass the same key, <code>left</code>. For <code>burrow_L.jpg</code> the suffix sets <code>correct_key</code> to <code>left</code>, and the comparison succeeds. For <code>lion_R.jpg</code> it sets <code>correct_key</code> to <code>right</code>, and the same <code>left</code> now fails. One function, two parameters, a loop supplying the calls, a suffix check deciding the answer, a comparison judging it, an f-string reporting it: that is your entire trial loop, minus only the screen and the clock. The clock is the very next chapter.</p>
 </div>
 </div>
-</section>
-<section id="the-finale-everything-at-once" class="level2">
-<h2 class="anchored" data-anchor-id="the-finale-everything-at-once">7: The finale: everything at once</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>stimuli <span class="op">=</span> [<span class="st">'wheel_L.jpg'</span>, <span class="st">'wheel_R.jpg'</span>, <span class="st">'gear_L.jpg'</span>]</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>trial <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> s <span class="kw">in</span> stimuli:</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    trial <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> s.endswith(<span class="st">"_L.jpg"</span>):</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>        answer <span class="op">=</span> <span class="st">"left"</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>        answer <span class="op">=</span> <span class="st">"right"</span></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Trial </span><span class="sc">{</span>trial<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>s<span class="sc">}</span><span class="ss">, </span><span class="sc">{</span>answer<span class="sc">}</span><span class="ss"> is the correct answer"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="predict-check" data-answer="Trial 1: wheel_L.jpg, left is the correct answer Trial 2: wheel_R.jpg, right is the correct answer Trial 3: gear_L.jpg, left is the correct answer" data-multiline="true" data-placeholder="Three lines, one per trial…">
-<p>Write out the full output, one line per trial, exactly as it will appear in the console.</p>
-<div class="pc-hint" data-if-contains="Trial 0">
-<p>The counter starts at 0, but <code>trial += 1</code> runs before the print. What is its value on the first trial?</p>
-</div>
-<div class="pc-hint" data-if-contains="correct answer.">
-<p>Very close. Compare your punctuation with the f-string: is there a full stop at the end?</p>
-</div>
-<div class="pc-explanation">
-<pre><code>Trial 1: wheel_L.jpg, left is the correct answer
-Trial 2: wheel_R.jpg, right is the correct answer
-Trial 3: gear_L.jpg, left is the correct answer</code></pre>
-<p>Consider what you have just written from memory: a stimulus list, a trial counter, a filename check that determines the correct answer, and an f-string that reports each trial. This is the complete logical skeleton of today’s experiment. The only missing element is a screen, which the next chapter provides.</p>
-</div>
-</div>
-<p><strong>Do all seven checks make sense?</strong> Anything a little shaky or needs refreshing? The sidebar has the relevant materials. Next: <a href="../session3-experiments/02_psychopy.html">Meet PsychoPy</a>.</p>
+<p><strong>Does the reasoning in all of these checks make sense?</strong> Anything a little shaky or needs refreshing? The sidebar has the relevant materials. Next: <a href="../session3-experiments/02_why_rt.html">Why Measure Reaction Time</a>.</p>
 
 
 </section>
 
 </main> <!-- /main -->
 <!-- ============================================================
-
      PREDICT-CHECK WIDGET  (injected on every page via _quarto.yml)
-
      Turns  ::: {.predict-check data-answer="..."}  divs into an
-
      interactive "type your prediction → check" box.
-
      Just runs with html code, to make it simple and works with 
-
      GitHub Pages and offline.
-
      ============================================================ -->
-
 <style>
-
 .predict-check {
-
   border: 1.5px solid var(--ink, #14213d);
-
   border-left: 5px solid var(--accent, #fca311);
-
   border-radius: 8px;
-
   padding: 1rem 1.2rem;
-
   margin: 1.2rem 0;
-
   background: #fdf8ee;
-
 }
-
 .predict-check .pc-label {
-
   color: var(--accent-dark, #b87700);
-
   font-weight: 700;
-
   font-size: 0.85rem;
-
   letter-spacing: 0.06em;
-
   text-transform: uppercase;
-
   margin-bottom: 0.4rem;
-
 }
-
 .predict-check .pc-ui { margin-top: 0.7rem; display: flex; gap: 0.5rem; flex-wrap: wrap; }
-
 .predict-check input.pc-input, .predict-check textarea.pc-input {
-
   flex: 1 1 220px;
-
   font-family: var(--bs-font-monospace, monospace);
-
   font-size: 0.95rem;
-
   padding: 0.45rem 0.6rem;
-
   border: 1px solid #d5d0c3;
-
   border-radius: 6px;
-
 }
-
 .predict-check textarea.pc-input { min-height: 4.5rem; }
-
 .predict-check button.pc-btn {
-
   background: var(--ink, #14213d); color: #fff; border: none; border-radius: 6px;
-
   padding: 0.45rem 1rem; font-weight: 600; cursor: pointer;
-
 }
-
 .predict-check button.pc-btn:disabled { background: #9aa5b8; cursor: not-allowed; }
-
 .predict-check button.pc-reveal {
-
   background: #fff; color: var(--ink, #14213d); border: 1.5px solid var(--ink, #14213d);
-
   border-radius: 6px; padding: 0.45rem 1rem; font-weight: 600; cursor: pointer;
-
 }
-
 .predict-check .pc-feedback { margin-top: 0.6rem; font-size: 0.95rem; display: none; border-radius: 6px; padding: 0.55rem 0.8rem; }
-
 .predict-check .pc-feedback.pc-wrong { display: block; background: #fdf0ef; color: #8a2d23; border: 1px solid #f3c9c4; }
-
 .predict-check .pc-feedback.pc-right { display: block; background: #eef7ee; color: #1d5c2f; border: 1px solid #c4e3c8; }
-
 .predict-check .pc-explanation {
-
   display: none; margin-top: 0.8rem; padding-top: 0.8rem; border-top: 1px dashed #d5d0c3;
-
 }
-
 .predict-check .pc-hint { display: none; }
-
 .predict-check.pc-done input.pc-input, .predict-check.pc-done textarea.pc-input { background: #f3efe4; }
 
-
-
 /* ---- dark-mode (Quarto toggles body.quarto-dark) ---- */
-
 body.quarto-dark .predict-check { background: #1b2437; border-color: #2b3a52; border-left-color: var(--accent, #fca311); }
-
 body.quarto-dark .predict-check .pc-label { color: var(--accent, #fca311); }
-
 body.quarto-dark .predict-check input.pc-input,
-
 body.quarto-dark .predict-check textarea.pc-input {
-
   background: #111827; color: #e7ebf5; border-color: #2b3a52;
-
 }
-
 body.quarto-dark .predict-check button.pc-btn { background: var(--accent, #fca311); color: #14213d; }
-
 body.quarto-dark .predict-check button.pc-btn:disabled { background: #2b3a52; color: #6b7690; }
-
 body.quarto-dark .predict-check button.pc-reveal { background: transparent; color: var(--accent, #fca311); border-color: var(--accent, #fca311); }
-
 body.quarto-dark .predict-check .pc-feedback.pc-wrong { background: #3a1f1c; color: #f0b3aa; border-color: #6e3a33; }
-
 body.quarto-dark .predict-check .pc-feedback.pc-right { background: #1c3320; color: #a8dcb0; border-color: #33663c; }
-
 body.quarto-dark .predict-check .pc-explanation { border-top-color: #2b3a52; }
-
 body.quarto-dark .predict-check.pc-done input.pc-input,
-
 body.quarto-dark .predict-check.pc-done textarea.pc-input { background: #1b2437; }
-
 </style>
-
 <script>
-
 (function () {
-
   "use strict";
 
-
-
   // --- matching logic -------------------------------------------------
-
   function norm(s) { return String(s).replace(/\s+/g, " ").trim(); }
-
   function stripQuotes(s) { return String(s).trim().replace(/^["'\u2018\u2019\u201C\u201D]+|["'\u2018\u2019\u201C\u201D]+$/g, ""); }
-
   function isCorrect(input, candidates) {
-
     var n = norm(input);
-
     return candidates.some(function (c) { return n === c; });
-
   }
-
   // Built-in near-miss detectors: return a hint string or null.
-
   function builtinHint(input, candidates) {
-
     var n = norm(input);
-
     if (candidates.some(function (c) { return norm(stripQuotes(n)) === c && n !== c; }))
-
       return "Close, but look again: are the quotation marks part of what gets printed?";
-
     if (candidates.some(function (c) { return n.toLowerCase() === c.toLowerCase() && n !== c; }))
-
       return "Almost, check upper- versus lowercase. Python prints text exactly as it is.";
-
     if (candidates.some(function (c) { return n.replace(/\s+/g, "") === c.replace(/\s+/g, "") && n !== c; }))
-
       return "Very close, count the spaces carefully.";
-
     return null;
-
   }
-
-
 
   function init() {
-
     var boxes = document.querySelectorAll(".predict-check");
-
     Array.prototype.forEach.call(boxes, function (box) {
-
       if (box.dataset.pcInit) return;
-
       box.dataset.pcInit = "1";
 
-
-
       var answer = box.getAttribute("data-answer") || "";
-
       var accept = (box.getAttribute("data-accept") || "").split("||").filter(function (x) { return x.length; });
-
       var candidates = [answer].concat(accept).map(norm);
-
       var multiline = box.getAttribute("data-multiline") === "true";
-
       var maxAttempts = parseInt(box.getAttribute("data-attempts") || "3", 10);
 
-
-
       var explanation = box.querySelector(".pc-explanation");
-
       var hints = Array.prototype.slice.call(box.querySelectorAll(".pc-hint"));
 
-
-
       // header label
-
       var label = document.createElement("div");
-
       label.className = "pc-label";
-
       label.textContent = "\uD83D\uDD2E Predict first";
-
       box.insertBefore(label, box.firstChild);
 
-
-
       // input + buttons
-
       var ui = document.createElement("div");
-
       ui.className = "pc-ui";
-
       var input = document.createElement(multiline ? "textarea" : "input");
-
       input.className = "pc-input";
-
       input.setAttribute("placeholder", box.getAttribute("data-placeholder") || "Type your prediction, then check\u2026");
-
       input.setAttribute("aria-label", "Your prediction");
-
       if (!multiline) input.setAttribute("type", "text");
-
       var btn = document.createElement("button");
-
       btn.className = "pc-btn";
-
       btn.type = "button";
-
       btn.textContent = "Check";
-
       btn.disabled = true;
-
       var reveal = document.createElement("button");
-
       reveal.className = "pc-reveal";
-
       reveal.type = "button";
-
       reveal.textContent = "Show the answer";
-
       reveal.style.display = "none";
-
       ui.appendChild(input); ui.appendChild(btn); ui.appendChild(reveal);
 
-
-
       var feedback = document.createElement("div");
-
       feedback.className = "pc-feedback";
 
-
-
       // keep explanation last
-
       if (explanation) { box.appendChild(explanation); }
-
       box.appendChild(ui);
-
       box.insertBefore(feedback, explanation || null);
 
-
-
       var attempts = 0;
-
       function finish(correct) {
-
         box.classList.add("pc-done");
-
         input.disabled = true; btn.disabled = true; reveal.style.display = "none";
-
         if (explanation) explanation.style.display = "block";
-
         feedback.className = "pc-feedback " + (correct ? "pc-right" : "pc-wrong");
-
         feedback.textContent = correct
-
           ? "\u2713 Correct! Well predicted. Now run it and watch it happen."
-
           : "Compare the answer below with what you predicted. The difference is the interesting part.";
-
       }
 
-
-
       input.addEventListener("input", function () { btn.disabled = norm(input.value).length === 0; });
-
       input.addEventListener("keydown", function (e) {
-
         if (e.key === "Enter" && !multiline && !btn.disabled) { e.preventDefault(); btn.click(); }
-
       });
-
       reveal.addEventListener("click", function () { finish(false); });
 
-
-
       btn.addEventListener("click", function () {
-
         var val = input.value;
-
         if (isCorrect(val, candidates)) { finish(true); return; }
-
         attempts += 1;
 
-
-
         // author-provided hints first (first match wins)
-
         var msg = null;
-
         for (var i = 0; i < hints.length; i++) {
-
           var needle = hints[i].getAttribute("data-if-contains");
-
           if (needle && val.indexOf(needle) !== -1) { msg = hints[i].textContent.trim(); break; }
-
         }
-
         if (!msg) msg = builtinHint(val, candidates);
-
         if (!msg) msg = "Not quite. Read the code once more. What exactly will it give you?";
 
-
-
         var left = maxAttempts - attempts;
-
         feedback.className = "pc-feedback pc-wrong";
-
         feedback.textContent = msg;
-
         if (left <= 0) reveal.style.display = "inline-block";
-
       });
-
     });
-
   }
 
-
-
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
-
   else init();
-
 })();
-
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -1325,14 +1101,13 @@ body.quarto-dark .predict-check.pc-done textarea.pc-input { background: #1b2437;
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-      const outerScaffold = trigger.parentElement.cloneNode(true);
-      const codeEl = outerScaffold.querySelector('code');
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
         }
-      }
-      return codeEl.innerText;
+        return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -1720,6 +1495,9 @@ body.quarto-dark .predict-check.pc-done textarea.pc-input { background: #1b2437;
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../session3-experiments/02_why_rt.html" class="pagination-link" aria-label="2 · Why Measure Reaction Time?">
+        <span class="nav-page-text">2 · Why Measure Reaction Time?</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
