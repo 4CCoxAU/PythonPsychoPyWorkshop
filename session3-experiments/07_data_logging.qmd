@@ -108,7 +108,7 @@ Note that the logic arrived as two small decisions rather than one big one: firs
 
 Click the four steps together and you have a full trial: show a scene, collect the response, judge it, answer it. The full experiment is nothing more than this trial, shuffled and looped, and building that is the next page.
 
-:::: {.content-visible when-meta="show-solutions-s2"}
+:::: {.content-visible when-meta="show-solutions-s3"}
 
 ::: {.callout-tip collapse="true" title="Show the code"}
 ```python
@@ -154,7 +154,7 @@ core.quit()
 
 ::::
 
-:::: {.content-visible unless-meta="show-solutions-s2"}
+:::: {.content-visible unless-meta="show-solutions-s3"}
 
 ::: {.callout-tip icon="false" title="🔒 Example code will be available here after the workshop"}
 :::

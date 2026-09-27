@@ -18,7 +18,7 @@ Everything you've built today comes together here, and this time you start from 
 
 Every experiment script begins with the same housekeeping: fetch the tools, fetch the materials. The tools are three PsychoPy modules plus `glob` and `random`. The materials are the twelve scenes, collected with the glob pattern and shuffled with the one-line pattern, so that this run's order belongs to this run alone. Finish the step with a `print(images)` and check three things before moving on: twelve paths, sensible names, and a different order when you run it again.
 
-:::: {.content-visible when-meta="show-solutions-s2"}
+:::: {.content-visible when-meta="show-solutions-s3"}
 
 ::: {.callout-tip collapse="true" title="Show the code"}
 ```python
@@ -34,7 +34,7 @@ print(images)
 
 ::::
 
-:::: {.content-visible unless-meta="show-solutions-s2"}
+:::: {.content-visible unless-meta="show-solutions-s3"}
 
 ::: {.callout-tip icon="false" title="🔒 Example code will be available here after the workshop"}
 :::
@@ -45,7 +45,7 @@ print(images)
 
 The same window call as all day. Build a window that is black to match the scenes. Run it and you should see a black window that opens and, for now, immediately closes with the script.
 
-:::: {.content-visible when-meta="show-solutions-s2"}
+:::: {.content-visible when-meta="show-solutions-s3"}
 
 ::: {.callout-tip collapse="true" title="Show the code"}
 ```python
@@ -56,7 +56,7 @@ win = visual.Window(size=(1280, 720), fullscr=False,
 
 ::::
 
-:::: {.content-visible unless-meta="show-solutions-s2"}
+:::: {.content-visible unless-meta="show-solutions-s3"}
 
 ::: {.callout-tip icon="false" title="🔒 Example code will be available here after the workshop"}
 :::
@@ -67,7 +67,7 @@ win = visual.Window(size=(1280, 720), fullscr=False,
 
 Define msg(text) and call it once with the welcome text. This screen is the participant's entire training, so it must teach the rule: lion means press the opposite arrow, burrow means press its side. Run it: the welcome should appear and dismiss on any key.
 
-:::: {.content-visible when-meta="show-solutions-s2"}
+:::: {.content-visible when-meta="show-solutions-s3"}
 
 ::: {.callout-tip collapse="true" title="Show the code"}
 ```python
@@ -85,7 +85,7 @@ event.waitKeys()
 
 ::::
 
-:::: {.content-visible unless-meta="show-solutions-s2"}
+:::: {.content-visible unless-meta="show-solutions-s3"}
 
 ::: {.callout-tip icon="false" title="🔒 Example code will be available here after the workshop"}
 :::
@@ -96,7 +96,7 @@ event.waitKeys()
 
 Define show_stim(image): prepare an ImageStim, draw, flip, and deliberately no waiting inside, because scenes and feedback wait differently. Then the trial loop: for each image in the shuffled list, show_stim(image), advancing on any key for now. Run it and page through all twelve scenes.
 
-:::: {.content-visible when-meta="show-solutions-s2"}
+:::: {.content-visible when-meta="show-solutions-s3"}
 
 ::: {.callout-tip collapse="true" title="Show the code"}
 ```python
@@ -113,7 +113,7 @@ for image in images:
 
 ::::
 
-:::: {.content-visible unless-meta="show-solutions-s2"}
+:::: {.content-visible unless-meta="show-solutions-s3"}
 
 ::: {.callout-tip icon="false" title="🔒 Example code will be available here after the workshop"}
 :::
@@ -124,7 +124,7 @@ for image in images:
 
 Inside the loop, replace the plain wait with a keyList, so only the arrow keys count, and keys[0] stored as key. Nothing visible changes when you run it, which is the point: the script now knows what was pressed.
 
-:::: {.content-visible when-meta="show-solutions-s2"}
+:::: {.content-visible when-meta="show-solutions-s3"}
 
 ::: {.callout-tip collapse="true" title="Show the code"}
 ```python
@@ -135,7 +135,7 @@ Inside the loop, replace the plain wait with a keyList, so only the arrow keys c
 
 ::::
 
-:::: {.content-visible unless-meta="show-solutions-s2"}
+:::: {.content-visible unless-meta="show-solutions-s3"}
 
 ::: {.callout-tip icon="false" title="🔒 Example code will be available here after the workshop"}
 :::
@@ -146,7 +146,7 @@ Inside the loop, replace the plain wait with a keyList, so only the arrow keys c
 
 Derive the correct key from the filename with `.endswith()` *(remember: the suffix encodes the correct response, lion-avoidance already baked in)*, then compare.
 
-:::: {.content-visible when-meta="show-solutions-s2"}
+:::: {.content-visible when-meta="show-solutions-s3"}
 
 ::: {.callout-tip collapse="true" title="Show the code"}
 ```python
@@ -159,7 +159,7 @@ Derive the correct key from the filename with `.endswith()` *(remember: the suff
 
 ::::
 
-:::: {.content-visible unless-meta="show-solutions-s2"}
+:::: {.content-visible unless-meta="show-solutions-s3"}
 
 ::: {.callout-tip icon="false" title="🔒 Example code will be available here after the workshop"}
 :::
@@ -171,7 +171,7 @@ Derive the correct key from the filename with `.endswith()` *(remember: the suff
 
 Success or failure image for exactly 2 seconds each trial; after the loop, a goodbye message and a clean shutdown.
 
-:::: {.content-visible when-meta="show-solutions-s2"}
+:::: {.content-visible when-meta="show-solutions-s3"}
 
 ::: {.callout-tip collapse="true" title="Show the code"}
 ```python
@@ -191,7 +191,7 @@ core.quit()
 
 ::::
 
-:::: {.content-visible unless-meta="show-solutions-s2"}
+:::: {.content-visible unless-meta="show-solutions-s3"}
 
 ::: {.callout-tip icon="false" title="🔒 Example code will be available here after the workshop"}
 :::
@@ -258,7 +258,7 @@ core.quit()
 ```
 :::
 
-:::: {.content-visible when-meta="show-solutions-s2"}
+:::: {.content-visible when-meta="show-solutions-s3"}
 
 ::: {.callout-tip collapse="true" title="Checkpoint · complete Fleeing Rabbit script"}
 ```python
@@ -324,7 +324,7 @@ core.quit()
 
 ::::
 
-:::: {.content-visible unless-meta="show-solutions-s2"}
+:::: {.content-visible unless-meta="show-solutions-s3"}
 
 ::: {.callout-tip icon="false" title="🔒 The complete script will be available here after the workshop"}
 :::
@@ -335,7 +335,7 @@ core.quit()
 
 **A. Keep score.** Count correct answers; report the score in the goodbye message with an f-string.
 
-:::: {.content-visible when-meta="show-solutions-s2"}
+:::: {.content-visible when-meta="show-solutions-s3"}
 
 ::: {.callout-tip collapse="true" title="Show the code"}
 ```python
@@ -354,7 +354,7 @@ goodbye = visual.TextStim(win,
 
 ::::
 
-:::: {.content-visible unless-meta="show-solutions-s2"}
+:::: {.content-visible unless-meta="show-solutions-s3"}
 
 ::: {.callout-tip icon="false" title="🔒 Example code will be available here after the workshop"}
 :::
@@ -363,7 +363,7 @@ goodbye = visual.TextStim(win,
 
 **B. A polite emergency exit.** Add `'escape'` to the keyList and quit cleanly when it's pressed: essential once you're fullscreen.
 
-:::: {.content-visible when-meta="show-solutions-s2"}
+:::: {.content-visible when-meta="show-solutions-s3"}
 
 ::: {.callout-tip collapse="true" title="Show the code"}
 ```python
@@ -377,7 +377,7 @@ goodbye = visual.TextStim(win,
 
 ::::
 
-:::: {.content-visible unless-meta="show-solutions-s2"}
+:::: {.content-visible unless-meta="show-solutions-s3"}
 
 ::: {.callout-tip icon="false" title="🔒 Example code will be available here after the workshop"}
 :::
@@ -386,7 +386,7 @@ goodbye = visual.TextStim(win,
 
 **C. A fixation cross between trials.** Real experiments separate trials with a brief `+` in the centre, so the participant's eyes reset before the next scene. Add one after the feedback, for half a second, using fixation = visual.TextStim(win, text='+', height=0.1). Everything you need is taught: `TextStim`, draw, flip, `core.wait()`, and think about where in the loop it belongs.
 
-:::: {.content-visible when-meta="show-solutions-s2"}
+:::: {.content-visible when-meta="show-solutions-s3"}
 
 ::: {.callout-tip collapse="true" title="Show the code"}
 ```python
@@ -400,7 +400,7 @@ goodbye = visual.TextStim(win,
 
 ::::
 
-:::: {.content-visible unless-meta="show-solutions-s2"}
+:::: {.content-visible unless-meta="show-solutions-s3"}
 
 ::: {.callout-tip icon="false" title="🔒 Example code will be available here after the workshop"}
 :::

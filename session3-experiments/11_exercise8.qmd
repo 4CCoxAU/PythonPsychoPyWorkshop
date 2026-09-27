@@ -44,7 +44,7 @@ core.quit()
 ```
 :::
 
-:::: {.content-visible when-meta="show-solutions-s2"}
+:::: {.content-visible when-meta="show-solutions-s3"}
 
 ::: {.callout-tip collapse="true" title="Show the code"}
 ```python
@@ -74,7 +74,7 @@ core.quit()
 
 ::::
 
-:::: {.content-visible unless-meta="show-solutions-s2"}
+:::: {.content-visible unless-meta="show-solutions-s3"}
 
 ::: {.callout-tip icon="false" title="🔒 Example code will be available here after the workshop"}
 :::
@@ -127,7 +127,7 @@ core.quit()
 ```
 :::
 
-:::: {.content-visible when-meta="show-solutions-s2"}
+:::: {.content-visible when-meta="show-solutions-s3"}
 
 ::: {.callout-tip collapse="true" title="Show the code"}
 ```python
@@ -173,7 +173,7 @@ The shuffle here is a coin flip: two positions, reordered at random, and the fir
 
 ::::
 
-:::: {.content-visible unless-meta="show-solutions-s2"}
+:::: {.content-visible unless-meta="show-solutions-s3"}
 
 ::: {.callout-tip icon="false" title="🔒 Example code will be available here after the workshop"}
 :::
@@ -249,7 +249,7 @@ core.quit()
 ```
 :::
 
-:::: {.content-visible when-meta="show-solutions-s2"}
+:::: {.content-visible when-meta="show-solutions-s3"}
 
 ::: {.callout-tip collapse="true" title="Show the code"}
 ```python
@@ -322,7 +322,7 @@ core.quit()
 
 ::::
 
-:::: {.content-visible unless-meta="show-solutions-s2"}
+:::: {.content-visible unless-meta="show-solutions-s3"}
 
 ::: {.callout-tip icon="false" title="🔒 Example code will be available here after the workshop"}
 :::
@@ -333,7 +333,7 @@ Run the whole experiment and watch the console fill, trial by trial, with your o
 
 **Finished early?** Collect the reaction times in a list (`rts = []` in the setup, `rts.append(rt)` in the loop) and report the average in the goodbye: `sum(rts) / len(rts)`, formatted to two decimals.
 
-:::: {.content-visible when-meta="show-solutions-s2"}
+:::: {.content-visible when-meta="show-solutions-s3"}
 
 ::: {.callout-tip collapse="true" title="Show the code"}
 ```python
@@ -350,7 +350,7 @@ msg(f'Average reaction time: {sum(rts) / len(rts):.2f} seconds. Thank you!')
 
 ::::
 
-:::: {.content-visible unless-meta="show-solutions-s2"}
+:::: {.content-visible unless-meta="show-solutions-s3"}
 
 ::: {.callout-tip icon="false" title="🔒 Example code will be available here after the workshop"}
 :::
