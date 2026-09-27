@@ -3,7 +3,7 @@ title: "3 · Exercise 6: Weigh Your Own Decisions"
 ---
 
 ::: {.milestone}
-**Block 3** · Exercise: Run a simple and a choice reaction-time task on yourself, perform Donders' subtraction, then add timing to the rabbit.
+**Block 1** · Exercise: Run a simple and a choice reaction-time task on yourself, perform Donders' subtraction, then add timing to the rabbit.
 :::
 
 ::: {.exercise-banner}
@@ -12,23 +12,30 @@ title: "3 · Exercise 6: Weigh Your Own Decisions"
 <div class="ex-sub">Two small experiments on yourself, one subtraction, and then the rabbit learns to measure.</div>
 :::
 
-Work in a fresh scratch script for Parts 1 and 2; the rabbit returns in Part 3.
+Work in fresh scripts called Session3Exercise1 and Session3Exercise2 for Parts 1 and 2; the rabbit returns in Part 3.
 
 ### Part 1: Simple reaction time
 
-The fastest thing you can do: press a key the moment something appears. Build it: a black get-ready screen for two seconds, then the rabbit at the centre, reset the clock at the flip, wait for **any** key, read the clock, print the time. Run it five times and watch the numbers. Most people land somewhere near a quarter of a second.
+The fastest thing you can do: press a key the moment something appears. To keep the appearance a surprise, randomise the waiting time: put several durations in a list, shuffle it, and wait for whichever comes first.
+
+Build it: a black get-ready screen for the shuffled duration, then the rabbit at the centre, reset the clock at the flip, wait for **any** key, read the clock, print the time. Run it five times and watch the numbers. Most people land somewhere near a quarter of a second.
 
 ::: {.callout-note collapse="true" title="Lost? The scaffold for Part 1"}
 ```python
 from psychopy import visual, event, core
+import random
 
 win = visual.Window(size=(1280, 720), fullscr=False,
                     color='black', checkTiming=False)
 
 stopwatch = ____                    # create the stopwatch, once
 
+# the rabbit must surprise you: shuffled waiting times, first one wins
+waits = [1, 1.5, 2, 2.5, 3]
+random.shuffle(waits)
+
 win.flip()                          # black screen: get ready...
-core.wait(2)
+core.wait(____)                     # wait for the winning duration
 
 pic = visual.ImageStim(win, image='rabbit.jpg', size=0.5)
 pic.draw()
@@ -49,14 +56,19 @@ core.quit()
 ::: {.callout-tip collapse="true" title="Show the code"}
 ```python
 from psychopy import visual, event, core
+import random
 
 win = visual.Window(size=(1280, 720), fullscr=False,
                     color='black', checkTiming=False)
 
 stopwatch = core.Clock()
 
+# the rabbit must surprise you: shuffled waiting times, first one wins
+waits = [1, 1.5, 2, 2.5, 3]
+random.shuffle(waits)
+
 win.flip()       # black screen: get ready...
-core.wait(2)
+core.wait(waits[0])
 
 pic = visual.ImageStim(win, image='rabbit.jpg', size=0.5)
 pic.draw()
@@ -70,6 +82,8 @@ print(f'Simple reaction: {rt:.3f} seconds')
 win.close()
 core.quit()
 ```
+
+The shuffle picks the waiting time the same way it will pick a side in Part 2, and keeps you from pressing on rhythm rather than on sight. (Python has a one-liner for a random number in a range, `random.uniform(1, 3)`, which you may meet in other scripts.)
 :::
 
 ::::
@@ -83,9 +97,9 @@ core.quit()
 
 ### Part 2: Choice reaction time
 
-Now add a decision, and here the design matters: a decision only exists if you do not know the answer in advance. Since you wrote the script, the script must surprise you: put both positions in a list, shuffle it, and use the first element. The same `random.shuffle()` as the trial order, now flipping a coin. Show the rabbit on the winning side, respond with the arrow key on the rabbit's side, and have the script report whether your press matched. Everything else stays as in Part 1: black screen first, reset at the flip, read at the response, print.
+Now add a decision, and here the design matters: a decision only exists if you do not know the answer in advance. Since you wrote the script, the script must surprise you: put both positions in a list, shuffle it, and use the first element. The same `random.shuffle()` as the trial order, now flipping a coin. Show the rabbit on the winning side, respond with the arrow key on the rabbit's side, and have the script report whether your press matched. Everything else stays as in Part 1: black screen for a shuffled duration, reset at the flip, read at the response, print.
 
-Run it several times. Only your **correct** runs count as choice-reaction times: a wrong press means the decision was not completed, and real experiments discard those trials from the timing analysis. Compare your correct runs with Part 1. The choice version should be slower, typically by something like a tenth of a second, and that difference *is* Donders' subtraction: the approximate duration of see-which-side-and-pick-the-matching-key, measured on yourself, in your own console.
+Run it several times. Only your **correct** runs count as choice-reaction times: a wrong press means the decision was not completed. Compare your correct runs with Part 1. The choice version should be slower, typically by something like a tenth of a second. That difference is Donders' subtraction: the approximate duration of the decision itself, measured on yourself, in your own console.
 
 ::: {.callout-note collapse="true" title="Lost? The scaffold for Part 2"}
 ```python
@@ -97,10 +111,14 @@ win = visual.Window(size=(1280, 720), fullscr=False,
 
 stopwatch = core.Clock()
 
-win.flip()                          # black screen: get ready...
-core.wait(2)
+# surprise number one: when the rabbit appears
+waits = [1, 1.5, 2, 2.5, 3]
+random.shuffle(waits)
 
-# let the script surprise you: two positions, shuffled, first one wins (Ch 7)
+win.flip()                          # black screen: get ready...
+core.wait(waits[0])
+
+# surprise number two: where the rabbit appears
 positions = [(-0.5, 0), (0.5, 0)]
 ____(positions)
 pic = visual.ImageStim(win, image='rabbit.jpg', size=0.5)
@@ -110,9 +128,9 @@ pic.draw()
 win.flip()                          # the rabbit appears: onset
 stopwatch.reset()
 
-keys = event.waitKeys(keyList=____)             # only the arrows count (Ch 8)
+keys = event.waitKeys(keyList=____)             # only the arrows count
 rt = stopwatch.getTime()
-key = ____                                      # the list is not the key! (Ch 8)
+key = ____                                      # the list is not the key!
 
 # was the press on the rabbit's side?
 if pic.pos[0] ____ 0:               # which x values mean "left"? (think: the number line)
@@ -139,10 +157,14 @@ win = visual.Window(size=(1280, 720), fullscr=False,
 
 stopwatch = core.Clock()
 
-win.flip()       # black screen: get ready...
-core.wait(2)
+# surprise number one: when the rabbit appears
+waits = [1, 1.5, 2, 2.5, 3]
+random.shuffle(waits)
 
-# let the script surprise you: shuffle the two positions, take the first
+win.flip()       # black screen: get ready...
+core.wait(waits[0])
+
+# surprise number two: where the rabbit appears
 positions = [(-0.5, 0), (0.5, 0)]
 random.shuffle(positions)
 
@@ -168,7 +190,7 @@ win.close()
 core.quit()
 ```
 
-The shuffle here is a coin flip: two positions, reordered at random, and the first one wins. (Python has a neater one-liner for this, `random.choice()`, which you may meet in other scripts.)
+The same shuffle serves twice: once to pick a duration, once to pick a side. Several candidates in a list, reordered at random, first one wins.
 :::
 
 ::::
@@ -182,7 +204,7 @@ The shuffle here is a coin flip: two positions, reordered at random, and the fir
 
 ### Part 3: The rabbit learns to measure
 
-Now open your `rabbit.py` from Exercise 5, and give the real experiment the same treatment, three edits. Create the stopwatch once in the setup. In the trial loop, reset right after `show_stim(image)` and read right after the response arrives. Then report every trial with one printed f-string: the stimulus, the pressed and correct keys, and the reaction time to two decimals.
+Now open your `rabbit.py` from Exercise 5, and give the real experiment the same treatment, three edits. Create the stopwatch once in the setup. In the trial loop, reset right after `show_stim(image)` and read right after the response arrives. Then report every trial with one printed f-string: the stimulus, the pressed and correct keys, and the reaction time to two decimals. Look at what that print line contains: the stimulus, the response, the correct answer, the time. That line is one row of data. Today's session is about capturing those rows in a file instead of letting them scroll away.
 
 ::: {.callout-note collapse="true" title="Lost? The scaffold for Part 3"}
 No working `rabbit.py`? Rebuild from this: the complete experiment with timing, key lines blanked. Every `____` is something a chapter taught.
@@ -317,7 +339,7 @@ win.close()
 core.quit()
 ```
 
-**Keep this version safe.** Session 3 opens it and adds the logfile.
+**Keep this version safe.** Next we add the logfile.
 :::
 
 ::::
@@ -331,6 +353,8 @@ core.quit()
 
 Run the whole experiment and watch the console fill, trial by trial, with your own reaction times. Answer one trial as fast as you can and one slowly, and see the numbers agree with you.
 
+
+### Part 4: Extra Flourish
 **Finished early?** Collect the reaction times in a list (`rts = []` in the setup, `rts.append(rt)` in the loop) and report the average in the goodbye: `sum(rts) / len(rts)`, formatted to two decimals.
 
 :::: {.content-visible when-meta="show-solutions-s3"}
@@ -357,4 +381,4 @@ msg(f'Average reaction time: {sum(rts) / len(rts):.2f} seconds. Thank you!')
 
 ::::
 
-**Two experiments run on yourself, rabbit timing every trial?** Wonderful stuff! That's Session 2 complete!
+**Two experiments run on yourself, rabbit timing every trial?** Wonderful stuff. That's Session 1 complete!

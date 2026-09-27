@@ -1,172 +1,143 @@
 ---
-title: "7 · Responses and Feedback"
+title: "7 · Data Logging: From Console to CSV"
 ---
 
 ::: {.milestone}
-**Block 2** · Learning goals: Collect arrow-key responses, decide from the filename whether they were correct, and show feedback.
+**Block 2** · Learning goals: Collect every trial as a dictionary, gather them in a list, and save them as a CSV logfile with a unique name.
 :::
 
-So far, our experiment can show stimuli, but it cannot yet interact with our participant. Any key advances the script, and the script never learns which key it was. This chapter changes that in three steps. First we find out what a keypress looks like to Python. Then we restrict which keys count and read out the one that was pressed. Finally we judge the response and answer it with feedback. At the end of the page, these steps click together into one complete trial of the Fleeing Rabbit.
+## Data that evaporates
 
-## Step one: see what a keypress looks like
+Exercise 6 ended with your experiment printing a line per trial: stimulus, response, correct answer, reaction time. Then you likely closed PsychoPy, and the data ceased to exist. Real experiments write their rows to a **file**, and the file format of choice is CSV, comma separated values: plain text, one row per line, readable by R, Excel, and everything else you will ever analyse data with.
 
-Start with a small discovery. Type this complete script into a file and run it:
+The plan has three steps. During the experiment, collect each trial's facts. After the loop, turn the collection into a table. Save the table to a file whose name cannot collide with anyone else's.
+
+## One trial, one dictionary
+
+A trial is a set of labelled facts, and you met the container for labelled facts in the last chapter: the dictionary. One trial becomes one dictionary; the whole experiment becomes a **list of dictionaries**, built with the `.append()` you have used since Session 1. A miniature you can run in a plain script, no window needed:
 
 ```python
-from psychopy import visual, event, core
+rows = []                       # before the loop: an empty list
 
-win = visual.Window(size=(1280, 720), fullscr=False,
-                    color='black', checkTiming=False)
-win.flip()
+for trial in [1, 2, 3]:
+    rows.append({'trial': trial, 'rt': trial * 0.5})
 
-print(event.waitKeys())
-
-win.close()
-core.quit()
+print(len(rows))
+print(rows[0])
 ```
 
-A black window opens and the script waits. **Click on the PsychoPy window first**, so your keypress goes to it rather than to the Coder, and then press the **spacebar**. The window closes, and one thing has been printed to the console.
+```{.repl}
+3
+{'trial': 1, 'rt': 0.5}
+```
 
-::: {.predict-check data-answer="['space']" data-accept="[space]||'space'||space"}
-What exactly is printed to the console?
+::: {.predict-check data-answer="1.5" data-accept="1,5||rt 1.5"}
+Same script. What does `print(rows[2]['rt'])` show?
 
-::: {.pc-hint data-if-contains="spacebar"}
-Close, but PsychoPy has its own, shorter name for that key. And look at the *shape* of what comes back: it arrives wrapped in something.
+::: {.pc-hint data-if-contains="1.0"}
+Index 2 of the list is which trial? Count from zero, then look up the `'rt'` key in that dictionary.
 :::
 
 ::: {.pc-explanation}
-`['space']`. A **list**, holding one lowercase string. It is a list even for a single keypress, because the function can catch several keys at once. Two useful things follow. To get *the* key, you index with `[0]`, exactly as in Session 1. And the print-and-press trick works for any key: run the line and press whatever you are curious about, and PsychoPy tells you its name.
+`1.5`. Two lookups chained: `rows[2]` fetches the third dictionary from the list, position first, and `['rt']` fetches one value from it, key second. List of dictionaries: position finds the trial, name finds the fact. This is the exact shape your experiment's data takes today.
 :::
 :::
 
-## Step two: restrict and read
+## From rows to a table: pandas
 
-For a real trial, we want two things at once. Only the arrow keys should count, so a stray elbow on the spacebar cannot skip a trial. And we want the pressed key stored in a variable, ready to use. Both come from the same two lines:
+A list of dictionaries becomes a table in one line, using **pandas**, the Python library for tabular data. Today we'll use two lines of it:
 
 ```python
-keys = event.waitKeys(keyList=['left', 'right'])  # <1>
-key = keys[0]                                     # <2>
+import pandas as pd
+
+logfile = pd.DataFrame(rows)
+print(logfile)
 ```
-1. `keyList` names the keys that count. Every other key is simply ignored.
-2. The result is a list, as you just discovered. Element `[0]` is the pressed key: a plain string such as `'left'`.
 
-One warning before moving on. If you skip the `[0]` and compare the list itself, nothing crashes, but every comparison fails: `['left'] == 'left'` is `False`, because a list is never equal to a string. An experiment with this bug marks every answer wrong and never raises an error.
+```{.repl}
+   trial   rt
+0      1  0.5
+1      2  1.0
+2      3  1.5
+```
 
-## Step three: was it correct?
-
-The script now knows what the participant pressed. To judge the press, it also needs to know what the participant *should* have pressed. Where does that knowledge live?
-
-In the filenames. Recall the design from the glob chapter: every scene's name ends in `_L` or `_R`, and the suffix records the correct response. A lion on the left means flee right, so that scene is `stimulus1_R.jpg`. A burrow on the left means dive in left: `stimulus3_L.jpg`. The tricky lion rule was settled once, when the stimuli were made. The script never reasons about lions; it just reads the suffix, with `.endswith()` from the warm-up:
+The dictionary keys became column names, and each dictionary became a row. Saving the table is one more line:
 
 ```python
-if image.endswith('_L.jpg'):
-    correct_key = 'left'
-else:
-    correct_key = 'right'
+logfile.to_csv('logfile.csv', index=False)
 ```
 
-Every trial now has two facts, held in two variables: `correct_key`, what should happen, taken from the stimulus; and `key`, what did happen, taken from the keyboard.
+The `index=False` leaves out the bold row numbers on the left, which belong to pandas, not to your data. Run it, then find `logfile.csv` next to your script and open it. Suddenly you have a .csv file you would be able to read in with R.
 
-::: {.predict-check data-answer="right" data-accept="'right'||\"right\""}
-A trial shows `stimuli/stimulus8_R.jpg`, a burrow on the right. The participant, startled, presses **left**. What is `correct_key` on this trial?
+## A name that cannot collide
 
-::: {.pc-hint data-if-contains="left"}
-`correct_key` comes from the *filename*, not from what the participant did. What does the suffix say?
-:::
-
-::: {.pc-explanation}
-`right`. The filename ends `_R.jpg`, so `correct_key` is `'right'`, regardless of any keypress. The participant's `left` sits in the other variable, `key`, and the two will disagree. Keeping *should* and *did* in separate variables is what makes the next step a one-line comparison.
-:::
-:::
-
-## Step four: feedback
-
-The judgement is now a single comparison, and its outcome picks an image: the escaping rabbit or the triumphant lion, shown for exactly two seconds.
-
-```python
-if key == correct_key:
-    feedback = visual.ImageStim(win, image='stimuli/success.jpg')
-else:
-    feedback = visual.ImageStim(win, image='stimuli/failure.jpg')
-
-feedback.draw()
-win.flip()
-core.wait(2)
-```
-
-Note that the logic arrived as two small decisions rather than one big one: first derive `correct_key` from the stimulus, then compare it with `key`. Each piece can be checked on its own, which is what makes small decisions easier to debug than large ones.
+One flaw remains, and it is a data-destroying one.
 
 ::: {.callout-note .predict icon="false" title="🤔 Think first"}
-(a) Why `core.wait(2)` for the feedback screen rather than `event.waitKeys()`? (b) The stimulus was already flipped onto the screen. Why does the feedback need its *own* `draw()` and `flip()`?
+Your experiment saves to `'logfile.csv'`, a fixed name. Participant one is tested, then participant two. What happens to participant one's data?
 
 ::: {.callout-tip collapse="true" title="Check your thinking"}
-(a) Feedback should be brief and identical for everyone, not something to sit on or skip. The computer decides. (b) A flip reveals one prepared scene. Showing something new means preparing again: draw backstage, raise the curtain again. Every screen gets its own draw and flip.
+It disappears. The second save writes a file with the same name in the same folder, which silently replaces the first. The experiment would appear to work perfectly while destroying one dataset per participant. The filename must be different for every run.
 :::
 :::
 
-## One complete trial
+Two ingredients make a filename unique: the participant code you already generate, and a timestamp from PsychoPy's `data` module, which joins the import line:
 
-Click the four steps together and you have a full trial: show a scene, collect the response, judge it, answer it. The full experiment is nothing more than this trial, shuffled and looped, and building that is the next page.
-
-:::: {.content-visible when-meta="show-solutions-s3"}
-
-::: {.callout-tip collapse="true" title="Show the code"}
 ```python
-from psychopy import visual, event, core
-import glob
+from psychopy import visual, event, core, gui, data
 
-# collect the stimuli and open a window
-images = glob.glob('stimuli/stimulus*.jpg')
-
-win = visual.Window(size=(1280, 720), fullscr=False,
-                    color='black', checkTiming=False)
-
-# show one stimulus
-image = images[0]
-stim = visual.ImageStim(win, image=image)
-stim.draw()
-win.flip()
-
-# collect the response
-keys = event.waitKeys(keyList=['left', 'right'])
-key = keys[0]
-
-# derive the correct answer from the filename
-if image.endswith('_L.jpg'):
-    correct_key = 'left'
-else:
-    correct_key = 'right'
-
-# compare and give feedback
-if key == correct_key:
-    feedback = visual.ImageStim(win, image='stimuli/success.jpg')
-else:
-    feedback = visual.ImageStim(win, image='stimuli/failure.jpg')
-
-feedback.draw()
-win.flip()
-core.wait(2)
-
-win.close()
-core.quit()
+date = data.getDateStr()
+logfile_name = f'logfiles/logfile_{participant_id}_{date}.csv'
 ```
-:::
 
-::::
+`data.getDateStr()` returns the current date and time as a compact string, so `logfile_name` becomes something like `logfiles/logfile_P48213_2026-09-29_09h41.22.csv`. Two participants can no longer produce the same name.
 
-:::: {.content-visible unless-meta="show-solutions-s3"}
+## A home for the logfiles
 
-::: {.callout-tip icon="false" title="🔒 Example code will be available here after the workshop"}
-:::
+The filename above puts every logfile in a `logfiles/` folder, so the CSVs do not pile up next to your script and stimuli. You could create the folder by hand, but there is a reason to let the script guarantee it instead: if the folder is missing, the save fails at the very end of the experiment, after all the trials have run, and the rows are lost with it. One line from the `os` module removes that risk forever:
 
-::::
+```python
+import os
 
-::: {.callout-note title="Tip: a polite emergency exit"}
-Add `'escape'` to your `keyList` and handle it: `if key == 'escape': win.close(); core.quit()`. Essential once you go fullscreen. It returns as an Advanced task in Exercise 5.
+os.makedirs('logfiles', exist_ok=True)
+```
+
+`exist_ok=True` means: create the folder, and if it already exists, do nothing. Safe to run every time, on every computer the experiment ever moves to.
+
+## Into the rabbit script
+
+The pieces land in three places, and only three. In the setup: the imports, the folder, the empty list. Inside the trial loop, after the feedback: one append, carrying both the participant facts and the trial facts. After the loop: build the table and save it, before the goodbye.
+
+```python
+# --- setup ---
+os.makedirs('logfiles', exist_ok=True)
+date = data.getDateStr()
+logfile_name = f'logfiles/logfile_{participant_id}_{date}.csv'
+
+rows = []
+
+# --- inside the trial loop, after the feedback ---
+    rows.append({'id': participant_id,
+                 'language': language,
+                 'handedness': handedness,
+                 'stimulus': image,
+                 'key': key,
+                 'correct_key': correct_key,
+                 'rt': rt})
+
+# --- after the loop ---
+logfile = pd.DataFrame(rows)
+logfile.to_csv(logfile_name, index=False)
+```
+
+Note that the participant columns repeat identically in every row. That looks wasteful and is exactly right: each row of a data file should stand on its own, so that R can group, filter, and compare without consulting a second file.
+
+::: {.callout-note collapse="true" title="Good to know: escape loses the rows"}
+The save happens once, after the loop. If the experiment stops early, through the escape key's `core.quit()` or a crash, the rows collected so far are never written. For our purposes that is acceptable: an aborted session is an incomplete dataset anyway. If you ever need crash-proof logging, the fix is saving inside the loop, once per trial, at the cost of rewriting the file repeatedly. Worth knowing, but not worth doing today.
 :::
 
 ::: {.callout-note title="Summary"}
-`event.waitKeys(keyList=[...])` restricts which keys count and returns a list; `keys[0]` is the pressed key as a plain string. Correctness lives in the filenames: the suffix encodes the correct response, lion rule included, and `.endswith()` reads it into `correct_key`. One trial holds two facts, what should happen and what did, and feedback is the comparison between them, drawn and flipped like any other screen, for a fixed two seconds.
+Each trial becomes a dictionary, appended to a list; after the loop, `pd.DataFrame(rows)` turns the list into a table and `to_csv()` writes it, with `index=False`. The filename is built from the participant code and `data.getDateStr()`, so no two runs can overwrite each other, and the file lands in a `logfiles/` folder guaranteed by `os.makedirs(..., exist_ok=True)`. Participant facts repeat in every row on purpose: rows should stand on their own.
 :::
 
-**One trial working?** Next: [the main exercise of the day](08_exercise5.qmd).
+**Miniature rows printing, tiny CSV on disk, overwrite trap understood?** Next: [Exercise 7, the complete experiment](08_exercise7.qmd).

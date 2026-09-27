@@ -8,23 +8,19 @@ title: "5 · Participant Information: The Dialog Box"
 
 ## Who pressed the keys?
 
-Your experiment measures beautifully and remembers nothing about who was measured. Once data goes into a file, every row needs an answer to one question: which participant produced this? Today the participant is you, but on data-collection day your experiment runs on many people in a row, and their rows must not blur together.
+Your experiment measures beautifully but remembers nothing about who was measured. Once data goes into a file, every row needs an answer to one question: which participant produced this? Today the participant is you, but on data-collection day your experiment runs on many people in a row, and their rows must not blur together.
 
 The tool is a popup dialog that appears before the experiment starts, plus one line of randomness: the script invents a participant code by itself, so that no person, including you, ever knows which code belongs to whom. PsychoPy provides the dialog through a fourth module, `gui`.
 
 ## What not to ask
 
-Before the code, a design decision, and it is a real one in European research: **collect only what your analysis will use**. The principle is called data minimisation, and it is the law as well as good practice.
-
-The first consequence: the dialog never asks for a name. A **participant code** such as `P48213` identifies the row without identifying the person. If no list exists anywhere connecting codes to people, the data is anonymous. If such a list exists, for example a consent sheet with codes written on it, the data is only pseudonymised, and the list must be stored separately from the data. The difference matters when you write your methods section, so keep the words straight: anonymous means nobody can link the row to a person, not even you.
-
-The second consequence: question every field. Age and gender go into logfiles out of habit, but in a class-sized sample a row like "female, 19, tested Tuesday" can narrow down to one person even without a name. If your analysis will not use a field, the strongest move is not collecting it. Where you do collect gender, offer an escape: a choices list that includes "Prefer not to say".
+Before the code, one design rule: collect only what your analysis will use. The principle is called data minimisation, and in European research it is the law as well as good practice. The dialog therefore never asks for a name. A participant code such as P48213 labels the row without identifying the person, and as long as no list anywhere connects codes to people, the data is anonymous; if such a list exists, the data is only pseudonymised, and the list must live separately from it. Question the other fields the same way: in a class-sized sample, "female, 19, tested Tuesday" can narrow down to one person even without a name, so a field your analysis will not use is best not collected. Where you do collect gender, include "Prefer not to say" among the choices.
 
 ::: {.callout-note .predict icon="false" title="🤔 Think first"}
 Your reading experiment will compare reading times between two versions of a text. Which of these fields earn a place in the dialog: name, participant code, age, gender, email address, native language?
 
 ::: {.callout-tip collapse="true" title="Check your thinking"}
-Native language, plausibly: reading times in Danish differ between native and non-native readers, so the analysis may genuinely need it. Age and gender, only if your analysis will use them; that is a decision, not a default. Name and email, never: they identify the person and the analysis has no use for them. And the participant code is a trick option: it belongs in the data but not in the dialog, because in a moment the script will generate it by itself. Every field you collect is something you must now protect.
+Native language, plausibly: reading times in Danish differ between native and non-native readers, so the analysis may genuinely need it. Age and gender, only if your analysis will use them. Name and email, never: they identify the person and the analysis has no use for them. And the participant code is a trick option: it belongs in the data but not in the dialog, because in a moment the script will generate it by itself. Every field you collect is something you must now protect.
 :::
 :::
 
@@ -36,8 +32,8 @@ The dialog is built field by field, then shown. Type this complete script and ru
 from psychopy import gui, core
 
 box = gui.Dlg(title='The Fleeing Rabbit')
-box.addField('Age')
-box.addField('Gender', choices=['Female', 'Male', 'Other', 'Prefer not to say'])
+box.addField('Native language')
+box.addField('Handedness', choices=['Right-handed', 'Left-handed'])
 box.show()
 
 if box.OK:
@@ -50,19 +46,15 @@ A small window pops up with two fields: one free text, one a dropdown built from
 
 `box.show()` pauses the script until the participant answers, the same way `event.waitKeys()` pauses for a key. Afterwards, `box.OK` is `True` if they pressed OK and `False` if they cancelled, and cancelling should end the experiment politely: the same `core.quit()` reflex as the escape key. A participant who closes the dialog is declining to take part, and the script must respect that.
 
-::: {.predict-check data-answer="{'Age': '19', 'Gender': 'Female'}" data-accept="{Age: 19, Gender: Female}||a dictionary||a dictionary of strings"}
-You run the script, type `19`, choose `Female`, and press OK. What exactly does `print(box.data)` show?
+::: {.predict-check data-answer="{'Native language': 'Danish', 'Handedness': 'Right-handed'}" data-accept="{Native language: Danish, Handedness: Right-handed}||a dictionary||a dictionary of strings"}
+You run the script, type `Danish`, choose `Right-handed`, and press OK. What exactly does `print(box.data)` show?
 
 ::: {.pc-hint data-if-contains="["}
 Not a list this time. The values come back labelled with the field names. What container pairs labels with values?
 :::
 
-::: {.pc-hint data-if-contains="19,"}
-Look at what wraps each value. The participant typed into a text field: what type does typing produce?
-:::
-
 ::: {.pc-explanation}
-`{'Age': '19', 'Gender': 'Female'}`: a **dictionary**, and every value is a **string**. The age is `'19'`, not `19`; a dialog is a typing interface, and typing produces text. If you ever compute with age, convert it first with `int()`. The dictionary itself is new, and the next section introduces it properly, because you will meet it again this afternoon.
+`{'Native language': 'Danish', 'Handedness': 'Right-handed'}`: a **dictionary**, keyed by the field labels, and every value is a **string**. That is worth remembering for any field you ever add: a dialog is a typing interface, so an age field would return `'19'`, not `19`, and computing with it would need `int()` first. The dictionary itself is new, and the next section introduces it properly, because you will meet it again this afternoon.
 :::
 :::
 
@@ -75,7 +67,7 @@ age = box.data['Age']
 gender = box.data['Gender']
 ```
 
-The key must match the field label exactly, character for character, which is why our labels are plain: `'Age'`, not `'Age:'`. A dictionary is the natural shape for labelled facts, which is exactly what a participant is, and exactly what a trial is: this afternoon, every logged row of your data will be a dictionary too.
+The key must match the field label exactly, character for character, which is why our labels are plain: `'Age'`. A dictionary is the natural shape for labelled facts, which is exactly what a participant is, and exactly what a trial is: this afternoon, every logged row of your data will be a dictionary too.
 
 ## An ID nobody chooses
 
@@ -87,20 +79,49 @@ import random
 participant_id = f'P{random.randint(10000, 99999)}'
 ```
 
-`random.randint(10000, 99999)` returns a whole number between those two bounds, a sibling of the `shuffle` you already use, and the f-string dresses it as a code such as `P48213`. Because the number is drawn at random and never shown on screen, nobody can say which person produced which dataset, including the experimenter. That is anonymity by construction: there is no list to keep separate, because no list ever exists.
+`random.randint(10000, 99999)` returns a whole number between those two bounds, a sibling of the `shuffle` you already use, and the f-string dresses it as a code such as `P48213`. Because the number is drawn at random and never shown on screen, nobody can say which person produced which dataset, including the experimenter.
 
-Two honest footnotes. First, anonymity is a property of the whole procedure, not of this line: if you watch someone's session and write their code on a sticky note, it is gone. Second, anonymity cuts both ways: if a participant later asks for their data to be deleted, you cannot find it, because nobody can. That is not a flaw; it is what anonymous means, and it is worth one sentence in your instructions so participants know it before they start.
+Two honest footnotes. First, anonymity is a property of the whole procedure: if you watch someone's session and write their code on a sticky note, it is gone. Second, anonymity cuts both ways: if a participant later asks for their data to be deleted, you cannot find it, because nobody can. It is worth one sentence in your instructions so participants know it before they start.
 
 ## Before the window, always
 
-One rule of placement, and it is strict: **the dialog comes before `visual.Window()` is created**. A dialog is an ordinary desktop window, and once PsychoPy's stimulus window exists, especially fullscreen, the dialog can appear behind it or freeze the script entirely, with no way to click OK on a box you cannot see. In your script the order is: imports, dialog, read the answers, generate the code, and only then the window, the clock, and the functions.
+One rule of placement, and it is strict: **the dialog comes before `visual.Window()` is created**. A dialog is an ordinary desktop window, and once PsychoPy's stimulus window exists, especially fullscreen, the dialog can appear behind it or freeze the script entirely, with no way to click OK on a box you cannot see. In your script, the order is: imports, dialog, read the answers, generate the code, and only then the window, the clock, and the functions.
 
-::: {.callout-note collapse="true" title="Good to know: dialogs across PsychoPy versions"}
-The `gui` module has changed shape between versions more than the rest of what we use: on older PsychoPy, `box.data` comes back as a plain list in field order rather than a dictionary. The habit that survives every version is the one you just practised: `print(box.data)` once, look at what came back, and fetch accordingly. Print before you use, as with glob.
-:::
+## Into the rabbit script
+
+In the experiment, all of this lives at the very top of `rabbit.py`, before anything else happens. The `gui` module joins the import line you already have, and the dialog block sits between the imports and the setup:
+
+```python
+from psychopy import visual, event, core, gui
+import glob
+import random
+
+# --- participant ---
+box = gui.Dlg(title='The Fleeing Rabbit')
+box.addField('Native language')
+box.addField('Handedness', choices=['Right-handed', 'Left-handed'])
+box.show()
+
+if box.OK:
+    age = box.data['Native language']
+    gender = box.data['Handedness']
+else:
+    core.quit()
+
+participant_id = f'P{random.randint(10000, 99999)}'
+
+# --- setup ---
+images = glob.glob('stimuli/stimulus*.jpg')
+random.shuffle(images)
+
+win = visual.Window(size=(1280, 720), fullscr=False,
+                    color='black', checkTiming=False)
+```
+
+Note what has and has not happened: the answers are fetched into ordinary variables, `age`, `gender`, `participant_id`, and then nothing uses them yet. They simply wait. Registering them properly, meaning writing them into every row of a data file, is the next chapter's whole job, and it is why these three variables exist.
 
 ::: {.callout-note title="Summary"}
-A `gui.Dlg` collects participant information before the experiment begins: build it field by field, `show()` it, check `box.OK`, and quit politely on cancel. Everything it returns is a string, in `box.data`, a dictionary keyed by the field labels. The participant code is not asked for at all: the script generates it with `random.randint()`, never typed and never shown, so the data is anonymous by construction. The dialog runs before the window is created. And the fields themselves are a design decision: an escape option for gender, and nothing the analysis will not use. Collect only what you must protect.
+A `gui.Dlg` collects participant information before the experiment begins: build it field by field, `show()` it, check `box.OK`, and quit politely on cancel. Everything it returns is a string, in `box.data`, a dictionary keyed by the field labels. The script generates a participant code with `random.randint()`, never typed and never shown, so the data is anonymous by construction. The dialog runs before the window is created. And the fields themselves are a design decision: an escape option for gender, and nothing the analysis will not use. Collect only what you must protect.
 :::
 
-**Dialog popping up, answers printing, cancel quitting cleanly? Green sticky.** Next: [informed consent](06_informed_consent_dlg.qmd).
+**Dialog popping up, answers printing, cancel quitting cleanly?** Next: [informed consent](06_informed_consent_dlg.qmd).
