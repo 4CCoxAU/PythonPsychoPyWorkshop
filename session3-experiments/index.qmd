@@ -1,52 +1,44 @@
 ---
-title: "Session 2: Introduction to PsychoPy"
-subtitle: "From Python in the console to stimuli on the screen"
+title: "Session 3: Timing, Data, and the Reading Experiment"
+subtitle: "From a running experiment to a measuring instrument"
 ---
 
-Welcome to the second session of our Python and PsychoPy workshop! Let's take stock of what you can already do. In Session 1, you went from `print("Hello world!")` to writing your own loops. Along the way, you learned how to:
+Welcome to the third and final session of our Python and PsychoPy workshop! Take stock of what you have already built. In Session 2, you went from an empty file to the Fleeing Rabbit, a complete behavioural experiment. Along the way, you learned how to:
 
-- store and inspect values in **variables**, and tell your **data types** apart (strings, integers, floats);
-- take strings apart with **indexing**, **slicing**, and methods like `.split()` and `.upper()`;
-- build and mutate **lists**: index them, append to them, even nest them;
-- repeat code with **for and while loops**, counters included;
-- make code decide with **relational and logical operators** and **if/elif/else**;
-- (we ran out of time for **functions**: the [chapter](../session1-python/09_functions.qmd) and [exercise](../session1-python/10_exercise4.qmd) are online; we'll pick the concept up when the experiment gives us a reason to).
+- open a **window** and show anything with the draw-flip cycle (prepare, draw, flip, wait);
+- write your own **functions** (`msg()`, `show_stim()`) and let parameters carry what varies;
+- load stimuli automatically with **glob**, and randomise trial order with **shuffle**;
+- collect and restrict **keyboard responses**, and read the pressed key with `keys[0]`;
+- derive the correct answer from the **filename** with `.endswith()`, and give conditional feedback.
 
-This is genuinely all the Python you need to run a sophisticated experiment. Today you'll see why: a real experiment is *a list of stimuli, a loop over trials, an if/else for feedback, and an f-string on the screen*.
-
-By the end of today, you will have built a working experiment that shows images in random order, collects keyboard responses, and gives feedback on every trial.
-
-Today, we change environment: from UCloud to the **PsychoPy Coder on your own laptop**. This "Coder" is a simpler editor bundled with PsychoPy, and the Python inside it is the same Python you already know.
+Today, we learn how to measure how long every decision takes, to record who the experiment is testing without ever knowing who they are, and to write results to a file that survives the session. Then we use the same skeleton to present words instead of scenes, to make a **self-paced reading experiment**, the paradigm your Methods Portfolio 2 is built on.
 
 ## Learning outcomes
 
 After this session, you can:
 
-- **Open and close a PsychoPy window** and explain the draw-flip cycle (prepare, draw, flip) that gives experiments their precise timing.
-- **Present text and image stimuli** (`TextStim`, `ImageStim`), for a fixed duration (`core.wait()`) or until a keypress (`event.waitKeys()`).
-- **Write your own functions** with `def` and parameters, and use them to remove repetition from an experiment script.
-- **Load stimulus files automatically** with `glob.glob()` instead of typing filenames by hand.
-- **Randomise trial order** with `random.shuffle()` and explain why randomisation matters.
-- **Collect and restrict keyboard responses** (`keyList=['left', 'right']`), evaluate them against a rule read from the filename, and give conditional feedback.
-- **Measure reaction times** with `core.Clock()`: reset at stimulus onset, read at the response.
+- **Measure reaction times** with `core.Clock()`: reset at stimulus onset, read at the response, and explain why the reset sits after the flip.
+- **Run a simple and a choice reaction-time task** on yourself and interpret their difference.
+- **Collect participant information** with `gui.Dlg`, generate an anonymous participant code, and justify every field you collect (data minimisation).
+- **Log data**: one dictionary per trial, gathered in a list, saved as a CSV with pandas, under a filename that cannot collide.
+- **Transform the experiment**: swap images for words and arrows for the spacebar, and explain why reading time per word is a measure of language processing.
 
 ## How today works
 
-Today alternates between two modes. In short **lecture segments**, we introduce each concept and demonstrate it live on the projector; in the **exercises** you put the concepts to work on your own, at your own pace, with the teachers circulating. The chapters on this site follow the same order as the lectures, so everything shown at the front is here to re-read.
+The same rhythm as Session 2: short lecture segments introduce each concept on the projector, and in the exercises you put them to work at your own pace.
 
 ## Today's programme
 
-Three blocks, each ending in an exercise. The exercises are where you should linger.
-
 | Block | What | Chapters |
 |------|------|----------|
-| **1 · Basics on screen** | Python refresher; meeting PsychoPy; the draw-flip cycle and how to break it | [1](01_warmup.qmd) · [2](02_psychopy.qmd) · [3](03_drawflip.qmd) |
-| | **Exercise 4: The PsychoPy playground** | [4](04_exercise4.qmd) |
-| **2 · The experiment** | Functions; letting Python find your stimuli; randomisation; responses and feedback | [5](05_functions.qmd) · [6](06_glob.qmd) · [7](07_responses.qmd) |
-| | **Exercise 5: The Fleeing Rabbit** | [8](08_exercise5.qmd) |
-| **3 · Measurement** | Timing: measuring how long thinking takes | [9](09_timing.qmd) |
-| | **Exercise 6: Weigh your own decisions** | [10](10_timingexercises.qmd) |
+| **1 · Measuring reaction times** | PsychoPy refresher; timing: measuring how long thinking takes | [1](01_warmup.qmd) · [2](03_measure_rt.qmd) |
+| | **Exercise 6: Weigh your own decisions** | [3](04_exercise6.qmd) |
+| **2 · Logging data** | Participant information and anonymity; informed consent; data logging to CSV | [4](05_participant_info.qmd) · [5](06_informed_consent_dlg.qmd) · [6](07_data_logging.qmd) |
+| | **Exercise 7: The complete experiment** | [7](08_exercise7.qmd) |
+| **3 · The reading experiment** | From the rabbit to words: self-paced reading | [8](09_reading_functions.qmd) |
+| | **Exercise 8: The reading prototype** | [9](10_reading_exp_prototype.qmd) · [10](11_exercise8.qmd) |
+| **4 · Wrap-up** | The Portfolio 2 roadmap; what you have learned | [11](12_wrapup.qmd) · [12](13_whathavelearned.qmd) |
 
-**Milestones:** Exercise 4 running before we move on to randomisation; Exercise 5 running by the end. This script is the one Session 3 extends.
+## Before you start
 
-Ready? Head to [Chapter 1: Warming up](01_warmup.qmd).
+1. **Find your `rabbit.py`** from Session 2's Exercise 5, extended or not. Today's first block extends it, and everything after
