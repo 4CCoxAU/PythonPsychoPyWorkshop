@@ -195,7 +195,7 @@
     "href": "session2-psychopy/05_functions.html#a-second-function-showing-text",
     "title": "5 · Functions: Write Once, Use Many Times",
     "section": "A second function: showing text",
-    "text": "A second function: showing text\nEvery experiment shows text screens: a welcome, instructions, a goodbye. The pattern is always the same four beats, so it deserves a function of its own. This one takes the text as its parameter and waits for a key press, so the participant reads at their own pace:\ndef msg(text):\n    message = visual.TextStim(win, text=text, height=0.08)\n    message.draw()\n    win.flip()\n    event.waitKeys()\nOne call now produces a complete, participant-paced text screen:\nmsg(\"Welcome to the experiment! Press any key to begin.\")\n\n\n\n\n\n\nGood to know: where functions go in a script\n\n\n\nDefinitions must run before the first call, because Python reads top to bottom: a call above its definition fails with a NameError. The convention for structure is:\n\nimports at the top,\nthe window and stimuli\nall function definitions together\nthe experiment itself at the bottom.\n\nBy following conventions, a reader can then find everything where they expect it.\n\n\n\n\n\n\n\n\nSummary\n\n\n\nRepetition invites bugs, and functions remove repetition. A function is defined once, with def, a name, parentheses, and an indented body, and it runs each time it is called by name with parentheses. A definition alone produces nothing; only the call executes. Parameters let one definition serve many cases: the part that varies becomes the input. The hop shrank from sixteen lines to one definition and four calls, and msg() does the same for text screens. Definitions go before calls, and a function that seems ignored is usually missing its parentheses.\n\n\n\n\n\n\n\n\nCheckpoint · the refactored hop\n\n\n\n\n\nfrom psychopy import visual, event, core\n\nwin = visual.Window(size=(1280, 720), fullscr=False,\n                    color='black', checkTiming=False)\n\npic = visual.ImageStim(win, image='rabbit.jpg', size=0.5)\n\ndef show_rabbit(position):\n    pic.pos = position\n    pic.draw()\n    win.flip()\n    core.wait(0.5)\n\ndef msg(text):\n    message = visual.TextStim(win, text=text, height=0.08)\n    message.draw()\n    win.flip()\n    event.waitKeys()\n\nmsg(\"Watch the rabbit! Press any key to start.\")\n\nshow_rabbit((-0.5, 0.5))\nshow_rabbit((0.5, 0.5))\nshow_rabbit((0.5, -0.5))\nshow_rabbit((-0.5, -0.5))\n\nmsg(\"Done! Press any key to close.\")\n\nwin.close()\ncore.quit()\n\n\n\nRabbit hopping on function calls? Next: Reading in multiple files.",
+    "text": "A second function: showing text\nEvery experiment shows text screens: a welcome, instructions, a goodbye. The pattern is always the same four beats, so it deserves a function of its own. This one takes the text as its parameter and waits for a key press, so the participant reads at their own pace:\ndef msg(text):\n    message = visual.TextStim(win, text=text, height=0.08)\n    message.draw()\n    win.flip()\n    event.waitKeys()\nOne call now produces a complete, participant-paced text screen:\nmsg(\"Welcome to the experiment! Press any key to begin.\")\n\n\n\n\n\n\nNoteGood to know: where functions go in a script\n\n\n\nDefinitions must run before the first call, because Python reads top to bottom: a call above its definition fails with a NameError. The convention for structure is:\n\nimports at the top,\nthe window and stimuli\nall function definitions together\nthe experiment itself at the bottom.\n\nBy following conventions, a reader can then find everything where they expect it.\n\n\n\n\n\n\n\n\nNoteSummary\n\n\n\nRepetition invites bugs, and functions remove repetition. A function is defined once, with def, a name, parentheses, and an indented body, and it runs each time it is called by name with parentheses. A definition alone produces nothing; only the call executes. Parameters let one definition serve many cases: the part that varies becomes the input. The hop shrank from sixteen lines to one definition and four calls, and msg() does the same for text screens. Definitions go before calls, and a function that seems ignored is usually missing its parentheses.\n\n\n\n\n\n\n\n\nTipCheckpoint · the refactored hop\n\n\n\n\n\nfrom psychopy import visual, event, core\n\nwin = visual.Window(size=(1280, 720), fullscr=False,\n                    color='black', checkTiming=False)\n\npic = visual.ImageStim(win, image='rabbit.jpg', size=0.5)\n\ndef show_rabbit(position):\n    pic.pos = position\n    pic.draw()\n    win.flip()\n    core.wait(0.5)\n\ndef msg(text):\n    message = visual.TextStim(win, text=text, height=0.08)\n    message.draw()\n    win.flip()\n    event.waitKeys()\n\nmsg(\"Watch the rabbit! Press any key to start.\")\n\nshow_rabbit((-0.5, 0.5))\nshow_rabbit((0.5, 0.5))\nshow_rabbit((0.5, -0.5))\nshow_rabbit((-0.5, -0.5))\n\nmsg(\"Done! Press any key to close.\")\n\nwin.close()\ncore.quit()\n\n\n\nRabbit hopping on function calls? Next: Reading in multiple files.",
     "crumbs": [
       "Home",
       "Session 2 · PsychoPy",
@@ -260,7 +260,7 @@
     "href": "session2-psychopy/03_drawflip.html#the-sabotage-lab",
     "title": "3 · The Draw-Flip Cycle (and How to Break It)",
     "section": "The sabotage lab",
-    "text": "The sabotage lab\nNow let’s break it on purpose to figure out what’s going on in the code: three times. Each sabotage teaches you to recognise one of today’s three most common bugs before it happens to you by accident. Think first, then actually run the broken script and watch.\n\n\n\n\n\n\n🤔 Sabotage 1: think first\n\n\n\nDelete the line win.flip(). What will you see when you run it?\n\n\n\n\n\n\nCheck your thinking\n\n\n\n\n\nA blank black window. The text was drawn, but only to the back buffer, which was never swapped to the screen. Everything happened backstage; the curtain never rose. Blank screen almost always means a missing flip.\n\n\n\n\n\n\n\n\n\n\n\n🤔 Sabotage 2: think first\n\n\n\nPut win.flip() back. Now delete event.waitKeys(). What happens?\n\n\n\n\n\n\nCheck your thinking\n\n\n\n\n\nThe text flashes for a split second and vanishes. The script runs straight on to win.close(), and closing the window takes the text with it. Every flip needs a waiting step after it: a keypress wait like before, or a timed core.wait() as in the next chapter. If this is missing, the participant sees almost nothing.\n\n\n\n\n\n\n\n\n\n\n\n🤔 Sabotage 3: think first\n\n\n\nRestore everything. Now delete the last two lines (win.close() and core.quit()). What happens after you press a key?\n\n\n\n\n\n\nCheck your thinking\n\n\n\n\n\nQuite possibly… nothing different! On modern PsychoPy the window usually closes anyway when the script ends. So why do we insist on those two lines? Because usually is not a word you want in an experiment: on some machines and older versions, the window lingers as a frozen zombie, and in longer scripts an un-closed window can hold resources or hide error messages. win.close() and core.quit() make the shutdown explicit and guaranteed instead of a lucky side effect.\n\n\n\n\n\nRepair your script so all three sabotages are undone, and run it once more to prove it.",
+    "text": "The sabotage lab\nNow let’s break it on purpose to figure out what’s going on in the code: three times. Each sabotage teaches you to recognise one of today’s three most common bugs before it happens to you by accident. Think first, then actually run the broken script and watch.\n\n\n\n\n\n\nNote🤔 Sabotage 1: think first\n\n\n\nDelete the line win.flip(). What will you see when you run it?\n\n\n\n\n\n\nTipCheck your thinking\n\n\n\n\n\nA blank black window. The text was drawn, but only to the back buffer, which was never swapped to the screen. Everything happened backstage; the curtain never rose. Blank screen almost always means a missing flip.\n\n\n\n\n\n\n\n\n\n\n\nNote🤔 Sabotage 2: think first\n\n\n\nPut win.flip() back. Now delete event.waitKeys(). What happens?\n\n\n\n\n\n\nTipCheck your thinking\n\n\n\n\n\nThe text flashes for a split second and vanishes. The script runs straight on to win.close(), and closing the window takes the text with it. Every flip needs a waiting step after it: a keypress wait like before, or a timed core.wait() as in the next chapter. If this is missing, the participant sees almost nothing.\n\n\n\n\n\n\n\n\n\n\n\nNote🤔 Sabotage 3: think first\n\n\n\nRestore everything. Now delete the last two lines (win.close() and core.quit()). What happens after you press a key?\n\n\n\n\n\n\nTipCheck your thinking\n\n\n\n\n\nQuite possibly… nothing different! On modern PsychoPy the window usually closes anyway when the script ends. So why do we insist on those two lines? Because usually is not a word you want in an experiment: on some machines and older versions, the window lingers as a frozen zombie, and in longer scripts an un-closed window can hold resources or hide error messages. win.close() and core.quit() make the shutdown explicit and guaranteed instead of a lucky side effect.\n\n\n\n\n\nRepair your script so all three sabotages are undone, and run it once more to prove it.",
     "crumbs": [
       "Home",
       "Session 2 · PsychoPy",
@@ -286,7 +286,7 @@
     "href": "session2-psychopy/03_drawflip.html#load-up-a-visual-stimulus",
     "title": "3 · The Draw-Flip Cycle (and How to Break It)",
     "section": "Load up a visual stimulus",
-    "text": "Load up a visual stimulus\nTime for your first image, and the good news is that you already know how this works. An image follows the same cycle as text; the only change is the type of stimulus you prepare. Where text uses TextStim with a text argument, images use ImageStim with an image argument naming a file:\nimg = visual.ImageStim(win, image='rabbit.jpg')\nimg.draw()\nwin.flip()\nPrepare, draw, flip: nothing else is new. What you need is the file itself. Download the rabbit and save it in the same folder as your script:\n⬇️ Download rabbit.jpg\nNow modify your Chapter 3 script: after the Hello, world! screen, show the rabbit, participant-paced. Run it.\n\n\n\n\n\n\nShow the code\n\n\n\n\n\nfrom psychopy import visual, event, core\n\nwin = visual.Window(size=(1280, 720), color='black',\n                    fullscr=False, checkTiming=False)\n\nimg = visual.ImageStim(win, image='rabbit.jpg')\nimg.draw()\nwin.flip()\nevent.waitKeys()\n\nwin.close()\ncore.quit()\n\n\n\n\n\n\n\n\n\nWhere Python looks for images\n\n\n\n'rabbit.jpg' is a relative path: Python looks for the file in the same folder as your script. If the image refuses to load, the file and the script are not sitting together. That is the most common little stumble of the day, and the fix is just moving a file.\n\n\n\n\n\n\n\n\nSummary\n\n\n\nShowing a stimulus is always three steps: prepare the object, draw it to the hidden back buffer, flip the buffers to reveal it, then wait, or the participant sees nothing. The flip is a single, precisely-timed moment, which is what makes reaction-time measurement possible. And the three sabotages gave you the diagnostic table: blank screen → likely a missing flip; content flashing past → missing wait; lingering window → missing cleanup. Prepare, draw, flip, wait.\n\n\nNext: Exercises.",
+    "text": "Load up a visual stimulus\nTime for your first image, and the good news is that you already know how this works. An image follows the same cycle as text; the only change is the type of stimulus you prepare. Where text uses TextStim with a text argument, images use ImageStim with an image argument naming a file:\nimg = visual.ImageStim(win, image='rabbit.jpg')\nimg.draw()\nwin.flip()\nPrepare, draw, flip: nothing else is new. What you need is the file itself. Download the rabbit and save it in the same folder as your script:\n⬇️ Download rabbit.jpg\nNow modify your Chapter 3 script: after the Hello, world! screen, show the rabbit, participant-paced. Run it.\n\n\n\n\n\n\nTipShow the code\n\n\n\n\n\nfrom psychopy import visual, event, core\n\nwin = visual.Window(size=(1280, 720), color='black',\n                    fullscr=False, checkTiming=False)\n\nimg = visual.ImageStim(win, image='rabbit.jpg')\nimg.draw()\nwin.flip()\nevent.waitKeys()\n\nwin.close()\ncore.quit()\n\n\n\n\n\n\n\n\n\nNoteWhere Python looks for images\n\n\n\n'rabbit.jpg' is a relative path: Python looks for the file in the same folder as your script. If the image refuses to load, the file and the script are not sitting together. That is the most common little stumble of the day, and the fix is just moving a file.\n\n\n\n\n\n\n\n\nNoteSummary\n\n\n\nShowing a stimulus is always three steps: prepare the object, draw it to the hidden back buffer, flip the buffers to reveal it, then wait, or the participant sees nothing. The flip is a single, precisely-timed moment, which is what makes reaction-time measurement possible. And the three sabotages gave you the diagnostic table: blank screen → likely a missing flip; content flashing past → missing wait; lingering window → missing cleanup. Prepare, draw, flip, wait.\n\n\nNext: Exercises.",
     "crumbs": [
       "Home",
       "Session 2 · PsychoPy",
@@ -1516,12 +1516,1047 @@
     "href": "session2-psychopy/08_exercise5.html#advanced-exercises",
     "title": "8 · Exercise 5: The Fleeing Rabbit",
     "section": "Advanced Exercises",
-    "text": "Advanced Exercises\nA. Keep score. Count correct answers; report the score in the goodbye message with an f-string.\n\n\n\n\n\n\nShow the code\n\n\n\n\n\n# before the loop:\nn_correct = 0\n\n# in the correct-answer branch:\nn_correct = n_correct + 1\n\n# goodbye message:\ngoodbye = visual.TextStim(win,\n    text=f'The rabbit escaped {n_correct} of {len(images)} times. Thank you!',\n    color='white')\n\n\n\nB. A polite emergency exit. Add 'escape' to the keyList and quit cleanly when it’s pressed: essential once you’re fullscreen.\n\n\n\n\n\n\nShow the code\n\n\n\n\n\n    keys = event.waitKeys(keyList=['left', 'right', 'escape'])\n    key = keys[0]\n    if key == 'escape':\n        win.close()\n        core.quit()\n\n\n\nC. A fixation cross between trials. Real experiments separate trials with a brief + in the centre, so the participant’s eyes reset before the next scene. Add one after the feedback, for half a second, using fixation = visual.TextStim(win, text=‘+’, height=0.1). Everything you need is taught: TextStim, draw, flip, core.wait(), and think about where in the loop it belongs.\n\n\n\n\n\n\nShow the code\n\n\n\n\n\n    # at the end of the trial loop, after the feedback wait:\n    fixation = visual.TextStim(win, text='+', height=0.1)\n    fixation.draw()\n    win.flip()\n    core.wait(0.5)\n\n\n\nTwelve trials, feedback firing, lion dodged? You have built a behavioural experiment!",
+    "text": "Advanced Exercises\nA. Keep score. Count correct answers; report the score in the goodbye message with an f-string.\n\n\n\n\n\n\nTipShow the code\n\n\n\n\n\n# before the loop:\nn_correct = 0\n\n# in the correct-answer branch:\nn_correct = n_correct + 1\n\n# goodbye message:\ngoodbye = visual.TextStim(win,\n    text=f'The rabbit escaped {n_correct} of {len(images)} times. Thank you!',\n    color='white')\n\n\n\nB. A polite emergency exit. Add 'escape' to the keyList and quit cleanly when it’s pressed: essential once you’re fullscreen.\n\n\n\n\n\n\nTipShow the code\n\n\n\n\n\n    keys = event.waitKeys(keyList=['left', 'right', 'escape'])\n    key = keys[0]\n    if key == 'escape':\n        win.close()\n        core.quit()\n\n\n\nC. A fixation cross between trials. Real experiments separate trials with a brief + in the centre, so the participant’s eyes reset before the next scene. Add one after the feedback, for half a second, using fixation = visual.TextStim(win, text=‘+’, height=0.1). Everything you need is taught: TextStim, draw, flip, core.wait(), and think about where in the loop it belongs.\n\n\n\n\n\n\nTipShow the code\n\n\n\n\n\n    # at the end of the trial loop, after the feedback wait:\n    fixation = visual.TextStim(win, text='+', height=0.1)\n    fixation.draw()\n    win.flip()\n    core.wait(0.5)\n\n\n\nTwelve trials, feedback firing, lion dodged? You have built a behavioural experiment!",
     "crumbs": [
       "Home",
       "Session 2 · PsychoPy",
       "Block 2 · Stimuli on the screen",
       "8 · Exercise 5: The Fleeing Rabbit"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/14_final_thoughts.html",
+    "href": "session3-experiments/14_final_thoughts.html",
+    "title": "14 · Final Thoughts",
+    "section": "",
+    "text": "Block 4 · We’ve come to the end of the road.\n\nCognitive science measures minds with instruments, and you have just built one from nothing: screen, timing, data, and all. Whatever your research ends up asking, the ability to construct your own instrument, rather than being limited to the experiments someone else packaged, is now yours, and it compounds.\nIf you want to keep going, the gradient is gentle from here: learnpython.org for the language, the PsychoPy documentation for the toolbox, and your own scripts for everything else.\nThank you for three good sessions. The world is your oyster: go and build the experiment only you would think of!\n🐰",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 4 · Workshop wrap-up",
+      "14 · Final Thoughts"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/14_final_thoughts.html#thinking-takes-time",
+    "href": "session3-experiments/14_final_thoughts.html#thinking-takes-time",
+    "title": "9 · Timing: Measuring How Long Thinking Takes",
+    "section": "Thinking takes time",
+    "text": "Thinking takes time\nYour experiment runs, and it already produces one measurement: whether each answer was correct. Block 3 adds the second, and for cognitive science the more interesting one: how long the answer took. The idea is old and beautiful: mental work takes time, and the time can be measured. Your own experiment contains a built-in comparison. On a burrow trial, you press the arrow on the burrow’s side: your response goes toward the thing you saw, which is what your attention wants anyway. On a lion trial, you press the opposite arrow: your response goes away from the thing you saw, and to produce it you must override the pull toward the lion first. That overriding is extra mental work, so lion trials should take longer, by tens of milliseconds. Reaction time is how we watch that work happen without opening the head. The same measurement carries your Portfolio 2 experiment: how long a reader lingers on a word tells us how hard that word is to process.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 4 · Workshop wrap-up",
+      "9 · Timing: Measuring How Long Thinking Takes"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/14_final_thoughts.html#a-stopwatch-object",
+    "href": "session3-experiments/14_final_thoughts.html#a-stopwatch-object",
+    "title": "9 · Timing: Measuring How Long Thinking Takes",
+    "section": "A stopwatch object",
+    "text": "A stopwatch object\nThe tool is core.Clock(): a stopwatch. Create it once, in the setup; reset it to zero at the moment you want to measure from; read it when the thing you are timing has happened.\nstopwatch = core.Clock()     # create, once, in the setup\nstopwatch.reset()            # zero it: timing starts NOW\nrt = stopwatch.getTime()     # read it: seconds since the reset\nA small demonstration you can run in a script, no window needed:\nfrom psychopy import core\n\nstopwatch = core.Clock()\nstopwatch.reset()\ncore.wait(1.5)\nprint(stopwatch.getTime())\n\nApproximately what number is printed?\n\nThe clock was zeroed, then the script waited. How much time passed between the reset and the read?\n\n\nApproximately 1.5, in practice something like 1.5001923: one and a half seconds passed between the reset and the read, plus a sliver of processing time. The clock does not stop at getTime(); it keeps running, and you can read it as often as you like. Reset defines the zero; every read reports the seconds since.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 4 · Workshop wrap-up",
+      "9 · Timing: Measuring How Long Thinking Takes"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/14_final_thoughts.html#where-the-reset-goes",
+    "href": "session3-experiments/14_final_thoughts.html#where-the-reset-goes",
+    "title": "9 · Timing: Measuring How Long Thinking Takes",
+    "section": "Where the reset goes",
+    "text": "Where the reset goes\nIn a trial, what we want to measure is the gap between stimulus onset and response. Both endpoints matter.\nThe response end is easy: event.waitKeys() returns at the keypress, so reading the clock on the next line captures it. The onset end is the subtle one, and Chapter 3 prepared you for it: a stimulus appears at one precise moment, the flip. Preparing and drawing take time, so the reset must come after the flip, not before the drawing. In our script, show_stim() ends with the flip, so the reset follows the call directly:\nshow_stim(image)                                  # ends with win.flip(): onset\nstopwatch.reset()                                 # zero AT onset\n\nkeys = event.waitKeys(keyList=['left', 'right'])  # returns at the keypress\nrt = stopwatch.getTime()                          # seconds from onset to response\n\n\n\n\n\n\nNote🤔 Think first\n\n\n\nA student puts stopwatch.reset() before the show_stim(image) call instead of after it. The script runs fine and produces reaction times. What is wrong with them?\n\n\n\n\n\n\nTipCheck your thinking\n\n\n\n\n\nEvery reaction time is slightly too long. The clock starts before the stimulus exists: preparing the image and flipping it to the screen take time, and that preparation time is silently added to every trial’s measurement. The participant has not even seen the stimulus while the clock is already running. Reset after the flip, so that zero means “the moment the scene appeared”.\n\n\n\n\n\n\n\n\n\n\n\nNoteGood to know: how precise is this?\n\n\n\n\n\nHonest measurement means knowing your instrument. Two small imprecisions are built in: the stimulus appears at a screen refresh, so onset is quantised to the frame (about 17 ms at 60 Hz), and ordinary keyboards add a few milliseconds of their own. Neither can be removed with ordinary hardware, and neither matters for us: both affect all trials equally, and the comparisons we care about, such as lion trials against burrow trials, are differences of tens of milliseconds averaged over trials. Know the noise, design comparisons larger than it.\n\n\n\n\n\n\n\n\n\nNoteSummary\n\n\n\ncore.Clock() is a stopwatch: create once, reset() to define zero, getTime() to read seconds since. For a reaction time, zero must mean stimulus onset, so the reset goes immediately after the flip, and the read goes immediately after waitKeys() returns. The measurement carries about a frame of onset noise and a few milliseconds of keyboard noise, which comparisons across many trials absorb.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 4 · Workshop wrap-up",
+      "9 · Timing: Measuring How Long Thinking Takes"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/14_final_thoughts.html#three-clock-puzzles-together",
+    "href": "session3-experiments/14_final_thoughts.html#three-clock-puzzles-together",
+    "title": "9 · Timing: Measuring How Long Thinking Takes",
+    "section": "Three clock puzzles, together",
+    "text": "Three clock puzzles, together\nBefore the clock enters the experiment, three small puzzles about how it behaves. Predict each one before anything is run.\n\nPuzzle 1: the clock keeps running\nfrom psychopy import core\n\nstopwatch = core.Clock()\nstopwatch.reset()\n\ncore.wait(1)\nprint(stopwatch.getTime())\n\ncore.wait(1)\nprint(stopwatch.getTime())\n\nTwo numbers are printed. Approximately which two? Answer on one line, separated by a space.\n\nDoes getTime() stop the clock, or only look at it?\n\n\nApproximately 1, then 2. Reading the clock does not stop it or reset it; it only looks. The clock runs continuously from the reset, and every read reports the total seconds since that one zero. One reset can serve many reads.\n\n\n\n\nPuzzle 2: reset moves the zero\nfrom psychopy import core\n\nstopwatch = core.Clock()\nstopwatch.reset()\n\ncore.wait(1)\nstopwatch.reset()\n\ncore.wait(1)\nprint(stopwatch.getTime())\n\nOne number is printed. Approximately what?\n\nThere are two resets. Which one defines the zero that the read is measured from?\n\n\nApproximately 1, not 2. A reset throws away everything before it and starts the count again: the second reset moved the zero, so the read reports only the second second. This is precisely why one reset per trial works in an experiment: each trial’s reset wipes the previous trial’s time and starts fresh.\n\n\n\n\nPuzzle 3: the misplaced reset, with numbers\nSuppose preparing and flipping a large image takes half a second, and the participant responds one second after the stimulus appears. A student writes the reset in the wrong place:\nstopwatch.reset()          # reset HERE...\nstim.draw()                # takes ~0.5 s in this thought experiment\nwin.flip()                 # ...stimulus appears now\nkeys = event.waitKeys()    # participant responds 1 s after onset\nrt = stopwatch.getTime()\n\nWhat reaction time does the script report, in seconds?\n\nThe clock started before the drawing. How much time passed between the reset and the keypress, in total?\n\n\n1.5 seconds, for a response that actually took 1.0. The half second of preparation is silently added, because the zero was set before the stimulus existed. The participant looks half a second slower than they are, on every trial. Zero must mean onset, so the reset goes after the flip.\n\n\n\n\nPuzzle 4: one clock, many trials\nThe experiment measures twelve trials, but it needs only one clock. Create it once in the setup; inside the loop, reset at each trial’s onset and read at each trial’s response. The reset wipes the previous trial’s time (Puzzle 2), so the same stopwatch serves every trial in turn. A miniature version, with waits standing in for participants:\nfrom psychopy import core\n\nstopwatch = core.Clock()            # once, in the setup\n\nfor trial in [1, 2, 3]:\n    stopwatch.reset()               # zero at this trial's onset\n    core.wait(trial)                # this \"participant\" takes 1, then 2, then 3 s\n    print(stopwatch.getTime())\n\nThree numbers are printed. Approximately which three, in order? One line, separated by spaces.\n\nDoes time pile up across trials, or does something wipe it between them?\n\n\nApproximately 1, 2, 3: each trial’s reset wipes the clock, so each read reports only its own trial’s time. Without the reset inside the loop, the times would pile up, 1, 3, 6, each trial inheriting all the seconds before it. One clock in the setup, one reset per trial at onset, one read per trial at the response: that is the whole pattern, and it is exactly what you will add to the rabbit in Exercise 6.\n\n\nStopwatch demo printing sensible numbers? Next: Exercise 6, timing the rabbit.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 4 · Workshop wrap-up",
+      "9 · Timing: Measuring How Long Thinking Takes"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/12_wrapup.html",
+    "href": "session3-experiments/12_wrapup.html",
+    "title": "12 · The Wrap Up & Portfolio 2 Roadmap",
+    "section": "",
+    "text": "Block 4 · The wrap-up begins. Read this with your Portfolio group in mind.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 3 · From prototype to experiment",
+      "12 · The Wrap Up & Portfolio 2 Roadmap"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/12_wrapup.html#thinking-takes-time",
+    "href": "session3-experiments/12_wrapup.html#thinking-takes-time",
+    "title": "9 · Timing: Measuring How Long Thinking Takes",
+    "section": "Thinking takes time",
+    "text": "Thinking takes time\nYour experiment runs, and it already produces one measurement: whether each answer was correct. Block 3 adds the second, and for cognitive science the more interesting one: how long the answer took. The idea is old and beautiful: mental work takes time, and the time can be measured. Your own experiment contains a built-in comparison. On a burrow trial, you press the arrow on the burrow’s side: your response goes toward the thing you saw, which is what your attention wants anyway. On a lion trial, you press the opposite arrow: your response goes away from the thing you saw, and to produce it you must override the pull toward the lion first. That overriding is extra mental work, so lion trials should take longer, by tens of milliseconds. Reaction time is how we watch that work happen without opening the head. The same measurement carries your Portfolio 2 experiment: how long a reader lingers on a word tells us how hard that word is to process.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 3 · From prototype to experiment",
+      "9 · Timing: Measuring How Long Thinking Takes"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/12_wrapup.html#a-stopwatch-object",
+    "href": "session3-experiments/12_wrapup.html#a-stopwatch-object",
+    "title": "9 · Timing: Measuring How Long Thinking Takes",
+    "section": "A stopwatch object",
+    "text": "A stopwatch object\nThe tool is core.Clock(): a stopwatch. Create it once, in the setup; reset it to zero at the moment you want to measure from; read it when the thing you are timing has happened.\nstopwatch = core.Clock()     # create, once, in the setup\nstopwatch.reset()            # zero it: timing starts NOW\nrt = stopwatch.getTime()     # read it: seconds since the reset\nA small demonstration you can run in a script, no window needed:\nfrom psychopy import core\n\nstopwatch = core.Clock()\nstopwatch.reset()\ncore.wait(1.5)\nprint(stopwatch.getTime())\n\nApproximately what number is printed?\n\nThe clock was zeroed, then the script waited. How much time passed between the reset and the read?\n\n\nApproximately 1.5, in practice something like 1.5001923: one and a half seconds passed between the reset and the read, plus a sliver of processing time. The clock does not stop at getTime(); it keeps running, and you can read it as often as you like. Reset defines the zero; every read reports the seconds since.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 3 · From prototype to experiment",
+      "9 · Timing: Measuring How Long Thinking Takes"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/12_wrapup.html#where-the-reset-goes",
+    "href": "session3-experiments/12_wrapup.html#where-the-reset-goes",
+    "title": "9 · Timing: Measuring How Long Thinking Takes",
+    "section": "Where the reset goes",
+    "text": "Where the reset goes\nIn a trial, what we want to measure is the gap between stimulus onset and response. Both endpoints matter.\nThe response end is easy: event.waitKeys() returns at the keypress, so reading the clock on the next line captures it. The onset end is the subtle one, and Chapter 3 prepared you for it: a stimulus appears at one precise moment, the flip. Preparing and drawing take time, so the reset must come after the flip, not before the drawing. In our script, show_stim() ends with the flip, so the reset follows the call directly:\nshow_stim(image)                                  # ends with win.flip(): onset\nstopwatch.reset()                                 # zero AT onset\n\nkeys = event.waitKeys(keyList=['left', 'right'])  # returns at the keypress\nrt = stopwatch.getTime()                          # seconds from onset to response\n\n\n\n\n\n\nNote🤔 Think first\n\n\n\nA student puts stopwatch.reset() before the show_stim(image) call instead of after it. The script runs fine and produces reaction times. What is wrong with them?\n\n\n\n\n\n\nTipCheck your thinking\n\n\n\n\n\nEvery reaction time is slightly too long. The clock starts before the stimulus exists: preparing the image and flipping it to the screen take time, and that preparation time is silently added to every trial’s measurement. The participant has not even seen the stimulus while the clock is already running. Reset after the flip, so that zero means “the moment the scene appeared”.\n\n\n\n\n\n\n\n\n\n\n\nNoteGood to know: how precise is this?\n\n\n\n\n\nHonest measurement means knowing your instrument. Two small imprecisions are built in: the stimulus appears at a screen refresh, so onset is quantised to the frame (about 17 ms at 60 Hz), and ordinary keyboards add a few milliseconds of their own. Neither can be removed with ordinary hardware, and neither matters for us: both affect all trials equally, and the comparisons we care about, such as lion trials against burrow trials, are differences of tens of milliseconds averaged over trials. Know the noise, design comparisons larger than it.\n\n\n\n\n\n\n\n\n\nNoteSummary\n\n\n\ncore.Clock() is a stopwatch: create once, reset() to define zero, getTime() to read seconds since. For a reaction time, zero must mean stimulus onset, so the reset goes immediately after the flip, and the read goes immediately after waitKeys() returns. The measurement carries about a frame of onset noise and a few milliseconds of keyboard noise, which comparisons across many trials absorb.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 3 · From prototype to experiment",
+      "9 · Timing: Measuring How Long Thinking Takes"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/12_wrapup.html#three-clock-puzzles-together",
+    "href": "session3-experiments/12_wrapup.html#three-clock-puzzles-together",
+    "title": "9 · Timing: Measuring How Long Thinking Takes",
+    "section": "Three clock puzzles, together",
+    "text": "Three clock puzzles, together\nBefore the clock enters the experiment, three small puzzles about how it behaves. Predict each one before anything is run.\n\nPuzzle 1: the clock keeps running\nfrom psychopy import core\n\nstopwatch = core.Clock()\nstopwatch.reset()\n\ncore.wait(1)\nprint(stopwatch.getTime())\n\ncore.wait(1)\nprint(stopwatch.getTime())\n\nTwo numbers are printed. Approximately which two? Answer on one line, separated by a space.\n\nDoes getTime() stop the clock, or only look at it?\n\n\nApproximately 1, then 2. Reading the clock does not stop it or reset it; it only looks. The clock runs continuously from the reset, and every read reports the total seconds since that one zero. One reset can serve many reads.\n\n\n\n\nPuzzle 2: reset moves the zero\nfrom psychopy import core\n\nstopwatch = core.Clock()\nstopwatch.reset()\n\ncore.wait(1)\nstopwatch.reset()\n\ncore.wait(1)\nprint(stopwatch.getTime())\n\nOne number is printed. Approximately what?\n\nThere are two resets. Which one defines the zero that the read is measured from?\n\n\nApproximately 1, not 2. A reset throws away everything before it and starts the count again: the second reset moved the zero, so the read reports only the second second. This is precisely why one reset per trial works in an experiment: each trial’s reset wipes the previous trial’s time and starts fresh.\n\n\n\n\nPuzzle 3: the misplaced reset, with numbers\nSuppose preparing and flipping a large image takes half a second, and the participant responds one second after the stimulus appears. A student writes the reset in the wrong place:\nstopwatch.reset()          # reset HERE...\nstim.draw()                # takes ~0.5 s in this thought experiment\nwin.flip()                 # ...stimulus appears now\nkeys = event.waitKeys()    # participant responds 1 s after onset\nrt = stopwatch.getTime()\n\nWhat reaction time does the script report, in seconds?\n\nThe clock started before the drawing. How much time passed between the reset and the keypress, in total?\n\n\n1.5 seconds, for a response that actually took 1.0. The half second of preparation is silently added, because the zero was set before the stimulus existed. The participant looks half a second slower than they are, on every trial. Zero must mean onset, so the reset goes after the flip.\n\n\n\n\nPuzzle 4: one clock, many trials\nThe experiment measures twelve trials, but it needs only one clock. Create it once in the setup; inside the loop, reset at each trial’s onset and read at each trial’s response. The reset wipes the previous trial’s time (Puzzle 2), so the same stopwatch serves every trial in turn. A miniature version, with waits standing in for participants:\nfrom psychopy import core\n\nstopwatch = core.Clock()            # once, in the setup\n\nfor trial in [1, 2, 3]:\n    stopwatch.reset()               # zero at this trial's onset\n    core.wait(trial)                # this \"participant\" takes 1, then 2, then 3 s\n    print(stopwatch.getTime())\n\nThree numbers are printed. Approximately which three, in order? One line, separated by spaces.\n\nDoes time pile up across trials, or does something wipe it between them?\n\n\nApproximately 1, 2, 3: each trial’s reset wipes the clock, so each read reports only its own trial’s time. Without the reset inside the loop, the times would pile up, 1, 3, 6, each trial inheriting all the seconds before it. One clock in the setup, one reset per trial at onset, one read per trial at the response: that is the whole pattern, and it is exactly what you will add to the rabbit in Exercise 6.\n\n\nStopwatch demo printing sensible numbers? Next: Exercise 6, timing the rabbit.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 3 · From prototype to experiment",
+      "9 · Timing: Measuring How Long Thinking Takes"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/10_reading_exp_prototype.html",
+    "href": "session3-experiments/10_reading_exp_prototype.html",
+    "title": "9 · Timing: Measuring How Long Thinking Takes",
+    "section": "",
+    "text": "Block 3 · Learning goals: Measure reaction times with core.Clock(): reset at stimulus onset, read at the response.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 3 · From prototype to experiment",
+      "9 · Timing: Measuring How Long Thinking Takes"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/10_reading_exp_prototype.html#thinking-takes-time",
+    "href": "session3-experiments/10_reading_exp_prototype.html#thinking-takes-time",
+    "title": "9 · Timing: Measuring How Long Thinking Takes",
+    "section": "Thinking takes time",
+    "text": "Thinking takes time\nYour experiment runs, and it already produces one measurement: whether each answer was correct. Block 3 adds the second, and for cognitive science the more interesting one: how long the answer took. The idea is old and beautiful: mental work takes time, and the time can be measured. Your own experiment contains a built-in comparison. On a burrow trial, you press the arrow on the burrow’s side: your response goes toward the thing you saw, which is what your attention wants anyway. On a lion trial, you press the opposite arrow: your response goes away from the thing you saw, and to produce it you must override the pull toward the lion first. That overriding is extra mental work, so lion trials should take longer, by tens of milliseconds. Reaction time is how we watch that work happen without opening the head. The same measurement carries your Portfolio 2 experiment: how long a reader lingers on a word tells us how hard that word is to process.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 3 · From prototype to experiment",
+      "9 · Timing: Measuring How Long Thinking Takes"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/10_reading_exp_prototype.html#a-stopwatch-object",
+    "href": "session3-experiments/10_reading_exp_prototype.html#a-stopwatch-object",
+    "title": "9 · Timing: Measuring How Long Thinking Takes",
+    "section": "A stopwatch object",
+    "text": "A stopwatch object\nThe tool is core.Clock(): a stopwatch. Create it once, in the setup; reset it to zero at the moment you want to measure from; read it when the thing you are timing has happened.\nstopwatch = core.Clock()     # create, once, in the setup\nstopwatch.reset()            # zero it: timing starts NOW\nrt = stopwatch.getTime()     # read it: seconds since the reset\nA small demonstration you can run in a script, no window needed:\nfrom psychopy import core\n\nstopwatch = core.Clock()\nstopwatch.reset()\ncore.wait(1.5)\nprint(stopwatch.getTime())\n\nApproximately what number is printed?\n\nThe clock was zeroed, then the script waited. How much time passed between the reset and the read?\n\n\nApproximately 1.5, in practice something like 1.5001923: one and a half seconds passed between the reset and the read, plus a sliver of processing time. The clock does not stop at getTime(); it keeps running, and you can read it as often as you like. Reset defines the zero; every read reports the seconds since.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 3 · From prototype to experiment",
+      "9 · Timing: Measuring How Long Thinking Takes"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/10_reading_exp_prototype.html#where-the-reset-goes",
+    "href": "session3-experiments/10_reading_exp_prototype.html#where-the-reset-goes",
+    "title": "9 · Timing: Measuring How Long Thinking Takes",
+    "section": "Where the reset goes",
+    "text": "Where the reset goes\nIn a trial, what we want to measure is the gap between stimulus onset and response. Both endpoints matter.\nThe response end is easy: event.waitKeys() returns at the keypress, so reading the clock on the next line captures it. The onset end is the subtle one, and Chapter 3 prepared you for it: a stimulus appears at one precise moment, the flip. Preparing and drawing take time, so the reset must come after the flip, not before the drawing. In our script, show_stim() ends with the flip, so the reset follows the call directly:\nshow_stim(image)                                  # ends with win.flip(): onset\nstopwatch.reset()                                 # zero AT onset\n\nkeys = event.waitKeys(keyList=['left', 'right'])  # returns at the keypress\nrt = stopwatch.getTime()                          # seconds from onset to response\n\n\n\n\n\n\nNote🤔 Think first\n\n\n\nA student puts stopwatch.reset() before the show_stim(image) call instead of after it. The script runs fine and produces reaction times. What is wrong with them?\n\n\n\n\n\n\nTipCheck your thinking\n\n\n\n\n\nEvery reaction time is slightly too long. The clock starts before the stimulus exists: preparing the image and flipping it to the screen take time, and that preparation time is silently added to every trial’s measurement. The participant has not even seen the stimulus while the clock is already running. Reset after the flip, so that zero means “the moment the scene appeared”.\n\n\n\n\n\n\n\n\n\n\n\nNoteGood to know: how precise is this?\n\n\n\n\n\nHonest measurement means knowing your instrument. Two small imprecisions are built in: the stimulus appears at a screen refresh, so onset is quantised to the frame (about 17 ms at 60 Hz), and ordinary keyboards add a few milliseconds of their own. Neither can be removed with ordinary hardware, and neither matters for us: both affect all trials equally, and the comparisons we care about, such as lion trials against burrow trials, are differences of tens of milliseconds averaged over trials. Know the noise, design comparisons larger than it.\n\n\n\n\n\n\n\n\n\nNoteSummary\n\n\n\ncore.Clock() is a stopwatch: create once, reset() to define zero, getTime() to read seconds since. For a reaction time, zero must mean stimulus onset, so the reset goes immediately after the flip, and the read goes immediately after waitKeys() returns. The measurement carries about a frame of onset noise and a few milliseconds of keyboard noise, which comparisons across many trials absorb.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 3 · From prototype to experiment",
+      "9 · Timing: Measuring How Long Thinking Takes"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/10_reading_exp_prototype.html#three-clock-puzzles-together",
+    "href": "session3-experiments/10_reading_exp_prototype.html#three-clock-puzzles-together",
+    "title": "9 · Timing: Measuring How Long Thinking Takes",
+    "section": "Three clock puzzles, together",
+    "text": "Three clock puzzles, together\nBefore the clock enters the experiment, three small puzzles about how it behaves. Predict each one before anything is run.\n\nPuzzle 1: the clock keeps running\nfrom psychopy import core\n\nstopwatch = core.Clock()\nstopwatch.reset()\n\ncore.wait(1)\nprint(stopwatch.getTime())\n\ncore.wait(1)\nprint(stopwatch.getTime())\n\nTwo numbers are printed. Approximately which two? Answer on one line, separated by a space.\n\nDoes getTime() stop the clock, or only look at it?\n\n\nApproximately 1, then 2. Reading the clock does not stop it or reset it; it only looks. The clock runs continuously from the reset, and every read reports the total seconds since that one zero. One reset can serve many reads.\n\n\n\n\nPuzzle 2: reset moves the zero\nfrom psychopy import core\n\nstopwatch = core.Clock()\nstopwatch.reset()\n\ncore.wait(1)\nstopwatch.reset()\n\ncore.wait(1)\nprint(stopwatch.getTime())\n\nOne number is printed. Approximately what?\n\nThere are two resets. Which one defines the zero that the read is measured from?\n\n\nApproximately 1, not 2. A reset throws away everything before it and starts the count again: the second reset moved the zero, so the read reports only the second second. This is precisely why one reset per trial works in an experiment: each trial’s reset wipes the previous trial’s time and starts fresh.\n\n\n\n\nPuzzle 3: the misplaced reset, with numbers\nSuppose preparing and flipping a large image takes half a second, and the participant responds one second after the stimulus appears. A student writes the reset in the wrong place:\nstopwatch.reset()          # reset HERE...\nstim.draw()                # takes ~0.5 s in this thought experiment\nwin.flip()                 # ...stimulus appears now\nkeys = event.waitKeys()    # participant responds 1 s after onset\nrt = stopwatch.getTime()\n\nWhat reaction time does the script report, in seconds?\n\nThe clock started before the drawing. How much time passed between the reset and the keypress, in total?\n\n\n1.5 seconds, for a response that actually took 1.0. The half second of preparation is silently added, because the zero was set before the stimulus existed. The participant looks half a second slower than they are, on every trial. Zero must mean onset, so the reset goes after the flip.\n\n\n\n\nPuzzle 4: one clock, many trials\nThe experiment measures twelve trials, but it needs only one clock. Create it once in the setup; inside the loop, reset at each trial’s onset and read at each trial’s response. The reset wipes the previous trial’s time (Puzzle 2), so the same stopwatch serves every trial in turn. A miniature version, with waits standing in for participants:\nfrom psychopy import core\n\nstopwatch = core.Clock()            # once, in the setup\n\nfor trial in [1, 2, 3]:\n    stopwatch.reset()               # zero at this trial's onset\n    core.wait(trial)                # this \"participant\" takes 1, then 2, then 3 s\n    print(stopwatch.getTime())\n\nThree numbers are printed. Approximately which three, in order? One line, separated by spaces.\n\nDoes time pile up across trials, or does something wipe it between them?\n\n\nApproximately 1, 2, 3: each trial’s reset wipes the clock, so each read reports only its own trial’s time. Without the reset inside the loop, the times would pile up, 1, 3, 6, each trial inheriting all the seconds before it. One clock in the setup, one reset per trial at onset, one read per trial at the response: that is the whole pattern, and it is exactly what you will add to the rabbit in Exercise 6.\n\n\nStopwatch demo printing sensible numbers? Next: Exercise 6, timing the rabbit.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 3 · From prototype to experiment",
+      "9 · Timing: Measuring How Long Thinking Takes"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/08_exercise7.html",
+    "href": "session3-experiments/08_exercise7.html",
+    "title": "8 · Exercise 7: The Complete Experiment",
+    "section": "",
+    "text": "Block 2 · Exercise: Give the Fleeing Rabbit its final missing pieces: a participant dialog, an anonymous code, and a CSV logfile.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 2 · Logging data",
+      "8 · Exercise 7: The Complete Experiment"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/08_exercise7.html#the-rabbit-so-far",
+    "href": "session3-experiments/08_exercise7.html#the-rabbit-so-far",
+    "title": "8 · Exercise 7: The Complete Experiment",
+    "section": "The rabbit so far",
+    "text": "The rabbit so far\nThe script has grown across three exercises, so let’s take stock before we put in the last parts. This is the anatomy of the script after Exercise 6, with today’s three insertions marked:\nrabbit.py\n│\n├─ imports                          &lt;- grows: gui, data, os, pandas\n│\n│  (insertion 1: participant dialog, fetch, anonymous code)\n│\n├─ setup: glob, shuffle, window, clock\n│                                   &lt;- insertion 2: logfile name, folder, rows = []\n├─ functions: msg(), show_stim()\n│\n├─ welcome message\n│\n├─ trial loop:\n│     show stimulus, reset clock\n│     collect response, read clock\n│     derive correct key\n│     feedback, wait\n│     print one line                &lt;- insertion 3: the print becomes a logged row\n│\n├─ goodbye message                  &lt;- insertion 2, continued: build and save the table\n└─ close, quit\nEverything in that map you built yourself, and today changes none of it: the three insertions only wrap the machine in bookkeeping. Work in your rabbit.py from Exercise 6, run after every step, and if your script is unrecoverable, the scaffold below holds the complete shape.\n\nStep 1: The dialog and the code\nAt the top, after the imports and before anything else: the dialog from the participant chapter. Two fields, native language and handedness; fetch the answers on OK, quit politely on cancel; then generate the anonymous participant code with random.randint(). Remember the strict rule: all of this runs before visual.Window() is created. Add gui to the PsychoPy import line. Run it: dialog, then the experiment as before.\n\n\nStep 2: The logfile plumbing\nIn the setup: guarantee the logfiles/ folder, build the unique filename from the participant code and data.getDateStr(), and create the empty list rows = []. Add data to the PsychoPy import line, plus import os and import pandas as pd. Run it: nothing visible changes, which is correct; the plumbing waits.\n\n\nStep 3: The print becomes a row\nInside the trial loop, where Exercise 6’s print line reports each trial, log instead of report: append one dictionary with the participant facts and the trial facts, seven keys in all: id, language, handedness, stimulus, key, correct_key, rt. The print line has served its purpose; replace it. Run it: the console falls silent, and the rows pile up invisibly.\n\n\nStep 4: Save\nAfter the loop, before the goodbye: two lines turn the list into a table and the table into a file, pd.DataFrame(rows) and .to_csv(logfile_name, index=False). Run the whole experiment, all twelve trials.\n\n\nStep 5: Open your data\nFind logfiles/ next to your script, open the newest CSV, and check it: twelve rows, seven columns, your language and handedness repeated down their columns, a reaction time in every row. Something like:\nid,language,handedness,stimulus,key,correct_key,rt\nP48213,Danish,Right-handed,stimuli/stimulus7_L.jpg,left,left,0.6214\nP48213,Danish,Right-handed,stimuli/stimulus2_R.jpg,left,right,0.8931\nP48213,Danish,Right-handed,stimuli/stimulus11_L.jpg,left,left,0.5471\nRun it a second time and check that a second file appeared rather than the first being overwritten. That is the unique filename doing its one job.\n\n\n\n\n\n\nNoteLost? The scaffold\n\n\n\n\n\nNo working script? Rebuild from this: the complete experiment with every organ, key lines blanked.\nfrom psychopy import visual, event, core, gui, data\nimport glob\nimport random\nimport os\nimport pandas as pd\n\n# --- participant ---\nbox = gui.Dlg(title='The Fleeing Rabbit')\nbox.addField('Native language')\nbox.addField('Handedness', choices=['Right-handed', 'Left-handed'])\nbox.show()\n\nif box.OK:\n    language = box.data['____']               # the key is the label, exactly\n    handedness = box.data['____']\nelse:\n    ____                                      # cancel means stop, politely\n\nparticipant_id = f'P{____(10000, 99999)}'     # a code nobody chooses\n\n# --- setup ---\nos.makedirs('____', exist_ok=True)            # the folder the save relies on\ndate = data.getDateStr()\nlogfile_name = f'logfiles/logfile_{____}_{date}.csv'   # what makes it unique?\n\nrows = ____                                   # where the trials will pile up\n\nimages = glob.glob('stimuli/stimulus*.jpg')\n____(images)                                  # a fresh order, no assignment!\n\nwin = visual.Window(size=(1280, 720), fullscr=False,\n                    color='black', checkTiming=False)\n\nstopwatch = core.Clock()\n\n# --- functions ---\ndef msg(text):\n    message = visual.TextStim(win, text=text, height=0.06)\n    message.draw()\n    win.flip()\n    event.waitKeys()\n\ndef show_stim(image):\n    stim = visual.ImageStim(win, image=image)\n    stim.draw()\n    win.flip()\n\n# --- experiment ---\nmsg('The Fleeing Rabbit\\n\\n'\n    'You are the rabbit, and the lion is on the hunt!\\n\\n'\n    'See a LION? Run the other way: press the OPPOSITE arrow.\\n'\n    'See a BURROW? Dive in: press the arrow on ITS side.\\n\\n'\n    'Be quick, and be right. Press any key to start.')\n\nfor image in images:\n    show_stim(image)\n    ____                                      # zero the clock at onset\n\n    keys = event.waitKeys(keyList=['left', 'right'])\n    rt = ____                                 # seconds since onset\n    key = ____                                # the list is not the key!\n\n    if image.endswith('_L.jpg'):\n        correct_key = 'left'\n    else:\n        correct_key = 'right'\n\n    if key == correct_key:\n        show_stim('stimuli/success.jpg')\n    else:\n        show_stim('stimuli/failure.jpg')\n    core.wait(2)\n\n    # one trial, one dictionary\n    rows.append({'id': ____,\n                 'language': language,\n                 'handedness': handedness,\n                 'stimulus': ____,\n                 'key': key,\n                 'correct_key': correct_key,\n                 'rt': ____})\n\n# --- save, then goodbye ---\nlogfile = ____(rows)                          # list of dictionaries in, table out\nlogfile.to_csv(____, index=False)\n\nmsg('That was it. Thank you! Press any key to close.')\n\nwin.close()\ncore.quit()\n\n\n\n\n\n\n\n\n\nTip🔒 Example code will be available here after the workshop",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 2 · Logging data",
+      "8 · Exercise 7: The Complete Experiment"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/08_exercise7.html#advanced-pick-any-in-any-order",
+    "href": "session3-experiments/08_exercise7.html#advanced-pick-any-in-any-order",
+    "title": "8 · Exercise 7: The Complete Experiment",
+    "section": "Advanced (pick any, in any order)",
+    "text": "Advanced (pick any, in any order)\nA. An accuracy column. Add a column that holds 1 for a correct answer and 0 for a wrong one, computed from the comparison you already make.\n\n\n\n\n\n\nTip🔒 Example code will be available here after the workshop\n\n\n\n\n\n\nB. A trial counter column. Number the trials 1 to 12 in their own column with a counter variable, so the analysis can ask whether people speed up over the session.\n\n\n\n\n\n\nTip🔒 Example code will be available here after the workshop\n\n\n\n\n\n\nC. An escape key that saves first. Add 'escape' to the keyList, and when it is pressed, save the rows collected so far before quitting.\n\n\n\n\n\n\nTip🔒 Example code will be available here after the workshop\n\n\n\n\n\n\nTwelve rows in a CSV, a second run making a second file? Your experiment now collects data. Next: from the rabbit to words.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 2 · Logging data",
+      "8 · Exercise 7: The Complete Experiment"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/06_informed_consent_dlg.html",
+    "href": "session3-experiments/06_informed_consent_dlg.html",
+    "title": "6 · Informed Consent",
+    "section": "",
+    "text": "Block 2 · Learning goals: Present a study information screen and collect informed consent.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 2 · Logging data",
+      "6 · Informed Consent"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/06_informed_consent_dlg.html#the-experiment-the-fleeing-rabbit",
+    "href": "session3-experiments/06_informed_consent_dlg.html#the-experiment-the-fleeing-rabbit",
+    "title": "6 · Informed Consent",
+    "section": "The experiment: The Fleeing Rabbit",
+    "text": "The experiment: The Fleeing Rabbit\nShuffled, twice, differently? Next: collecting real responses.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 2 · Logging data",
+      "6 · Informed Consent"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/04_exercise6.html",
+    "href": "session3-experiments/04_exercise6.html",
+    "title": "3 · Exercise 6: Weigh Your Own Decisions",
+    "section": "",
+    "text": "Block 1 · Exercise: Run a simple and a choice reaction-time task on yourself, perform Donders’ subtraction, then add timing to the rabbit.\n\n\n\nHands-on · on your own · try first, code revealed after the workshop\n\n\nExercise 6: Weigh your own decisions\n\n\nTwo small experiments on yourself, one subtraction, and then the rabbit learns to measure.\n\n\nWork in fresh scripts called Session3Exercise1 and Session3Exercise2 for Parts 1 and 2; the rabbit returns in Part 3.\n\nPart 1: Simple reaction time\nThe fastest thing you can do: press a key the moment something appears. To keep the appearance a surprise, randomise the waiting time: put several durations in a list, shuffle it, and wait for whichever comes first.\nBuild it: a black get-ready screen for the shuffled duration, then the rabbit at the centre, reset the clock at the flip, wait for any key, read the clock, print the time. Run it five times and watch the numbers. Most people land somewhere near a quarter of a second.\n\n\n\n\n\n\nNoteLost? The scaffold for Part 1\n\n\n\n\n\nfrom psychopy import visual, event, core\nimport random\n\nwin = visual.Window(size=(1280, 720), fullscr=False,\n                    color='black', checkTiming=False)\n\nstopwatch = ____                    # create the stopwatch, once\n\n# the rabbit must surprise you: shuffled waiting times, first one wins\nwaits = [1, 1.5, 2, 2.5, 3]\nrandom.shuffle(waits)\n\nwin.flip()                          # black screen: get ready...\ncore.wait(____)                     # wait for the winning duration\n\npic = visual.ImageStim(win, image='rabbit.jpg', size=0.5)\npic.draw()\nwin.flip()                          # the rabbit appears: onset\n____                                # zero the clock, exactly here. Why here?\n\nevent.waitKeys()\nrt = ____                           # read the clock: seconds since the reset\nprint(f'Simple reaction: {rt:.3f} seconds')\n\nwin.close()\ncore.quit()\n\n\n\n\n\n\n\n\n\nTip🔒 Example code will be available here after the workshop\n\n\n\n\n\n\n\n\nPart 2: Choice reaction time\nNow add a decision, and here the design matters: a decision only exists if you do not know the answer in advance. Since you wrote the script, the script must surprise you: put both positions in a list, shuffle it, and use the first element. The same random.shuffle() as the trial order, now flipping a coin. Show the rabbit on the winning side, respond with the arrow key on the rabbit’s side, and have the script report whether your press matched. Everything else stays as in Part 1: black screen for a shuffled duration, reset at the flip, read at the response, print.\nRun it several times. Only your correct runs count as choice-reaction times: a wrong press means the decision was not completed. Compare your correct runs with Part 1. The choice version should be slower, typically by something like a tenth of a second. That difference is Donders’ subtraction: the approximate duration of the decision itself, measured on yourself, in your own console.\n\n\n\n\n\n\nNoteLost? The scaffold for Part 2\n\n\n\n\n\nfrom psychopy import visual, event, core\nimport random\n\nwin = visual.Window(size=(1280, 720), fullscr=False,\n                    color='black', checkTiming=False)\n\nstopwatch = core.Clock()\n\n# surprise number one: when the rabbit appears\nwaits = [1, 1.5, 2, 2.5, 3]\nrandom.shuffle(waits)\n\nwin.flip()                          # black screen: get ready...\ncore.wait(waits[0])\n\n# surprise number two: where the rabbit appears\npositions = [(-0.5, 0), (0.5, 0)]\n____(positions)\npic = visual.ImageStim(win, image='rabbit.jpg', size=0.5)\npic.pos = ____                      # the winning position\n\npic.draw()\nwin.flip()                          # the rabbit appears: onset\nstopwatch.reset()\n\nkeys = event.waitKeys(keyList=____)             # only the arrows count\nrt = stopwatch.getTime()\nkey = ____                                      # the list is not the key!\n\n# was the press on the rabbit's side?\nif pic.pos[0] ____ 0:               # which x values mean \"left\"? (think: the number line)\n    correct_key = 'left'\nelse:\n    correct_key = ____\n\nprint(f'Choice reaction: {rt:.3f} s, pressed {key}, correct was {correct_key}')\n\nwin.close()\ncore.quit()\n\n\n\n\n\n\n\n\n\nTip🔒 Example code will be available here after the workshop\n\n\n\n\n\n\n\n\nPart 3: The rabbit learns to measure\nNow open your rabbit.py from Exercise 5, and give the real experiment the same treatment, three edits. Create the stopwatch once in the setup. In the trial loop, reset right after show_stim(image) and read right after the response arrives. Then report every trial with one printed f-string: the stimulus, the pressed and correct keys, and the reaction time to two decimals. Look at what that print line contains: the stimulus, the response, the correct answer, the time. That line is one row of data. Today’s session is about capturing those rows in a file instead of letting them scroll away.\n\n\n\n\n\n\nNoteLost? The scaffold for Part 3\n\n\n\n\n\nNo working rabbit.py? Rebuild from this: the complete experiment with timing, key lines blanked. Every ____ is something a chapter taught.\nfrom psychopy import visual, event, core\nimport glob\nimport random\n\n# --- setup ---\nimages = glob.glob('____')                # the pattern that finds the 12 scenes\n____(images)                              # a fresh order each run, no assignment!\n\nwin = visual.Window(size=(1280, 720), fullscr=False,\n                    color='black', checkTiming=False)\n\n____ = core.Clock()                       # the stopwatch: create once, here\n\n# --- functions ---\ndef msg(text):\n    message = visual.TextStim(win, text=____, height=0.06)   # the parameter!\n    message.draw()\n    ____                                  # curtain up\n    event.waitKeys()\n\ndef show_stim(image):\n    stim = visual.ImageStim(____, image=____)   # window first, then the parameter\n    stim.draw()\n    win.flip()\n\n# --- experiment ---\nmsg('____')                               # welcome: it must teach the rule!\n\nfor image in images:\n    # show the stimulus and start the clock at its onset\n    show_stim(image)\n    ____                                  # zero the clock. Why exactly here?\n\n    # collect the response and read the clock\n    keys = event.waitKeys(keyList=____)               # only the arrows count\n    rt = ____                                         # seconds since onset\n    key = ____                                        # the list is not the key!\n\n    # derive the correct answer from the filename\n    if image.____('____'):                            # the suffix carries it\n        correct_key = 'left'\n    else:\n        correct_key = ____\n\n    # feedback for 2 seconds\n    if ____ == ____:                                  # what did happen vs what should\n        show_stim('stimuli/success.jpg')\n    else:\n        show_stim('____')\n    core.wait(2)\n\n    # report the trial\n    print(f'{image}: {____} pressed, correct was {correct_key}, rt {____:.2f} s')\n\nmsg('That was it. Thank you! Press any key to close.')\n\nwin.close()\ncore.quit()\n\n\n\n\n\n\n\n\n\nTip🔒 Example code will be available here after the workshop\n\n\n\n\n\n\nRun the whole experiment and watch the console fill, trial by trial, with your own reaction times. Answer one trial as fast as you can and one slowly, and see the numbers agree with you.\n\n\nPart 4: Extra Flourish\nFinished early? Collect the reaction times in a list (rts = [] in the setup, rts.append(rt) in the loop) and report the average in the goodbye: sum(rts) / len(rts), formatted to two decimals.\n\n\n\n\n\n\nTip🔒 Example code will be available here after the workshop\n\n\n\n\n\n\nTwo experiments run on yourself, rabbit timing every trial? Wonderful stuff. That’s Session 1 complete!",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 1 · Measuring reaction times",
+      "3 · Exercise 6: Weigh Your Own Decisions"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/01_warmup.html",
+    "href": "session3-experiments/01_warmup.html",
+    "title": "1 · Warming Up: A PsychoPy Refresher",
+    "section": "",
+    "text": "Block 1 · Learning goals: Reactivate Session 2 (the draw-flip cycle, functions, shuffling, responses, and the filename logic) before the experiment learns to measure.\nA week ago you built the Fleeing Rabbit. Today you will learn how to measure time, record data, and set up a self-paced reading task. Before any of that, six quick checks on the machinery it runs on. If a check stumps you, the matching Session 2 chapter is in the sidebar. And find your rabbit.py from Exercise 5 now: today extends it directly.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 1 · Measuring reaction times",
+      "1 · Warming Up: A PsychoPy Refresher"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/01_warmup.html#the-cycle",
+    "href": "session3-experiments/01_warmup.html#the-cycle",
+    "title": "1 · Warming Up: A PsychoPy Refresher",
+    "section": "1: The cycle",
+    "text": "1: The cycle\nfrom psychopy import visual, event, core\n\nwin = visual.Window(size=(1280, 720), fullscr=False,\n                    color='black', checkTiming=False)\n\ntext = visual.TextStim(win, text='Welcome back!', color='white')\ntext.draw()\n\ncore.wait(2)\nwin.close()\ncore.quit()\n\nThis script runs without errors. What does the participant see during the two seconds?\n\nThe text was drawn, but drawing paints the back buffer. What raises the curtain?\n\n\nCareful: without that missing line, not even the background colour reaches the screen.\n\n\nA grey window. The text was prepared and drawn, but only backstage: there is no win.flip(), so nothing was ever swapped to the screen, not even the black background. The unpainted default is grey. Prepare, draw, flip, wait: the flip is the step this script forgot, and a grey window is its signature.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 1 · Measuring reaction times",
+      "1 · Warming Up: A PsychoPy Refresher"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/01_warmup.html#definitions-calls-and-a-loop",
+    "href": "session3-experiments/01_warmup.html#definitions-calls-and-a-loop",
+    "title": "1 · Warming Up: A PsychoPy Refresher",
+    "section": "2: Definitions, calls, and a loop",
+    "text": "2: Definitions, calls, and a loop\ndef msg(text):\n    print(text)\n    print('---')\n\nfor word in ['Welcome', 'Goodbye']:\n    msg(word.upper())\n\nWrite out the full console output, one line per printed line.\n\nLook at the call: what happens to word before it is handed to the function?\n\n\nThe body has two print lines, and the whole body runs at every call. What comes between the words?\n\n\nWELCOME\n---\nGOODBYE\n---\nFour lines. The definition itself prints nothing. The loop then calls msg() once per word, and at each call the argument is evaluated first, so word.upper() hands the uppercased string to the parameter, and the whole body runs, both prints. Look at the shape of those last two lines of code: a loop that calls a function once per item is exactly your trial loop, for image in images: show_stim(image).",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 1 · Measuring reaction times",
+      "1 · Warming Up: A PsychoPy Refresher"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/01_warmup.html#lists-and-if-statements",
+    "href": "session3-experiments/01_warmup.html#lists-and-if-statements",
+    "title": "1 · Warming Up: A PsychoPy Refresher",
+    "section": "3: Lists and if statements",
+    "text": "3: Lists and if statements\nkeys = ['left']\ncorrect_key = 'left'\n\nif keys == correct_key:\n    print('success')\nelse:\n    print('failure')\n\nThe participant pressed left, and left was correct. What prints?\n\nCompare the types: keys is a list holding a string. Is a box containing a letter the letter?\n\n\nfailure, despite a perfectly correct response. A list never equals a string, so ['left'] == 'left' is False, and no error ever says so: an experiment with this bug marks every answer wrong, silently. The missing character is the index: keys[0] == correct_key. Today’s reaction times are read in the same breath as keys[0], so this reflex matters twice.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 1 · Measuring reaction times",
+      "1 · Warming Up: A PsychoPy Refresher"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/01_warmup.html#the-finale-a-trial-in-the-console",
+    "href": "session3-experiments/01_warmup.html#the-finale-a-trial-in-the-console",
+    "title": "1 · Warming Up: A PsychoPy Refresher",
+    "section": "4: The finale: a trial in the console",
+    "text": "4: The finale: a trial in the console\nEverything at once. Read it slowly before answering.\ndef report(image, key):\n    if image.endswith('_L.jpg'):\n        correct_key = 'left'\n    else:\n        correct_key = 'right'\n\n    if key == correct_key:\n        print(f'{image}: correct')\n    else:\n        print(f'{image}: wrong')\n\nimages = ['burrow_L.jpg', 'lion_R.jpg']\n\nfor image in images:\n    report(image, 'left')\n\nTwo lines print. Write them out exactly, one per line.\n\nOn the second call, the suffix is _R, so what is correct_key? And what key was passed in, both times?\n\n\nTake the first call: burrow_L.jpg ends in _L.jpg, and the pressed key is left. Walk each branch.\n\n\nburrow_L.jpg: correct\nlion_R.jpg: wrong\nBoth calls pass the same key, left. For burrow_L.jpg the suffix sets correct_key to left, and the comparison succeeds. For lion_R.jpg it sets correct_key to right, and the same left now fails. One function, two parameters, a loop supplying the calls, a suffix check deciding the answer, a comparison judging it, an f-string reporting it: that is your entire trial loop, minus only the screen and the clock. The clock is the very next chapter.\n\n\nDoes the reasoning in all of these checks make sense? Anything a little shaky or needs refreshing? The sidebar has the relevant materials. Next: Why Measure Reaction Time.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 1 · Measuring reaction times",
+      "1 · Warming Up: A PsychoPy Refresher"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/02_why_rt.html",
+    "href": "session3-experiments/02_why_rt.html",
+    "title": "2 · Why Measure Reaction Time?",
+    "section": "",
+    "text": "Block 1 · Learning goals: Measure reaction times with core.Clock(): reset at stimulus onset, read at the response.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 1 · Measuring reaction times",
+      "2 · Why Measure Reaction Time?"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/02_why_rt.html#thinking-takes-time",
+    "href": "session3-experiments/02_why_rt.html#thinking-takes-time",
+    "title": "2 · Why Measure Reaction Time?",
+    "section": "Thinking takes time",
+    "text": "Thinking takes time\nYour Fleeing Rabbit runs, and it already produces one measurement: whether each answer was correct. Today we add the second: how long the answer took. The idea is old and beautiful. Mental work takes time, and the time can be measured.\nYour experiment contains a built-in comparison. On a burrow trial, you press the key on the same side as what you saw. On a lion trial you press the opposite key, and to do that you must first override the pull toward the thing you saw. That override is extra mental work, so lion trials should take longer, by tens of milliseconds. Reaction time makes such invisible work visible, and the same logic carries all the way to language: a reader who lingers on a word is telling you that the word costs more to process. This afternoon your experiment becomes exactly that instrument, a self-paced reading task. First, we need to learn how to use the stopwatch.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 1 · Measuring reaction times",
+      "2 · Why Measure Reaction Time?"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/02_why_rt.html#a-stopwatch-object",
+    "href": "session3-experiments/02_why_rt.html#a-stopwatch-object",
+    "title": "2 · Why Measure Reaction Time?",
+    "section": "A stopwatch object",
+    "text": "A stopwatch object\nThe tool is core.Clock(): a stopwatch. Create it once, in the setup; reset it to zero at the moment you want to measure from; read it when the thing you are timing has happened.\nstopwatch = core.Clock()     # create, once, in the setup\nstopwatch.reset()            # zero it: timing starts NOW\nrt = stopwatch.getTime()     # read it: seconds since the reset\nA small demonstration you can run in a script, no window needed:\nfrom psychopy import core\n\nstopwatch = core.Clock()\nstopwatch.reset()\ncore.wait(1.5)\nprint(stopwatch.getTime())\n\nApproximately what number is printed?\n\nThe clock was zeroed, then the script waited. How much time passed between the reset and the read?\n\n\nApproximately 1.5, in practice something like 1.5001923: one and a half seconds passed between the reset and the read, plus a sliver of processing time. The clock does not stop at getTime(); it keeps running, and you can read it as often as you like. Reset defines the zero; every read reports the seconds since.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 1 · Measuring reaction times",
+      "2 · Why Measure Reaction Time?"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/02_why_rt.html#where-the-reset-goes",
+    "href": "session3-experiments/02_why_rt.html#where-the-reset-goes",
+    "title": "2 · Why Measure Reaction Time?",
+    "section": "Where the reset goes",
+    "text": "Where the reset goes\nIn a trial, what we want to measure is the gap between stimulus onset and response. Both endpoints matter.\nThe response end is easy: event.waitKeys() returns at the keypress, so reading the clock on the next line captures it. The onset end is the subtle one, and Chapter 3 prepared you for it: a stimulus appears at one precise moment, the flip. Preparing and drawing take time, so the reset must come after the flip, not before the drawing. In our script, show_stim() ends with the flip, so the reset follows the call directly:\nshow_stim(image)                                  # ends with win.flip(): onset\nstopwatch.reset()                                 # zero AT onset\n\nkeys = event.waitKeys(keyList=['left', 'right'])  # returns at the keypress\nrt = stopwatch.getTime()                          # seconds from onset to response\n\n\n\n\n\n\nNote🤔 Think first\n\n\n\nA student puts stopwatch.reset() before the show_stim(image) call instead of after it. The script runs fine and produces reaction times. What is wrong with them?\n\n\n\n\n\n\nTipCheck your thinking\n\n\n\n\n\nEvery reaction time is slightly too long. The clock starts before the stimulus exists: preparing the image and flipping it to the screen take time, and that preparation time is silently added to every trial’s measurement. The participant has not even seen the stimulus while the clock is already running. Reset after the flip, so that zero means “the moment the scene appeared”.\n\n\n\n\n\n\n\n\n\n\n\nNoteGood to know: how precise is this?\n\n\n\n\n\nHonest measurement means knowing your instrument. Two small imprecisions are built in: the stimulus appears at a screen refresh, so onset is quantised to the frame (about 17 ms at 60 Hz), and ordinary keyboards add a few milliseconds of their own. Neither can be removed with ordinary hardware, and neither matters for us: both affect all trials equally, and the comparisons we care about, such as lion trials against burrow trials, are differences of tens of milliseconds averaged over trials. Know the noise, design comparisons larger than it.\n\n\n\n\n\n\n\n\n\nNoteSummary\n\n\n\ncore.Clock() is a stopwatch: create once, reset() to define zero, getTime() to read seconds since. For a reaction time, zero must mean stimulus onset, so the reset goes immediately after the flip, and the read goes immediately after waitKeys() returns. The measurement carries about a frame of onset noise and a few milliseconds of keyboard noise, which comparisons across many trials absorb.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 1 · Measuring reaction times",
+      "2 · Why Measure Reaction Time?"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/02_why_rt.html#three-clock-puzzles-together",
+    "href": "session3-experiments/02_why_rt.html#three-clock-puzzles-together",
+    "title": "2 · Why Measure Reaction Time?",
+    "section": "Three clock puzzles, together",
+    "text": "Three clock puzzles, together\nBefore the clock enters the experiment, three small puzzles about how it behaves. Predict each one before anything is run.\n\nPuzzle 1: the clock keeps running\nfrom psychopy import core\n\nstopwatch = core.Clock()\nstopwatch.reset()\n\ncore.wait(1)\nprint(stopwatch.getTime())\n\ncore.wait(1)\nprint(stopwatch.getTime())\n\nTwo numbers are printed. Approximately which two? Answer on one line, separated by a space.\n\nDoes getTime() stop the clock, or only look at it?\n\n\nApproximately 1, then 2. Reading the clock does not stop it or reset it; it only looks. The clock runs continuously from the reset, and every read reports the total seconds since that one zero. One reset can serve many reads.\n\n\n\n\nPuzzle 2: reset moves the zero\nfrom psychopy import core\n\nstopwatch = core.Clock()\nstopwatch.reset()\n\ncore.wait(1)\nstopwatch.reset()\n\ncore.wait(1)\nprint(stopwatch.getTime())\n\nOne number is printed. Approximately what?\n\nThere are two resets. Which one defines the zero that the read is measured from?\n\n\nApproximately 1, not 2. A reset throws away everything before it and starts the count again: the second reset moved the zero, so the read reports only the second second. This is precisely why one reset per trial works in an experiment: each trial’s reset wipes the previous trial’s time and starts fresh.\n\n\n\n\nPuzzle 3: one clock, many trials\nThe experiment measures twelve trials, but it needs only one clock. Create it once in the setup; inside the loop, reset at each trial’s onset and read at each trial’s response. The reset wipes the previous trial’s time (Puzzle 2), so the same stopwatch serves every trial in turn. A miniature version, with waits standing in for participants:\nfrom psychopy import core\n\nstopwatch = core.Clock()            # once, in the setup\n\nfor trial in [1, 2, 3]:\n    stopwatch.reset()               # zero at this trial's onset\n    core.wait(trial)                # this \"participant\" takes 1, then 2, then 3 s\n    print(stopwatch.getTime())\n\nThree numbers are printed. Approximately which three, in order? One line, separated by spaces.\n\nDoes time pile up across trials, or does something wipe it between them?\n\n\nApproximately 1, 2, 3: each trial’s reset wipes the clock, so each read reports only its own trial’s time. Without the reset inside the loop, the times would pile up, 1, 3, 6, each trial inheriting all the seconds before it. One clock in the setup, one reset per trial at onset, one read per trial at the response: that is the whole pattern, and it is exactly what you will add to the rabbit in Exercise 6.\n\n\nStopwatch demo printing sensible numbers? Next: Exercise 6, timing the rabbit.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 1 · Measuring reaction times",
+      "2 · Why Measure Reaction Time?"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/05_participant_info.html",
+    "href": "session3-experiments/05_participant_info.html",
+    "title": "5 · Participant Information: The Dialog Box",
+    "section": "",
+    "text": "Block 2 · Learning goals: Collect participant information with gui.Dlg, generate an anonymous participant code, and decide what an experiment should and should not ask.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 2 · Logging data",
+      "5 · Participant Information: The Dialog Box"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/05_participant_info.html#who-pressed-the-keys",
+    "href": "session3-experiments/05_participant_info.html#who-pressed-the-keys",
+    "title": "5 · Participant Information: The Dialog Box",
+    "section": "Who pressed the keys?",
+    "text": "Who pressed the keys?\nYour experiment measures beautifully but remembers nothing about who was measured. Once data goes into a file, every row needs an answer to one question: which participant produced this? Today the participant is you, but on data-collection day your experiment runs on many people in a row, and their rows must not blur together.\nThe tool is a popup dialog that appears before the experiment starts, plus one line of randomness: the script invents a participant code by itself, so that no person, including you, ever knows which code belongs to whom. PsychoPy provides the dialog through a fourth module, gui.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 2 · Logging data",
+      "5 · Participant Information: The Dialog Box"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/05_participant_info.html#what-not-to-ask",
+    "href": "session3-experiments/05_participant_info.html#what-not-to-ask",
+    "title": "5 · Participant Information: The Dialog Box",
+    "section": "What not to ask",
+    "text": "What not to ask\nBefore the code, one design rule: collect only what your analysis will use. The principle is called data minimisation, and in European research it is the law as well as good practice. The dialog therefore never asks for a name. A participant code such as P48213 labels the row without identifying the person, and as long as no list anywhere connects codes to people, the data is anonymous; if such a list exists, the data is only pseudonymised, and the list must live separately from it. Question the other fields the same way: in a class-sized sample, “female, 19, tested Tuesday” can narrow down to one person even without a name, so a field your analysis will not use is best not collected. Where you do collect gender, include “Prefer not to say” among the choices.\n\n\n\n\n\n\nNote🤔 Think first\n\n\n\nYour reading experiment will compare reading times between two versions of a text. Which of these fields earn a place in the dialog: name, participant code, age, gender, email address, native language?\n\n\n\n\n\n\nTipCheck your thinking\n\n\n\n\n\nNative language, plausibly: reading times in Danish differ between native and non-native readers, so the analysis may genuinely need it. Age and gender, only if your analysis will use them. Name and email, never: they identify the person and the analysis has no use for them. And the participant code is a trick option: it belongs in the data but not in the dialog, because in a moment the script will generate it by itself. Every field you collect is something you must now protect.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 2 · Logging data",
+      "5 · Participant Information: The Dialog Box"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/05_participant_info.html#the-dialog-box",
+    "href": "session3-experiments/05_participant_info.html#the-dialog-box",
+    "title": "5 · Participant Information: The Dialog Box",
+    "section": "The dialog box",
+    "text": "The dialog box\nThe dialog is built field by field, then shown. Type this complete script and run it; no window is needed:\nfrom psychopy import gui, core\n\nbox = gui.Dlg(title='The Fleeing Rabbit')\nbox.addField('Native language')\nbox.addField('Handedness', choices=['Right-handed', 'Left-handed'])\nbox.show()\n\nif box.OK:\n    print(box.data)\nelse:\n    core.quit()\nA small window pops up with two fields: one free text, one a dropdown built from the choices list. Fill it in and press OK.\nbox.show() pauses the script until the participant answers, the same way event.waitKeys() pauses for a key. Afterwards, box.OK is True if they pressed OK and False if they cancelled, and cancelling should end the experiment politely: the same core.quit() reflex as the escape key. A participant who closes the dialog is declining to take part, and the script must respect that.\n\nYou run the script, type Danish, choose Right-handed, and press OK. What exactly does print(box.data) show?\n\nNot a list this time. The values come back labelled with the field names. What container pairs labels with values?\n\n\n{'Native language': 'Danish', 'Handedness': 'Right-handed'}: a dictionary, keyed by the field labels, and every value is a string. That is worth remembering for any field you ever add: a dialog is a typing interface, so an age field would return '19', not 19, and computing with it would need int() first. The dictionary itself is new, and the next section introduces it properly, because you will meet it again this afternoon.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 2 · Logging data",
+      "5 · Participant Information: The Dialog Box"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/05_participant_info.html#a-new-container-the-dictionary",
+    "href": "session3-experiments/05_participant_info.html#a-new-container-the-dictionary",
+    "title": "5 · Participant Information: The Dialog Box",
+    "section": "A new container: the dictionary",
+    "text": "A new container: the dictionary\nLists you know: items in a row, fetched by position, keys[0]. A dictionary stores items by name instead. Each entry is a pair, a key and a value, written {'key': value}, and you fetch a value with its key in square brackets:\nage = box.data['Age']\ngender = box.data['Gender']\nThe key must match the field label exactly, character for character, which is why our labels are plain: 'Age'. A dictionary is the natural shape for labelled facts, which is exactly what a participant is, and exactly what a trial is: this afternoon, every logged row of your data will be a dictionary too.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 2 · Logging data",
+      "5 · Participant Information: The Dialog Box"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/05_participant_info.html#an-id-nobody-chooses",
+    "href": "session3-experiments/05_participant_info.html#an-id-nobody-chooses",
+    "title": "5 · Participant Information: The Dialog Box",
+    "section": "An ID nobody chooses",
+    "text": "An ID nobody chooses\nThe participant code comes from one new line, not from anybody’s keyboard:\nimport random\n\nparticipant_id = f'P{random.randint(10000, 99999)}'\nrandom.randint(10000, 99999) returns a whole number between those two bounds, a sibling of the shuffle you already use, and the f-string dresses it as a code such as P48213. Because the number is drawn at random and never shown on screen, nobody can say which person produced which dataset, including the experimenter.\nTwo honest footnotes. First, anonymity is a property of the whole procedure: if you watch someone’s session and write their code on a sticky note, it is gone. Second, anonymity cuts both ways: if a participant later asks for their data to be deleted, you cannot find it, because nobody can. It is worth one sentence in your instructions so participants know it before they start.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 2 · Logging data",
+      "5 · Participant Information: The Dialog Box"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/05_participant_info.html#before-the-window-always",
+    "href": "session3-experiments/05_participant_info.html#before-the-window-always",
+    "title": "5 · Participant Information: The Dialog Box",
+    "section": "Before the window, always",
+    "text": "Before the window, always\nOne rule of placement, and it is strict: the dialog comes before visual.Window() is created. A dialog is an ordinary desktop window, and once PsychoPy’s stimulus window exists, especially fullscreen, the dialog can appear behind it or freeze the script entirely, with no way to click OK on a box you cannot see. In your script, the order is: imports, dialog, read the answers, generate the code, and only then the window, the clock, and the functions.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 2 · Logging data",
+      "5 · Participant Information: The Dialog Box"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/05_participant_info.html#into-the-rabbit-script",
+    "href": "session3-experiments/05_participant_info.html#into-the-rabbit-script",
+    "title": "5 · Participant Information: The Dialog Box",
+    "section": "Into the rabbit script",
+    "text": "Into the rabbit script\nIn the experiment, all of this lives at the very top of rabbit.py, before anything else happens. The gui module joins the import line you already have, and the dialog block sits between the imports and the setup:\nfrom psychopy import visual, event, core, gui\nimport glob\nimport random\n\n# --- participant ---\nbox = gui.Dlg(title='The Fleeing Rabbit')\nbox.addField('Native language')\nbox.addField('Handedness', choices=['Right-handed', 'Left-handed'])\nbox.show()\n\nif box.OK:\n    age = box.data['Native language']\n    gender = box.data['Handedness']\nelse:\n    core.quit()\n\nparticipant_id = f'P{random.randint(10000, 99999)}'\n\n# --- setup ---\nimages = glob.glob('stimuli/stimulus*.jpg')\nrandom.shuffle(images)\n\nwin = visual.Window(size=(1280, 720), fullscr=False,\n                    color='black', checkTiming=False)\nNote what has and has not happened: the answers are fetched into ordinary variables, age, gender, participant_id, and then nothing uses them yet. They simply wait. Registering them properly, meaning writing them into every row of a data file, is the next chapter’s whole job, and it is why these three variables exist.\n\n\n\n\n\n\nNoteSummary\n\n\n\nA gui.Dlg collects participant information before the experiment begins: build it field by field, show() it, check box.OK, and quit politely on cancel. Everything it returns is a string, in box.data, a dictionary keyed by the field labels. The script generates a participant code with random.randint(), never typed and never shown, so the data is anonymous by construction. The dialog runs before the window is created. And the fields themselves are a design decision: an escape option for gender, and nothing the analysis will not use. Collect only what you must protect.\n\n\nDialog popping up, answers printing, cancel quitting cleanly? Next: informed consent.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 2 · Logging data",
+      "5 · Participant Information: The Dialog Box"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/07_data_logging.html",
+    "href": "session3-experiments/07_data_logging.html",
+    "title": "7 · Data Logging: From Console to CSV",
+    "section": "",
+    "text": "Block 2 · Learning goals: Collect every trial as a dictionary, gather them in a list, and save them as a CSV logfile with a unique name.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 2 · Logging data",
+      "7 · Data Logging: From Console to CSV"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/07_data_logging.html#data-that-evaporates",
+    "href": "session3-experiments/07_data_logging.html#data-that-evaporates",
+    "title": "7 · Data Logging: From Console to CSV",
+    "section": "Data that evaporates",
+    "text": "Data that evaporates\nExercise 6 ended with your experiment printing a line per trial: stimulus, response, correct answer, reaction time. Then you likely closed PsychoPy, and the data ceased to exist. Real experiments write their rows to a file, and the file format of choice is CSV, comma separated values: plain text, one row per line, readable by R, Excel, and everything else you will ever analyse data with.\nThe plan has three steps. During the experiment, collect each trial’s facts. After the loop, turn the collection into a table. Save the table to a file whose name cannot collide with anyone else’s.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 2 · Logging data",
+      "7 · Data Logging: From Console to CSV"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/07_data_logging.html#one-trial-one-dictionary",
+    "href": "session3-experiments/07_data_logging.html#one-trial-one-dictionary",
+    "title": "7 · Data Logging: From Console to CSV",
+    "section": "One trial, one dictionary",
+    "text": "One trial, one dictionary\nA trial is a set of labelled facts, and you met the container for labelled facts in the last chapter: the dictionary. One trial becomes one dictionary; the whole experiment becomes a list of dictionaries, built with the .append() you have used since Session 1. A miniature you can run in a plain script, no window needed:\nrows = []                       # before the loop: an empty list\n\nfor trial in [1, 2, 3]:\n    rows.append({'trial': trial, 'rt': trial * 0.5})\n\nprint(len(rows))\nprint(rows[0])\n3\n{'trial': 1, 'rt': 0.5}\n\nSame script. What does print(rows[2]['rt']) show?\n\nIndex 2 of the list is which trial? Count from zero, then look up the 'rt' key in that dictionary.\n\n\n1.5. Two lookups chained: rows[2] fetches the third dictionary from the list, position first, and ['rt'] fetches one value from it, key second. List of dictionaries: position finds the trial, name finds the fact. This is the exact shape your experiment’s data takes today.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 2 · Logging data",
+      "7 · Data Logging: From Console to CSV"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/07_data_logging.html#from-rows-to-a-table-pandas",
+    "href": "session3-experiments/07_data_logging.html#from-rows-to-a-table-pandas",
+    "title": "7 · Data Logging: From Console to CSV",
+    "section": "From rows to a table: pandas",
+    "text": "From rows to a table: pandas\nA list of dictionaries becomes a table in one line, using pandas, the Python library for tabular data. Today we’ll use two lines of it:\nimport pandas as pd\n\nlogfile = pd.DataFrame(rows)\nprint(logfile)\n   trial   rt\n0      1  0.5\n1      2  1.0\n2      3  1.5\nThe dictionary keys became column names, and each dictionary became a row. Saving the table is one more line:\nlogfile.to_csv('logfile.csv', index=False)\nThe index=False leaves out the bold row numbers on the left, which belong to pandas, not to your data. Run it, then find logfile.csv next to your script and open it. Suddenly you have a .csv file you would be able to read in with R.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 2 · Logging data",
+      "7 · Data Logging: From Console to CSV"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/07_data_logging.html#a-name-that-cannot-collide",
+    "href": "session3-experiments/07_data_logging.html#a-name-that-cannot-collide",
+    "title": "7 · Data Logging: From Console to CSV",
+    "section": "A name that cannot collide",
+    "text": "A name that cannot collide\nOne flaw remains, and it is a data-destroying one.\n\n\n\n\n\n\nNote🤔 Think first\n\n\n\nYour experiment saves to 'logfile.csv', a fixed name. Participant one is tested, then participant two. What happens to participant one’s data?\n\n\n\n\n\n\nTipCheck your thinking\n\n\n\n\n\nIt disappears. The second save writes a file with the same name in the same folder, which silently replaces the first. The experiment would appear to work perfectly while destroying one dataset per participant. The filename must be different for every run.\n\n\n\n\n\nTwo ingredients make a filename unique: the participant code you already generate, and a timestamp from PsychoPy’s data module, which joins the import line:\nfrom psychopy import visual, event, core, gui, data\n\ndate = data.getDateStr()\nlogfile_name = f'logfiles/logfile_{participant_id}_{date}.csv'\ndata.getDateStr() returns the current date and time as a compact string, so logfile_name becomes something like logfiles/logfile_P48213_2026-09-29_09h41.22.csv. Two participants can no longer produce the same name.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 2 · Logging data",
+      "7 · Data Logging: From Console to CSV"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/07_data_logging.html#a-home-for-the-logfiles",
+    "href": "session3-experiments/07_data_logging.html#a-home-for-the-logfiles",
+    "title": "7 · Data Logging: From Console to CSV",
+    "section": "A home for the logfiles",
+    "text": "A home for the logfiles\nThe filename above puts every logfile in a logfiles/ folder, so the CSVs do not pile up next to your script and stimuli. You could create the folder by hand, but there is a reason to let the script guarantee it instead: if the folder is missing, the save fails at the very end of the experiment, after all the trials have run, and the rows are lost with it. One line from the os module removes that risk forever:\nimport os\n\nos.makedirs('logfiles', exist_ok=True)\nexist_ok=True means: create the folder, and if it already exists, do nothing. Safe to run every time, on every computer the experiment ever moves to.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 2 · Logging data",
+      "7 · Data Logging: From Console to CSV"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/07_data_logging.html#into-the-rabbit-script",
+    "href": "session3-experiments/07_data_logging.html#into-the-rabbit-script",
+    "title": "7 · Data Logging: From Console to CSV",
+    "section": "Into the rabbit script",
+    "text": "Into the rabbit script\nThe pieces land in three places, and only three. In the setup: the imports, the folder, the empty list. Inside the trial loop, after the feedback: one append, carrying both the participant facts and the trial facts. After the loop: build the table and save it, before the goodbye.\n# --- setup ---\nos.makedirs('logfiles', exist_ok=True)\ndate = data.getDateStr()\nlogfile_name = f'logfiles/logfile_{participant_id}_{date}.csv'\n\nrows = []\n\n# --- inside the trial loop, after the feedback ---\n    rows.append({'id': participant_id,\n                 'language': language,\n                 'handedness': handedness,\n                 'stimulus': image,\n                 'key': key,\n                 'correct_key': correct_key,\n                 'rt': rt})\n\n# --- after the loop ---\nlogfile = pd.DataFrame(rows)\nlogfile.to_csv(logfile_name, index=False)\nNote that the participant columns repeat identically in every row. That looks wasteful and is exactly right: each row of a data file should stand on its own, so that R can group, filter, and compare without consulting a second file.\n\n\n\n\n\n\nNoteGood to know: escape loses the rows\n\n\n\n\n\nThe save happens once, after the loop. If the experiment stops early, through the escape key’s core.quit() or a crash, the rows collected so far are never written. For our purposes that is acceptable: an aborted session is an incomplete dataset anyway. If you ever need crash-proof logging, the fix is saving inside the loop, once per trial, at the cost of rewriting the file repeatedly. Worth knowing, but not worth doing today.\n\n\n\n\n\n\n\n\n\nNoteSummary\n\n\n\nEach trial becomes a dictionary, appended to a list; after the loop, pd.DataFrame(rows) turns the list into a table and to_csv() writes it, with index=False. The filename is built from the participant code and data.getDateStr(), so no two runs can overwrite each other, and the file lands in a logfiles/ folder guaranteed by os.makedirs(..., exist_ok=True). Participant facts repeat in every row on purpose: rows should stand on their own.\n\n\nMiniature rows printing, tiny CSV on disk, overwrite trap understood? Next: Exercise 7, the complete experiment.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 2 · Logging data",
+      "7 · Data Logging: From Console to CSV"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/09_reading_functions.html",
+    "href": "session3-experiments/09_reading_functions.html",
+    "title": "9 · From rabbits to reading",
+    "section": "",
+    "text": "Block 3 · Learning goals: Adapt building blocks of The Fleeing Rabbit experiment to make a study about reading.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 3 · From prototype to experiment",
+      "9 · From rabbits to reading"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/09_reading_functions.html#thinking-takes-time",
+    "href": "session3-experiments/09_reading_functions.html#thinking-takes-time",
+    "title": "9 · From rabbits to reading",
+    "section": "Thinking takes time",
+    "text": "Thinking takes time\nYour experiment runs, and it already produces one measurement: whether each answer was correct. Block 3 adds the second, and for cognitive science the more interesting one: how long the answer took. The idea is old and beautiful: mental work takes time, and the time can be measured. Your own experiment contains a built-in comparison. On a burrow trial, you press the arrow on the burrow’s side: your response goes toward the thing you saw, which is what your attention wants anyway. On a lion trial, you press the opposite arrow: your response goes away from the thing you saw, and to produce it you must override the pull toward the lion first. That overriding is extra mental work, so lion trials should take longer, by tens of milliseconds. Reaction time is how we watch that work happen without opening the head. The same measurement carries your Portfolio 2 experiment: how long a reader lingers on a word tells us how hard that word is to process.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 3 · From prototype to experiment",
+      "9 · From rabbits to reading"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/09_reading_functions.html#a-stopwatch-object",
+    "href": "session3-experiments/09_reading_functions.html#a-stopwatch-object",
+    "title": "9 · From rabbits to reading",
+    "section": "A stopwatch object",
+    "text": "A stopwatch object\nThe tool is core.Clock(): a stopwatch. Create it once, in the setup; reset it to zero at the moment you want to measure from; read it when the thing you are timing has happened.\nstopwatch = core.Clock()     # create, once, in the setup\nstopwatch.reset()            # zero it: timing starts NOW\nrt = stopwatch.getTime()     # read it: seconds since the reset\nA small demonstration you can run in a script, no window needed:\nfrom psychopy import core\n\nstopwatch = core.Clock()\nstopwatch.reset()\ncore.wait(1.5)\nprint(stopwatch.getTime())\n\nApproximately what number is printed?\n\nThe clock was zeroed, then the script waited. How much time passed between the reset and the read?\n\n\nApproximately 1.5, in practice something like 1.5001923: one and a half seconds passed between the reset and the read, plus a sliver of processing time. The clock does not stop at getTime(); it keeps running, and you can read it as often as you like. Reset defines the zero; every read reports the seconds since.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 3 · From prototype to experiment",
+      "9 · From rabbits to reading"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/09_reading_functions.html#where-the-reset-goes",
+    "href": "session3-experiments/09_reading_functions.html#where-the-reset-goes",
+    "title": "9 · From rabbits to reading",
+    "section": "Where the reset goes",
+    "text": "Where the reset goes\nIn a trial, what we want to measure is the gap between stimulus onset and response. Both endpoints matter.\nThe response end is easy: event.waitKeys() returns at the keypress, so reading the clock on the next line captures it. The onset end is the subtle one, and Chapter 3 prepared you for it: a stimulus appears at one precise moment, the flip. Preparing and drawing take time, so the reset must come after the flip, not before the drawing. In our script, show_stim() ends with the flip, so the reset follows the call directly:\nshow_stim(image)                                  # ends with win.flip(): onset\nstopwatch.reset()                                 # zero AT onset\n\nkeys = event.waitKeys(keyList=['left', 'right'])  # returns at the keypress\nrt = stopwatch.getTime()                          # seconds from onset to response\n\n\n\n\n\n\nNote🤔 Think first\n\n\n\nA student puts stopwatch.reset() before the show_stim(image) call instead of after it. The script runs fine and produces reaction times. What is wrong with them?\n\n\n\n\n\n\nTipCheck your thinking\n\n\n\n\n\nEvery reaction time is slightly too long. The clock starts before the stimulus exists: preparing the image and flipping it to the screen take time, and that preparation time is silently added to every trial’s measurement. The participant has not even seen the stimulus while the clock is already running. Reset after the flip, so that zero means “the moment the scene appeared”.\n\n\n\n\n\n\n\n\n\n\n\nNoteGood to know: how precise is this?\n\n\n\n\n\nHonest measurement means knowing your instrument. Two small imprecisions are built in: the stimulus appears at a screen refresh, so onset is quantised to the frame (about 17 ms at 60 Hz), and ordinary keyboards add a few milliseconds of their own. Neither can be removed with ordinary hardware, and neither matters for us: both affect all trials equally, and the comparisons we care about, such as lion trials against burrow trials, are differences of tens of milliseconds averaged over trials. Know the noise, design comparisons larger than it.\n\n\n\n\n\n\n\n\n\nNoteSummary\n\n\n\ncore.Clock() is a stopwatch: create once, reset() to define zero, getTime() to read seconds since. For a reaction time, zero must mean stimulus onset, so the reset goes immediately after the flip, and the read goes immediately after waitKeys() returns. The measurement carries about a frame of onset noise and a few milliseconds of keyboard noise, which comparisons across many trials absorb.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 3 · From prototype to experiment",
+      "9 · From rabbits to reading"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/09_reading_functions.html#three-clock-puzzles-together",
+    "href": "session3-experiments/09_reading_functions.html#three-clock-puzzles-together",
+    "title": "9 · From rabbits to reading",
+    "section": "Three clock puzzles, together",
+    "text": "Three clock puzzles, together\nBefore the clock enters the experiment, three small puzzles about how it behaves. Predict each one before anything is run.\n\nPuzzle 1: the clock keeps running\nfrom psychopy import core\n\nstopwatch = core.Clock()\nstopwatch.reset()\n\ncore.wait(1)\nprint(stopwatch.getTime())\n\ncore.wait(1)\nprint(stopwatch.getTime())\n\nTwo numbers are printed. Approximately which two? Answer on one line, separated by a space.\n\nDoes getTime() stop the clock, or only look at it?\n\n\nApproximately 1, then 2. Reading the clock does not stop it or reset it; it only looks. The clock runs continuously from the reset, and every read reports the total seconds since that one zero. One reset can serve many reads.\n\n\n\n\nPuzzle 2: reset moves the zero\nfrom psychopy import core\n\nstopwatch = core.Clock()\nstopwatch.reset()\n\ncore.wait(1)\nstopwatch.reset()\n\ncore.wait(1)\nprint(stopwatch.getTime())\n\nOne number is printed. Approximately what?\n\nThere are two resets. Which one defines the zero that the read is measured from?\n\n\nApproximately 1, not 2. A reset throws away everything before it and starts the count again: the second reset moved the zero, so the read reports only the second second. This is precisely why one reset per trial works in an experiment: each trial’s reset wipes the previous trial’s time and starts fresh.\n\n\n\n\nPuzzle 3: the misplaced reset, with numbers\nSuppose preparing and flipping a large image takes half a second, and the participant responds one second after the stimulus appears. A student writes the reset in the wrong place:\nstopwatch.reset()          # reset HERE...\nstim.draw()                # takes ~0.5 s in this thought experiment\nwin.flip()                 # ...stimulus appears now\nkeys = event.waitKeys()    # participant responds 1 s after onset\nrt = stopwatch.getTime()\n\nWhat reaction time does the script report, in seconds?\n\nThe clock started before the drawing. How much time passed between the reset and the keypress, in total?\n\n\n1.5 seconds, for a response that actually took 1.0. The half second of preparation is silently added, because the zero was set before the stimulus existed. The participant looks half a second slower than they are, on every trial. Zero must mean onset, so the reset goes after the flip.\n\n\n\n\nPuzzle 4: one clock, many trials\nThe experiment measures twelve trials, but it needs only one clock. Create it once in the setup; inside the loop, reset at each trial’s onset and read at each trial’s response. The reset wipes the previous trial’s time (Puzzle 2), so the same stopwatch serves every trial in turn. A miniature version, with waits standing in for participants:\nfrom psychopy import core\n\nstopwatch = core.Clock()            # once, in the setup\n\nfor trial in [1, 2, 3]:\n    stopwatch.reset()               # zero at this trial's onset\n    core.wait(trial)                # this \"participant\" takes 1, then 2, then 3 s\n    print(stopwatch.getTime())\n\nThree numbers are printed. Approximately which three, in order? One line, separated by spaces.\n\nDoes time pile up across trials, or does something wipe it between them?\n\n\nApproximately 1, 2, 3: each trial’s reset wipes the clock, so each read reports only its own trial’s time. Without the reset inside the loop, the times would pile up, 1, 3, 6, each trial inheriting all the seconds before it. One clock in the setup, one reset per trial at onset, one read per trial at the response: that is the whole pattern, and it is exactly what you will add to the rabbit in Exercise 6.\n\n\nStopwatch demo printing sensible numbers? Next: Exercise 6, timing the rabbit.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 3 · From prototype to experiment",
+      "9 · From rabbits to reading"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/11_exercise8.html",
+    "href": "session3-experiments/11_exercise8.html",
+    "title": "10 · Exercise 8: Build a template reading experiment",
+    "section": "",
+    "text": "Block 3 · Exercise: Use the building blocks to create your own reading experiment.\n\n\n\nHands-on · on your own · try first, code revealed after the workshop\n\n\nExercise 8 — Build a template reading experiment\n\n\nReal Cognitive Science experiments are emerging!\n\n\nNow it is your turn to build a self-paced reading experiment using the tools introduced on the previous pages.\nYour script should follow these steps:\n\nShow a study information screen. Use the template under Informed Consent on the Methods I Brightspace page.\nAsk for consent with a button: OK means the participant agrees; Cancel means they decline.\nGenerate a random participant ID. (Advanced: check that the ID has not already been used.)\nCollect only the participant information needed for the study, such as age or native language. Do not collect identifying details.\nWrite a story that is 150–200 words long.\nMake two copies of the story.\nIn one copy, replace a target word with a surprising word. This is the experimental condition; the unchanged story is the control condition.\nAssign each participant to one condition, counterbalancing assignment across participants.\nDisplay the experiment instructions and wait for a keypress.\nShow a fixation cross for 0.8 seconds after the instructions.\nLoop through the words in the assigned story. For each word:\n\nClear any old keypress events.\nDisplay the word in the center of the screen.\nWait for a keypress and record the reaction time.\nAdd the trial’s data to a results list initialized before the loop.\n\nConvert the results list to a DataFrame and save it as a CSV file. Use the participant ID in the filename, but do not include identifying information in the data.\nShow a thank-you message, then close the experiment.\n\n\n\n\n\n\n\nTip🔒 Example code will be available here after the workshop\n\n\n\n\n\n\nYou have built and run two experiments, measuring reaction times along the way. Great work—Session 3 is complete!",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 3 · From prototype to experiment",
+      "10 · Exercise 8: Build a template reading experiment"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/13_whathavelearned.html",
+    "href": "session3-experiments/13_whathavelearned.html",
+    "title": "13 · What You Have Learned",
+    "section": "",
+    "text": "Block 4 · What have you learned in these three sessions?",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 4 · Workshop wrap-up",
+      "13 · What You Have Learned"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/13_whathavelearned.html#thinking-takes-time",
+    "href": "session3-experiments/13_whathavelearned.html#thinking-takes-time",
+    "title": "9 · Timing: Measuring How Long Thinking Takes",
+    "section": "Thinking takes time",
+    "text": "Thinking takes time\nYour experiment runs, and it already produces one measurement: whether each answer was correct. Block 3 adds the second, and for cognitive science the more interesting one: how long the answer took. The idea is old and beautiful: mental work takes time, and the time can be measured. Your own experiment contains a built-in comparison. On a burrow trial, you press the arrow on the burrow’s side: your response goes toward the thing you saw, which is what your attention wants anyway. On a lion trial, you press the opposite arrow: your response goes away from the thing you saw, and to produce it you must override the pull toward the lion first. That overriding is extra mental work, so lion trials should take longer, by tens of milliseconds. Reaction time is how we watch that work happen without opening the head. The same measurement carries your Portfolio 2 experiment: how long a reader lingers on a word tells us how hard that word is to process.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 4 · Workshop wrap-up",
+      "9 · Timing: Measuring How Long Thinking Takes"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/13_whathavelearned.html#a-stopwatch-object",
+    "href": "session3-experiments/13_whathavelearned.html#a-stopwatch-object",
+    "title": "9 · Timing: Measuring How Long Thinking Takes",
+    "section": "A stopwatch object",
+    "text": "A stopwatch object\nThe tool is core.Clock(): a stopwatch. Create it once, in the setup; reset it to zero at the moment you want to measure from; read it when the thing you are timing has happened.\nstopwatch = core.Clock()     # create, once, in the setup\nstopwatch.reset()            # zero it: timing starts NOW\nrt = stopwatch.getTime()     # read it: seconds since the reset\nA small demonstration you can run in a script, no window needed:\nfrom psychopy import core\n\nstopwatch = core.Clock()\nstopwatch.reset()\ncore.wait(1.5)\nprint(stopwatch.getTime())\n\nApproximately what number is printed?\n\nThe clock was zeroed, then the script waited. How much time passed between the reset and the read?\n\n\nApproximately 1.5, in practice something like 1.5001923: one and a half seconds passed between the reset and the read, plus a sliver of processing time. The clock does not stop at getTime(); it keeps running, and you can read it as often as you like. Reset defines the zero; every read reports the seconds since.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 4 · Workshop wrap-up",
+      "9 · Timing: Measuring How Long Thinking Takes"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/13_whathavelearned.html#where-the-reset-goes",
+    "href": "session3-experiments/13_whathavelearned.html#where-the-reset-goes",
+    "title": "9 · Timing: Measuring How Long Thinking Takes",
+    "section": "Where the reset goes",
+    "text": "Where the reset goes\nIn a trial, what we want to measure is the gap between stimulus onset and response. Both endpoints matter.\nThe response end is easy: event.waitKeys() returns at the keypress, so reading the clock on the next line captures it. The onset end is the subtle one, and Chapter 3 prepared you for it: a stimulus appears at one precise moment, the flip. Preparing and drawing take time, so the reset must come after the flip, not before the drawing. In our script, show_stim() ends with the flip, so the reset follows the call directly:\nshow_stim(image)                                  # ends with win.flip(): onset\nstopwatch.reset()                                 # zero AT onset\n\nkeys = event.waitKeys(keyList=['left', 'right'])  # returns at the keypress\nrt = stopwatch.getTime()                          # seconds from onset to response\n\n\n\n\n\n\nNote🤔 Think first\n\n\n\nA student puts stopwatch.reset() before the show_stim(image) call instead of after it. The script runs fine and produces reaction times. What is wrong with them?\n\n\n\n\n\n\nTipCheck your thinking\n\n\n\n\n\nEvery reaction time is slightly too long. The clock starts before the stimulus exists: preparing the image and flipping it to the screen take time, and that preparation time is silently added to every trial’s measurement. The participant has not even seen the stimulus while the clock is already running. Reset after the flip, so that zero means “the moment the scene appeared”.\n\n\n\n\n\n\n\n\n\n\n\nNoteGood to know: how precise is this?\n\n\n\n\n\nHonest measurement means knowing your instrument. Two small imprecisions are built in: the stimulus appears at a screen refresh, so onset is quantised to the frame (about 17 ms at 60 Hz), and ordinary keyboards add a few milliseconds of their own. Neither can be removed with ordinary hardware, and neither matters for us: both affect all trials equally, and the comparisons we care about, such as lion trials against burrow trials, are differences of tens of milliseconds averaged over trials. Know the noise, design comparisons larger than it.\n\n\n\n\n\n\n\n\n\nNoteSummary\n\n\n\ncore.Clock() is a stopwatch: create once, reset() to define zero, getTime() to read seconds since. For a reaction time, zero must mean stimulus onset, so the reset goes immediately after the flip, and the read goes immediately after waitKeys() returns. The measurement carries about a frame of onset noise and a few milliseconds of keyboard noise, which comparisons across many trials absorb.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 4 · Workshop wrap-up",
+      "9 · Timing: Measuring How Long Thinking Takes"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/13_whathavelearned.html#three-clock-puzzles-together",
+    "href": "session3-experiments/13_whathavelearned.html#three-clock-puzzles-together",
+    "title": "9 · Timing: Measuring How Long Thinking Takes",
+    "section": "Three clock puzzles, together",
+    "text": "Three clock puzzles, together\nBefore the clock enters the experiment, three small puzzles about how it behaves. Predict each one before anything is run.\n\nPuzzle 1: the clock keeps running\nfrom psychopy import core\n\nstopwatch = core.Clock()\nstopwatch.reset()\n\ncore.wait(1)\nprint(stopwatch.getTime())\n\ncore.wait(1)\nprint(stopwatch.getTime())\n\nTwo numbers are printed. Approximately which two? Answer on one line, separated by a space.\n\nDoes getTime() stop the clock, or only look at it?\n\n\nApproximately 1, then 2. Reading the clock does not stop it or reset it; it only looks. The clock runs continuously from the reset, and every read reports the total seconds since that one zero. One reset can serve many reads.\n\n\n\n\nPuzzle 2: reset moves the zero\nfrom psychopy import core\n\nstopwatch = core.Clock()\nstopwatch.reset()\n\ncore.wait(1)\nstopwatch.reset()\n\ncore.wait(1)\nprint(stopwatch.getTime())\n\nOne number is printed. Approximately what?\n\nThere are two resets. Which one defines the zero that the read is measured from?\n\n\nApproximately 1, not 2. A reset throws away everything before it and starts the count again: the second reset moved the zero, so the read reports only the second second. This is precisely why one reset per trial works in an experiment: each trial’s reset wipes the previous trial’s time and starts fresh.\n\n\n\n\nPuzzle 3: the misplaced reset, with numbers\nSuppose preparing and flipping a large image takes half a second, and the participant responds one second after the stimulus appears. A student writes the reset in the wrong place:\nstopwatch.reset()          # reset HERE...\nstim.draw()                # takes ~0.5 s in this thought experiment\nwin.flip()                 # ...stimulus appears now\nkeys = event.waitKeys()    # participant responds 1 s after onset\nrt = stopwatch.getTime()\n\nWhat reaction time does the script report, in seconds?\n\nThe clock started before the drawing. How much time passed between the reset and the keypress, in total?\n\n\n1.5 seconds, for a response that actually took 1.0. The half second of preparation is silently added, because the zero was set before the stimulus existed. The participant looks half a second slower than they are, on every trial. Zero must mean onset, so the reset goes after the flip.\n\n\n\n\nPuzzle 4: one clock, many trials\nThe experiment measures twelve trials, but it needs only one clock. Create it once in the setup; inside the loop, reset at each trial’s onset and read at each trial’s response. The reset wipes the previous trial’s time (Puzzle 2), so the same stopwatch serves every trial in turn. A miniature version, with waits standing in for participants:\nfrom psychopy import core\n\nstopwatch = core.Clock()            # once, in the setup\n\nfor trial in [1, 2, 3]:\n    stopwatch.reset()               # zero at this trial's onset\n    core.wait(trial)                # this \"participant\" takes 1, then 2, then 3 s\n    print(stopwatch.getTime())\n\nThree numbers are printed. Approximately which three, in order? One line, separated by spaces.\n\nDoes time pile up across trials, or does something wipe it between them?\n\n\nApproximately 1, 2, 3: each trial’s reset wipes the clock, so each read reports only its own trial’s time. Without the reset inside the loop, the times would pile up, 1, 3, 6, each trial inheriting all the seconds before it. One clock in the setup, one reset per trial at onset, one read per trial at the response: that is the whole pattern, and it is exactly what you will add to the rabbit in Exercise 6.\n\n\nStopwatch demo printing sensible numbers? Next: Exercise 6, timing the rabbit.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 4 · Workshop wrap-up",
+      "9 · Timing: Measuring How Long Thinking Takes"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/index.html",
+    "href": "session3-experiments/index.html",
+    "title": "Session 3: Timing, Data, and the Reading Experiment",
+    "section": "",
+    "text": "Welcome to the third and final session of our Python and PsychoPy workshop! Take stock of what you have already built. In Session 2, you went from an empty file to the Fleeing Rabbit, a complete behavioural experiment. Along the way, you learned how to:\nToday, we learn how to measure how long every decision takes, to record who the experiment is testing without ever knowing who they are, and to write results to a file that survives the session. Then we use the same skeleton to present words instead of scenes, to make a self-paced reading experiment, the paradigm your Methods Portfolio 2 is built on.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "How the day works"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/index.html#learning-outcomes",
+    "href": "session3-experiments/index.html#learning-outcomes",
+    "title": "Session 3: Timing, Data, and the Reading Experiment",
+    "section": "Learning outcomes",
+    "text": "Learning outcomes\nAfter this session, you can:\n\nMeasure reaction times with core.Clock(): reset at stimulus onset, read at the response, and explain why the reset sits after the flip.\nRun a simple and a choice reaction-time task on yourself and interpret their difference.\nCollect participant information with gui.Dlg, generate an anonymous participant code, and justify every field you collect (data minimisation).\nLog data: one dictionary per trial, gathered in a list, saved as a CSV with pandas, under a filename that cannot collide.\nTransform the experiment: swap images for words and arrows for the spacebar, and explain why reading time per word is a measure of language processing.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "How the day works"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/index.html#how-today-works",
+    "href": "session3-experiments/index.html#how-today-works",
+    "title": "Session 3: Timing, Data, and the Reading Experiment",
+    "section": "How today works",
+    "text": "How today works\nThe same rhythm as Session 2: short lecture segments introduce each concept on the projector, and in the exercises you put them to work at your own pace.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "How the day works"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/index.html#todays-programme",
+    "href": "session3-experiments/index.html#todays-programme",
+    "title": "Session 3: Timing, Data, and the Reading Experiment",
+    "section": "Today’s programme",
+    "text": "Today’s programme\n\n\n\nBlock\nWhat\nChapters\n\n\n\n\n1 · Measuring reaction times\nPsychoPy refresher; timing: measuring how long thinking takes\n1 · 2\n\n\n\nExercise 6: Weigh your own decisions\n3\n\n\n2 · Logging data\nParticipant information and anonymity; informed consent; data logging to CSV\n4 · 5 · 6\n\n\n\nExercise 7: The complete experiment\n7\n\n\n3 · The reading experiment\nFrom the rabbit to words: self-paced reading\n8\n\n\n\nExercise 8: The reading prototype\n9 · 10\n\n\n4 · Wrap-up\nThe Portfolio 2 roadmap; what you have learned\n11 · 12",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "How the day works"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/index.html#before-you-start",
+    "href": "session3-experiments/index.html#before-you-start",
+    "title": "Session 3: Timing, Data, and the Reading Experiment",
+    "section": "Before you start",
+    "text": "Before you start\n\nFind your rabbit.py from Session 2’s Exercise 5, extended or not. Today’s first block extends it, and everything after",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "How the day works"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/06_informed_consent_dlg.html#before-an-experiment-we-need-to-inform-participants",
+    "href": "session3-experiments/06_informed_consent_dlg.html#before-an-experiment-we-need-to-inform-participants",
+    "title": "6 · Informed Consent",
+    "section": "Before an experiment, we need to inform participants",
+    "text": "Before an experiment, we need to inform participants\nBefore an experiment begins, participants should receive clear information about its purpose, procedure, possible benefits and risks, and how their data will be handled and protected.\nA Study Information Sheet is a common way to provide this information. You can find an example on the Methods I Brightspace page under Consent Form Template.\nParticipants should have the opportunity to read the information and decide whether they want to take part. When they confirm that they understand the information and agree to participate, they give informed consent. Participation is voluntary, and participants may withdraw without consequences. Explain any limits on withdrawing data—for example, if the data have been collected anonymously and can no longer be linked to an individual.\nIn this workshop, we will add an information screen and a response button to the PsychoPy experiment so participants can indicate whether they consent before the task begins.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 2 · Logging data",
+      "6 · Informed Consent"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/06_informed_consent_dlg.html#before-an-experiment-we-need-to-inform-participants-collect-consent",
+    "href": "session3-experiments/06_informed_consent_dlg.html#before-an-experiment-we-need-to-inform-participants-collect-consent",
+    "title": "6 · Informed Consent",
+    "section": "Before an experiment, we need to inform participants & collect consent",
+    "text": "Before an experiment, we need to inform participants & collect consent\n\nPresenting study information\nBefore an experiment begins, participants should receive clear information about its purpose, procedure, possible benefits and risks, and how their data will be handled and protected.\nA Study Information Sheet is a common way to provide this information. You can find an example on the Methods I Brightspace page under Consent Form Template.\n\n\nCollecting informed consent\nParticipants should have the opportunity to read the information and decide whether they want to take part. When they confirm that they understand the information and agree to participate, they give informed consent. Participation is voluntary, and participants may withdraw without consequences. Explain any limits on withdrawing data—for example, if the data have been collected anonymously and can no longer be linked to an individual.\nIn this workshop, we will add an information screen and a response button to the PsychoPy experiment so participants can indicate whether they consent before the task begins.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 2 · Logging data",
+      "6 · Informed Consent"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/06_informed_consent_dlg.html#important-ethical-considerations-before-collectind-data",
+    "href": "session3-experiments/06_informed_consent_dlg.html#important-ethical-considerations-before-collectind-data",
+    "title": "6 · Informed Consent",
+    "section": "Important ethical considerations before collectind data",
+    "text": "Important ethical considerations before collectind data\n\nPresenting study information\nBefore an experiment begins, participants should receive clear information about its purpose, procedure, possible benefits and risks, and how their data will be handled and protected.\nA Study Information Sheet is a common way to provide this information. You can find an example on the Methods I Brightspace page under Consent Form Template.\n\n\nCollecting informed consent\nParticipants should have the opportunity to read the information and decide whether they want to take part. When they confirm that they understand the information and agree to participate, they give informed consent. Participation is voluntary, and participants may withdraw without consequences. Explain any limits on withdrawing data—for example, if the data have been collected anonymously and can no longer be linked to an individual.\nIn this workshop, we will add an information screen and a response button to the PsychoPy experiment so participants can indicate whether they consent before the task begins.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 2 · Logging data",
+      "6 · Informed Consent"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/06_informed_consent_dlg.html#informing-participants-collecting-consent",
+    "href": "session3-experiments/06_informed_consent_dlg.html#informing-participants-collecting-consent",
+    "title": "6 · Informed Consent",
+    "section": "Informing participants & collecting consent",
+    "text": "Informing participants & collecting consent\n\nStudy information\nBefore an experiment begins, participants should receive clear information about its purpose, procedure, possible benefits and risks, and how their data will be handled and protected.\nA Study Information Sheet is a common way to provide this information. You can find an example on the Methods I Brightspace page under Consent Form Template.\nParticipants should have the opportunity to read the information and decide whether they want to take part.\n\n\nCollect consent\nWhen they confirm that they understand the information and agree to participate, they give informed consent. Participation is voluntary, and participants may withdraw without consequences. Explain any limits on withdrawing data—for example, if the data have been collected anonymously and can no longer be linked to an individual. Participants can only be run in the your experiment if the provide informed consent.\nIn this workshop, we will add an information screen and a response button to the PsychoPy experiment so participants can indicate whether they consent before the task begins.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 2 · Logging data",
+      "6 · Informed Consent"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/06_informed_consent_dlg.html#overview",
+    "href": "session3-experiments/06_informed_consent_dlg.html#overview",
+    "title": "6 · Informed Consent",
+    "section": "Overview",
+    "text": "Overview\n\nBefore study 1: Present study information\nBefore an experiment begins, participants should receive clear information about its purpose, procedure, possible benefits and risks, and how their data will be handled and protected.\nA Study Information Sheet is a common way to provide this information. You can find an example on the Methods I Brightspace page under Consent Form Template.\nParticipants should have the opportunity to read the information and decide whether they want to take part.\n\n\nBefore study 2: Collect informed consent\nWhen they confirm that they understand the information and agree to participate, they give informed consent. Participation is voluntary, and participants may withdraw without consequences. Explain any limits on withdrawing data—for example, if the data have been collected anonymously and can no longer be linked to an individual. Participants can only be run in the your experiment if the provide informed consent.\nIn this workshop, we will add an information screen and a response button to the PsychoPy experiment so participants can indicate whether they consent before the task begins.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 2 · Logging data",
+      "6 · Informed Consent"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/06_informed_consent_dlg.html#before-your-experiment",
+    "href": "session3-experiments/06_informed_consent_dlg.html#before-your-experiment",
+    "title": "6 · Informed Consent",
+    "section": "Before your experiment:",
+    "text": "Before your experiment:\n\n1: Present study information\nBefore an experiment begins, participants should receive clear information about its purpose, procedure, possible benefits and risks, and how their data will be handled and protected.\nA Study Information Sheet is a common way to provide this information. You can find an example on the Methods I Brightspace page under Informed Consent.\n\nfrom psychopy import gui, core\n\nbox = gui.Dlg(title='The Fleeing Rabbit')\nbox.addField('Native language')\nbox.addField('Handedness', choices=['Right-handed', 'Left-handed'])\nbox.show()\n\nif box.OK:\n    print(box.data)\nelse:\n    core.quit()\nParticipants should have the opportunity to read the information and decide whether they want to take part.\n\n\n2: Collect informed consent\nWhen they confirm that they understand the information and agree to participate, they give informed consent. Participation is voluntary, and participants may withdraw without consequences. Explain any limits on withdrawing data—for example, if the data have been collected anonymously and can no longer be linked to an individual. Participants can only be run in the your experiment if the provide informed consent.\nIn this workshop, we will add an information screen and a response button to the PsychoPy experiment so participants can indicate whether they consent before the task begins.\nShuffled, twice, differently? Next: collecting real responses.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 2 · Logging data",
+      "6 · Informed Consent"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/06_informed_consent_dlg.html#show-information-then-ask-for-consent",
+    "href": "session3-experiments/06_informed_consent_dlg.html#show-information-then-ask-for-consent",
+    "title": "6 · Informed Consent",
+    "section": "Show information, then ask for consent",
+    "text": "Show information, then ask for consent\nBefore the first trial, participants need clear information about the study: its purpose and procedure, possible risks and benefits, how their data will be used and protected, whether participation is voluntary, how to withdraw, and whom to contact with questions.\nA Study Information Sheet is a common way to provide this information. You can find an example on the Methods I Brightspace page under Informed Consent.\n\nInformed Consent in PsychoPy\nStep 1: Dialogue box with consent buttons\nFirst we want to create a dialogue box that has buttons for providing and declining consent.\n\nfrom psychopy import gui \n\n# create a consent dialogue. \nconsent = gui.Dlg(\n    title='Study information',\n    labelButtonOK='OK',\n    labelButtonCancel='Cancel' # button for declining to participate. \n)\n\n\n\n\n\n\n\nNote🤔 Think first\n\n\n\nWhat type of variable is consent? And what do the OK and Cancel buttons do?\n\n\n\n\n\n\n\n\nTipCheck your thinking\n\n\n\n\n\nconsent is a dialogue box from the gui module. It has two buttons, an OK button, which participants will press if they want to provide informed consent and Cancel if participants want to withdraw.\n\n\n\nStep 2: Add Study Information to dialogue box\nWe now need to add text to the dialogue box that provides our Study Information.\nDo not present the below placeholder as a real consent form. Instead, use the wording and procedure from the template provided on Brightspace.\nconsent.addText(\n    'Workshop demonstration; not a real research study.\\n'\n    'Task: see a lion or burrow, then press an arrow key.\\n'\n    'Responses and times print in the Runner; no file is saved.\\n'\n    'Taking part is voluntary. Ask your instructor with questions.\\n'\n    'Choose OK if you provide informed consent to participant, or Cancel to decline participation in the study.')\n    \nconsent.show()\n\n\n\n\n\n\nNote🤔 Think first\n\n\n\nWhat does \\n mean in the above text?\n\n\n\n\n\n\n\n\nTipCheck your thinking\n\n\n\n\n\n\\n means newline, allowing any subsequent text to be printed on a new line.\n\n\n\nStep 3: Check participant response\nWe need to check whether the participant consented. If they did NOT consent, then we quite the experiment.\n# quit experiment if participant withdraws consent. \nif not consent.OK:\n    core.quit()\n\n\n\n\n\n\nNote🤔 Think first\n\n\n\nHow would you intrepret the logical expression if not consent.OK?\n\n\n\n\n\n\n\n\nTipCheck your thinking\n\n\n\n\n\nIf the participant entered OK, then consent.OK==1, otherwise consent.OK==0 (in which case you should quit the experiment).\n\n\n\nNext: logging the data.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 2 · Logging data",
+      "6 · Informed Consent"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/12_wrapup.html#where-you-stand",
+    "href": "session3-experiments/12_wrapup.html#where-you-stand",
+    "title": "12 · The Wrap Up & Portfolio 2 Roadmap",
+    "section": "Where you stand",
+    "text": "Where you stand\nLet’s think about what is currently on your laptop: A complete behavioural experiment with a participant dialog, anonymous codes, reaction times, and a CSV logfile. And a self-paced reading prototype: words on screen, one at a time, a reading time logged for every word. Portfolio 2 asks you to build, run, and analyse exactly such a reading experiment.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 3 · From prototype to experiment",
+      "12 · The Wrap Up & Portfolio 2 Roadmap"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/12_wrapup.html#what-is-done-and-what-is-a-decision",
+    "href": "session3-experiments/12_wrapup.html#what-is-done-and-what-is-a-decision",
+    "title": "12 · The Wrap Up & Portfolio 2 Roadmap",
+    "section": "What is done, and what is a decision",
+    "text": "What is done, and what is a decision\nThe checklist, honestly divided:\nAlready built, today:\n\nWord-by-word presentation, self-paced with the spacebar\nReaction time per word, reset at onset, read at the response\nA CSV logfile with one row per word, under a collision-proof filename\nA participant dialog with anonymous codes and minimised fields",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 3 · From prototype to experiment",
+      "12 · The Wrap Up & Portfolio 2 Roadmap"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/12_wrapup.html#what-the-assignment-decides-for-you",
+    "href": "session3-experiments/12_wrapup.html#what-the-assignment-decides-for-you",
+    "title": "12 · The Wrap Up & Portfolio 2 Roadmap",
+    "section": "What the assignment decides for you",
+    "text": "What the assignment decides for you\n\nThe design. Two groups of participants. The control group reads your original text; the experimental group reads the same text with three words replaced by surprising words that do not fit the story: one near the beginning, one in the middle, one near the end. Each participant reads one version, and you assign participants to versions at random.\nThe text. Maximum 200 words, in English, otherwise your choice.\nConsent first. Written informed consent is collected inside the experiment program, before the welcome screen, and the response is saved. The consent text itself is provided for you.\nAnonymity and storage. Random ID numbers, no names, no identifying information; data files live on UCloud only, never on GitHub or your own computers, and local copies are deleted after upload.\nThe sample. Each group member tests 2 to 3 people from CogSci; aim for at least 6 per condition.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 3 · From prototype to experiment",
+      "12 · The Wrap Up & Portfolio 2 Roadmap"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/12_wrapup.html#what-your-group-decides",
+    "href": "session3-experiments/12_wrapup.html#what-your-group-decides",
+    "title": "12 · The Wrap Up & Portfolio 2 Roadmap",
+    "section": "What your group decides",
+    "text": "What your group decides\n\nWhich text, and exactly which three words to replace, with what. This is where the science lives: a good surprise word fits the grammar but not the story, so the slowdown you measure is meaning rather than confusion about the sentence. Decide together, and write down what you predict for each of the three words.\nThe logfile columns, identical for every member’s script, agreed in writing before anyone collects data. Your analysis will compare specific words across participants, so the logfile must identify them: log at least the participant code, the condition, the word itself, its position in the text, and the reading time. Without the position column, finding “the second surprise word” in twelve people’s data becomes very difficult.\nWho tests whom, and who writes what. The brief requires each member to write different sections of the code and analysis, marked with initials in comments. Divide before you start, not after.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 3 · From prototype to experiment",
+      "12 · The Wrap Up & Portfolio 2 Roadmap"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/12_wrapup.html#before-you-collect-data",
+    "href": "session3-experiments/12_wrapup.html#before-you-collect-data",
+    "title": "12 · The Wrap Up & Portfolio 2 Roadmap",
+    "section": "Before you collect data",
+    "text": "Before you collect data\nTest the full pipeline on yourself first, and open the CSV before trusting it. Switch to fullscr=True only for real participants. And remember that the experiment folder travels as a unit: script, text, and logfiles/ need to be together on whatever machine you test with.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 3 · From prototype to experiment",
+      "12 · The Wrap Up & Portfolio 2 Roadmap"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/12_wrapup.html#resources",
+    "href": "session3-experiments/12_wrapup.html#resources",
+    "title": "12 · The Wrap Up & Portfolio 2 Roadmap",
+    "section": "Resources",
+    "text": "Resources\nYour own completed scripts are the primary resource; every pattern Portfolio 2 needs is in them. Beyond that, the PsychoPy documentation, and this site, which stays online, solutions unlocked, for the rest of the semester.\nNext: what you have learned.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 3 · From prototype to experiment",
+      "12 · The Wrap Up & Portfolio 2 Roadmap"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/13_whathavelearned.html#the-arc",
+    "href": "session3-experiments/13_whathavelearned.html#the-arc",
+    "title": "13 · What You Have Learned",
+    "section": "The arc",
+    "text": "The arc\nThree sessions ago, print(\"Hello world!\") was an achievement. Look at the distance covered:\n\n\n\n\n\n\n\n\n\nYou learned\nIt became\n\n\n\n\nSession 1\nVariables, strings, lists, loops, conditionals\nThe logic of a trial: a list of stimuli, a loop over them, an if for correctness\n\n\nSession 2\nWindows, the draw-flip cycle, functions, glob, shuffle, responses\nThe Fleeing Rabbit: a complete behavioural experiment\n\n\nSession 3\nClocks, dialogs, dictionaries, logfiles\nA measuring instrument with a data pipeline, and a reading experiment built from the same skeleton\n\n\n\nNote that when the fleeing rabbit experiment became a reading experiment, almost nothing changed. It still involved a stimulus list, a trial loop, a response, a measurement, a row of data. This structure is essentially the same across all behavioural experiments, and now you know how to use it!",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 4 · Workshop wrap-up",
+      "13 · What You Have Learned"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/13_whathavelearned.html#the-habits-underneath",
+    "href": "session3-experiments/13_whathavelearned.html#the-habits-underneath",
+    "title": "13 · What You Have Learned",
+    "section": "The habits underneath",
+    "text": "The habits underneath\nRemember to keep practicing the code, as your knowledge of it will fade without practice. Some skills we have learned here transfer anyway: predict before you run, and let being wrong teach you. Print before you use, whether it is a glob, a dialog, or a dataframe. Never stay stuck: read the error, check the usual suspects, ask. Operationalise: decide what counts as correct, and put the decision in the design. And log everything you will need at the moment it exists, because a measurement is only as good as what you record alongside it.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 4 · Workshop wrap-up",
+      "13 · What You Have Learned"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/13_whathavelearned.html#one-more-thing",
+    "href": "session3-experiments/13_whathavelearned.html#one-more-thing",
+    "title": "13 · What You Have Learned",
+    "section": "One more thing",
+    "text": "One more thing\nYou also learned to read other people’s code, which is the quiet superpower. The original fleeing rabbit script will now read to you as familiar parts in a familiar order. That is what it feels like to know how to program.\nNext: final thoughts.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 4 · Workshop wrap-up",
+      "13 · What You Have Learned"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/09_reading_functions.html#reading-as-window-into-cognition",
+    "href": "session3-experiments/09_reading_functions.html#reading-as-window-into-cognition",
+    "title": "9 · From rabbits to reading",
+    "section": "Reading as window into cognition",
+    "text": "Reading as window into cognition\nOne major theme of your studies in Cognitive Science will be that you will study how people perceive, produce and process written and spoken language.\nYou have already started upon this journey in your Cognition and Communication course.\nToday you will learn the tools for building an experiment that measures how quickly people read and whether they take longer to read words that are surprising relative to words that are predictable.\n\nBuilding blocks: Make a story\nOkay, let’s make a story. You can use this one (from last year’s workshop leader) or make up your own.\n\nstory = \"\"\"On a clear Saturday morning, Maya set out for a slow jog along the riverside path.\nThe air smelled faintly of wet grass, and bicycles drifted past like quiet birds.\nShe counted her breaths, matching them to the soft rhythm of her footsteps.\nAt the old footbridge she paused, watching sunlight scatter across the water.\nA family unpacked breakfast nearby; a thermos hissed, and someone laughed.\nMaya stretched, then started again along the path that curved through willows.\nPast the square she slowed, noticing the scent of roasted coffee drifting from a tiny kiosk.\nChildren were chalking bright shapes on the paving stones, and a busker tuned a battered guitar.\nMaya stopped to tie a loose shoelace and glanced at the notes for the concert pinned to a lamp post.\nShe thought about her own violin, stored away in a dusty case under her bed.\nThe sun was climbing higher, glinting off the windows of nearby apartments.\nShe began jogging again, feeling the steady beat of her pulse and the easy warmth of the morning settle into her muscles.\"\"\"\n\nHow to build a reading experiment Next: Reading experiment prototype.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 3 · From prototype to experiment",
+      "9 · From rabbits to reading"
+    ]
+  },
+  {
+    "objectID": "session3-experiments/09_reading_functions.html#reading-as-a-window-into-cognition",
+    "href": "session3-experiments/09_reading_functions.html#reading-as-a-window-into-cognition",
+    "title": "9 · From rabbits to reading",
+    "section": "Reading as a window into cognition",
+    "text": "Reading as a window into cognition\nOne major theme of your studies in Cognitive Science will be that you will study how people perceive, produce and process written and spoken language. You have already started upon this journey in your Cognition and Communication course.\nToday you will learn the tools for building an experiment that measures how quickly people read. Specifically, this experiment will allow you to test whether people take longer to read words that are surprising relative to words that are predictable.\n\nBuilding blocks: Make a story\nOkay, let’s make a story and store it in a variable. You can use this one (from last year’s workshop leader) or make up your own.\n\nstory = \"\"\"On a clear Saturday morning, Maya set out for a slow jog along the riverside path.\nThe air smelled faintly of wet grass, and bicycles drifted past like quiet birds.\nShe counted her breaths, matching them to the soft rhythm of her footsteps.\nAt the old footbridge she paused, watching sunlight scatter across the water.\nA family unpacked breakfast nearby; a thermos hissed, and someone laughed.\nMaya stretched, then started again along the path that curved through willows.\nPast the square she slowed, noticing the scent of roasted coffee drifting from a tiny kiosk.\nChildren were chalking bright shapes on the paving stones, and a busker tuned a battered guitar.\nMaya stopped to tie a loose shoelace and glanced at the notes for the concert pinned to a lamp post.\nShe thought about her own violin, stored away in a dusty case under her bed.\nThe sun was climbing higher, glinting off the windows of nearby apartments.\nShe began jogging again, feeling the steady beat of her pulse and the easy warmth of the morning settle into her muscles.\"\"\"\n\n\n\n\n\n\nNote🤔 Think first\n\n\n\nWhat do the double-quotations do?\n\n\n\n\n\n\n\n\nTipCheck your thinking\n\n\n\n\n\nThe double-quotations are a nice trick for allowing your code to span multiple lines (line wrapping) rather than print on a single continuous line.\n\n\n\n\n\nBuilding blocks: Create two versions of the story\nNow you can create two versions of the story, one with a surprising word (experimental condition) and one without any surprising word (control condition).\nFirst, let’s copy our story into two variables, one called surprise_cond the other called control_cond.\n# control condition is unaltered story.\ncontrol_cond = story.split() # this makes a list where each item is a word in the story.\n\n# surprise condition is initially just copy of control story.\nsurprise_cond = control_cond.copy() \n\n\n\n\n\n\nNote🤔 Think first\n\n\n\nWhat is the call to copy() doing?\n\n\n\n\n\n\n\n\nTipCheck your thinking\n\n\n\n\n\nThis is a method of lists that allows us to copy their items without linking the lists (so any changes to surprise_cond won’t be reflected in control_cond).\n\n\n\nOkay, so now we want to define a word in our story that we will replace with a surprise word in the control condition.\n# here's the control word that we will replace in the surprise condition (can be any word)\ncontrol_target = 'grass,'\n\n# here's the word we are replacing it with (can be anything).\nsurprise_target = 'goobernator'\nOkay, now let’s insert the surprise word in the location of control_target.\n# get index to target word in control story.\ntarget_i = control_cond.index(control_target)\n\n# now replace that index with the surprise word. \nsurprise_cond[target_i] = surprise_target\n\nWrite a for loop that goes through every index in control_cond and prints both the index and the word at that position.\n\nUse range(len(control_cond)) to produce the index numbers. Inside the loop, use square brackets to get the word at the current index.\n\n\nOne possible answer is:\nfor word_index in range(len(control_cond)):\n    print(word_index, control_cond[word_index])\nrange(len(control_cond)) gives the list’s index numbers, starting at 0. Each time through the loop, control_cond[word_index] gets the word at that position.\n\n\n\n\nBuilding blocks: Randomly shuffle conditions\nYou always want to control the order of experimental conditions. Here we will randomly shuffle them.\nYou could, alternately, counterbalance your conditions. This means that you alternate between one condition and the other every participant so that you end up with equal numbers of participants in each condition. This is generally recommended, but you will figure out how to do that later.\n\nSuppose we put the condition names in a list: conditions = ['control', 'surprise']. What line of code randomly shuffles the order in that list?\n\nThe function is called shuffle. It belongs to the random module, so include the module name before the dot.\n\n\nFirst make a list of the condition names, then shuffle it:\nconditions = ['control', 'surprise']\nrandom.shuffle(conditions)\nrandom.shuffle(conditions) rearranges the items in the list in place. Make sure import random appears near the top of your script. You can then use the shuffled list to decide which condition to run first.\n\n\n\n\nBuilding blocks: Make a trial sequence\nIn a self-paced reading experiment, participants see one word at a time. They press a key when they have finished reading the word, and the next word then appears.\nFor every word, record its reaction time (RT): the time between the word appearing on screen and the participant pressing the key. You can then compare reading times for predictable and surprising words.\nIn general terms, one trial of the experiment corresponds to a single presentation of the word, a keypress, and a calculated response time. We can call this sequence of events a trial sequence.\nLet’s build a trial sequence now, using the first word in the control story.\nfrom psychopy import visual, event, core, gui\n\n# make a window. \nwin = visual.Window(\n    size=(1000, 700), units='pix', color='black', fullscr=False\n)\n\n# make a text object. \ntext = visual.TextStim(win, text='+', color='white', height=48, units='pix')\n\n# initialize the clock from the core module. \nclock = core.Clock()\n\n# clear key press events (just in case).\nevent.clearEvents()\n\n# now prepare your text.\nword_index = 0 # first control word in story. \ntext.text = control_cond[word_index]\n\n# draw your text. \ntext.draw()\n\n# reset the clock when the window is flipped and the word appears.\nwin.callOnFlip(clock.reset)\n\n# flip your window.\nwin.flip()\n\n# record keypresses (either space or escape)\nkeys = event.waitKeys(\n        keyList=['space', 'escape'],\n        timeStamped=clock\n)\n\n# store keys (which contains key pressed and response time) in two variables: key & reaction_time. \nkey, reaction_time = keys[0]\n\nif key == 'escape':\n        win.close()\n        core.quit()\n\nIf the participant presses Escape, what do win.close() and core.quit() do?\n\nOne line closes the PsychoPy window. The other stops the experiment script.\n\n\nwin.close() closes the experiment window, and core.quit() ends the script. Escape therefore lets the participant stop the experiment instead of continuing to the next word.\n\n\nLet’s unpack the above example.\n\nThe code queues clock.reset with win.callOnFlip(clock.reset) and then calls win.flip(). When does the clock reset?\n\nIt resets at the moment the screen updates and the word is shown—not when callOnFlip is first called.\n\n\nThe clock resets when win.flip() updates the screen and displays the word. This makes the reaction-time measurement start at word onset. The following event.waitKeys(..., timeStamped=clock) records the time of the participant’s keypress using that clock.\n\n\n\nPredict: The participant presses Space 0.8 seconds after the word appears. What two values are in keys[0]?\n\nkeys[0] contains the key name and the time recorded by the clock. The clock reading is a number in seconds; it is not the clock object itself.\n\n\nkeys[0] contains the key name ('space') and its timestamp (0.8 seconds). The next line, key, reaction_time = keys[0], assigns those two values to the variables separately.\n\n\n\nreaction_time is recorded in seconds. If it is 0.8, how many milliseconds is that?\n\nThere are 1,000 milliseconds in one second. Multiply the number of seconds by 1,000.\n\n\n0.8 seconds is 800 milliseconds, because \\(0.8 \\times 1000 = 800\\). In the experiment code, multiply reaction_time by 1000 when saving it as milliseconds.\n\n\nOkay, last step in the trial sequence: Append your data for the trial to your results dataframe. You already learned how to do this.\nThe below code should be placed at the end of your trial sequence (except for definition of your results dataframe, which should occur at the beginning of your experiment).\n# should be initialized before all trials. \nresults = []\n\n# append data from current trial (assumes you have defined participant_id earlier).\nresults.append({\n        'participant': participant_id,\n        'condition': condition,\n        'word_index': word_index,\n        'word': word,\n        'is_surprising': int(\n            condition == 'surprise' and word_index == target_index\n        ),\n        'rt_ms': reaction_time * 1000\n    })\n\nFor a trial where condition is 'surprise' and word_index equals target_index, what value is stored as is_surprising?\n\nBoth comparisons inside the parentheses are True. The and combines them, and int() converts the result to a number.\n\n\nThe value is 1. Both condition == 'surprise' and word_index == target_index are True, so the whole expression is True. Then int(True) becomes 1. For any other trial, at least one comparison is false, so int(False) becomes 0.\n\n\n\n\nBuilding blocks: Looping over your trial sequence.\nThis is where things get fun. You will do this in your exercise on the next page. First, let’s think about how to loop through every word in the surprise-condition story.\n\nIn a list, an index is the position number of an item. The first word is at index 0, the second at index 1, and so on. Write a for loop that visits each word in surprise_cond and displays it with show().\n\nUse range(len(surprise_cond)) to generate the position numbers. The loop variable word_index holds the current position; use surprise_cond[word_index] to get that word for show().\n\n\nOne possible answer is:\nfor word_index in range(len(surprise_cond)):\n    show(surprise_cond[word_index])\nThe loop visits each position from 0 to the last word’s position. On each pass, word_index is the current position, and surprise_cond[word_index] gets the word there. In the full experiment, you would put the rest of the trial steps—starting the clock, waiting for a key, and saving the reaction time—inside this loop too.\n\n\n\n\nFinal flourishes: Instructions + Fixation cross before experiment start.\nOkay, finishing touches. We want to display a fixation cross after our experiment instructions before the story starts appearing.\nHere’s how we do it. This holds the fixation cross for .6s before starting your experiment. This is a good idea so that participants have time to process the instructions.\n\n# instructions. \nshow('You will read one story, one word at a time.\\n'\n    'Press Space for the next word.\\n'\n    'Press Escape to stop.\\n\\n'\n    'Press any key to begin.')\n\n# wait for keypress. \nevent.waitKeys()\n\n# fixation cross. \nshow('+')\n\n# display cross for .6s.\ncore.wait(0.6)\nHow to build a reading experiment Next: Reading experiment prototype.",
+    "crumbs": [
+      "Home",
+      "Session 3 · From Reaction Times to Experiments",
+      "Block 3 · From prototype to experiment",
+      "9 · From rabbits to reading"
     ]
   }
 ]

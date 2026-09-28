@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Programming experiments: Python x PsychoPy – Python &amp; PsychoPy Workshop - Aarhus University, Fall 2026</title>
+<title>9 · From rabbits to reading – Python &amp; PsychoPy Workshop - Aarhus University, Fall 2026</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,31 +26,67 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./session1-python/index.html" rel="next">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-bb62276ab45c84d9efd712f51ff97b5a.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-5a1953863e1f72ef3b996ef827f01ca7.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-bb62276ab45c84d9efd712f51ff97b5a.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-8111375b329e67f367d25c6ca2fac386.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-f47233b3dada9760e9eff975721b4787.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-8111375b329e67f367d25c6ca2fac386.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../session3-experiments/11_exercise8.html" rel="next">
+<link href="../session3-experiments/08_exercise7.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bb62276ab45c84d9efd712f51ff97b5a.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-5a1953863e1f72ef3b996ef827f01ca7.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bb62276ab45c84d9efd712f51ff97b5a.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-8111375b329e67f367d25c6ca2fac386.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-f47233b3dada9760e9eff975721b4787.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-8111375b329e67f367d25c6ca2fac386.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -79,8 +115,37 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="styles.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -252,7 +317,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Python &amp; PsychoPy Workshop - Aarhus University, Fall 2026</span>
     </a>
   </div>
@@ -263,19 +328,19 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link active" href="../index.html" aria-current="page"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./session1-python/index.html"> 
+    <a class="nav-link" href="../session1-python/index.html"> 
 <span class="menu-text">Session 1 · Python</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./session2-psychopy/index.html"> 
+    <a class="nav-link" href="../session2-psychopy/index.html"> 
 <span class="menu-text">Session 2 · PsychoPy</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./session3-experiments/index.html"> 
+    <a class="nav-link" href="../session3-experiments/index.html"> 
 <span class="menu-text">Session 3 · Experiments</span></a>
   </li>  
 </ul>
@@ -290,7 +355,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Workshop overview</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../session3-experiments/index.html">Session 3 · From Reaction Times to Experiments</a></li><li class="breadcrumb-item"><a href="../session3-experiments/09_reading_functions.html">Block 3 · From prototype to experiment</a></li><li class="breadcrumb-item"><a href="../session3-experiments/09_reading_functions.html">9 · From rabbits to reading</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -304,7 +369,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Workshop overview</span></a>
   </div>
 </li>
@@ -319,7 +384,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session1-python/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../session1-python/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">How the day works</span></a>
   </div>
 </li>
@@ -334,7 +399,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session1-python/01_getting_started.html" class="sidebar-item-text sidebar-link">
+  <a href="../session1-python/01_getting_started.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Getting started</span></a>
   </div>
 </li>
@@ -351,13 +416,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session1-python/02_variables.html" class="sidebar-item-text sidebar-link">
+  <a href="../session1-python/02_variables.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Variables and regular data types</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session1-python/03_exercise1_variables.html" class="sidebar-item-text sidebar-link">
+  <a href="../session1-python/03_exercise1_variables.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exercise 1: Variables &amp; data types</span></a>
   </div>
 </li>
@@ -374,25 +439,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session1-python/04_lists.html" class="sidebar-item-text sidebar-link">
+  <a href="../session1-python/04_lists.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lists</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session1-python/05_exercise2_lists.html" class="sidebar-item-text sidebar-link">
+  <a href="../session1-python/05_exercise2_lists.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exercise 2: Lists</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session1-python/06_loops.html" class="sidebar-item-text sidebar-link">
+  <a href="../session1-python/06_loops.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Loops</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session1-python/07_exercise3_loops.html" class="sidebar-item-text sidebar-link">
+  <a href="../session1-python/07_exercise3_loops.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exercise 3: Loops</span></a>
   </div>
 </li>
@@ -409,7 +474,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session1-python/08_logical_operations.html" class="sidebar-item-text sidebar-link">
+  <a href="../session1-python/08_logical_operations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Logical operations</span></a>
   </div>
 </li>
@@ -426,13 +491,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session1-python/09_functions.html" class="sidebar-item-text sidebar-link">
+  <a href="../session1-python/09_functions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Functions &amp; modules</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session1-python/10_exercise4.html" class="sidebar-item-text sidebar-link">
+  <a href="../session1-python/10_exercise4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exercise 4</span></a>
   </div>
 </li>
@@ -440,7 +505,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session1-python/11_github.html" class="sidebar-item-text sidebar-link">
+  <a href="../session1-python/11_github.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Syncing with GitHub</span></a>
   </div>
 </li>
@@ -457,7 +522,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session2-psychopy/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../session2-psychopy/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">How the day works</span></a>
   </div>
 </li>
@@ -472,25 +537,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session2-psychopy/01_warmup.html" class="sidebar-item-text sidebar-link">
+  <a href="../session2-psychopy/01_warmup.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">1 · Warming Up: A Python Refresher</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session2-psychopy/02_psychopy.html" class="sidebar-item-text sidebar-link">
+  <a href="../session2-psychopy/02_psychopy.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">2 · Meet PsychoPy: Import, Modules, and a Window</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session2-psychopy/03_drawflip.html" class="sidebar-item-text sidebar-link">
+  <a href="../session2-psychopy/03_drawflip.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">3 · The Draw-Flip Cycle (and How to Break It)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session2-psychopy/04_exercise4.html" class="sidebar-item-text sidebar-link">
+  <a href="../session2-psychopy/04_exercise4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">4 · Exercises: The PsychoPy Playground</span></a>
   </div>
 </li>
@@ -507,25 +572,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session2-psychopy/05_functions.html" class="sidebar-item-text sidebar-link">
+  <a href="../session2-psychopy/05_functions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">5 · Functions: Write Once, Use Many Times</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session2-psychopy/06_glob.html" class="sidebar-item-text sidebar-link">
+  <a href="../session2-psychopy/06_glob.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">6 · Let Python Find Your Stimuli</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session2-psychopy/07_responses.html" class="sidebar-item-text sidebar-link">
+  <a href="../session2-psychopy/07_responses.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">7 · Responses and Feedback</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session2-psychopy/08_exercise5.html" class="sidebar-item-text sidebar-link">
+  <a href="../session2-psychopy/08_exercise5.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">8 · Exercise 5: The Fleeing Rabbit</span></a>
   </div>
 </li>
@@ -544,7 +609,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session3-experiments/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../session3-experiments/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">How the day works</span></a>
   </div>
 </li>
@@ -559,13 +624,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session3-experiments/01_warmup.html" class="sidebar-item-text sidebar-link">
+  <a href="../session3-experiments/01_warmup.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">1 · Warming Up: A PsychoPy Refresher</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session3-experiments/02_why_rt.html" class="sidebar-item-text sidebar-link">
+  <a href="../session3-experiments/02_why_rt.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">2 · Why Measure Reaction Time?</span></a>
   </div>
 </li>
@@ -574,7 +639,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session3-experiments/04_exercise6.html" class="sidebar-item-text sidebar-link">
+  <a href="../session3-experiments/04_exercise6.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">3 · Exercise 6: Weigh Your Own Decisions</span></a>
   </div>
 </li>
@@ -591,25 +656,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session3-experiments/05_participant_info.html" class="sidebar-item-text sidebar-link">
+  <a href="../session3-experiments/05_participant_info.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">5 · Participant Information: The Dialog Box</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session3-experiments/06_informed_consent_dlg.html" class="sidebar-item-text sidebar-link">
+  <a href="../session3-experiments/06_informed_consent_dlg.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">6 · Informed Consent</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session3-experiments/07_data_logging.html" class="sidebar-item-text sidebar-link">
+  <a href="../session3-experiments/07_data_logging.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">7 · Data Logging: From Console to CSV</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session3-experiments/08_exercise7.html" class="sidebar-item-text sidebar-link">
+  <a href="../session3-experiments/08_exercise7.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">8 · Exercise 7: The Complete Experiment</span></a>
   </div>
 </li>
@@ -617,34 +682,28 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true">
  <span class="menu-text">Block 3 · From prototype to experiment</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session3-experiments/09_reading_functions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">9 · Timing: Measuring How Long Thinking Takes</span></a>
+  <a href="../session3-experiments/09_reading_functions.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">9 · From rabbits to reading</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session3-experiments/10_reading_exp_prototype.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">9 · Timing: Measuring How Long Thinking Takes</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./session3-experiments/11_exercise8.html" class="sidebar-item-text sidebar-link">
+  <a href="../session3-experiments/11_exercise8.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">10 · Exercise 6: Weigh Your Own Decisions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session3-experiments/12_wrapup.html" class="sidebar-item-text sidebar-link">
+  <a href="../session3-experiments/12_wrapup.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">12 · The Wrap Up &amp; Portfolio 2 Roadmap</span></a>
   </div>
 </li>
@@ -661,13 +720,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session3-experiments/13_whathavelearned.html" class="sidebar-item-text sidebar-link">
+  <a href="../session3-experiments/13_whathavelearned.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">13 · What You Have Learned</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session3-experiments/14_final_thoughts.html" class="sidebar-item-text sidebar-link">
+  <a href="../session3-experiments/14_final_thoughts.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">14 · Final Thoughts</span></a>
   </div>
 </li>
@@ -685,11 +744,15 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#why-programming" id="toc-why-programming" class="nav-link active" data-scroll-target="#why-programming">Why programming?</a></li>
-  <li><a href="#why-python-and-not-r" id="toc-why-python-and-not-r" class="nav-link" data-scroll-target="#why-python-and-not-r">Why Python and not R?</a></li>
-  <li><a href="#the-three-sessions" id="toc-the-three-sessions" class="nav-link" data-scroll-target="#the-three-sessions">The three sessions</a></li>
-  <li><a href="#how-the-sessions-work" id="toc-how-the-sessions-work" class="nav-link" data-scroll-target="#how-the-sessions-work">How the sessions work</a></li>
-  <li><a href="#what-you-need" id="toc-what-you-need" class="nav-link" data-scroll-target="#what-you-need">What you need</a></li>
+  <li><a href="#reading-as-a-window-into-cognition" id="toc-reading-as-a-window-into-cognition" class="nav-link active" data-scroll-target="#reading-as-a-window-into-cognition">Reading as a window into cognition</a>
+  <ul class="collapse">
+  <li><a href="#building-blocks-make-a-story" id="toc-building-blocks-make-a-story" class="nav-link" data-scroll-target="#building-blocks-make-a-story">Building blocks: Make a story</a></li>
+  <li><a href="#building-blocks-create-two-versions-of-the-story" id="toc-building-blocks-create-two-versions-of-the-story" class="nav-link" data-scroll-target="#building-blocks-create-two-versions-of-the-story">Building blocks: Create two versions of the story</a></li>
+  <li><a href="#building-blocks-randomly-shuffle-conditions" id="toc-building-blocks-randomly-shuffle-conditions" class="nav-link" data-scroll-target="#building-blocks-randomly-shuffle-conditions">Building blocks: Randomly shuffle conditions</a></li>
+  <li><a href="#building-blocks-make-a-trial-sequence" id="toc-building-blocks-make-a-trial-sequence" class="nav-link" data-scroll-target="#building-blocks-make-a-trial-sequence">Building blocks: Make a trial sequence</a></li>
+  <li><a href="#building-blocks-looping-over-your-trial-sequence." id="toc-building-blocks-looping-over-your-trial-sequence." class="nav-link" data-scroll-target="#building-blocks-looping-over-your-trial-sequence.">Building blocks: Looping over your trial sequence.</a></li>
+  <li><a href="#final-flourishes-instructions-fixation-cross-before-experiment-start." id="toc-final-flourishes-instructions-fixation-cross-before-experiment-start." class="nav-link" data-scroll-target="#final-flourishes-instructions-fixation-cross-before-experiment-start.">Final flourishes: Instructions + Fixation cross before experiment start.</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -697,10 +760,9 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../session3-experiments/index.html">Session 3 · From Reaction Times to Experiments</a></li><li class="breadcrumb-item"><a href="../session3-experiments/09_reading_functions.html">Block 3 · From prototype to experiment</a></li><li class="breadcrumb-item"><a href="../session3-experiments/09_reading_functions.html">9 · From rabbits to reading</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Programming experiments: Python x PsychoPy</h1>
-<p class="subtitle lead">Methods 01 × Cognition &amp; Communication</p>
+<h1 class="title">9 · From rabbits to reading</h1>
 </div>
 
 
@@ -717,46 +779,288 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Welcome! Over the coming workshop sessions, you’ll go from typing your very first line of Python to watching a full behavioural experiment run on your own screen: window, stimuli, responses, feedback, the lot. Between you and that moment stand a handful of Python concepts and a few dozen extremely fixable error messages. We assume no programming experience. If you can rename a file, you’re qualified to start.</p>
 <div class="milestone">
-<p><strong>The arc of the workshop</strong> · Session 1 builds the Python foundations → Session 2 turns them into an experiment → Session 3 extends it into your Portfolio 2 prototype.</p>
+<p><strong>Block 3</strong> · Learning goals: Adapt building blocks of The Fleeing Rabbit experiment to make a study about reading.</p>
 </div>
-<section id="why-programming" class="level2">
-<h2 class="anchored" data-anchor-id="why-programming">Why programming?</h2>
-<p>Nearly every empirical experiment in cognitive science (e.g.&nbsp;reaction-time studies, reading paradigms, eye-tracking, EEG) is implemented in code. A working knowledge of Python allows you to build precisely the experiment your research question requires, to understand the structure and provenance of your data, and to diagnose problems when they arise.</p>
-<p>The aim of these three sessions is a modest form of fluency: by the end, the experiment running on your screen should be a system you can read, modify, and reason about. These skills will hopefully outlast the course: designing, implementing, and troubleshooting your own experiments is part of the everyday craft of working scientists, in cognitive science and well beyond.</p>
+<section id="reading-as-a-window-into-cognition" class="level2">
+<h2 class="anchored" data-anchor-id="reading-as-a-window-into-cognition">Reading as a window into cognition</h2>
+<p>One major theme of your studies in Cognitive Science will be that you will study how people perceive, produce and process written and spoken language. You have already started upon this journey in your Cognition and Communication course.</p>
+<p>Today you will learn the tools for building an experiment that measures how quickly people read. Specifically, this experiment will allow you to test whether people take longer to read words that are surprising relative to words that are predictable.</p>
+<section id="building-blocks-make-a-story" class="level3">
+<h3 class="anchored" data-anchor-id="building-blocks-make-a-story">Building blocks: Make a story</h3>
+<p>Okay, let’s make a story and store it in a variable. You can use this one (from last year’s workshop leader) or make up your own.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>story <span class="op">=</span> <span class="st">"""On a clear Saturday morning, Maya set out for a slow jog along the riverside path.</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="st">The air smelled faintly of wet grass, and bicycles drifted past like quiet birds.</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="st">She counted her breaths, matching them to the soft rhythm of her footsteps.</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="st">At the old footbridge she paused, watching sunlight scatter across the water.</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="st">A family unpacked breakfast nearby; a thermos hissed, and someone laughed.</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="st">Maya stretched, then started again along the path that curved through willows.</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="st">Past the square she slowed, noticing the scent of roasted coffee drifting from a tiny kiosk.</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="st">Children were chalking bright shapes on the paving stones, and a busker tuned a battered guitar.</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="st">Maya stopped to tie a loose shoelace and glanced at the notes for the concert pinned to a lamp post.</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="st">She thought about her own violin, stored away in a dusty case under her bed.</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="st">The sun was climbing higher, glinting off the windows of nearby apartments.</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="st">She began jogging again, feeling the steady beat of her pulse and the easy warmth of the morning settle into her muscles."""</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="predict callout callout-style-default callout-note no-icon callout-titled" title="🤔 Think first">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>🤔 Think first
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>What do the double-quotations do?</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Check your thinking">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Check your thinking
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The double-quotations are a nice trick for allowing your code to span multiple lines (line wrapping) rather than print on a single continuous line.</p>
+</div>
+</div>
+</div>
 </section>
-<section id="why-python-and-not-r" class="level2">
-<h2 class="anchored" data-anchor-id="why-python-and-not-r">Why Python and not R?</h2>
-<p>The Python programming language is optimal for coding <em>experiments</em> because it has a special library called <em>PsychoPy</em> for doing so.</p>
-<p>In contrast, the R programming language is optimal for statistical analyses, as it was designed specifically for this purpose.</p>
-<p>Therefore, this workshop on programming for experiments focuses on Python instead of R, which you instead cover in your Methods 1 practical classes.</p>
-<p>However, as you will learn over the course of the semester, many of the programming concepts that we cover in Session 1 are generalizable to R and all other languages.</p>
+<section id="building-blocks-create-two-versions-of-the-story" class="level3">
+<h3 class="anchored" data-anchor-id="building-blocks-create-two-versions-of-the-story">Building blocks: Create two versions of the story</h3>
+<p>Now you can create two versions of the story, one with a surprising word (experimental condition) and one without any surprising word (control condition).</p>
+<p>First, let’s copy our story into two variables, one called <code>surprise_cond</code> the other called <code>control_cond</code>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># control condition is unaltered story.</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>control_cond <span class="op">=</span> story.split() <span class="co"># this makes a list where each item is a word in the story.</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># surprise condition is initially just copy of control story.</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>surprise_cond <span class="op">=</span> control_cond.copy() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="predict callout callout-style-default callout-note no-icon callout-titled" title="🤔 Think first">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>🤔 Think first
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>What is the call to copy() doing?</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Check your thinking">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Check your thinking
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>This is a method of lists that allows us to copy their items <em>without</em> linking the lists (so any changes to surprise_cond won’t be reflected in control_cond).</p>
+</div>
+</div>
+</div>
+<p>Okay, so now we want to define a word in our story that we will replace with a surprise word in the control condition.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># here's the control word that we will replace in the surprise condition (can be any word)</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>control_target <span class="op">=</span> <span class="st">'grass,'</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># here's the word we are replacing it with (can be anything).</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>surprise_target <span class="op">=</span> <span class="st">'goobernator'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Okay, now let’s insert the surprise word in the location of <code>control_target</code>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get index to target word in control story.</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>target_i <span class="op">=</span> control_cond.index(control_target)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># now replace that index with the surprise word. </span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>surprise_cond[target_i] <span class="op">=</span> surprise_target</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="predict-check" data-answer="for word_index in range(len(control_cond))" data-accept="for word_index in range(len(control_cond))||for i in range(len(control_cond))">
+<p>Write a <code>for</code> loop that goes through every index in <code>control_cond</code> and prints both the index and the word at that position.</p>
+<div class="pc-hint" data-if-contains="for">
+<p>Use <code>range(len(control_cond))</code> to produce the index numbers. Inside the loop, use square brackets to get the word at the current index.</p>
+</div>
+<div class="pc-explanation">
+<p>One possible answer is:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> word_index <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(control_cond)):</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(word_index, control_cond[word_index])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>range(len(control_cond))</code> gives the list’s index numbers, starting at <code>0</code>. Each time through the loop, <code>control_cond[word_index]</code> gets the word at that position.</p>
+</div>
+</div>
 </section>
-<section id="the-three-sessions" class="level2">
-<h2 class="anchored" data-anchor-id="the-three-sessions">The three sessions</h2>
-<p><strong><a href="./session1-python/index.html">Session 1 · Python basics</a></strong> Variables, lists, loops, conditionals, functions. These are the handful of building blocks that all programs are made of. Everything you learn here gets used directly in Session 2.</p>
-<p><strong><a href="./session2-psychopy/index.html">Session 2 · Introduction to PsychoPy</a></strong> PsychoPy is the Python library psychologists use to run experiments: it opens windows, draws stimuli, and records keypresses with precise timing. You build an experiment step by step and leave with a script that runs: images in random order, keyboard responses, feedback on every trial, and more..</p>
-<p><strong>Session 3 · From fleeing rabbits to words(session3-reading/index.qmd)</strong> Swap the images for words, add a clock and a logfile, and your fleeing rabbit script becomes a self-paced reading experiment, the direct starting point for your Portfolio 2 prototype.</p>
+<section id="building-blocks-randomly-shuffle-conditions" class="level3">
+<h3 class="anchored" data-anchor-id="building-blocks-randomly-shuffle-conditions">Building blocks: Randomly shuffle conditions</h3>
+<p>You always want to control the order of experimental conditions. Here we will randomly shuffle them.</p>
+<p>You could, alternately, <em>counterbalance</em> your conditions. This means that you alternate between one condition and the other every participant so that you end up with equal numbers of participants in each condition. This is generally recommended, but you will figure out how to do that later.</p>
+<div class="predict-check" data-answer="when the screen flips" data-accept="when the screen flips||when win.flip is called||when the word appears||at the flip">
+<p>Suppose we put the condition names in a list: <code>conditions = ['control', 'surprise']</code>. What line of code randomly shuffles the order in that list?</p>
+<div class="pc-hint" data-if-contains="shuffle">
+<p>The function is called <code>shuffle</code>. It belongs to the <code>random</code> module, so include the module name before the dot.</p>
+</div>
+<div class="pc-explanation">
+<p>First make a list of the condition names, then shuffle it:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>conditions <span class="op">=</span> [<span class="st">'control'</span>, <span class="st">'surprise'</span>]</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>random.shuffle(conditions)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>random.shuffle(conditions)</code> rearranges the items in the list in place. Make sure <code>import random</code> appears near the top of your script. You can then use the shuffled list to decide which condition to run first.</p>
+</div>
+</div>
 </section>
-<section id="how-the-sessions-work" class="level2">
-<h2 class="anchored" data-anchor-id="how-the-sessions-work">How the sessions work</h2>
-<p>Each session follows the same rhythm: a short lecture introduces the concepts and demonstrates them live, and you then put them to work in a set of exercises you complete on your own, at your own pace, with the teaching team circulating. Three habits will serve you well throughout:</p>
-<ul>
-<li><strong>Predict before you run.</strong> Whenever you see a 🔮 Predict first box, write down what the code will do before running it.</li>
-<li><strong>Run constantly.</strong> Run your code after every small change, not after twenty lines. Small steps make bugs easy to find.</li>
-<li><strong>Never stay stuck.</strong> Ten minutes on the same bug is the signal to ask: check the error message, unfold the solution, or wave a teacher over. Sitting silently with a bug is the one wrong way to use these sessions.</li>
-</ul>
+<section id="building-blocks-make-a-trial-sequence" class="level3">
+<h3 class="anchored" data-anchor-id="building-blocks-make-a-trial-sequence">Building blocks: Make a trial sequence</h3>
+<p>In a <strong>self-paced reading experiment</strong>, participants see one word at a time. They press a key when they have finished reading the word, and the next word then appears.</p>
+<p>For every word, record its <strong>reaction time (RT)</strong>: the time between the word appearing on screen and the participant pressing the key. You can then compare reading times for predictable and surprising words.</p>
+<p>In general terms, one <strong>trial</strong> of the experiment corresponds to a single presentation of the word, a keypress, and a calculated response time. We can call this sequence of events a <em>trial sequence</em>.</p>
+<p>Let’s build a trial sequence now, using the first word in the control story.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> psychopy <span class="im">import</span> visual, event, core, gui</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># make a window. </span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>win <span class="op">=</span> visual.Window(</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    size<span class="op">=</span>(<span class="dv">1000</span>, <span class="dv">700</span>), units<span class="op">=</span><span class="st">'pix'</span>, color<span class="op">=</span><span class="st">'black'</span>, fullscr<span class="op">=</span><span class="va">False</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co"># make a text object. </span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>text <span class="op">=</span> visual.TextStim(win, text<span class="op">=</span><span class="st">'+'</span>, color<span class="op">=</span><span class="st">'white'</span>, height<span class="op">=</span><span class="dv">48</span>, units<span class="op">=</span><span class="st">'pix'</span>)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co"># initialize the clock from the core module. </span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>clock <span class="op">=</span> core.Clock()</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="co"># clear key press events (just in case).</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>event.clearEvents()</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="co"># now prepare your text.</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>word_index <span class="op">=</span> <span class="dv">0</span> <span class="co"># first control word in story. </span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>text.text <span class="op">=</span> control_cond[word_index]</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="co"># draw your text. </span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>text.draw()</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a><span class="co"># reset the clock when the window is flipped and the word appears.</span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>win.callOnFlip(clock.reset)</span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a><span class="co"># flip your window.</span></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>win.flip()</span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a><span class="co"># record keypresses (either space or escape)</span></span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>keys <span class="op">=</span> event.waitKeys(</span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>        keyList<span class="op">=</span>[<span class="st">'space'</span>, <span class="st">'escape'</span>],</span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>        timeStamped<span class="op">=</span>clock</span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a><span class="co"># store keys (which contains key pressed and response time) in two variables: key &amp; reaction_time. </span></span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>key, reaction_time <span class="op">=</span> keys[<span class="dv">0</span>]</span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> key <span class="op">==</span> <span class="st">'escape'</span>:</span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>        win.close()</span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a>        core.quit()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="predict-check" data-answer="the window closes and the experiment quits" data-accept="the window closes and the experiment quits||closes the window and quits||win.close and core.quit||the experiment ends||it quits">
+<p>If the participant presses Escape, what do <code>win.close()</code> and <code>core.quit()</code> do?</p>
+<div class="pc-hint" data-if-contains="close">
+<p>One line closes the PsychoPy window. The other stops the experiment script.</p>
+</div>
+<div class="pc-explanation">
+<p><code>win.close()</code> closes the experiment window, and <code>core.quit()</code> ends the script. Escape therefore lets the participant stop the experiment instead of continuing to the next word.</p>
+</div>
+</div>
+<p>Let’s unpack the above example.</p>
+<div class="predict-check" data-answer="when the screen flips" data-accept="when the screen flips||when win.flip is called||when the word appears||at the flip">
+<p>The code queues <code>clock.reset</code> with <code>win.callOnFlip(clock.reset)</code> and then calls <code>win.flip()</code>. When does the clock reset?</p>
+<div class="pc-hint" data-if-contains="flip">
+<p>It resets at the moment the screen updates and the word is shown—not when <code>callOnFlip</code> is first called.</p>
+</div>
+<div class="pc-explanation">
+<p>The clock resets when <code>win.flip()</code> updates the screen and displays the word. This makes the reaction-time measurement start at word onset. The following <code>event.waitKeys(..., timeStamped=clock)</code> records the time of the participant’s keypress using that clock.</p>
+</div>
+</div>
+<div class="predict-check" data-answer="space and 0.8" data-accept="space and 0.8||space, 0.8||space and 0.8 seconds||space, timestamp 0.8">
+<p><strong>Predict:</strong> The participant presses Space 0.8 seconds after the word appears. What two values are in <code>keys[0]</code>?</p>
+<div class="pc-hint" data-if-contains="space">
+<p><code>keys[0]</code> contains the key name and the time recorded by the clock. The clock reading is a number in seconds; it is not the clock object itself.</p>
+</div>
+<div class="pc-explanation">
+<p><code>keys[0]</code> contains the key name (<code>'space'</code>) and its timestamp (<code>0.8</code> seconds). The next line, <code>key, reaction_time = keys[0]</code>, assigns those two values to the variables separately.</p>
+</div>
+</div>
+<div class="predict-check" data-answer="800" data-accept="800||800 ms||800 milliseconds">
+<p><code>reaction_time</code> is recorded in seconds. If it is <code>0.8</code>, how many milliseconds is that?</p>
+<div class="pc-hint" data-if-contains="1000">
+<p>There are 1,000 milliseconds in one second. Multiply the number of seconds by 1,000.</p>
+</div>
+<div class="pc-explanation">
+<p><code>0.8</code> seconds is <code>800</code> milliseconds, because <span class="math inline">\(0.8 \times 1000 = 800\)</span>. In the experiment code, multiply <code>reaction_time</code> by <code>1000</code> when saving it as milliseconds.</p>
+</div>
+</div>
+<p>Okay, last step in the trial sequence: Append your data for the trial to your results dataframe. You already learned how to do this.</p>
+<p>The below code should be placed at the end of your trial sequence (except for definition of your results dataframe, which should occur at the beginning of your experiment).</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># should be initialized before all trials. </span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> []</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># append data from current trial (assumes you have defined participant_id earlier).</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>results.append({</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">'participant'</span>: participant_id,</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>        <span class="st">'condition'</span>: condition,</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">'word_index'</span>: word_index,</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>        <span class="st">'word'</span>: word,</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">'is_surprising'</span>: <span class="bu">int</span>(</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>            condition <span class="op">==</span> <span class="st">'surprise'</span> <span class="kw">and</span> word_index <span class="op">==</span> target_index</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>        <span class="st">'rt_ms'</span>: reaction_time <span class="op">*</span> <span class="dv">1000</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>    })</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="predict-check" data-answer="1" data-accept="1||one||true">
+<p>For a trial where <code>condition</code> is <code>'surprise'</code> and <code>word_index</code> equals <code>target_index</code>, what value is stored as <code>is_surprising</code>?</p>
+<div class="pc-hint" data-if-contains="condition">
+<p>Both comparisons inside the parentheses are <code>True</code>. The <code>and</code> combines them, and <code>int()</code> converts the result to a number.</p>
+</div>
+<div class="pc-explanation">
+<p>The value is <code>1</code>. Both <code>condition == 'surprise'</code> and <code>word_index == target_index</code> are <code>True</code>, so the whole expression is <code>True</code>. Then <code>int(True)</code> becomes <code>1</code>. For any other trial, at least one comparison is false, so <code>int(False)</code> becomes <code>0</code>.</p>
+</div>
+</div>
 </section>
-<section id="what-you-need" class="level2">
-<h2 class="anchored" data-anchor-id="what-you-need">What you need</h2>
-<ul>
-<li>Your own laptop with <strong>PsychoPy installed</strong>. Install instructions are sent out before Session 2, and each session starts with a setup check. If the install fights back, come 15 minutes early.</li>
-<li>Curiosity. A willingness to try things, break things, and read the occasional error message will carry you further than any prior experience would.</li>
-</ul>
-<p>Ready? Start with <a href="./session1-python/index.html">Session 1</a>.</p>
+<section id="building-blocks-looping-over-your-trial-sequence." class="level3">
+<h3 class="anchored" data-anchor-id="building-blocks-looping-over-your-trial-sequence.">Building blocks: Looping over your trial sequence.</h3>
+<p>This is where things get fun. You will do this in your exercise on the next page. First, let’s think about how to loop through every word in the surprise-condition story.</p>
+<div class="predict-check" data-answer="for word_index in range(len(surprise_cond))" data-accept="for word_index in range(len(surprise_cond))||for i in range(len(surprise_cond))">
+<p>In a list, an <strong>index</strong> is the position number of an item. The first word is at index <code>0</code>, the second at index <code>1</code>, and so on. Write a <code>for</code> loop that visits each word in <code>surprise_cond</code> and displays it with <code>show()</code>.</p>
+<div class="pc-hint" data-if-contains="range">
+<p>Use <code>range(len(surprise_cond))</code> to generate the position numbers. The loop variable <code>word_index</code> holds the current position; use <code>surprise_cond[word_index]</code> to get that word for <code>show()</code>.</p>
+</div>
+<div class="pc-explanation">
+<p>One possible answer is:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> word_index <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(surprise_cond)):</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    show(surprise_cond[word_index])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The loop visits each position from <code>0</code> to the last word’s position. On each pass, <code>word_index</code> is the current position, and <code>surprise_cond[word_index]</code> gets the word there. In the full experiment, you would put the rest of the trial steps—starting the clock, waiting for a key, and saving the reaction time—inside this loop too.</p>
+</div>
+</div>
+</section>
+<section id="final-flourishes-instructions-fixation-cross-before-experiment-start." class="level3">
+<h3 class="anchored" data-anchor-id="final-flourishes-instructions-fixation-cross-before-experiment-start.">Final flourishes: Instructions + Fixation cross before experiment start.</h3>
+<p>Okay, finishing touches. We want to display a fixation cross after our experiment instructions before the story starts appearing.</p>
+<p>Here’s how we do it. This holds the fixation cross for .6s before starting your experiment. This is a good idea so that participants have time to process the instructions.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># instructions. </span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>show(<span class="st">'You will read one story, one word at a time.</span><span class="ch">\n</span><span class="st">'</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Press Space for the next word.</span><span class="ch">\n</span><span class="st">'</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Press Escape to stop.</span><span class="ch">\n\n</span><span class="st">'</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Press any key to begin.'</span>)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co"># wait for keypress. </span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>event.waitKeys()</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="co"># fixation cross. </span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>show(<span class="st">'+'</span>)</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="co"># display cross for .6s.</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>core.wait(<span class="fl">0.6</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>How to build a reading experiment</strong> Next: <a href="10_ reading_exp_prototype.qmd">Reading experiment prototype</a>.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -1579,10 +1883,13 @@ body.quarto-dark .predict-check.pc-done textarea.pc-input { background: #1b2437;
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="../session3-experiments/08_exercise7.html" class="pagination-link" aria-label="8 · Exercise 7: The Complete Experiment">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">8 · Exercise 7: The Complete Experiment</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./session1-python/index.html" class="pagination-link" aria-label="How the day works">
-        <span class="nav-page-text">How the day works</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../session3-experiments/11_exercise8.html" class="pagination-link" aria-label="10 · Exercise 6: Weigh Your Own Decisions">
+        <span class="nav-page-text">10 · Exercise 6: Weigh Your Own Decisions</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

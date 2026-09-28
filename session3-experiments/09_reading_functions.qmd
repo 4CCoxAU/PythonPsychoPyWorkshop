@@ -1,186 +1,323 @@
 ---
-title: "9 · Timing: Measuring How Long Thinking Takes"
+title: "9 · From rabbits to reading"
 ---
 
 
 ::: {.milestone}
-**Block 3** · Learning goals: Measure reaction times with `core.Clock()`: reset at stimulus onset, read at the response.
+**Block 3** · Learning goals: Adapt building blocks of The Fleeing Rabbit experiment to make a study about reading. 
 :::
 
-## Thinking takes time
+## Reading as a window into cognition
 
-Your experiment runs, and it already produces one measurement: whether each answer was correct. Block 3 adds the second, and for cognitive science the more interesting one: how *long* the answer took. The idea is old and beautiful: mental work takes time, and the time can be measured. Your own experiment contains a built-in comparison. On a burrow trial, you press the arrow on the burrow's side: your response goes toward the thing you saw, which is what your attention wants anyway. On a lion trial, you press the opposite arrow: your response goes away from the thing you saw, and to produce it you must override the pull toward the lion first. That overriding is extra mental work, so lion trials should take longer, by tens of milliseconds. Reaction time is how we watch that work happen without opening the head. The same measurement carries your Portfolio 2 experiment: how long a reader lingers on a word tells us how hard that word is to process.
+One major theme of your studies in Cognitive Science will be that you will study how people perceive, produce and process written and spoken language. You have already started upon this journey in your Cognition and Communication course. 
 
-## A stopwatch object
+Today you will learn the tools for building an experiment that measures how quickly people read. Specifically, this experiment will allow you to test whether people take longer to read words that are surprising relative to words that are predictable.
 
-The tool is `core.Clock()`: a stopwatch. Create it once, in the setup; reset it to zero at the moment you want to measure from; read it when the thing you are timing has happened.
+### Building blocks: Make a story
+
+Okay, let's make a story and store it in a variable. You can use this one (from last year's workshop leader) or make up your own.
 
 ```python
-stopwatch = core.Clock()     # create, once, in the setup
-stopwatch.reset()            # zero it: timing starts NOW
-rt = stopwatch.getTime()     # read it: seconds since the reset
-```
 
-A small demonstration you can run in a script, no window needed:
+story = """On a clear Saturday morning, Maya set out for a slow jog along the riverside path.
+The air smelled faintly of wet grass, and bicycles drifted past like quiet birds.
+She counted her breaths, matching them to the soft rhythm of her footsteps.
+At the old footbridge she paused, watching sunlight scatter across the water.
+A family unpacked breakfast nearby; a thermos hissed, and someone laughed.
+Maya stretched, then started again along the path that curved through willows.
+Past the square she slowed, noticing the scent of roasted coffee drifting from a tiny kiosk.
+Children were chalking bright shapes on the paving stones, and a busker tuned a battered guitar.
+Maya stopped to tie a loose shoelace and glanced at the notes for the concert pinned to a lamp post.
+She thought about her own violin, stored away in a dusty case under her bed.
+The sun was climbing higher, glinting off the windows of nearby apartments.
+She began jogging again, feeling the steady beat of her pulse and the easy warmth of the morning settle into her muscles."""
 
-```python
-from psychopy import core
-
-stopwatch = core.Clock()
-stopwatch.reset()
-core.wait(1.5)
-print(stopwatch.getTime())
-```
-
-::: {.predict-check data-answer="1.5" data-accept="1.5 seconds||about 1.5||~1.5"}
-Approximately what number is printed?
-
-::: {.pc-hint data-if-contains="0"}
-The clock was zeroed, then the script waited. How much time passed between the reset and the read?
-:::
-
-::: {.pc-explanation}
-Approximately `1.5`, in practice something like `1.5001923`: one and a half seconds passed between the reset and the read, plus a sliver of processing time. The clock does not stop at `getTime()`; it keeps running, and you can read it as often as you like. Reset defines the zero; every read reports the seconds since.
-:::
-:::
-
-## Where the reset goes
-
-In a trial, what we want to measure is the gap between **stimulus onset** and **response**. Both endpoints matter.
-
-The response end is easy: `event.waitKeys()` returns at the keypress, so reading the clock on the next line captures it. The onset end is the subtle one, and Chapter 3 prepared you for it: a stimulus appears at one precise moment, the flip. Preparing and drawing take time, so the reset must come *after* the flip, not before the drawing. In our script, `show_stim()` ends with the flip, so the reset follows the call directly:
-
-```python
-show_stim(image)                                  # ends with win.flip(): onset
-stopwatch.reset()                                 # zero AT onset
-
-keys = event.waitKeys(keyList=['left', 'right'])  # returns at the keypress
-rt = stopwatch.getTime()                          # seconds from onset to response
 ```
 
 ::: {.callout-note .predict icon="false" title="🤔 Think first"}
-A student puts `stopwatch.reset()` *before* the `show_stim(image)` call instead of after it. The script runs fine and produces reaction times. What is wrong with them?
-
+What do the double-quotations do? 
+:::
 ::: {.callout-tip collapse="true" title="Check your thinking"}
-Every reaction time is slightly too long. The clock starts before the stimulus exists: preparing the image and flipping it to the screen take time, and that preparation time is silently added to every trial's measurement. The participant has not even seen the stimulus while the clock is already running. Reset after the flip, so that zero means "the moment the scene appeared".
-:::
-:::
-
-::: {.callout-note collapse="true" title="Good to know: how precise is this?"}
-Honest measurement means knowing your instrument. Two small imprecisions are built in: the stimulus appears at a screen refresh, so onset is quantised to the frame (about 17 ms at 60 Hz), and ordinary keyboards add a few milliseconds of their own. Neither can be removed with ordinary hardware, and neither matters for us: both affect all trials equally, and the comparisons we care about, such as lion trials against burrow trials, are differences of tens of milliseconds averaged over trials. Know the noise, design comparisons larger than it.
+The double-quotations are a nice trick for allowing your code to span multiple lines (line wrapping) rather than print on a single continuous line. 
 :::
 
-::: {.callout-note title="Summary"}
-`core.Clock()` is a stopwatch: create once, `reset()` to define zero, `getTime()` to read seconds since. For a reaction time, zero must mean stimulus onset, so the reset goes immediately after the flip, and the read goes immediately after `waitKeys()` returns. The measurement carries about a frame of onset noise and a few milliseconds of keyboard noise, which comparisons across many trials absorb.
-:::
+### Building blocks: Create two versions of the story
 
-## Three clock puzzles, together
+Now you can create two versions of the story, one with a surprising word (experimental condition) and one without any surprising word (control condition).
 
-Before the clock enters the experiment, three small puzzles about how it behaves. Predict each one before anything is run.
-
-### Puzzle 1: the clock keeps running
+First, let's copy our story into two variables, one called `surprise_cond` the other called `control_cond`.
 
 ```python
-from psychopy import core
+# control condition is unaltered story.
+control_cond = story.split() # this makes a list where each item is a word in the story.
 
-stopwatch = core.Clock()
-stopwatch.reset()
+# surprise condition is initially just copy of control story.
+surprise_cond = control_cond.copy() 
 
-core.wait(1)
-print(stopwatch.getTime())
-
-core.wait(1)
-print(stopwatch.getTime())
 ```
 
-::: {.predict-check data-answer="1 2" data-accept="1, 2||1.0 2.0||1.0, 2.0||about 1 and 2"}
-Two numbers are printed. Approximately which two? Answer on one line, separated by a space.
+::: {.callout-note .predict icon="false" title="🤔 Think first"}
+What is the call to copy() doing? 
+:::
+::: {.callout-tip collapse="true" title="Check your thinking"}
+This is a method of lists that allows us to copy their items *without* linking the lists (so any changes to surprise_cond won't be reflected in control_cond).
+:::
 
-::: {.pc-hint data-if-contains="1 1"}
-Does `getTime()` stop the clock, or only look at it?
+Okay, so now we want to define a word in our story that we will replace with a surprise word in the control condition.
+
+```python
+# here's the control word that we will replace in the surprise condition (can be any word)
+control_target = 'grass,'
+
+# here's the word we are replacing it with (can be anything).
+surprise_target = 'goobernator'
+
+```
+
+Okay, now let's insert the surprise word in the location of `control_target`.
+
+```python
+# get index to target word in control story.
+target_i = control_cond.index(control_target)
+
+# now replace that index with the surprise word. 
+surprise_cond[target_i] = surprise_target
+
+```
+
+::: {.predict-check data-answer="for word_index in range(len(control_cond))" data-accept="for word_index in range(len(control_cond))||for i in range(len(control_cond))"}
+Write a `for` loop that goes through every index in `control_cond` and prints both the index and the word at that position.
+
+::: {.pc-hint data-if-contains="for"}
+Use `range(len(control_cond))` to produce the index numbers. Inside the loop, use square brackets to get the word at the current index.
 :::
 
 ::: {.pc-explanation}
-Approximately `1`, then `2`. Reading the clock does not stop it or reset it; it only looks. The clock runs continuously from the reset, and every read reports the total seconds since that one zero. One reset can serve many reads.
-:::
-:::
-
-### Puzzle 2: reset moves the zero
+One possible answer is:
 
 ```python
-from psychopy import core
-
-stopwatch = core.Clock()
-stopwatch.reset()
-
-core.wait(1)
-stopwatch.reset()
-
-core.wait(1)
-print(stopwatch.getTime())
+for word_index in range(len(control_cond)):
+	print(word_index, control_cond[word_index])
 ```
 
-::: {.predict-check data-answer="1" data-accept="1.0||about 1||~1"}
-One number is printed. Approximately what?
+`range(len(control_cond))` gives the list's index numbers, starting at `0`. Each time through the loop, `control_cond[word_index]` gets the word at that position.
+:::
+:::
 
-::: {.pc-hint data-if-contains="2"}
-There are two resets. Which one defines the zero that the read is measured from?
+### Building blocks: Randomly shuffle conditions
+
+You always want to control the order of experimental conditions. Here we will randomly shuffle them. 
+
+You could, alternately, *counterbalance* your conditions. This means that you alternate between one condition and the other every participant so that you end up with equal numbers of participants in each condition. This is generally recommended, but you will figure out how to do that later.
+
+
+::: {.predict-check data-answer="when the screen flips" data-accept="when the screen flips||when win.flip is called||when the word appears||at the flip"}
+Suppose we put the condition names in a list: `conditions = ['control', 'surprise']`. What line of code randomly shuffles the order in that list?
+
+::: {.pc-hint data-if-contains="shuffle"}
+The function is called `shuffle`. It belongs to the `random` module, so include the module name before the dot.
 :::
 
 ::: {.pc-explanation}
-Approximately `1`, not 2. A reset throws away everything before it and starts the count again: the second reset moved the zero, so the read reports only the second second. This is precisely why one reset per trial works in an experiment: each trial's reset wipes the previous trial's time and starts fresh.
-:::
-:::
-
-### Puzzle 3: the misplaced reset, with numbers
-
-Suppose preparing and flipping a large image takes half a second, and the participant responds one second after the stimulus appears. A student writes the reset in the wrong place:
+First make a list of the condition names, then shuffle it:
 
 ```python
-stopwatch.reset()          # reset HERE...
-stim.draw()                # takes ~0.5 s in this thought experiment
-win.flip()                 # ...stimulus appears now
-keys = event.waitKeys()    # participant responds 1 s after onset
-rt = stopwatch.getTime()
+conditions = ['control', 'surprise']
+random.shuffle(conditions)
 ```
 
-::: {.predict-check data-answer="1.5" data-accept="1.5 seconds||1,5||about 1.5"}
-What reaction time does the script report, in seconds?
+`random.shuffle(conditions)` rearranges the items in the list in place. Make sure `import random` appears near the top of your script. You can then use the shuffled list to decide which condition to run first.
+:::
+:::
 
-::: {.pc-hint data-if-contains="1 "}
-The clock started before the drawing. How much time passed between the reset and the keypress, in total?
+
+### Building blocks: Make a trial sequence 
+
+In a **self-paced reading experiment**, participants see one word at a time. They press a key when they have finished reading the word, and the next word then appears.
+
+For every word, record its **reaction time (RT)**: the time between the word appearing on screen and the participant pressing the key. You can then compare reading times for predictable and surprising words.
+
+In general terms, one **trial** of the experiment corresponds to a single presentation of the word, a keypress, and a calculated response time. We can call this sequence of events a *trial sequence*.
+
+Let's build a trial sequence now, using the first word in the control story. 
+
+```python
+from psychopy import visual, event, core, gui
+
+# make a window. 
+win = visual.Window(
+    size=(1000, 700), units='pix', color='black', fullscr=False
+)
+
+# make a text object. 
+text = visual.TextStim(win, text='+', color='white', height=48, units='pix')
+
+# initialize the clock from the core module. 
+clock = core.Clock()
+
+# clear key press events (just in case).
+event.clearEvents()
+
+# now prepare your text.
+word_index = 0 # first control word in story. 
+text.text = control_cond[word_index]
+
+# draw your text. 
+text.draw()
+
+# reset the clock when the window is flipped and the word appears.
+win.callOnFlip(clock.reset)
+
+# flip your window.
+win.flip()
+
+# record keypresses (either space or escape)
+keys = event.waitKeys(
+        keyList=['space', 'escape'],
+        timeStamped=clock
+)
+
+# store keys (which contains key pressed and response time) in two variables: key & reaction_time. 
+key, reaction_time = keys[0]
+
+if key == 'escape':
+        win.close()
+        core.quit()
+
+```
+
+::: {.predict-check data-answer="the window closes and the experiment quits" data-accept="the window closes and the experiment quits||closes the window and quits||win.close and core.quit||the experiment ends||it quits"}
+If the participant presses Escape, what do `win.close()` and `core.quit()` do?
+
+::: {.pc-hint data-if-contains="close"}
+One line closes the PsychoPy window. The other stops the experiment script.
 :::
 
 ::: {.pc-explanation}
-`1.5` seconds, for a response that actually took `1.0`. The half second of preparation is silently added, because the zero was set before the stimulus existed. The participant looks half a second slower than they are, on every trial. Zero must mean onset, so the reset goes after the flip.
+`win.close()` closes the experiment window, and `core.quit()` ends the script. Escape therefore lets the participant stop the experiment instead of continuing to the next word.
 :::
 :::
 
-### Puzzle 4: one clock, many trials
+Let's unpack the above example. 
 
-The experiment measures twelve trials, but it needs only **one** clock. Create it once in the setup; inside the loop, reset at each trial's onset and read at each trial's response. The reset wipes the previous trial's time (Puzzle 2), so the same stopwatch serves every trial in turn. A miniature version, with waits standing in for participants:
+::: {.predict-check data-answer="when the screen flips" data-accept="when the screen flips||when win.flip is called||when the word appears||at the flip"}
+The code queues `clock.reset` with `win.callOnFlip(clock.reset)` and then calls `win.flip()`. When does the clock reset?
 
-```python
-from psychopy import core
-
-stopwatch = core.Clock()            # once, in the setup
-
-for trial in [1, 2, 3]:
-    stopwatch.reset()               # zero at this trial's onset
-    core.wait(trial)                # this "participant" takes 1, then 2, then 3 s
-    print(stopwatch.getTime())
-```
-
-::: {.predict-check data-answer="1 2 3" data-accept="1, 2, 3||1.0 2.0 3.0||1 2 and 3"}
-Three numbers are printed. Approximately which three, in order? One line, separated by spaces.
-
-::: {.pc-hint data-if-contains="1 3 6"}
-Does time pile up across trials, or does something wipe it between them?
+::: {.pc-hint data-if-contains="flip"}
+It resets at the moment the screen updates and the word is shown—not when `callOnFlip` is first called.
 :::
 
 ::: {.pc-explanation}
-Approximately `1`, `2`, `3`: each trial's reset wipes the clock, so each read reports only its own trial's time. Without the reset inside the loop, the times would pile up, `1`, `3`, `6`, each trial inheriting all the seconds before it. One clock in the setup, one reset per trial at onset, one read per trial at the response: that is the whole pattern, and it is exactly what you will add to the rabbit in Exercise 6.
+The clock resets when `win.flip()` updates the screen and displays the word. This makes the reaction-time measurement start at word onset. The following `event.waitKeys(..., timeStamped=clock)` records the time of the participant's keypress using that clock.
 :::
 :::
 
-**Stopwatch demo printing sensible numbers?** Next: [Exercise 6, timing the rabbit](10_timingexercises.qmd).
+::: {.predict-check data-answer="space and 0.8" data-accept="space and 0.8||space, 0.8||space and 0.8 seconds||space, timestamp 0.8"}
+**Predict:** The participant presses Space 0.8 seconds after the word appears. What two values are in `keys[0]`?
+
+::: {.pc-hint data-if-contains="space"}
+`keys[0]` contains the key name and the time recorded by the clock. The clock reading is a number in seconds; it is not the clock object itself.
+:::
+
+::: {.pc-explanation}
+`keys[0]` contains the key name (`'space'`) and its timestamp (`0.8` seconds). The next line, `key, reaction_time = keys[0]`, assigns those two values to the variables separately.
+:::
+:::
+
+::: {.predict-check data-answer="800" data-accept="800||800 ms||800 milliseconds"}
+`reaction_time` is recorded in seconds. If it is `0.8`, how many milliseconds is that?
+
+::: {.pc-hint data-if-contains="1000"}
+There are 1,000 milliseconds in one second. Multiply the number of seconds by 1,000.
+:::
+
+::: {.pc-explanation}
+`0.8` seconds is `800` milliseconds, because $0.8 \times 1000 = 800$. In the experiment code, multiply `reaction_time` by `1000` when saving it as milliseconds.
+:::
+:::
+
+Okay, last step in the trial sequence: Append your data for the trial to your results dataframe. You already learned how to do this. 
+
+The below code should be placed at the end of your trial sequence (except for definition of your results dataframe, which should occur at the beginning of your experiment).
+
+```python 
+# should be initialized before all trials. 
+results = []
+
+# append data from current trial (assumes you have defined participant_id earlier).
+results.append({
+        'participant': participant_id,
+        'condition': condition,
+        'word_index': word_index,
+        'word': word,
+        'is_surprising': int(
+            condition == 'surprise' and word_index == target_index
+        ),
+        'rt_ms': reaction_time * 1000
+    })
+
+```
+
+:::: {.predict-check data-answer="1" data-accept="1||one||true"}
+For a trial where `condition` is `'surprise'` and `word_index` equals `target_index`, what value is stored as `is_surprising`?
+
+::: {.pc-hint data-if-contains="condition"}
+Both comparisons inside the parentheses are `True`. The `and` combines them, and `int()` converts the result to a number.
+:::
+
+::: {.pc-explanation}
+The value is `1`. Both `condition == 'surprise'` and `word_index == target_index` are `True`, so the whole expression is `True`. Then `int(True)` becomes `1`. For any other trial, at least one comparison is false, so `int(False)` becomes `0`.
+:::
+::::
+
+### Building blocks: Looping over your trial sequence. 
+
+This is where things get fun. You will do this in your exercise on the next page. First, let's think about how to loop through every word in the surprise-condition story.
+
+::: {.predict-check data-answer="for word_index in range(len(surprise_cond))" data-accept="for word_index in range(len(surprise_cond))||for i in range(len(surprise_cond))"}
+In a list, an **index** is the position number of an item. The first word is at index `0`, the second at index `1`, and so on. Write a `for` loop that visits each word in `surprise_cond` and displays it with `show()`.
+
+::: {.pc-hint data-if-contains="range"}
+Use `range(len(surprise_cond))` to generate the position numbers. The loop variable `word_index` holds the current position; use `surprise_cond[word_index]` to get that word for `show()`.
+:::
+
+::: {.pc-explanation}
+One possible answer is:
+
+```python
+for word_index in range(len(surprise_cond)):
+    show(surprise_cond[word_index])
+```
+
+The loop visits each position from `0` to the last word's position. On each pass, `word_index` is the current position, and `surprise_cond[word_index]` gets the word there. In the full experiment, you would put the rest of the trial steps—starting the clock, waiting for a key, and saving the reaction time—inside this loop too.
+:::
+:::
+
+
+### Final flourishes: Instructions + Fixation cross before experiment start. 
+
+Okay, finishing touches. We want to display a fixation cross after our experiment instructions before the story starts appearing. 
+
+Here's how we do it. This holds the fixation cross for .6s before starting your experiment. This is a good idea so that participants have time to process the instructions. 
+
+```python
+
+# instructions. 
+show('You will read one story, one word at a time.\n'
+    'Press Space for the next word.\n'
+    'Press Escape to stop.\n\n'
+    'Press any key to begin.')
+
+# wait for keypress. 
+event.waitKeys()
+
+# fixation cross. 
+show('+')
+
+# display cross for .6s.
+core.wait(0.6)
+
+```
+
+
+**How to build a reading experiment** Next: [Reading experiment prototype](10_ reading_exp_prototype.qmd).

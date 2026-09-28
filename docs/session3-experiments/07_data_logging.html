@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Programming experiments: Python x PsychoPy – Python &amp; PsychoPy Workshop - Aarhus University, Fall 2026</title>
+<title>7 · Data Logging: From Console to CSV – Python &amp; PsychoPy Workshop - Aarhus University, Fall 2026</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,31 +26,67 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./session1-python/index.html" rel="next">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-bb62276ab45c84d9efd712f51ff97b5a.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-5a1953863e1f72ef3b996ef827f01ca7.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-bb62276ab45c84d9efd712f51ff97b5a.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-8111375b329e67f367d25c6ca2fac386.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-f47233b3dada9760e9eff975721b4787.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-8111375b329e67f367d25c6ca2fac386.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../session3-experiments/08_exercise7.html" rel="next">
+<link href="../session3-experiments/06_informed_consent_dlg.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bb62276ab45c84d9efd712f51ff97b5a.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-5a1953863e1f72ef3b996ef827f01ca7.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bb62276ab45c84d9efd712f51ff97b5a.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-8111375b329e67f367d25c6ca2fac386.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-f47233b3dada9760e9eff975721b4787.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-8111375b329e67f367d25c6ca2fac386.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -80,7 +116,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -252,7 +288,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Python &amp; PsychoPy Workshop - Aarhus University, Fall 2026</span>
     </a>
   </div>
@@ -263,19 +299,19 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link active" href="../index.html" aria-current="page"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./session1-python/index.html"> 
+    <a class="nav-link" href="../session1-python/index.html"> 
 <span class="menu-text">Session 1 · Python</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./session2-psychopy/index.html"> 
+    <a class="nav-link" href="../session2-psychopy/index.html"> 
 <span class="menu-text">Session 2 · PsychoPy</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./session3-experiments/index.html"> 
+    <a class="nav-link" href="../session3-experiments/index.html"> 
 <span class="menu-text">Session 3 · Experiments</span></a>
   </li>  
 </ul>
@@ -290,7 +326,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Workshop overview</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../session3-experiments/index.html">Session 3 · From Reaction Times to Experiments</a></li><li class="breadcrumb-item"><a href="../session3-experiments/05_participant_info.html">Block 2 · Logging data</a></li><li class="breadcrumb-item"><a href="../session3-experiments/07_data_logging.html">7 · Data Logging: From Console to CSV</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -304,7 +340,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Workshop overview</span></a>
   </div>
 </li>
@@ -319,7 +355,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session1-python/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../session1-python/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">How the day works</span></a>
   </div>
 </li>
@@ -334,7 +370,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session1-python/01_getting_started.html" class="sidebar-item-text sidebar-link">
+  <a href="../session1-python/01_getting_started.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Getting started</span></a>
   </div>
 </li>
@@ -351,13 +387,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session1-python/02_variables.html" class="sidebar-item-text sidebar-link">
+  <a href="../session1-python/02_variables.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Variables and regular data types</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session1-python/03_exercise1_variables.html" class="sidebar-item-text sidebar-link">
+  <a href="../session1-python/03_exercise1_variables.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exercise 1: Variables &amp; data types</span></a>
   </div>
 </li>
@@ -374,25 +410,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session1-python/04_lists.html" class="sidebar-item-text sidebar-link">
+  <a href="../session1-python/04_lists.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lists</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session1-python/05_exercise2_lists.html" class="sidebar-item-text sidebar-link">
+  <a href="../session1-python/05_exercise2_lists.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exercise 2: Lists</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session1-python/06_loops.html" class="sidebar-item-text sidebar-link">
+  <a href="../session1-python/06_loops.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Loops</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session1-python/07_exercise3_loops.html" class="sidebar-item-text sidebar-link">
+  <a href="../session1-python/07_exercise3_loops.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exercise 3: Loops</span></a>
   </div>
 </li>
@@ -409,7 +445,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session1-python/08_logical_operations.html" class="sidebar-item-text sidebar-link">
+  <a href="../session1-python/08_logical_operations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Logical operations</span></a>
   </div>
 </li>
@@ -426,13 +462,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session1-python/09_functions.html" class="sidebar-item-text sidebar-link">
+  <a href="../session1-python/09_functions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Functions &amp; modules</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session1-python/10_exercise4.html" class="sidebar-item-text sidebar-link">
+  <a href="../session1-python/10_exercise4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exercise 4</span></a>
   </div>
 </li>
@@ -440,7 +476,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session1-python/11_github.html" class="sidebar-item-text sidebar-link">
+  <a href="../session1-python/11_github.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Syncing with GitHub</span></a>
   </div>
 </li>
@@ -457,7 +493,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session2-psychopy/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../session2-psychopy/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">How the day works</span></a>
   </div>
 </li>
@@ -472,25 +508,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session2-psychopy/01_warmup.html" class="sidebar-item-text sidebar-link">
+  <a href="../session2-psychopy/01_warmup.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">1 · Warming Up: A Python Refresher</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session2-psychopy/02_psychopy.html" class="sidebar-item-text sidebar-link">
+  <a href="../session2-psychopy/02_psychopy.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">2 · Meet PsychoPy: Import, Modules, and a Window</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session2-psychopy/03_drawflip.html" class="sidebar-item-text sidebar-link">
+  <a href="../session2-psychopy/03_drawflip.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">3 · The Draw-Flip Cycle (and How to Break It)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session2-psychopy/04_exercise4.html" class="sidebar-item-text sidebar-link">
+  <a href="../session2-psychopy/04_exercise4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">4 · Exercises: The PsychoPy Playground</span></a>
   </div>
 </li>
@@ -507,25 +543,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session2-psychopy/05_functions.html" class="sidebar-item-text sidebar-link">
+  <a href="../session2-psychopy/05_functions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">5 · Functions: Write Once, Use Many Times</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session2-psychopy/06_glob.html" class="sidebar-item-text sidebar-link">
+  <a href="../session2-psychopy/06_glob.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">6 · Let Python Find Your Stimuli</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session2-psychopy/07_responses.html" class="sidebar-item-text sidebar-link">
+  <a href="../session2-psychopy/07_responses.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">7 · Responses and Feedback</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session2-psychopy/08_exercise5.html" class="sidebar-item-text sidebar-link">
+  <a href="../session2-psychopy/08_exercise5.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">8 · Exercise 5: The Fleeing Rabbit</span></a>
   </div>
 </li>
@@ -544,7 +580,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session3-experiments/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../session3-experiments/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">How the day works</span></a>
   </div>
 </li>
@@ -559,13 +595,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session3-experiments/01_warmup.html" class="sidebar-item-text sidebar-link">
+  <a href="../session3-experiments/01_warmup.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">1 · Warming Up: A PsychoPy Refresher</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session3-experiments/02_why_rt.html" class="sidebar-item-text sidebar-link">
+  <a href="../session3-experiments/02_why_rt.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">2 · Why Measure Reaction Time?</span></a>
   </div>
 </li>
@@ -574,7 +610,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session3-experiments/04_exercise6.html" class="sidebar-item-text sidebar-link">
+  <a href="../session3-experiments/04_exercise6.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">3 · Exercise 6: Weigh Your Own Decisions</span></a>
   </div>
 </li>
@@ -582,34 +618,34 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true">
  <span class="menu-text">Block 2 · Logging data</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session3-experiments/05_participant_info.html" class="sidebar-item-text sidebar-link">
+  <a href="../session3-experiments/05_participant_info.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">5 · Participant Information: The Dialog Box</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session3-experiments/06_informed_consent_dlg.html" class="sidebar-item-text sidebar-link">
+  <a href="../session3-experiments/06_informed_consent_dlg.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">6 · Informed Consent</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session3-experiments/07_data_logging.html" class="sidebar-item-text sidebar-link">
+  <a href="../session3-experiments/07_data_logging.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">7 · Data Logging: From Console to CSV</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session3-experiments/08_exercise7.html" class="sidebar-item-text sidebar-link">
+  <a href="../session3-experiments/08_exercise7.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">8 · Exercise 7: The Complete Experiment</span></a>
   </div>
 </li>
@@ -626,25 +662,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session3-experiments/09_reading_functions.html" class="sidebar-item-text sidebar-link">
+  <a href="../session3-experiments/09_reading_functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">9 · From rabbits to reading</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../session3-experiments/10_reading_exp_prototype.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">9 · Timing: Measuring How Long Thinking Takes</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session3-experiments/10_reading_exp_prototype.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">9 · Timing: Measuring How Long Thinking Takes</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./session3-experiments/11_exercise8.html" class="sidebar-item-text sidebar-link">
+  <a href="../session3-experiments/11_exercise8.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">10 · Exercise 6: Weigh Your Own Decisions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session3-experiments/12_wrapup.html" class="sidebar-item-text sidebar-link">
+  <a href="../session3-experiments/12_wrapup.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">12 · The Wrap Up &amp; Portfolio 2 Roadmap</span></a>
   </div>
 </li>
@@ -661,13 +697,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session3-experiments/13_whathavelearned.html" class="sidebar-item-text sidebar-link">
+  <a href="../session3-experiments/13_whathavelearned.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">13 · What You Have Learned</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session3-experiments/14_final_thoughts.html" class="sidebar-item-text sidebar-link">
+  <a href="../session3-experiments/14_final_thoughts.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">14 · Final Thoughts</span></a>
   </div>
 </li>
@@ -685,11 +721,12 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#why-programming" id="toc-why-programming" class="nav-link active" data-scroll-target="#why-programming">Why programming?</a></li>
-  <li><a href="#why-python-and-not-r" id="toc-why-python-and-not-r" class="nav-link" data-scroll-target="#why-python-and-not-r">Why Python and not R?</a></li>
-  <li><a href="#the-three-sessions" id="toc-the-three-sessions" class="nav-link" data-scroll-target="#the-three-sessions">The three sessions</a></li>
-  <li><a href="#how-the-sessions-work" id="toc-how-the-sessions-work" class="nav-link" data-scroll-target="#how-the-sessions-work">How the sessions work</a></li>
-  <li><a href="#what-you-need" id="toc-what-you-need" class="nav-link" data-scroll-target="#what-you-need">What you need</a></li>
+  <li><a href="#data-that-evaporates" id="toc-data-that-evaporates" class="nav-link active" data-scroll-target="#data-that-evaporates">Data that evaporates</a></li>
+  <li><a href="#one-trial-one-dictionary" id="toc-one-trial-one-dictionary" class="nav-link" data-scroll-target="#one-trial-one-dictionary">One trial, one dictionary</a></li>
+  <li><a href="#from-rows-to-a-table-pandas" id="toc-from-rows-to-a-table-pandas" class="nav-link" data-scroll-target="#from-rows-to-a-table-pandas">From rows to a table: pandas</a></li>
+  <li><a href="#a-name-that-cannot-collide" id="toc-a-name-that-cannot-collide" class="nav-link" data-scroll-target="#a-name-that-cannot-collide">A name that cannot collide</a></li>
+  <li><a href="#a-home-for-the-logfiles" id="toc-a-home-for-the-logfiles" class="nav-link" data-scroll-target="#a-home-for-the-logfiles">A home for the logfiles</a></li>
+  <li><a href="#into-the-rabbit-script" id="toc-into-the-rabbit-script" class="nav-link" data-scroll-target="#into-the-rabbit-script">Into the rabbit script</a></li>
   </ul>
 </nav>
     </div>
@@ -697,10 +734,9 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../session3-experiments/index.html">Session 3 · From Reaction Times to Experiments</a></li><li class="breadcrumb-item"><a href="../session3-experiments/05_participant_info.html">Block 2 · Logging data</a></li><li class="breadcrumb-item"><a href="../session3-experiments/07_data_logging.html">7 · Data Logging: From Console to CSV</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Programming experiments: Python x PsychoPy</h1>
-<p class="subtitle lead">Methods 01 × Cognition &amp; Communication</p>
+<h1 class="title">7 · Data Logging: From Console to CSV</h1>
 </div>
 
 
@@ -717,44 +753,151 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Welcome! Over the coming workshop sessions, you’ll go from typing your very first line of Python to watching a full behavioural experiment run on your own screen: window, stimuli, responses, feedback, the lot. Between you and that moment stand a handful of Python concepts and a few dozen extremely fixable error messages. We assume no programming experience. If you can rename a file, you’re qualified to start.</p>
 <div class="milestone">
-<p><strong>The arc of the workshop</strong> · Session 1 builds the Python foundations → Session 2 turns them into an experiment → Session 3 extends it into your Portfolio 2 prototype.</p>
+<p><strong>Block 2</strong> · Learning goals: Collect every trial as a dictionary, gather them in a list, and save them as a CSV logfile with a unique name.</p>
 </div>
-<section id="why-programming" class="level2">
-<h2 class="anchored" data-anchor-id="why-programming">Why programming?</h2>
-<p>Nearly every empirical experiment in cognitive science (e.g.&nbsp;reaction-time studies, reading paradigms, eye-tracking, EEG) is implemented in code. A working knowledge of Python allows you to build precisely the experiment your research question requires, to understand the structure and provenance of your data, and to diagnose problems when they arise.</p>
-<p>The aim of these three sessions is a modest form of fluency: by the end, the experiment running on your screen should be a system you can read, modify, and reason about. These skills will hopefully outlast the course: designing, implementing, and troubleshooting your own experiments is part of the everyday craft of working scientists, in cognitive science and well beyond.</p>
+<section id="data-that-evaporates" class="level2">
+<h2 class="anchored" data-anchor-id="data-that-evaporates">Data that evaporates</h2>
+<p>Exercise 6 ended with your experiment printing a line per trial: stimulus, response, correct answer, reaction time. Then you likely closed PsychoPy, and the data ceased to exist. Real experiments write their rows to a <strong>file</strong>, and the file format of choice is CSV, comma separated values: plain text, one row per line, readable by R, Excel, and everything else you will ever analyse data with.</p>
+<p>The plan has three steps. During the experiment, collect each trial’s facts. After the loop, turn the collection into a table. Save the table to a file whose name cannot collide with anyone else’s.</p>
 </section>
-<section id="why-python-and-not-r" class="level2">
-<h2 class="anchored" data-anchor-id="why-python-and-not-r">Why Python and not R?</h2>
-<p>The Python programming language is optimal for coding <em>experiments</em> because it has a special library called <em>PsychoPy</em> for doing so.</p>
-<p>In contrast, the R programming language is optimal for statistical analyses, as it was designed specifically for this purpose.</p>
-<p>Therefore, this workshop on programming for experiments focuses on Python instead of R, which you instead cover in your Methods 1 practical classes.</p>
-<p>However, as you will learn over the course of the semester, many of the programming concepts that we cover in Session 1 are generalizable to R and all other languages.</p>
+<section id="one-trial-one-dictionary" class="level2">
+<h2 class="anchored" data-anchor-id="one-trial-one-dictionary">One trial, one dictionary</h2>
+<p>A trial is a set of labelled facts, and you met the container for labelled facts in the last chapter: the dictionary. One trial becomes one dictionary; the whole experiment becomes a <strong>list of dictionaries</strong>, built with the <code>.append()</code> you have used since Session 1. A miniature you can run in a plain script, no window needed:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>rows <span class="op">=</span> []                       <span class="co"># before the loop: an empty list</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> trial <span class="kw">in</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]:</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    rows.append({<span class="st">'trial'</span>: trial, <span class="st">'rt'</span>: trial <span class="op">*</span> <span class="fl">0.5</span>})</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(rows))</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(rows[<span class="dv">0</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="repl"><code>3
+{'trial': 1, 'rt': 0.5}</code></pre>
+<div class="predict-check" data-answer="1.5" data-accept="1,5||rt 1.5">
+<p>Same script. What does <code>print(rows[2]['rt'])</code> show?</p>
+<div class="pc-hint" data-if-contains="1.0">
+<p>Index 2 of the list is which trial? Count from zero, then look up the <code>'rt'</code> key in that dictionary.</p>
+</div>
+<div class="pc-explanation">
+<p><code>1.5</code>. Two lookups chained: <code>rows[2]</code> fetches the third dictionary from the list, position first, and <code>['rt']</code> fetches one value from it, key second. List of dictionaries: position finds the trial, name finds the fact. This is the exact shape your experiment’s data takes today.</p>
+</div>
+</div>
 </section>
-<section id="the-three-sessions" class="level2">
-<h2 class="anchored" data-anchor-id="the-three-sessions">The three sessions</h2>
-<p><strong><a href="./session1-python/index.html">Session 1 · Python basics</a></strong> Variables, lists, loops, conditionals, functions. These are the handful of building blocks that all programs are made of. Everything you learn here gets used directly in Session 2.</p>
-<p><strong><a href="./session2-psychopy/index.html">Session 2 · Introduction to PsychoPy</a></strong> PsychoPy is the Python library psychologists use to run experiments: it opens windows, draws stimuli, and records keypresses with precise timing. You build an experiment step by step and leave with a script that runs: images in random order, keyboard responses, feedback on every trial, and more..</p>
-<p><strong>Session 3 · From fleeing rabbits to words(session3-reading/index.qmd)</strong> Swap the images for words, add a clock and a logfile, and your fleeing rabbit script becomes a self-paced reading experiment, the direct starting point for your Portfolio 2 prototype.</p>
+<section id="from-rows-to-a-table-pandas" class="level2">
+<h2 class="anchored" data-anchor-id="from-rows-to-a-table-pandas">From rows to a table: pandas</h2>
+<p>A list of dictionaries becomes a table in one line, using <strong>pandas</strong>, the Python library for tabular data. Today we’ll use two lines of it:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>logfile <span class="op">=</span> pd.DataFrame(rows)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(logfile)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="repl"><code>   trial   rt
+0      1  0.5
+1      2  1.0
+2      3  1.5</code></pre>
+<p>The dictionary keys became column names, and each dictionary became a row. Saving the table is one more line:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>logfile.to_csv(<span class="st">'logfile.csv'</span>, index<span class="op">=</span><span class="va">False</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The <code>index=False</code> leaves out the bold row numbers on the left, which belong to pandas, not to your data. Run it, then find <code>logfile.csv</code> next to your script and open it. Suddenly you have a .csv file you would be able to read in with R.</p>
 </section>
-<section id="how-the-sessions-work" class="level2">
-<h2 class="anchored" data-anchor-id="how-the-sessions-work">How the sessions work</h2>
-<p>Each session follows the same rhythm: a short lecture introduces the concepts and demonstrates them live, and you then put them to work in a set of exercises you complete on your own, at your own pace, with the teaching team circulating. Three habits will serve you well throughout:</p>
-<ul>
-<li><strong>Predict before you run.</strong> Whenever you see a 🔮 Predict first box, write down what the code will do before running it.</li>
-<li><strong>Run constantly.</strong> Run your code after every small change, not after twenty lines. Small steps make bugs easy to find.</li>
-<li><strong>Never stay stuck.</strong> Ten minutes on the same bug is the signal to ask: check the error message, unfold the solution, or wave a teacher over. Sitting silently with a bug is the one wrong way to use these sessions.</li>
-</ul>
+<section id="a-name-that-cannot-collide" class="level2">
+<h2 class="anchored" data-anchor-id="a-name-that-cannot-collide">A name that cannot collide</h2>
+<p>One flaw remains, and it is a data-destroying one.</p>
+<div class="predict callout callout-style-default callout-note no-icon callout-titled" title="🤔 Think first">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>🤔 Think first
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Your experiment saves to <code>'logfile.csv'</code>, a fixed name. Participant one is tested, then participant two. What happens to participant one’s data?</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Check your thinking">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Check your thinking
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>It disappears. The second save writes a file with the same name in the same folder, which silently replaces the first. The experiment would appear to work perfectly while destroying one dataset per participant. The filename must be different for every run.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Two ingredients make a filename unique: the participant code you already generate, and a timestamp from PsychoPy’s <code>data</code> module, which joins the import line:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> psychopy <span class="im">import</span> visual, event, core, gui, data</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>date <span class="op">=</span> data.getDateStr()</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>logfile_name <span class="op">=</span> <span class="ss">f'logfiles/logfile_</span><span class="sc">{</span>participant_id<span class="sc">}</span><span class="ss">_</span><span class="sc">{</span>date<span class="sc">}</span><span class="ss">.csv'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>data.getDateStr()</code> returns the current date and time as a compact string, so <code>logfile_name</code> becomes something like <code>logfiles/logfile_P48213_2026-09-29_09h41.22.csv</code>. Two participants can no longer produce the same name.</p>
 </section>
-<section id="what-you-need" class="level2">
-<h2 class="anchored" data-anchor-id="what-you-need">What you need</h2>
-<ul>
-<li>Your own laptop with <strong>PsychoPy installed</strong>. Install instructions are sent out before Session 2, and each session starts with a setup check. If the install fights back, come 15 minutes early.</li>
-<li>Curiosity. A willingness to try things, break things, and read the occasional error message will carry you further than any prior experience would.</li>
-</ul>
-<p>Ready? Start with <a href="./session1-python/index.html">Session 1</a>.</p>
+<section id="a-home-for-the-logfiles" class="level2">
+<h2 class="anchored" data-anchor-id="a-home-for-the-logfiles">A home for the logfiles</h2>
+<p>The filename above puts every logfile in a <code>logfiles/</code> folder, so the CSVs do not pile up next to your script and stimuli. You could create the folder by hand, but there is a reason to let the script guarantee it instead: if the folder is missing, the save fails at the very end of the experiment, after all the trials have run, and the rows are lost with it. One line from the <code>os</code> module removes that risk forever:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>os.makedirs(<span class="st">'logfiles'</span>, exist_ok<span class="op">=</span><span class="va">True</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>exist_ok=True</code> means: create the folder, and if it already exists, do nothing. Safe to run every time, on every computer the experiment ever moves to.</p>
+</section>
+<section id="into-the-rabbit-script" class="level2">
+<h2 class="anchored" data-anchor-id="into-the-rabbit-script">Into the rabbit script</h2>
+<p>The pieces land in three places, and only three. In the setup: the imports, the folder, the empty list. Inside the trial loop, after the feedback: one append, carrying both the participant facts and the trial facts. After the loop: build the table and save it, before the goodbye.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- setup ---</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>os.makedirs(<span class="st">'logfiles'</span>, exist_ok<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>date <span class="op">=</span> data.getDateStr()</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>logfile_name <span class="op">=</span> <span class="ss">f'logfiles/logfile_</span><span class="sc">{</span>participant_id<span class="sc">}</span><span class="ss">_</span><span class="sc">{</span>date<span class="sc">}</span><span class="ss">.csv'</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>rows <span class="op">=</span> []</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co"># --- inside the trial loop, after the feedback ---</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    rows.append({<span class="st">'id'</span>: participant_id,</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>                 <span class="st">'language'</span>: language,</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>                 <span class="st">'handedness'</span>: handedness,</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>                 <span class="st">'stimulus'</span>: image,</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>                 <span class="st">'key'</span>: key,</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>                 <span class="st">'correct_key'</span>: correct_key,</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>                 <span class="st">'rt'</span>: rt})</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="co"># --- after the loop ---</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>logfile <span class="op">=</span> pd.DataFrame(rows)</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>logfile.to_csv(logfile_name, index<span class="op">=</span><span class="va">False</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Note that the participant columns repeat identically in every row. That looks wasteful and is exactly right: each row of a data file should stand on its own, so that R can group, filter, and compare without consulting a second file.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Good to know: escape loses the rows">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Good to know: escape loses the rows
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The save happens once, after the loop. If the experiment stops early, through the escape key’s <code>core.quit()</code> or a crash, the rows collected so far are never written. For our purposes that is acceptable: an aborted session is an incomplete dataset anyway. If you ever need crash-proof logging, the fix is saving inside the loop, once per trial, at the cost of rewriting the file repeatedly. Worth knowing, but not worth doing today.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Summary">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Summary
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Each trial becomes a dictionary, appended to a list; after the loop, <code>pd.DataFrame(rows)</code> turns the list into a table and <code>to_csv()</code> writes it, with <code>index=False</code>. The filename is built from the participant code and <code>data.getDateStr()</code>, so no two runs can overwrite each other, and the file lands in a <code>logfiles/</code> folder guaranteed by <code>os.makedirs(..., exist_ok=True)</code>. Participant facts repeat in every row on purpose: rows should stand on their own.</p>
+</div>
+</div>
+<p><strong>Miniature rows printing, tiny CSV on disk, overwrite trap understood?</strong> Next: <a href="../session3-experiments/08_exercise7.html">Exercise 7, the complete experiment</a>.</p>
 
 
 </section>
@@ -1579,10 +1722,13 @@ body.quarto-dark .predict-check.pc-done textarea.pc-input { background: #1b2437;
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="../session3-experiments/06_informed_consent_dlg.html" class="pagination-link" aria-label="6 · Informed Consent">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">6 · Informed Consent</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./session1-python/index.html" class="pagination-link" aria-label="How the day works">
-        <span class="nav-page-text">How the day works</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../session3-experiments/08_exercise7.html" class="pagination-link" aria-label="8 · Exercise 7: The Complete Experiment">
+        <span class="nav-page-text">8 · Exercise 7: The Complete Experiment</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

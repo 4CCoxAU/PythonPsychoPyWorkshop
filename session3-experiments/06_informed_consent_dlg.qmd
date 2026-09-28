@@ -3,13 +3,83 @@ title: "6 · Informed Consent"
 ---
 
 ::: {.milestone}
-**Block 2** · XXXXX
+**Block 2** · Learning goals: Present a study information screen and collect informed consent. 
 :::
 
-## The experiment: The Fleeing Rabbit
+## Show information, then ask for consent
+
+Before the first trial, participants need clear information about the study: its purpose and procedure, possible risks and benefits, how their data will be used and protected, whether participation is voluntary, how to withdraw, and whom to contact with questions. 
+
+A **Study Information Sheet** is a common way to provide this information. You can find an example on the Methods I Brightspace page under **Informed Consent**.
+
+### Informed Consent in PsychoPy
+
+**Step 1: Dialogue box with consent buttons**
+
+First we want to create a dialogue box that has buttons for providing and declining consent. 
+
+```python
+
+from psychopy import gui 
+
+# create a consent dialogue. 
+consent = gui.Dlg(
+    title='Study information',
+    labelButtonOK='OK',
+    labelButtonCancel='Cancel' # button for declining to participate. 
+)
 
 
+```
+::: {.callout-note .predict icon="false" title="🤔 Think first"}
+What type of variable is `consent`? And what do the `OK` and `Cancel` buttons do?
+:::
+::: {.callout-tip collapse="true" title="Check your thinking"}
+`consent` is a dialogue box from the `gui` module. It has two buttons, an `OK` button, which participants will press if they want to provide informed consent and `Cancel` if participants want to withdraw. 
+:::
+
+**Step 2: Add Study Information to dialogue box**
+
+We now need to add text to the dialogue box that provides our **Study Information**. 
+
+Do not present the below placeholder as a real consent form. Instead, use the wording and procedure from the template provided on Brightspace. 
 
 
+```python
+consent.addText(
+    'Workshop demonstration; not a real research study.\n'
+    'Task: see a lion or burrow, then press an arrow key.\n'
+    'Responses and times print in the Runner; no file is saved.\n'
+    'Taking part is voluntary. Ask your instructor with questions.\n'
+    'Choose OK if you provide informed consent to participant, or Cancel to decline participation in the study.')
+    
+consent.show()
 
-**Shuffled**, twice, differently? Next: [collecting real responses](07_responses.qmd).
+```
+::: {.callout-note .predict icon="false" title="🤔 Think first"}
+What does `\n` mean in the above text? 
+:::
+::: {.callout-tip collapse="true" title="Check your thinking"}
+`\n` means `newline`, allowing any subsequent text to be printed on a new line.
+:::
+
+**Step 3: Check participant response**
+
+We need to check whether the participant consented. If they did NOT consent, then we quite the experiment. 
+
+```python
+# quit experiment if participant withdraws consent. 
+if not consent.OK:
+    core.quit()
+```
+ 
+
+::: {.callout-note .predict icon="false" title="🤔 Think first"}
+How would you intrepret the logical expression `if not consent.OK`? 
+:::
+::: {.callout-tip collapse="true" title="Check your thinking"}
+If the participant entered OK, then consent.OK==1, otherwise consent.OK==0 (in which case you should quit the experiment). 
+:::
+
+ 
+Next: [logging the data](07_data_logging.qmd).

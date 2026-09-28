@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Programming experiments: Python x PsychoPy – Python &amp; PsychoPy Workshop - Aarhus University, Fall 2026</title>
+<title>8 · Exercise 7: The Complete Experiment – Python &amp; PsychoPy Workshop - Aarhus University, Fall 2026</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,31 +26,67 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./session1-python/index.html" rel="next">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-bb62276ab45c84d9efd712f51ff97b5a.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-5a1953863e1f72ef3b996ef827f01ca7.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-bb62276ab45c84d9efd712f51ff97b5a.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-8111375b329e67f367d25c6ca2fac386.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-f47233b3dada9760e9eff975721b4787.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-8111375b329e67f367d25c6ca2fac386.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../session3-experiments/09_reading_functions.html" rel="next">
+<link href="../session3-experiments/07_data_logging.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bb62276ab45c84d9efd712f51ff97b5a.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-5a1953863e1f72ef3b996ef827f01ca7.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bb62276ab45c84d9efd712f51ff97b5a.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-8111375b329e67f367d25c6ca2fac386.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-f47233b3dada9760e9eff975721b4787.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-8111375b329e67f367d25c6ca2fac386.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -80,7 +116,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -252,7 +288,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Python &amp; PsychoPy Workshop - Aarhus University, Fall 2026</span>
     </a>
   </div>
@@ -263,19 +299,19 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link active" href="../index.html" aria-current="page"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./session1-python/index.html"> 
+    <a class="nav-link" href="../session1-python/index.html"> 
 <span class="menu-text">Session 1 · Python</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./session2-psychopy/index.html"> 
+    <a class="nav-link" href="../session2-psychopy/index.html"> 
 <span class="menu-text">Session 2 · PsychoPy</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./session3-experiments/index.html"> 
+    <a class="nav-link" href="../session3-experiments/index.html"> 
 <span class="menu-text">Session 3 · Experiments</span></a>
   </li>  
 </ul>
@@ -290,7 +326,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Workshop overview</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../session3-experiments/index.html">Session 3 · From Reaction Times to Experiments</a></li><li class="breadcrumb-item"><a href="../session3-experiments/05_participant_info.html">Block 2 · Logging data</a></li><li class="breadcrumb-item"><a href="../session3-experiments/08_exercise7.html">8 · Exercise 7: The Complete Experiment</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -304,7 +340,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Workshop overview</span></a>
   </div>
 </li>
@@ -319,7 +355,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session1-python/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../session1-python/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">How the day works</span></a>
   </div>
 </li>
@@ -334,7 +370,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session1-python/01_getting_started.html" class="sidebar-item-text sidebar-link">
+  <a href="../session1-python/01_getting_started.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Getting started</span></a>
   </div>
 </li>
@@ -351,13 +387,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session1-python/02_variables.html" class="sidebar-item-text sidebar-link">
+  <a href="../session1-python/02_variables.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Variables and regular data types</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session1-python/03_exercise1_variables.html" class="sidebar-item-text sidebar-link">
+  <a href="../session1-python/03_exercise1_variables.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exercise 1: Variables &amp; data types</span></a>
   </div>
 </li>
@@ -374,25 +410,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session1-python/04_lists.html" class="sidebar-item-text sidebar-link">
+  <a href="../session1-python/04_lists.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lists</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session1-python/05_exercise2_lists.html" class="sidebar-item-text sidebar-link">
+  <a href="../session1-python/05_exercise2_lists.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exercise 2: Lists</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session1-python/06_loops.html" class="sidebar-item-text sidebar-link">
+  <a href="../session1-python/06_loops.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Loops</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session1-python/07_exercise3_loops.html" class="sidebar-item-text sidebar-link">
+  <a href="../session1-python/07_exercise3_loops.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exercise 3: Loops</span></a>
   </div>
 </li>
@@ -409,7 +445,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session1-python/08_logical_operations.html" class="sidebar-item-text sidebar-link">
+  <a href="../session1-python/08_logical_operations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Logical operations</span></a>
   </div>
 </li>
@@ -426,13 +462,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session1-python/09_functions.html" class="sidebar-item-text sidebar-link">
+  <a href="../session1-python/09_functions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Functions &amp; modules</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session1-python/10_exercise4.html" class="sidebar-item-text sidebar-link">
+  <a href="../session1-python/10_exercise4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exercise 4</span></a>
   </div>
 </li>
@@ -440,7 +476,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session1-python/11_github.html" class="sidebar-item-text sidebar-link">
+  <a href="../session1-python/11_github.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Syncing with GitHub</span></a>
   </div>
 </li>
@@ -457,7 +493,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session2-psychopy/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../session2-psychopy/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">How the day works</span></a>
   </div>
 </li>
@@ -472,25 +508,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session2-psychopy/01_warmup.html" class="sidebar-item-text sidebar-link">
+  <a href="../session2-psychopy/01_warmup.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">1 · Warming Up: A Python Refresher</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session2-psychopy/02_psychopy.html" class="sidebar-item-text sidebar-link">
+  <a href="../session2-psychopy/02_psychopy.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">2 · Meet PsychoPy: Import, Modules, and a Window</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session2-psychopy/03_drawflip.html" class="sidebar-item-text sidebar-link">
+  <a href="../session2-psychopy/03_drawflip.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">3 · The Draw-Flip Cycle (and How to Break It)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session2-psychopy/04_exercise4.html" class="sidebar-item-text sidebar-link">
+  <a href="../session2-psychopy/04_exercise4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">4 · Exercises: The PsychoPy Playground</span></a>
   </div>
 </li>
@@ -507,25 +543,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session2-psychopy/05_functions.html" class="sidebar-item-text sidebar-link">
+  <a href="../session2-psychopy/05_functions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">5 · Functions: Write Once, Use Many Times</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session2-psychopy/06_glob.html" class="sidebar-item-text sidebar-link">
+  <a href="../session2-psychopy/06_glob.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">6 · Let Python Find Your Stimuli</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session2-psychopy/07_responses.html" class="sidebar-item-text sidebar-link">
+  <a href="../session2-psychopy/07_responses.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">7 · Responses and Feedback</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session2-psychopy/08_exercise5.html" class="sidebar-item-text sidebar-link">
+  <a href="../session2-psychopy/08_exercise5.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">8 · Exercise 5: The Fleeing Rabbit</span></a>
   </div>
 </li>
@@ -544,7 +580,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session3-experiments/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../session3-experiments/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">How the day works</span></a>
   </div>
 </li>
@@ -559,13 +595,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session3-experiments/01_warmup.html" class="sidebar-item-text sidebar-link">
+  <a href="../session3-experiments/01_warmup.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">1 · Warming Up: A PsychoPy Refresher</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session3-experiments/02_why_rt.html" class="sidebar-item-text sidebar-link">
+  <a href="../session3-experiments/02_why_rt.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">2 · Why Measure Reaction Time?</span></a>
   </div>
 </li>
@@ -574,7 +610,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session3-experiments/04_exercise6.html" class="sidebar-item-text sidebar-link">
+  <a href="../session3-experiments/04_exercise6.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">3 · Exercise 6: Weigh Your Own Decisions</span></a>
   </div>
 </li>
@@ -582,34 +618,34 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true">
  <span class="menu-text">Block 2 · Logging data</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session3-experiments/05_participant_info.html" class="sidebar-item-text sidebar-link">
+  <a href="../session3-experiments/05_participant_info.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">5 · Participant Information: The Dialog Box</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session3-experiments/06_informed_consent_dlg.html" class="sidebar-item-text sidebar-link">
+  <a href="../session3-experiments/06_informed_consent_dlg.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">6 · Informed Consent</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session3-experiments/07_data_logging.html" class="sidebar-item-text sidebar-link">
+  <a href="../session3-experiments/07_data_logging.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">7 · Data Logging: From Console to CSV</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session3-experiments/08_exercise7.html" class="sidebar-item-text sidebar-link">
+  <a href="../session3-experiments/08_exercise7.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">8 · Exercise 7: The Complete Experiment</span></a>
   </div>
 </li>
@@ -626,25 +662,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session3-experiments/09_reading_functions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">9 · Timing: Measuring How Long Thinking Takes</span></a>
+  <a href="../session3-experiments/09_reading_functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">9 · From rabbits to reading</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session3-experiments/10_reading_exp_prototype.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">9 · Timing: Measuring How Long Thinking Takes</span></a>
+  <a href="../session3-experiments/11_exercise8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">10 · Exercise 8: Build a template reading experiment</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session3-experiments/11_exercise8.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">10 · Exercise 6: Weigh Your Own Decisions</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./session3-experiments/12_wrapup.html" class="sidebar-item-text sidebar-link">
+  <a href="../session3-experiments/12_wrapup.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">12 · The Wrap Up &amp; Portfolio 2 Roadmap</span></a>
   </div>
 </li>
@@ -661,13 +691,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session3-experiments/13_whathavelearned.html" class="sidebar-item-text sidebar-link">
+  <a href="../session3-experiments/13_whathavelearned.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">13 · What You Have Learned</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./session3-experiments/14_final_thoughts.html" class="sidebar-item-text sidebar-link">
+  <a href="../session3-experiments/14_final_thoughts.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">14 · Final Thoughts</span></a>
   </div>
 </li>
@@ -685,11 +715,15 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#why-programming" id="toc-why-programming" class="nav-link active" data-scroll-target="#why-programming">Why programming?</a></li>
-  <li><a href="#why-python-and-not-r" id="toc-why-python-and-not-r" class="nav-link" data-scroll-target="#why-python-and-not-r">Why Python and not R?</a></li>
-  <li><a href="#the-three-sessions" id="toc-the-three-sessions" class="nav-link" data-scroll-target="#the-three-sessions">The three sessions</a></li>
-  <li><a href="#how-the-sessions-work" id="toc-how-the-sessions-work" class="nav-link" data-scroll-target="#how-the-sessions-work">How the sessions work</a></li>
-  <li><a href="#what-you-need" id="toc-what-you-need" class="nav-link" data-scroll-target="#what-you-need">What you need</a></li>
+  <li><a href="#the-rabbit-so-far" id="toc-the-rabbit-so-far" class="nav-link active" data-scroll-target="#the-rabbit-so-far">The rabbit so far</a>
+  <ul class="collapse">
+  <li><a href="#step-1-the-dialog-and-the-code" id="toc-step-1-the-dialog-and-the-code" class="nav-link" data-scroll-target="#step-1-the-dialog-and-the-code">Step 1: The dialog and the code</a></li>
+  <li><a href="#step-2-the-logfile-plumbing" id="toc-step-2-the-logfile-plumbing" class="nav-link" data-scroll-target="#step-2-the-logfile-plumbing">Step 2: The logfile plumbing</a></li>
+  <li><a href="#step-3-the-print-becomes-a-row" id="toc-step-3-the-print-becomes-a-row" class="nav-link" data-scroll-target="#step-3-the-print-becomes-a-row">Step 3: The print becomes a row</a></li>
+  <li><a href="#step-4-save" id="toc-step-4-save" class="nav-link" data-scroll-target="#step-4-save">Step 4: Save</a></li>
+  <li><a href="#step-5-open-your-data" id="toc-step-5-open-your-data" class="nav-link" data-scroll-target="#step-5-open-your-data">Step 5: Open your data</a></li>
+  </ul></li>
+  <li><a href="#advanced-pick-any-in-any-order" id="toc-advanced-pick-any-in-any-order" class="nav-link" data-scroll-target="#advanced-pick-any-in-any-order">Advanced (pick any, in any order)</a></li>
   </ul>
 </nav>
     </div>
@@ -697,10 +731,9 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../session3-experiments/index.html">Session 3 · From Reaction Times to Experiments</a></li><li class="breadcrumb-item"><a href="../session3-experiments/05_participant_info.html">Block 2 · Logging data</a></li><li class="breadcrumb-item"><a href="../session3-experiments/08_exercise7.html">8 · Exercise 7: The Complete Experiment</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Programming experiments: Python x PsychoPy</h1>
-<p class="subtitle lead">Methods 01 × Cognition &amp; Communication</p>
+<h1 class="title">8 · Exercise 7: The Complete Experiment</h1>
 </div>
 
 
@@ -717,44 +750,235 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Welcome! Over the coming workshop sessions, you’ll go from typing your very first line of Python to watching a full behavioural experiment run on your own screen: window, stimuli, responses, feedback, the lot. Between you and that moment stand a handful of Python concepts and a few dozen extremely fixable error messages. We assume no programming experience. If you can rename a file, you’re qualified to start.</p>
 <div class="milestone">
-<p><strong>The arc of the workshop</strong> · Session 1 builds the Python foundations → Session 2 turns them into an experiment → Session 3 extends it into your Portfolio 2 prototype.</p>
+<p><strong>Block 2</strong> · Exercise: Give the Fleeing Rabbit its final missing pieces: a participant dialog, an anonymous code, and a CSV logfile.</p>
 </div>
-<section id="why-programming" class="level2">
-<h2 class="anchored" data-anchor-id="why-programming">Why programming?</h2>
-<p>Nearly every empirical experiment in cognitive science (e.g.&nbsp;reaction-time studies, reading paradigms, eye-tracking, EEG) is implemented in code. A working knowledge of Python allows you to build precisely the experiment your research question requires, to understand the structure and provenance of your data, and to diagnose problems when they arise.</p>
-<p>The aim of these three sessions is a modest form of fluency: by the end, the experiment running on your screen should be a system you can read, modify, and reason about. These skills will hopefully outlast the course: designing, implementing, and troubleshooting your own experiments is part of the everyday craft of working scientists, in cognitive science and well beyond.</p>
+<div class="exercise-banner">
+<div class="ex-kicker">
+Hands-on · on your own · try first, code revealed after the workshop
+</div>
+<div class="ex-title">
+Exercise 7: The complete experiment
+</div>
+<div class="ex-sub">
+After this, your experiment collects data like the real thing.
+</div>
+</div>
+<section id="the-rabbit-so-far" class="level2">
+<h2 class="anchored" data-anchor-id="the-rabbit-so-far">The rabbit so far</h2>
+<p>The script has grown across three exercises, so let’s take stock before we put in the last parts. This is the anatomy of the script after Exercise 6, with today’s three insertions marked:</p>
+<pre><code>rabbit.py
+│
+├─ imports                          &lt;- grows: gui, data, os, pandas
+│
+│  (insertion 1: participant dialog, fetch, anonymous code)
+│
+├─ setup: glob, shuffle, window, clock
+│                                   &lt;- insertion 2: logfile name, folder, rows = []
+├─ functions: msg(), show_stim()
+│
+├─ welcome message
+│
+├─ trial loop:
+│     show stimulus, reset clock
+│     collect response, read clock
+│     derive correct key
+│     feedback, wait
+│     print one line                &lt;- insertion 3: the print becomes a logged row
+│
+├─ goodbye message                  &lt;- insertion 2, continued: build and save the table
+└─ close, quit</code></pre>
+<p>Everything in that map you built yourself, and today changes none of it: the three insertions only wrap the machine in bookkeeping. Work in your <code>rabbit.py</code> from Exercise 6, run after every step, and if your script is unrecoverable, the scaffold below holds the complete shape.</p>
+<section id="step-1-the-dialog-and-the-code" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-the-dialog-and-the-code">Step 1: The dialog and the code</h3>
+<p>At the top, after the imports and before anything else: the dialog from <a href="../session3-experiments/05_participant_info.html">the participant chapter</a>. Two fields, native language and handedness; fetch the answers on OK, quit politely on cancel; then generate the anonymous participant code with <code>random.randint()</code>. Remember the strict rule: all of this runs <strong>before</strong> <code>visual.Window()</code> is created. Add <code>gui</code> to the PsychoPy import line. Run it: dialog, then the experiment as before.</p>
 </section>
-<section id="why-python-and-not-r" class="level2">
-<h2 class="anchored" data-anchor-id="why-python-and-not-r">Why Python and not R?</h2>
-<p>The Python programming language is optimal for coding <em>experiments</em> because it has a special library called <em>PsychoPy</em> for doing so.</p>
-<p>In contrast, the R programming language is optimal for statistical analyses, as it was designed specifically for this purpose.</p>
-<p>Therefore, this workshop on programming for experiments focuses on Python instead of R, which you instead cover in your Methods 1 practical classes.</p>
-<p>However, as you will learn over the course of the semester, many of the programming concepts that we cover in Session 1 are generalizable to R and all other languages.</p>
+<section id="step-2-the-logfile-plumbing" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-the-logfile-plumbing">Step 2: The logfile plumbing</h3>
+<p>In the setup: guarantee the <code>logfiles/</code> folder, build the unique filename from the participant code and <code>data.getDateStr()</code>, and create the empty list <code>rows = []</code>. Add <code>data</code> to the PsychoPy import line, plus <code>import os</code> and <code>import pandas as pd</code>. Run it: nothing visible changes, which is correct; the plumbing waits.</p>
 </section>
-<section id="the-three-sessions" class="level2">
-<h2 class="anchored" data-anchor-id="the-three-sessions">The three sessions</h2>
-<p><strong><a href="./session1-python/index.html">Session 1 · Python basics</a></strong> Variables, lists, loops, conditionals, functions. These are the handful of building blocks that all programs are made of. Everything you learn here gets used directly in Session 2.</p>
-<p><strong><a href="./session2-psychopy/index.html">Session 2 · Introduction to PsychoPy</a></strong> PsychoPy is the Python library psychologists use to run experiments: it opens windows, draws stimuli, and records keypresses with precise timing. You build an experiment step by step and leave with a script that runs: images in random order, keyboard responses, feedback on every trial, and more..</p>
-<p><strong>Session 3 · From fleeing rabbits to words(session3-reading/index.qmd)</strong> Swap the images for words, add a clock and a logfile, and your fleeing rabbit script becomes a self-paced reading experiment, the direct starting point for your Portfolio 2 prototype.</p>
+<section id="step-3-the-print-becomes-a-row" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-the-print-becomes-a-row">Step 3: The print becomes a row</h3>
+<p>Inside the trial loop, where Exercise 6’s print line reports each trial, log instead of report: append one dictionary with the participant facts and the trial facts, seven keys in all: <code>id</code>, <code>language</code>, <code>handedness</code>, <code>stimulus</code>, <code>key</code>, <code>correct_key</code>, <code>rt</code>. The print line has served its purpose; replace it. Run it: the console falls silent, and the rows pile up invisibly.</p>
 </section>
-<section id="how-the-sessions-work" class="level2">
-<h2 class="anchored" data-anchor-id="how-the-sessions-work">How the sessions work</h2>
-<p>Each session follows the same rhythm: a short lecture introduces the concepts and demonstrates them live, and you then put them to work in a set of exercises you complete on your own, at your own pace, with the teaching team circulating. Three habits will serve you well throughout:</p>
-<ul>
-<li><strong>Predict before you run.</strong> Whenever you see a 🔮 Predict first box, write down what the code will do before running it.</li>
-<li><strong>Run constantly.</strong> Run your code after every small change, not after twenty lines. Small steps make bugs easy to find.</li>
-<li><strong>Never stay stuck.</strong> Ten minutes on the same bug is the signal to ask: check the error message, unfold the solution, or wave a teacher over. Sitting silently with a bug is the one wrong way to use these sessions.</li>
-</ul>
+<section id="step-4-save" class="level3">
+<h3 class="anchored" data-anchor-id="step-4-save">Step 4: Save</h3>
+<p>After the loop, before the goodbye: two lines turn the list into a table and the table into a file, <code>pd.DataFrame(rows)</code> and <code>.to_csv(logfile_name, index=False)</code>. Run the whole experiment, all twelve trials.</p>
 </section>
-<section id="what-you-need" class="level2">
-<h2 class="anchored" data-anchor-id="what-you-need">What you need</h2>
-<ul>
-<li>Your own laptop with <strong>PsychoPy installed</strong>. Install instructions are sent out before Session 2, and each session starts with a setup check. If the install fights back, come 15 minutes early.</li>
-<li>Curiosity. A willingness to try things, break things, and read the occasional error message will carry you further than any prior experience would.</li>
-</ul>
-<p>Ready? Start with <a href="./session1-python/index.html">Session 1</a>.</p>
+<section id="step-5-open-your-data" class="level3">
+<h3 class="anchored" data-anchor-id="step-5-open-your-data">Step 5: Open your data</h3>
+<p>Find <code>logfiles/</code> next to your script, open the newest CSV, and check it: twelve rows, seven columns, your language and handedness repeated down their columns, a reaction time in every row. Something like:</p>
+<pre><code>id,language,handedness,stimulus,key,correct_key,rt
+P48213,Danish,Right-handed,stimuli/stimulus7_L.jpg,left,left,0.6214
+P48213,Danish,Right-handed,stimuli/stimulus2_R.jpg,left,right,0.8931
+P48213,Danish,Right-handed,stimuli/stimulus11_L.jpg,left,left,0.5471</code></pre>
+<p>Run it a second time and check that a <strong>second</strong> file appeared rather than the first being overwritten. That is the unique filename doing its one job.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Lost? The scaffold">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Lost? The scaffold
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>No working script? Rebuild from this: the complete experiment with every organ, key lines blanked.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> psychopy <span class="im">import</span> visual, event, core, gui, data</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> glob</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># --- participant ---</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>box <span class="op">=</span> gui.Dlg(title<span class="op">=</span><span class="st">'The Fleeing Rabbit'</span>)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>box.addField(<span class="st">'Native language'</span>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>box.addField(<span class="st">'Handedness'</span>, choices<span class="op">=</span>[<span class="st">'Right-handed'</span>, <span class="st">'Left-handed'</span>])</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>box.show()</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> box.OK:</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    language <span class="op">=</span> box.data[<span class="st">'____'</span>]               <span class="co"># the key is the label, exactly</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    handedness <span class="op">=</span> box.data[<span class="st">'____'</span>]</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    ____                                      <span class="co"># cancel means stop, politely</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>participant_id <span class="op">=</span> <span class="ss">f'P</span><span class="sc">{</span>____(<span class="dv">10000</span>, <span class="dv">99999</span>)<span class="sc">}</span><span class="ss">'</span>     <span class="co"># a code nobody chooses</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="co"># --- setup ---</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>os.makedirs(<span class="st">'____'</span>, exist_ok<span class="op">=</span><span class="va">True</span>)            <span class="co"># the folder the save relies on</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>date <span class="op">=</span> data.getDateStr()</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>logfile_name <span class="op">=</span> <span class="ss">f'logfiles/logfile_</span><span class="sc">{</span>____<span class="sc">}</span><span class="ss">_</span><span class="sc">{</span>date<span class="sc">}</span><span class="ss">.csv'</span>   <span class="co"># what makes it unique?</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>rows <span class="op">=</span> ____                                   <span class="co"># where the trials will pile up</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>images <span class="op">=</span> glob.glob(<span class="st">'stimuli/stimulus*.jpg'</span>)</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>____(images)                                  <span class="co"># a fresh order, no assignment!</span></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>win <span class="op">=</span> visual.Window(size<span class="op">=</span>(<span class="dv">1280</span>, <span class="dv">720</span>), fullscr<span class="op">=</span><span class="va">False</span>,</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>                    color<span class="op">=</span><span class="st">'black'</span>, checkTiming<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>stopwatch <span class="op">=</span> core.Clock()</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a><span class="co"># --- functions ---</span></span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> msg(text):</span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>    message <span class="op">=</span> visual.TextStim(win, text<span class="op">=</span>text, height<span class="op">=</span><span class="fl">0.06</span>)</span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>    message.draw()</span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>    win.flip()</span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>    event.waitKeys()</span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> show_stim(image):</span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>    stim <span class="op">=</span> visual.ImageStim(win, image<span class="op">=</span>image)</span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>    stim.draw()</span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>    win.flip()</span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a><span class="co"># --- experiment ---</span></span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>msg(<span class="st">'The Fleeing Rabbit</span><span class="ch">\n\n</span><span class="st">'</span></span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>    <span class="st">'You are the rabbit, and the lion is on the hunt!</span><span class="ch">\n\n</span><span class="st">'</span></span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>    <span class="st">'See a LION? Run the other way: press the OPPOSITE arrow.</span><span class="ch">\n</span><span class="st">'</span></span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a>    <span class="st">'See a BURROW? Dive in: press the arrow on ITS side.</span><span class="ch">\n\n</span><span class="st">'</span></span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Be quick, and be right. Press any key to start.'</span>)</span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> image <span class="kw">in</span> images:</span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a>    show_stim(image)</span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a>    ____                                      <span class="co"># zero the clock at onset</span></span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a>    keys <span class="op">=</span> event.waitKeys(keyList<span class="op">=</span>[<span class="st">'left'</span>, <span class="st">'right'</span>])</span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a>    rt <span class="op">=</span> ____                                 <span class="co"># seconds since onset</span></span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a>    key <span class="op">=</span> ____                                <span class="co"># the list is not the key!</span></span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> image.endswith(<span class="st">'_L.jpg'</span>):</span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a>        correct_key <span class="op">=</span> <span class="st">'left'</span></span>
+<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a>        correct_key <span class="op">=</span> <span class="st">'right'</span></span>
+<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> key <span class="op">==</span> correct_key:</span>
+<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a>        show_stim(<span class="st">'stimuli/success.jpg'</span>)</span>
+<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a>        show_stim(<span class="st">'stimuli/failure.jpg'</span>)</span>
+<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a>    core.wait(<span class="dv">2</span>)</span>
+<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a>    <span class="co"># one trial, one dictionary</span></span>
+<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a>    rows.append({<span class="st">'id'</span>: ____,</span>
+<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a>                 <span class="st">'language'</span>: language,</span>
+<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a>                 <span class="st">'handedness'</span>: handedness,</span>
+<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a>                 <span class="st">'stimulus'</span>: ____,</span>
+<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a>                 <span class="st">'key'</span>: key,</span>
+<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a>                 <span class="st">'correct_key'</span>: correct_key,</span>
+<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a>                 <span class="st">'rt'</span>: ____})</span>
+<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a><span class="co"># --- save, then goodbye ---</span></span>
+<span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a>logfile <span class="op">=</span> ____(rows)                          <span class="co"># list of dictionaries in, table out</span></span>
+<span id="cb3-85"><a href="#cb3-85" aria-hidden="true" tabindex="-1"></a>logfile.to_csv(____, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb3-86"><a href="#cb3-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-87"><a href="#cb3-87" aria-hidden="true" tabindex="-1"></a>msg(<span class="st">'That was it. Thank you! Press any key to close.'</span>)</span>
+<span id="cb3-88"><a href="#cb3-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-89"><a href="#cb3-89" aria-hidden="true" tabindex="-1"></a>win.close()</span>
+<span id="cb3-90"><a href="#cb3-90" aria-hidden="true" tabindex="-1"></a>core.quit()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-empty-content callout-titled" title="🔒 Example code will be available here after the workshop">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>🔒 Example code will be available here after the workshop
+</div>
+</div>
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</section>
+</section>
+<section id="advanced-pick-any-in-any-order" class="level2">
+<h2 class="anchored" data-anchor-id="advanced-pick-any-in-any-order">Advanced (pick any, in any order)</h2>
+<p><strong>A. An accuracy column.</strong> Add a column that holds <code>1</code> for a correct answer and <code>0</code> for a wrong one, computed from the comparison you already make.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-empty-content callout-titled" title="🔒 Example code will be available here after the workshop">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>🔒 Example code will be available here after the workshop
+</div>
+</div>
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+<p><strong>B. A trial counter column.</strong> Number the trials 1 to 12 in their own column with a counter variable, so the analysis can ask whether people speed up over the session.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-empty-content callout-titled" title="🔒 Example code will be available here after the workshop">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>🔒 Example code will be available here after the workshop
+</div>
+</div>
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+<p><strong>C. An escape key that saves first.</strong> Add <code>'escape'</code> to the keyList, and when it is pressed, save the rows collected so far before quitting.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-empty-content callout-titled" title="🔒 Example code will be available here after the workshop">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>🔒 Example code will be available here after the workshop
+</div>
+</div>
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+<p><strong>Twelve rows in a CSV, a second run making a second file? Your experiment now collects data.</strong> Next: <a href="../session3-experiments/09_reading_functions.html">from the rabbit to words</a>.</p>
 
 
 </section>
@@ -1579,10 +1803,13 @@ body.quarto-dark .predict-check.pc-done textarea.pc-input { background: #1b2437;
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="../session3-experiments/07_data_logging.html" class="pagination-link" aria-label="7 · Data Logging: From Console to CSV">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">7 · Data Logging: From Console to CSV</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./session1-python/index.html" class="pagination-link" aria-label="How the day works">
-        <span class="nav-page-text">How the day works</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../session3-experiments/09_reading_functions.html" class="pagination-link" aria-label="9 · From rabbits to reading">
+        <span class="nav-page-text">9 · From rabbits to reading</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
