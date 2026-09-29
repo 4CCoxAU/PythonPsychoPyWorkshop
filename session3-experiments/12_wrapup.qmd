@@ -1,5 +1,5 @@
 ---
-title: "10 · The Wrap Up & Portfolio 2 Roadmap"
+title: "10 · The Wrap Up & Portfolio 3 Roadmap"
 ---
 
 ::: {.milestone}
@@ -8,7 +8,7 @@ title: "10 · The Wrap Up & Portfolio 2 Roadmap"
 
 ## Where you stand
 
-Let's think about what is currently on your laptop: A complete behavioural experiment with a participant dialog, anonymous codes, reaction times, and a CSV logfile. And a self-paced reading prototype: words on screen, one at a time, a reading time logged for every word. Portfolio 2 asks you to build, run, and analyse exactly such a reading experiment.
+Let's think about what is currently on your laptop: A complete behavioural experiment with a participant dialog, anonymous codes, reaction times, and a CSV logfile. And a self-paced reading prototype: words on screen, one at a time, a reading time logged for every word. Portfolio 3 asks you to build, run, and analyse exactly such a reading experiment.
 
 ## What is done, and what is a decision
 
