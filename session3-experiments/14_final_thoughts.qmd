@@ -8,6 +8,8 @@ title: "12 · Final Thoughts"
 
 Cognitive science measures minds with instruments, and you have just built one from nothing: screen, timing, data, and all. Whatever your research ends up asking, the ability to construct your own instrument, rather than being limited to the experiments someone else packaged, is now yours, and it compounds.
 
+We have put a lot of effort into this course, and if you could help us improve the course in the future, we would appreciate it. Please answer the following Mentimeter: https://form.menti.com/s/alxn8rsinvsy
+
 If you want to keep going, the gradient is gentle from here: [learnpython.org](https://www.learnpython.org/) for the language, the [PsychoPy documentation](https://psychopy.org/documentation.html) for the toolbox, and your own scripts for everything else.
 
 Thank you for three good sessions. The world is your oyster: go and build the experiment only you would think of!
