@@ -21,7 +21,6 @@ The checklist, honestly divided:
 - A CSV logfile with one row per word, under a collision-proof filename
 - A participant dialog with anonymous codes and minimised fields
 
-
 ## What the assignment decides for you
 - **The design.** Two groups of participants. The control group reads your original text; the experimental group reads the same text with **three words replaced** by surprising words that do not fit the story: one near the beginning, one in the middle, one near the end. Each participant reads one version, and you assign participants to versions **at random**.
 - **The text.** Maximum 200 words, **in English**, otherwise your choice.
