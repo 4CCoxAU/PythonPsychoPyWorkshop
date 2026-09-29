@@ -1,5 +1,5 @@
 ---
-title: "6 · Informed Consent"
+title: "5 · Informed Consent"
 ---
 
 ::: {.milestone}
@@ -65,7 +65,7 @@ What does `\n` mean in the above text?
 
 **Step 3: Check participant response**
 
-We need to check whether the participant consented. If they did NOT consent, then we quite the experiment. 
+We need to check whether the participant consented. If they did NOT consent, then we quit the experiment. 
 
 ```python
 # quit experiment if participant withdraws consent. 

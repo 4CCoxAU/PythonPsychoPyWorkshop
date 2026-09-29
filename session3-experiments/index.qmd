@@ -31,12 +31,12 @@ The same rhythm as Session 2: short lecture segments introduce each concept on t
 
 | Block | What | Chapters |
 |------|------|----------|
-| **1 · Measuring reaction times** | PsychoPy refresher; timing: measuring how long thinking takes | [1](01_warmup.qmd) · [2](03_measure_rt.qmd) |
+| **1 · Measuring reaction times** | PsychoPy refresher; timing: measuring how long thinking takes | [1](01_warmup.qmd) · [2](02_why_rt.qmd) |
 | | **Exercise 6: Weigh your own decisions** | [3](04_exercise6.qmd) |
 | **2 · Logging data** | Participant information and anonymity; informed consent; data logging to CSV | [4](05_participant_info.qmd) · [5](06_informed_consent_dlg.qmd) · [6](07_data_logging.qmd) |
 | | **Exercise 7: The complete experiment** | [7](08_exercise7.qmd) |
 | **3 · The reading experiment** | From the rabbit to words: self-paced reading | [8](09_reading_functions.qmd) |
-| | **Exercise 8: The reading prototype** | [9](10_reading_exp_prototype.qmd) · [10](11_exercise8.qmd) |
+| | **Exercise 8: The reading prototype** | [9](11_exercise8.qmd) |
 | **4 · Wrap-up** | The Portfolio 2 roadmap; what you have learned | [11](12_wrapup.qmd) · [12](13_whathavelearned.qmd) |
 
 ## Before you start

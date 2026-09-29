@@ -106,7 +106,7 @@ Approximately `1`, then `2`. Reading the clock does not stop it or reset it; it 
 :::
 :::
 
-### Puzzle 2: reset moves the zero
+### Puzzle 2: resetting dynamics
 
 ```python
 from psychopy import core

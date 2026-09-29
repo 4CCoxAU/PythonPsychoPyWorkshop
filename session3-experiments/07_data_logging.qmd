@@ -1,5 +1,5 @@
 ---
-title: "7 · Data Logging: From Console to CSV"
+title: "6 · Data Logging: From Console to CSV"
 ---
 
 ::: {.milestone}
@@ -8,7 +8,7 @@ title: "7 · Data Logging: From Console to CSV"
 
 ## Data that evaporates
 
-Exercise 6 ended with your experiment printing a line per trial: stimulus, response, correct answer, reaction time. Then you likely closed PsychoPy, and the data ceased to exist. Real experiments write their rows to a **file**, and the file format of choice is CSV, comma separated values: plain text, one row per line, readable by R, Excel, and everything else you will ever analyse data with.
+Exercise 6 ended with your experiment printing a line per trial: stimulus, response, correct answer, reaction time. If you then closed PsychoPy, the data would cease to exist. Real experiments write their rows to a **file**, and the file format of choice is CSV, comma separated values: plain text, one row per line, readable by R, Excel, and everything else you will ever analyse data with.
 
 The plan has three steps. During the experiment, collect each trial's facts. After the loop, turn the collection into a table. Save the table to a file whose name cannot collide with anyone else's.
 
@@ -129,6 +129,32 @@ rows = []
 logfile = pd.DataFrame(rows)
 logfile.to_csv(logfile_name, index=False)
 ```
+
+::: {.callout-note title="Log the consent"}
+Your experiment begins with an informed consent dialog, and consent is a fact about the data, so it belongs in the logfile. The pattern is the one you know: the dialog's OK button becomes a variable, and the variable becomes a column.
+
+```python
+if consent_box.OK:
+    consent = 'yes'
+else:
+    core.quit()
+```
+
+Then add `'consent': consent` to the dictionary in `rows.append({...})`, and every row of the logfile now certifies that this participant agreed.
+
+```python
+# --- inside the trial loop, after the feedback ---
+    rows.append({'id': participant_id,
+                 'language': language,
+                 'handedness': handedness,
+                 'stimulus': image,
+                 'key': key,
+                 'correct_key': correct_key,
+                 'rt': rt})
+```
+
+One thing to notice about this column: it will say `yes` on every row of every file you ever collect. A participant who declines is sent out by `core.quit()` before a single trial runs, so no file is written for them, and that is exactly right: no consent, no data. The column is there so that anyone who opens the file later, your group, your teacher, or you in December, can see that consent was obtained, without hunting for a separate piece of paper.
+:::
 
 Note that the participant columns repeat identically in every row. That looks wasteful and is exactly right: each row of a data file should stand on its own, so that R can group, filter, and compare without consulting a second file.
 

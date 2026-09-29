@@ -1,5 +1,5 @@
 ---
-title: "12 · The Wrap Up & Portfolio 2 Roadmap"
+title: "10 · The Wrap Up & Portfolio 2 Roadmap"
 ---
 
 ::: {.milestone}
@@ -22,7 +22,7 @@ The checklist, honestly divided:
 - A participant dialog with anonymous codes and minimised fields
 
 ## What the assignment decides for you
-- **The design.** Two groups of participants. The control group reads your original text; the experimental group reads the same text with **three words replaced** by surprising words that do not fit the story: one near the beginning, one in the middle, one near the end. Each participant reads one version, and you assign participants to versions **at random**.
+- **The design.** Two groups of participants. The control group reads your original text; the experimental group reads the same text with **three words replaced** by surprising words that do not fit the story: one near the beginning, one in the middle, one near the end. Each participant reads one version, and you assign participants to versions **at random**. To keep the groups equally sized, randomise in pairs: flip a coin for the first participant, and give the next one the other version.
 - **The text.** Maximum 200 words, **in English**, otherwise your choice.
 - **Consent first.** Written informed consent is collected inside the experiment program, before the welcome screen, and the response is saved. The consent text itself is provided for you.
 - **Anonymity and storage.** Random ID numbers, no names, no identifying information; data files live on **UCloud only**, never on GitHub or your own computers, and local copies are deleted after upload.

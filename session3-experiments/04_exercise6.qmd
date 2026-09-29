@@ -12,13 +12,15 @@ title: "3 · Exercise 6: Weigh Your Own Decisions"
 <div class="ex-sub">Two small experiments on yourself, one subtraction, and then the rabbit learns to measure.</div>
 :::
 
-Work in fresh scripts called Session3Exercise1 and Session3Exercise2 for Parts 1 and 2; the rabbit returns in Part 3.
+## Weighing the invisible
+
+In 1868, the Dutch physiologist Franciscus Donders set out to measure how long a decision takes. His solution was to subtract timing of decisions in two different conditions: build two tasks that are identical except for one mental step. In the first, press a key the moment a stimulus appears: detect, then respond. In the second, the correct key depends on what appears: detect, then decide, then respond. Subtract the first time from the second, and what remains is the duration of the decision itself.
+
+Work in fresh scripts called Session3Exercise1 and Session3Exercise2 for Parts 1 and 2; the Fleeing Rabbit experiment returns in Part 3.
 
 ### Part 1: Simple reaction time
 
-The fastest thing you can do: press a key the moment something appears. To keep the appearance a surprise, randomise the waiting time: put several durations in a list, shuffle it, and wait for whichever comes first.
-
-Build it: a black get-ready screen for the shuffled duration, then the rabbit at the centre, reset the clock at the flip, wait for **any** key, read the clock, print the time. Run it five times and watch the numbers. Most people land somewhere near a quarter of a second.
+The fastest thing you can do: press a key the moment the rabbit appears. No decision, no choice of keys, just pure detection speed. To keep the appearance a surprise, randomise the waiting time: put several durations in a list, shuffle it, and wait for whichever comes first. Build it: a black get-ready screen for the shuffled duration, then the rabbit at the centre, reset the clock at the flip, wait for **any** key, read the clock, print the time. Run it five times and watch the numbers. Most people land somewhere near a quarter of a second.
 
 ::: {.callout-note collapse="true" title="Lost? The scaffold for Part 1"}
 ```python
@@ -31,8 +33,8 @@ win = visual.Window(size=(1280, 720), fullscr=False,
 stopwatch = ____                    # create the stopwatch, once
 
 # the rabbit must surprise you: shuffled waiting times, first one wins
-waits = [1, 1.5, 2, 2.5, 3]
-random.shuffle(waits)
+waits = ____
+____                                # how would we shuffle a list of durations?
 
 win.flip()                          # black screen: get ready...
 core.wait(____)                     # wait for the winning duration
@@ -95,11 +97,60 @@ The shuffle picks the waiting time the same way it will pick a side in Part 2, a
 
 ::::
 
+#### Advanced, Part 1: One run, five trials
+
+Running your Part 1 script five times by hand is beneath you. Modify it with a loop so that one run produces five trials.
+
+:::: {.content-visible when-meta="show-solutions-s3"}
+
+::: {.callout-tip collapse="true" title="Show the code"}
+```python
+from psychopy import visual, event, core
+import random
+
+win = visual.Window(size=(1280, 720), fullscr=False,
+                    color='black', checkTiming=False)
+stopwatch = core.Clock()
+pic = visual.ImageStim(win, image='rabbit.jpg', size=0.5)
+
+waits = [1, 1.5, 2, 2.5, 3]
+random.shuffle(waits)
+
+for wait in waits:
+    win.flip()            # blank screen: get ready
+    core.wait(wait)
+
+    pic.draw()            # drawing is per flip: repaint every trial
+    win.flip()            # the rabbit appears
+    stopwatch.reset()
+
+    event.waitKeys()
+    rt = stopwatch.getTime()
+    print(f'Simple reaction: {rt:.3f} seconds')
+
+win.close()
+core.quit()
+```
+
+The neat trick is to loop over the shuffled list itself: each pass takes the next duration, every wait is used exactly once, and no counter is needed. Two traps claim most first attempts. If `pic.draw()` stays outside the loop, the rabbit appears on trial 1 and never again, because each flip hands you a blank canvas. And without the blank flip at the top of the loop, trial 2 spends its waiting time still showing trial 1's rabbit.
+:::
+
+::::
+
+:::: {.content-visible unless-meta="show-solutions-s3"}
+
+::: {.callout-tip icon="false" title="🔒 Example code will be available here after the workshop"}
+:::
+
+::::
+
 ### Part 2: Choice reaction time
 
-Now add a decision, and here the design matters: a decision only exists if you do not know the answer in advance. Since you wrote the script, the script must surprise you: put both positions in a list, shuffle it, and use the first element. The same `random.shuffle()` as the trial order, now flipping a coin. Show the rabbit on the winning side, respond with the arrow key on the rabbit's side, and have the script report whether your press matched. Everything else stays as in Part 1: black screen for a shuffled duration, reset at the flip, read at the response, print.
+Donders' second task adds one ingredient: a decision. The new task is this. The rabbit no longer appears at the centre. It appears either on the left side of the screen or on the right, and your job is to press the arrow key matching its side: left arrow for a rabbit on the left, right arrow for a rabbit on the right. You can no longer prepare a finger in advance; you have to see the rabbit first, and that seeing-then-choosing is the step we want to weigh.
 
-Run it several times. Only your **correct** runs count as choice-reaction times: a wrong press means the decision was not completed. Compare your correct runs with Part 1. The choice version should be slower, typically by something like a tenth of a second. That difference is Donders' subtraction: the approximate duration of the decision itself, measured on yourself, in your own console.
+Put both positions in a list, shuffle it, and use the first element. The same `random.shuffle()` as the trial order, now flipping a coin. Show the rabbit on the winning side, respond with the arrow key on the rabbit's side, and have the script report whether your press matched. Everything else stays as in Part 1: black screen for a shuffled duration, reset at the flip, read at the response, print.
+
+Run it several times. Only your **correct** runs count as choice-reaction times: a wrong press means the decision was not completed. Compare your correct runs with Part 1. The choice version should be slower, typically by something like a tenth of a second. That difference is Donders' subtraction: the approximate duration of the decision itself.
 
 ::: {.callout-note collapse="true" title="Lost? The scaffold for Part 2"}
 ```python
@@ -119,7 +170,7 @@ win.flip()                          # black screen: get ready...
 core.wait(waits[0])
 
 # surprise number two: where the rabbit appears
-positions = [(-0.5, 0), (0.5, 0)]
+____                                # how do we specify position parameters?
 ____(positions)
 pic = visual.ImageStim(win, image='rabbit.jpg', size=0.5)
 pic.pos = ____                      # the winning position
@@ -204,7 +255,7 @@ The same shuffle serves twice: once to pick a duration, once to pick a side. Sev
 
 ### Part 3: The rabbit learns to measure
 
-Now open your `rabbit.py` from Exercise 5, and give the real experiment the same treatment, three edits. Create the stopwatch once in the setup. In the trial loop, reset right after `show_stim(image)` and read right after the response arrives. Then report every trial with one printed f-string: the stimulus, the pressed and correct keys, and the reaction time to two decimals. Look at what that print line contains: the stimulus, the response, the correct answer, the time. That line is one row of data. Today's session is about capturing those rows in a file instead of letting them scroll away.
+Now open your `rabbit.py` from Exercise 5, and add registration of reaction times to the real experiment. Create the stopwatch once in the setup. In the trial loop, reset right after `show_stim(image)` and read right after the response arrives. Then report every trial with one printed f-string: the stimulus, the pressed and correct keys, and the reaction time to two decimals. Look at what that print line contains: the stimulus, the response, the correct answer, the time. That line is one row of data. Today's session is about capturing those rows in a file instead of letting them scroll away.
 
 ::: {.callout-note collapse="true" title="Lost? The scaffold for Part 3"}
 No working `rabbit.py`? Rebuild from this: the complete experiment with timing, key lines blanked. Every `____` is something a chapter taught.
@@ -355,6 +406,8 @@ Run the whole experiment and watch the console fill, trial by trial, with your o
 
 
 ### Part 4: Extra Flourish
+
+#### Report Reaction Times
 **Finished early?** Collect the reaction times in a list (`rts = []` in the setup, `rts.append(rt)` in the loop) and report the average in the goodbye: `sum(rts) / len(rts)`, formatted to two decimals.
 
 :::: {.content-visible when-meta="show-solutions-s3"}
@@ -381,4 +434,50 @@ msg(f'Average reaction time: {sum(rts) / len(rts):.2f} seconds. Thank you!')
 
 ::::
 
-**Two experiments run on yourself, rabbit timing every trial?** Wonderful stuff. That's Session 1 complete!
+### Part 5: Lions Versus Burrows
+
+The timing chapter made a claim: lion trials should be slower than burrow trials, because pressing away from what you see costs extra mental work. Your experiment produces the data to test that claim. One problem: nothing in your script knows which trials are which. `stimulus3_L.jpg` does not say whether it shows a lion or a burrow.
+
+The filename solved a similar problem once already: the `_L` suffix carries the correct key. So extend the trick. Rename your twelve stimulus files, inserting the animal into each name: `stimulus3_L.jpg` becomes `stimulus3_lion_L.jpg` or `stimulus3_burrow_L.jpg`, according to what the image shows. Your glob pattern and your `endswith()` check must both keep working after the rename. Look at where the new word sits in the name and convince yourself both survive. Then, in the trial loop, derive a `trial_type` variable from the filename and use it to collect lion and burrow reaction times in two separate lists. In the goodbye, report both averages.
+
+:::: {.content-visible when-meta="show-solutions-s3"}
+
+::: {.callout-tip collapse="true" title="Show the code"}
+Both old tricks survive because the new word is inserted in the middle: the name still starts with `stimulus`, so the glob still finds it, and it still ends with `_L.jpg` or `_R.jpg`, so the correct key still falls out. The new line uses Python's `in` test, which asks whether one string appears inside another:
+
+```python
+# --- setup gains two lists ---
+lion_rts = []
+burrow_rts = []
+
+# --- inside the trial loop, after key and rt are known ---
+if 'lion' in image:
+    trial_type = 'lion'
+else:
+    trial_type = 'burrow'
+
+if key == correct_key:              # only completed decisions count
+    if trial_type == 'lion':
+        lion_rts.append(rt)
+    else:
+        burrow_rts.append(rt)
+
+# --- the goodbye reports the comparison ---
+msg(f'Burrow trials: {sum(burrow_rts) / len(burrow_rts):.2f} s on average.\n'
+    f'Lion trials: {sum(lion_rts) / len(lion_rts):.2f} s on average.\n\n'
+    'Thank you! Press any key to close.')
+```
+
+Only correct trials are collected, for the same reason as in Part 2: a wrong press means the decision was never completed. With six trials per type, your two averages will be noisy, and that is a lesson in itself: real experiments run many trials per condition precisely so that averages settle down. The deeper point stands regardless of your numbers. The condition was encoded in the filename at collection time, so the comparison cost four lines. Your Portfolio experiment does exactly this with a `condition` column in the logfile.
+:::
+
+::::
+
+:::: {.content-visible unless-meta="show-solutions-s3"}
+
+::: {.callout-tip icon="false" title="🔒 Example code will be available here after the workshop"}
+:::
+
+::::
+
+**Two experiments run on yourself, rabbit timing every trial?** Wonderful stuff. That's Block 1 complete!

@@ -1,5 +1,5 @@
 ---
-title: "9 · From rabbits to reading"
+title: "8 · From rabbits to reading"
 ---
 
 
@@ -110,26 +110,26 @@ You always want to control the order of experimental conditions. Here we will ra
 
 You could, alternately, *counterbalance* your conditions. This means that you alternate between one condition and the other every participant so that you end up with equal numbers of participants in each condition. This is generally recommended, but you will figure out how to do that later.
 
-
-::: {.predict-check data-answer="when the screen flips" data-accept="when the screen flips||when win.flip is called||when the word appears||at the flip"}
+::: {.predict-check data-answer="random.shuffle(conditions)" data-accept="random.shuffle(conditions)||shuffle(conditions)||random.shuffle( conditions )"}
 Suppose we put the condition names in a list: `conditions = ['control', 'surprise']`. What line of code randomly shuffles the order in that list?
 
-::: {.pc-hint data-if-contains="shuffle"}
-The function is called `shuffle`. It belongs to the `random` module, so include the module name before the dot.
+::: {.pc-hint data-if-contains="conditions.shuffle"}
+Close, but shuffle is not a method of the list. It is a function in the `random` module, and the list goes inside the parentheses.
+:::
+
+::: {.pc-hint data-if-contains="="}
+No assignment needed. `random.shuffle()` reorders the list in place and returns nothing, so `conditions = random.shuffle(conditions)` would destroy your list.
 :::
 
 ::: {.pc-explanation}
-First make a list of the condition names, then shuffle it:
-
 ```python
 conditions = ['control', 'surprise']
 random.shuffle(conditions)
 ```
 
-`random.shuffle(conditions)` rearranges the items in the list in place. Make sure `import random` appears near the top of your script. You can then use the shuffled list to decide which condition to run first.
+`random.shuffle(conditions)` rearranges the items in place; there is no assignment, because the function returns nothing. Make sure `import random` appears near the top of your script. The first element of the shuffled list then decides which condition this participant gets: the same shuffle-and-take-first move that picked the rabbit's waiting times.
 :::
 :::
-
 
 ### Building blocks: Make a trial sequence 
 
@@ -204,7 +204,7 @@ Let's unpack the above example.
 The code queues `clock.reset` with `win.callOnFlip(clock.reset)` and then calls `win.flip()`. When does the clock reset?
 
 ::: {.pc-hint data-if-contains="flip"}
-It resets at the moment the screen updates and the word is shown—not when `callOnFlip` is first called.
+It resets at the moment the screen updates and the word is shown, not when `callOnFlip` is first called.
 :::
 
 ::: {.pc-explanation}
@@ -320,4 +320,4 @@ core.wait(0.6)
 ```
 
 
-**How to build a reading experiment** Next: [Reading experiment prototype](10_ reading_exp_prototype.qmd).
+**How to build a reading experiment** Next: [Reading experiment prototype](11_exercise8.qmd).

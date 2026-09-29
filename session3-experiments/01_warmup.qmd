@@ -7,7 +7,7 @@ title: "1 · Warming Up: A PsychoPy Refresher"
 **Block 1** · Learning goals: Reactivate Session 2 (the draw-flip cycle, functions, shuffling, responses, and the filename logic) before the experiment learns to measure.
 :::
 
-A week ago you built the Fleeing Rabbit. Today you will learn how to measure time, record data, and set up a self-paced reading task. Before any of that, six quick checks on the machinery it runs on. If a check stumps you, the matching Session 2 chapter is in the sidebar. And find your `rabbit.py` from Exercise 5 now: today extends it directly.
+A week ago you built the Fleeing Rabbit. Today you will learn how to measure time, record data, and set up a self-paced reading task. Before any of that, four quick checks on the machinery it runs on. If a check stumps you, the matching Session 2 chapter is in the sidebar. And find your `rabbit.py` from Exercise 5 now: today extends it directly.
 
 ## 1: The cycle
 

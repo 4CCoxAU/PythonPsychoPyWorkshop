@@ -1,5 +1,5 @@
 ---
-title: "5 · Participant Information: The Dialog Box"
+title: "4 · Participant Information: The Dialog Box"
 ---
 
 ::: {.milestone}
@@ -8,7 +8,7 @@ title: "5 · Participant Information: The Dialog Box"
 
 ## Who pressed the keys?
 
-Your experiment measures beautifully but remembers nothing about who was measured. Once data goes into a file, every row needs an answer to one question: which participant produced this? Today the participant is you, but on data-collection day your experiment runs on many people in a row, and their rows must not blur together.
+Your experiment measures beautifully but remembers nothing about the participant. Once data goes into a file, every row needs an answer to one question: which participant produced this? Today the participant is you, but on data-collection day your experiment runs on many people in a row, and their rows must not blur together.
 
 The tool is a popup dialog that appears before the experiment starts, plus one line of randomness: the script invents a participant code by itself, so that no person, including you, ever knows which code belongs to whom. PsychoPy provides the dialog through a fourth module, `gui`.
 
@@ -103,8 +103,8 @@ box.addField('Handedness', choices=['Right-handed', 'Left-handed'])
 box.show()
 
 if box.OK:
-    age = box.data['Native language']
-    gender = box.data['Handedness']
+    language = box.data['Native language']
+    handedness = box.data['Handedness']
 else:
     core.quit()
 
@@ -118,7 +118,7 @@ win = visual.Window(size=(1280, 720), fullscr=False,
                     color='black', checkTiming=False)
 ```
 
-Note what has and has not happened: the answers are fetched into ordinary variables, `age`, `gender`, `participant_id`, and then nothing uses them yet. They simply wait. Registering them properly, meaning writing them into every row of a data file, is the next chapter's whole job, and it is why these three variables exist.
+Note what has and has not happened: the answers are fetched into ordinary variables, `language`, `handedness`, `participant_id`, and then nothing uses them yet. They simply wait. Registering them properly, meaning writing them into every row of a data file, is the next chapter's whole job, and it is why these three variables exist.
 
 ::: {.callout-note title="Summary"}
 A `gui.Dlg` collects participant information before the experiment begins: build it field by field, `show()` it, check `box.OK`, and quit politely on cancel. Everything it returns is a string, in `box.data`, a dictionary keyed by the field labels. The script generates a participant code with `random.randint()`, never typed and never shown, so the data is anonymous by construction. The dialog runs before the window is created. And the fields themselves are a design decision: an escape option for gender, and nothing the analysis will not use. Collect only what you must protect.

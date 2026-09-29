@@ -1,5 +1,5 @@
 ---
-title: "8 · Exercise 7: The Complete Experiment"
+title: "7 · Exercise 7: The Complete Experiment"
 ---
 
 ::: {.milestone}

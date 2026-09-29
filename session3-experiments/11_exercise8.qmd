@@ -1,5 +1,5 @@
 ---
-title: "10 · Exercise 8: Build a template reading experiment"
+title: "9 · Exercise 8: Build a template reading experiment"
 ---
 
 ::: {.milestone}
