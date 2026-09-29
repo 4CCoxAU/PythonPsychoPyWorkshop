@@ -3,7 +3,7 @@ title: "9 · Exercise 8: Build a template reading experiment"
 ---
 
 ::: {.milestone}
-**Block 3** · Exercise: Use the building blocks to create your own reading experiment.
+**Block 3** · Exercise: Use the building blocks to create your own self-paced reading experiment.
 :::
 
 ::: {.exercise-banner}
@@ -12,27 +12,27 @@ title: "9 · Exercise 8: Build a template reading experiment"
 <div class="ex-sub">Real Cognitive Science experiments are emerging!</div>
 :::
 
-Now it is your turn to build a self-paced reading experiment using the tools introduced on the previous pages.
+Now it is your turn to build a self-paced reading experiment using the tools from the previous pages.
 
 Your script should follow these steps:
 
-1. Show a study information screen. Use the template under **Informed Consent** on the Methods I Brightspace page.
-2. Ask for consent with a button: **OK** means the participant agrees; **Cancel** means they decline.
+1. Display a study information screen using the template under **Informed Consent** on the Methods I Brightspace page.
+2. Ask the participant for consent. **OK** means they agree to take part; **Cancel** means they decline.
 3. Generate a random participant ID. *(Advanced: check that the ID has not already been used.)*
-4. Collect only the participant information needed for the study, such as age or native language. Do not collect identifying details.
+4. Collect only the participant information needed for your study, such as age or native language. Do not collect names or other identifying details.
 5. Write a story that is 150–200 words long.
 6. Make two copies of the story.
-7. In one copy, replace a target word with a surprising word. This is the experimental condition; the unchanged story is the control condition.
-8. Assign each participant to one condition, counterbalancing assignment across participants.
+7. In one copy, replace a target word with a surprising word. This is the experimental version; the unchanged story is the control version.
+8. Assign each participant to one version. Randomise the assignment; for a more even split, assign participants in pairs so that each pair includes one participant per version.
 9. Display the experiment instructions and wait for a keypress.
-10. Show a fixation cross for 0.8 seconds after the instructions.
-11. Loop through the words in the assigned story. For each word:
-     - Clear any old keypress events.
-     - Display the word in the center of the screen.
+10. Display a fixation cross for 0.8 seconds.
+11. Loop through the words in the assigned version. For each word:
+     - Clear any earlier keypress events.
+     - Display the word in the centre of the screen.
      - Wait for a keypress and record the reaction time.
-     - Add the trial's data to a results list initialized before the loop.
-12. Convert the results list to a DataFrame and save it as a CSV file. Use the participant ID in the filename, but do not include identifying information in the data.
-13. Show a thank-you message, then close the experiment.
+     - Add the trial data to a results list created before the loop.
+12. Convert the results list to a DataFrame and save it as a CSV file. Use the participant ID in the filename, and keep identifying information out of the data.
+13. Display a thank-you message and close the experiment.
 
 
 :::: {.content-visible when-meta="show-solutions-s3"}
@@ -55,4 +55,4 @@ Your script should follow these steps:
 
 ::::
 
-**You have built and run two experiments, measuring reaction times along the way. Great work—Session 3 is complete!**
+**You have built and run two experiments and measured reaction times along the way. Great work—Session 3 is complete!**

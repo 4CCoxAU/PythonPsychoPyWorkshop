@@ -1,5 +1,5 @@
 ---
-title: "10 · The Wrap Up & Portfolio 3 Roadmap"
+title: "10 · The Wrap Up & Portfolio 2 & 3 Roadmap"
 ---
 
 ::: {.milestone}
@@ -8,9 +8,30 @@ title: "10 · The Wrap Up & Portfolio 3 Roadmap"
 
 ## Where you stand
 
-Let's think about what is currently on your laptop: A complete behavioural experiment with a participant dialog, anonymous codes, reaction times, and a CSV logfile. And a self-paced reading prototype: words on screen, one at a time, a reading time logged for every word. Portfolio 3 asks you to build, run, and analyse exactly such a reading experiment.
+Let's think about what is currently on your laptop: All the coding exercises that you have done so far, a complete behavioural experiment with a participant dialog, anonymous codes, reaction times, and a CSV logfile. And a self-paced reading prototype: words on screen, one at a time, a reading time logged for every word. 
 
-## What is done, and what is a decision
+You therefore have everything that you need to complete Assignments 2 & 3!!
+
+## What is Assignment #2?
+
+Assignment #2 is all of your code from this workshop's exercises. By exercises we mean the tabs on this website explicitly marked as exercises (not answers in prediction boxes).
+
+You will receive specific submission instructions over Brightspace.
+
+## What is Assignment #3? 
+
+Portfolio 3 asks you to build, run, and analyse data from a reading experiment exactly like the one you just made.
+
+For Portfolio 3, you will submit:
+
+1. Modified Python code from the workshop's reading experiment (based on changes made in response to the below instructions).
+2. An analysis report on data that you collect from the experiment.
+
+You will receive full instructions on how write your report and submit the assignment over Brightspace. 
+
+Below is an overview of what you have done already for the assignment and what you will need to do. 
+
+### What is done, what you have to do, and what you can decide
 
 The checklist, honestly divided:
 
@@ -21,20 +42,21 @@ The checklist, honestly divided:
 - A CSV logfile with one row per word, under a collision-proof filename
 - A participant dialog with anonymous codes and minimised fields
 
-## What the assignment decides for you
+**What assignment #3 decides for you**
+
 - **The design.** Two groups of participants. The control group reads your original text; the experimental group reads the same text with **three words replaced** by surprising words that do not fit the story: one near the beginning, one in the middle, one near the end. Each participant reads one version, and you assign participants to versions **at random**. To keep the groups equally sized, randomise in pairs: flip a coin for the first participant, and give the next one the other version.
 - **The text.** Maximum 200 words, **in English**, otherwise your choice.
 - **Consent first.** Written informed consent is collected inside the experiment program, before the welcome screen, and the response is saved. The consent text itself is provided for you.
 - **Anonymity and storage.** Random ID numbers, no names, no identifying information; data files live on **UCloud only**, never on GitHub or your own computers, and local copies are deleted after upload.
 - **The sample.** Each group member tests 2 to 3 people from CogSci; aim for at least 6 per condition.
 
-## What your group decides
+**What your group decides**
 
 - **Which text**, and exactly **which three words** to replace, with what. This is where the science lives: a good surprise word fits the grammar but not the story, so the slowdown you measure is meaning rather than confusion about the sentence. Decide together, and write down what you predict for each of the three words.
 - **The logfile columns**, identical for every member's script, agreed in writing before anyone collects data. Your analysis will compare specific words across participants, so the logfile must identify them: log at least the participant code, the condition, the word itself, its **position in the text**, and the reading time. Without the position column, finding "the second surprise word" in twelve people's data becomes very difficult. 
 - **Who tests whom, and who writes what.** The brief requires each member to write different sections of the code and analysis, marked with initials in comments. Divide before you start, not after.
 
-## Before you collect data
+### Before you collect data
 
 Test the full pipeline on yourself first, and open the CSV before trusting it. Switch to `fullscr=True` only for real participants. And remember that the experiment folder travels as a unit: script, text, and `logfiles/` need to be together on whatever machine you test with.
 

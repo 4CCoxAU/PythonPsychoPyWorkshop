@@ -152,6 +152,12 @@ win = visual.Window(
 # make a text object. 
 text = visual.TextStim(win, text='+', color='white', height=48, units='pix')
 
+# define a helper to display text in the window.
+def show(message):
+    text.text = message
+    text.draw()
+    win.flip()
+
 # initialize the clock from the core module. 
 clock = core.Clock()
 

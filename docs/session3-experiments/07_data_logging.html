@@ -2,17 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>6 · Data Logging: From Console to CSV – Python &amp; PsychoPy Workshop - Aarhus University, Fall 2026</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -73,14 +79,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-234273d1456647dabc34a594ac50e507.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-0348920b7671f696dc9078d39bff215e.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-234273d1456647dabc34a594ac50e507.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bb62276ab45c84d9efd712f51ff97b5a.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-5a1953863e1f72ef3b996ef827f01ca7.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bb62276ab45c84d9efd712f51ff97b5a.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-0f0bb2b35f0c3ae46b2773d2b92c9e2d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-6353a5bacca7b1f5ff6dee18f156d94f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-0f0bb2b35f0c3ae46b2773d2b92c9e2d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-8111375b329e67f367d25c6ca2fac386.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-f47233b3dada9760e9eff975721b4787.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-8111375b329e67f367d25c6ca2fac386.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -600,6 +606,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </li>
           <li class="sidebar-item">
+ <span class="menu-text">session3-experiments/03_measure_rt.qmd</span>
+  </li>
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../session3-experiments/04_exercise6.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">3 · Exercise 6: Weigh Your Own Decisions</span></a>
@@ -663,6 +672,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">9 · Exercise 8: Build a template reading experiment</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../session3-experiments/12_wrapup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">12 · The Wrap Up &amp; Portfolio 2 Roadmap</span></a>
+  </div>
+</li>
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
@@ -674,12 +689,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           </a> 
       </div>
       <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../session3-experiments/12_wrapup.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">10 · The Wrap Up &amp; Portfolio 2 Roadmap</span></a>
-  </div>
-</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../session3-experiments/13_whathavelearned.html" class="sidebar-item-text sidebar-link">
@@ -749,13 +758,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="one-trial-one-dictionary" class="level2">
 <h2 class="anchored" data-anchor-id="one-trial-one-dictionary">One trial, one dictionary</h2>
 <p>A trial is a set of labelled facts, and you met the container for labelled facts in the last chapter: the dictionary. One trial becomes one dictionary; the whole experiment becomes a <strong>list of dictionaries</strong>, built with the <code>.append()</code> you have used since Session 1. A miniature you can run in a plain script, no window needed:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>rows <span class="op">=</span> []                       <span class="co"># before the loop: an empty list</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>rows <span class="op">=</span> []                       <span class="co"># before the loop: an empty list</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> trial <span class="kw">in</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]:</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    rows.append({<span class="st">'trial'</span>: trial, <span class="st">'rt'</span>: trial <span class="op">*</span> <span class="fl">0.5</span>})</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(rows))</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(rows[<span class="dv">0</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(rows[<span class="dv">0</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="repl"><code>3
 {'trial': 1, 'rt': 0.5}</code></pre>
 <div class="predict-check" data-answer="1.5" data-accept="1,5||rt 1.5">
@@ -771,16 +780,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="from-rows-to-a-table-pandas" class="level2">
 <h2 class="anchored" data-anchor-id="from-rows-to-a-table-pandas">From rows to a table: pandas</h2>
 <p>A list of dictionaries becomes a table in one line, using <strong>pandas</strong>, the Python library for tabular data. Today we’ll use two lines of it:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>logfile <span class="op">=</span> pd.DataFrame(rows)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(logfile)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(logfile)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="repl"><code>   trial   rt
 0      1  0.5
 1      2  1.0
 2      3  1.5</code></pre>
 <p>The dictionary keys became column names, and each dictionary became a row. Saving the table is one more line:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>logfile.to_csv(<span class="st">'logfile.csv'</span>, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>logfile.to_csv(<span class="st">'logfile.csv'</span>, index<span class="op">=</span><span class="va">False</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The <code>index=False</code> leaves out the bold row numbers on the left, which belong to pandas, not to your data. Run it, then find <code>logfile.csv</code> next to your script and open it. Suddenly you have a .csv file you would be able to read in with R.</p>
 </section>
 <section id="a-name-that-cannot-collide" class="level2">
@@ -792,18 +801,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-🤔 Think first
+<span class="screen-reader-only">Note</span>🤔 Think first
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>Your experiment saves to <code>'logfile.csv'</code>, a fixed name. Participant one is tested, then participant two. What happens to participant one’s data?</p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Check your thinking">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Check your thinking
+<span class="screen-reader-only">Tip</span>Check your thinking
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -816,24 +825,24 @@ Check your thinking
 </div>
 </div>
 <p>Two ingredients make a filename unique: the participant code you already generate, and a timestamp from PsychoPy’s <code>data</code> module, which joins the import line:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> psychopy <span class="im">import</span> visual, event, core, gui, data</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> psychopy <span class="im">import</span> visual, event, core, gui, data</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>date <span class="op">=</span> data.getDateStr()</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>logfile_name <span class="op">=</span> <span class="ss">f'logfiles/logfile_</span><span class="sc">{</span>participant_id<span class="sc">}</span><span class="ss">_</span><span class="sc">{</span>date<span class="sc">}</span><span class="ss">.csv'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>logfile_name <span class="op">=</span> <span class="ss">f'logfiles/logfile_</span><span class="sc">{</span>participant_id<span class="sc">}</span><span class="ss">_</span><span class="sc">{</span>date<span class="sc">}</span><span class="ss">.csv'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><code>data.getDateStr()</code> returns the current date and time as a compact string, so <code>logfile_name</code> becomes something like <code>logfiles/logfile_P48213_2026-09-29_09h41.22.csv</code>. Two participants can no longer produce the same name.</p>
 </section>
 <section id="a-home-for-the-logfiles" class="level2">
 <h2 class="anchored" data-anchor-id="a-home-for-the-logfiles">A home for the logfiles</h2>
 <p>The filename above puts every logfile in a <code>logfiles/</code> folder, so the CSVs do not pile up next to your script and stimuli. You could create the folder by hand, but there is a reason to let the script guarantee it instead: if the folder is missing, the save fails at the very end of the experiment, after all the trials have run, and the rows are lost with it. One line from the <code>os</code> module removes that risk forever:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>os.makedirs(<span class="st">'logfiles'</span>, exist_ok<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>os.makedirs(<span class="st">'logfiles'</span>, exist_ok<span class="op">=</span><span class="va">True</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><code>exist_ok=True</code> means: create the folder, and if it already exists, do nothing. Safe to run every time, on every computer the experiment ever moves to.</p>
 </section>
 <section id="into-the-rabbit-script" class="level2">
 <h2 class="anchored" data-anchor-id="into-the-rabbit-script">Into the rabbit script</h2>
 <p>The pieces land in three places, and only three. In the setup: the imports, the folder, the empty list. Inside the trial loop, after the feedback: one append, carrying both the participant facts and the trial facts. After the loop: build the table and save it, before the goodbye.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- setup ---</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- setup ---</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>os.makedirs(<span class="st">'logfiles'</span>, exist_ok<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>date <span class="op">=</span> data.getDateStr()</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>logfile_name <span class="op">=</span> <span class="ss">f'logfiles/logfile_</span><span class="sc">{</span>participant_id<span class="sc">}</span><span class="ss">_</span><span class="sc">{</span>date<span class="sc">}</span><span class="ss">.csv'</span></span>
@@ -851,42 +860,42 @@ Check your thinking
 <span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="co"># --- after the loop ---</span></span>
 <span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>logfile <span class="op">=</span> pd.DataFrame(rows)</span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>logfile.to_csv(logfile_name, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>logfile.to_csv(logfile_name, index<span class="op">=</span><span class="va">False</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-note callout-titled" title="Log the consent">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Log the consent
+<span class="screen-reader-only">Note</span>Log the consent
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>Your experiment begins with an informed consent dialog, and consent is a fact about the data, so it belongs in the logfile. The pattern is the one you know: the dialog’s OK button becomes a variable, and the variable becomes a column.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> consent_box.OK:</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> consent_box.OK:</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    consent <span class="op">=</span> <span class="st">'yes'</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    core.quit()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    core.quit()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Then add <code>'consent': consent</code> to the dictionary in <code>rows.append({...})</code>, and every row of the logfile now certifies that this participant agreed.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- inside the trial loop, after the feedback ---</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- inside the trial loop, after the feedback ---</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    rows.append({<span class="st">'id'</span>: participant_id,</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>                 <span class="st">'language'</span>: language,</span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>                 <span class="st">'handedness'</span>: handedness,</span>
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>                 <span class="st">'stimulus'</span>: image,</span>
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>                 <span class="st">'key'</span>: key,</span>
 <span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>                 <span class="st">'correct_key'</span>: correct_key,</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>                 <span class="st">'rt'</span>: rt})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>                 <span class="st">'rt'</span>: rt})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>One thing to notice about this column: it will say <code>yes</code> on every row of every file you ever collect. A participant who declines is sent out by <code>core.quit()</code> before a single trial runs, so no file is written for them, and that is exactly right: no consent, no data. The column is there so that anyone who opens the file later, your group, your teacher, or you in December, can see that consent was obtained, without hunting for a separate piece of paper.</p>
 </div>
 </div>
 <p>Note that the participant columns repeat identically in every row. That looks wasteful and is exactly right: each row of a data file should stand on its own, so that R can group, filter, and compare without consulting a second file.</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Good to know: escape loses the rows">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Good to know: escape loses the rows
+<span class="screen-reader-only">Note</span>Good to know: escape loses the rows
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -902,7 +911,7 @@ Good to know: escape loses the rows
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Summary
+<span class="screen-reader-only">Note</span>Summary
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -916,187 +925,369 @@ Summary
 
 </main> <!-- /main -->
 <!-- ============================================================
+
      PREDICT-CHECK WIDGET  (injected on every page via _quarto.yml)
+
      Turns  ::: {.predict-check data-answer="..."}  divs into an
+
      interactive "type your prediction → check" box.
+
      Just runs with html code, to make it simple and works with 
+
      GitHub Pages and offline.
+
      ============================================================ -->
+
 <style>
+
 .predict-check {
+
   border: 1.5px solid var(--ink, #14213d);
+
   border-left: 5px solid var(--accent, #fca311);
+
   border-radius: 8px;
+
   padding: 1rem 1.2rem;
+
   margin: 1.2rem 0;
+
   background: #fdf8ee;
+
 }
+
 .predict-check .pc-label {
+
   color: var(--accent-dark, #b87700);
+
   font-weight: 700;
+
   font-size: 0.85rem;
+
   letter-spacing: 0.06em;
+
   text-transform: uppercase;
+
   margin-bottom: 0.4rem;
+
 }
+
 .predict-check .pc-ui { margin-top: 0.7rem; display: flex; gap: 0.5rem; flex-wrap: wrap; }
+
 .predict-check input.pc-input, .predict-check textarea.pc-input {
+
   flex: 1 1 220px;
+
   font-family: var(--bs-font-monospace, monospace);
+
   font-size: 0.95rem;
+
   padding: 0.45rem 0.6rem;
+
   border: 1px solid #d5d0c3;
+
   border-radius: 6px;
+
 }
+
 .predict-check textarea.pc-input { min-height: 4.5rem; }
+
 .predict-check button.pc-btn {
+
   background: var(--ink, #14213d); color: #fff; border: none; border-radius: 6px;
+
   padding: 0.45rem 1rem; font-weight: 600; cursor: pointer;
+
 }
+
 .predict-check button.pc-btn:disabled { background: #9aa5b8; cursor: not-allowed; }
+
 .predict-check button.pc-reveal {
+
   background: #fff; color: var(--ink, #14213d); border: 1.5px solid var(--ink, #14213d);
+
   border-radius: 6px; padding: 0.45rem 1rem; font-weight: 600; cursor: pointer;
+
 }
+
 .predict-check .pc-feedback { margin-top: 0.6rem; font-size: 0.95rem; display: none; border-radius: 6px; padding: 0.55rem 0.8rem; }
+
 .predict-check .pc-feedback.pc-wrong { display: block; background: #fdf0ef; color: #8a2d23; border: 1px solid #f3c9c4; }
+
 .predict-check .pc-feedback.pc-right { display: block; background: #eef7ee; color: #1d5c2f; border: 1px solid #c4e3c8; }
+
 .predict-check .pc-explanation {
+
   display: none; margin-top: 0.8rem; padding-top: 0.8rem; border-top: 1px dashed #d5d0c3;
+
 }
+
 .predict-check .pc-hint { display: none; }
+
 .predict-check.pc-done input.pc-input, .predict-check.pc-done textarea.pc-input { background: #f3efe4; }
 
+
+
 /* ---- dark-mode (Quarto toggles body.quarto-dark) ---- */
+
 body.quarto-dark .predict-check { background: #1b2437; border-color: #2b3a52; border-left-color: var(--accent, #fca311); }
+
 body.quarto-dark .predict-check .pc-label { color: var(--accent, #fca311); }
+
 body.quarto-dark .predict-check input.pc-input,
+
 body.quarto-dark .predict-check textarea.pc-input {
+
   background: #111827; color: #e7ebf5; border-color: #2b3a52;
+
 }
+
 body.quarto-dark .predict-check button.pc-btn { background: var(--accent, #fca311); color: #14213d; }
+
 body.quarto-dark .predict-check button.pc-btn:disabled { background: #2b3a52; color: #6b7690; }
+
 body.quarto-dark .predict-check button.pc-reveal { background: transparent; color: var(--accent, #fca311); border-color: var(--accent, #fca311); }
+
 body.quarto-dark .predict-check .pc-feedback.pc-wrong { background: #3a1f1c; color: #f0b3aa; border-color: #6e3a33; }
+
 body.quarto-dark .predict-check .pc-feedback.pc-right { background: #1c3320; color: #a8dcb0; border-color: #33663c; }
+
 body.quarto-dark .predict-check .pc-explanation { border-top-color: #2b3a52; }
+
 body.quarto-dark .predict-check.pc-done input.pc-input,
+
 body.quarto-dark .predict-check.pc-done textarea.pc-input { background: #1b2437; }
+
 </style>
+
 <script>
+
 (function () {
+
   "use strict";
 
+
+
   // --- matching logic -------------------------------------------------
+
   function norm(s) { return String(s).replace(/\s+/g, " ").trim(); }
+
   function stripQuotes(s) { return String(s).trim().replace(/^["'\u2018\u2019\u201C\u201D]+|["'\u2018\u2019\u201C\u201D]+$/g, ""); }
+
   function isCorrect(input, candidates) {
+
     var n = norm(input);
+
     return candidates.some(function (c) { return n === c; });
+
   }
+
   // Built-in near-miss detectors: return a hint string or null.
+
   function builtinHint(input, candidates) {
+
     var n = norm(input);
+
     if (candidates.some(function (c) { return norm(stripQuotes(n)) === c && n !== c; }))
+
       return "Close, but look again: are the quotation marks part of what gets printed?";
+
     if (candidates.some(function (c) { return n.toLowerCase() === c.toLowerCase() && n !== c; }))
+
       return "Almost, check upper- versus lowercase. Python prints text exactly as it is.";
+
     if (candidates.some(function (c) { return n.replace(/\s+/g, "") === c.replace(/\s+/g, "") && n !== c; }))
+
       return "Very close, count the spaces carefully.";
+
     return null;
+
   }
+
+
 
   function init() {
+
     var boxes = document.querySelectorAll(".predict-check");
+
     Array.prototype.forEach.call(boxes, function (box) {
+
       if (box.dataset.pcInit) return;
+
       box.dataset.pcInit = "1";
 
+
+
       var answer = box.getAttribute("data-answer") || "";
+
       var accept = (box.getAttribute("data-accept") || "").split("||").filter(function (x) { return x.length; });
+
       var candidates = [answer].concat(accept).map(norm);
+
       var multiline = box.getAttribute("data-multiline") === "true";
+
       var maxAttempts = parseInt(box.getAttribute("data-attempts") || "3", 10);
 
+
+
       var explanation = box.querySelector(".pc-explanation");
+
       var hints = Array.prototype.slice.call(box.querySelectorAll(".pc-hint"));
 
+
+
       // header label
+
       var label = document.createElement("div");
+
       label.className = "pc-label";
+
       label.textContent = "\uD83D\uDD2E Predict first";
+
       box.insertBefore(label, box.firstChild);
 
+
+
       // input + buttons
+
       var ui = document.createElement("div");
+
       ui.className = "pc-ui";
+
       var input = document.createElement(multiline ? "textarea" : "input");
+
       input.className = "pc-input";
+
       input.setAttribute("placeholder", box.getAttribute("data-placeholder") || "Type your prediction, then check\u2026");
+
       input.setAttribute("aria-label", "Your prediction");
+
       if (!multiline) input.setAttribute("type", "text");
+
       var btn = document.createElement("button");
+
       btn.className = "pc-btn";
+
       btn.type = "button";
+
       btn.textContent = "Check";
+
       btn.disabled = true;
+
       var reveal = document.createElement("button");
+
       reveal.className = "pc-reveal";
+
       reveal.type = "button";
+
       reveal.textContent = "Show the answer";
+
       reveal.style.display = "none";
+
       ui.appendChild(input); ui.appendChild(btn); ui.appendChild(reveal);
 
+
+
       var feedback = document.createElement("div");
+
       feedback.className = "pc-feedback";
 
+
+
       // keep explanation last
+
       if (explanation) { box.appendChild(explanation); }
+
       box.appendChild(ui);
+
       box.insertBefore(feedback, explanation || null);
 
+
+
       var attempts = 0;
+
       function finish(correct) {
+
         box.classList.add("pc-done");
+
         input.disabled = true; btn.disabled = true; reveal.style.display = "none";
+
         if (explanation) explanation.style.display = "block";
+
         feedback.className = "pc-feedback " + (correct ? "pc-right" : "pc-wrong");
+
         feedback.textContent = correct
+
           ? "\u2713 Correct! Well predicted. Now run it and watch it happen."
+
           : "Compare the answer below with what you predicted. The difference is the interesting part.";
+
       }
 
+
+
       input.addEventListener("input", function () { btn.disabled = norm(input.value).length === 0; });
+
       input.addEventListener("keydown", function (e) {
+
         if (e.key === "Enter" && !multiline && !btn.disabled) { e.preventDefault(); btn.click(); }
+
       });
+
       reveal.addEventListener("click", function () { finish(false); });
 
+
+
       btn.addEventListener("click", function () {
+
         var val = input.value;
+
         if (isCorrect(val, candidates)) { finish(true); return; }
+
         attempts += 1;
 
+
+
         // author-provided hints first (first match wins)
+
         var msg = null;
+
         for (var i = 0; i < hints.length; i++) {
+
           var needle = hints[i].getAttribute("data-if-contains");
+
           if (needle && val.indexOf(needle) !== -1) { msg = hints[i].textContent.trim(); break; }
+
         }
+
         if (!msg) msg = builtinHint(val, candidates);
+
         if (!msg) msg = "Not quite. Read the code once more. What exactly will it give you?";
 
+
+
         var left = maxAttempts - attempts;
+
         feedback.className = "pc-feedback pc-wrong";
+
         feedback.textContent = msg;
+
         if (left <= 0) reveal.style.display = "inline-block";
+
       });
+
     });
+
   }
 
+
+
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+
   else init();
+
 })();
+
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -1162,13 +1353,14 @@ body.quarto-dark .predict-check.pc-done textarea.pc-input { background: #1b2437;
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
